@@ -2,7 +2,7 @@
   "site": {
     "title": "Mavis | Marketing Portfolio",
     "logoText": "Mavis",
-    "description": "Marketing portfolio of Nguyen Thi Minh Thu: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
+    "description": "Marketing portfolio of Mavis: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
     "nav": [
       { "label": "Home", "href": "/" },
       { "label": "Projects", "href": "/#projects" },
@@ -12,7 +12,7 @@
   "hero": {
     "headline": "Mavis’s Marketing Portfolio",
     "headlineItalic": "Turning ideas into campaigns that deliver results",
-    "subtitle": "I'm Mavis, a marketer working across AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
+    "subtitle": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience integrating AI into marketing workflows.",
     "cta": { "label": "View projects", "href": "#projects" }
   },
   "contact": {
