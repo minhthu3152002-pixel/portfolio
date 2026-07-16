@@ -74,17 +74,19 @@ export function Nav() {
   const renderDropdown = (id: string, close?: () => void) => {
     if (id === 'projects') {
       return (
-        <div className="grid gap-1 sm:grid-cols-2">
-          {projects.map((p) => (
-            <ProductItem
-              key={p.id}
-              title={t(p.title, lang)}
-              description={t(p.short, lang)}
-              href={`/project/${p.id}`}
-              src={p.thumb ?? p.cover}
-              onNavigate={close}
-            />
-          ))}
+        <div className="flex w-max min-w-[190px] flex-col gap-0.5">
+          {projects.map((p) => {
+            const first = p.tags[0];
+            return (
+              <ProductItem
+                key={p.id}
+                title={t(p.title, lang).split('—')[0].trim()}
+                tag={t(first, lang)}
+                href={`/project/${p.id}`}
+                onNavigate={close}
+              />
+            );
+          })}
         </div>
       );
     }

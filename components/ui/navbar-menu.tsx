@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { tabSpring } from '@/lib/motion';
 
@@ -82,7 +81,7 @@ export function MenuItem({
             transition={reduce ? { duration: 0.15 } : tabSpring}
             className="overflow-hidden rounded-[24px] border border-white/60 bg-white/70 shadow-[0_12px_32px_rgba(0,0,0,0.08)] backdrop-blur-[20px]"
           >
-            <div className="w-max max-w-[92vw] p-4">{children}</div>
+            <div className="w-max max-w-[92vw] p-2">{children}</div>
           </motion.div>
         </motion.div>
       )}
@@ -90,43 +89,30 @@ export function MenuItem({
   );
 }
 
-/** Rich product row (thumbnail + title + description) for the Projects menu. */
+/** Compact project row for the Projects menu: title + a small muted tag line
+ *  (the same "01 · Meta Ads" line used on the shelf folders). No thumbnail, no
+ *  description. */
 export function ProductItem({
   title,
-  description,
+  tag,
   href,
-  src,
   onNavigate,
 }: {
   title: string;
-  description: string;
+  tag: string;
   href: string;
-  src: string;
   onNavigate?: () => void;
 }) {
   return (
     <Link
       href={href}
       onClick={onNavigate}
-      className="group flex items-start gap-3 rounded-2xl p-2 outline-none transition-colors hover:bg-black/[0.035] focus-visible:ring-2 focus-visible:ring-accent/50"
+      className="group block rounded-lg px-2 py-1.5 outline-none transition-colors hover:bg-black/[0.035] focus-visible:ring-2 focus-visible:ring-accent/50"
     >
-      <span className="relative h-[62px] w-[112px] shrink-0 overflow-hidden rounded-lg border border-line">
-        <Image
-          src={src}
-          alt={title}
-          fill
-          sizes="112px"
-          className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-        />
+      <span className="block whitespace-nowrap text-[0.9rem] font-semibold tracking-[-0.01em] text-[#1d1d1f] transition-colors group-hover:text-accent">
+        {title}
       </span>
-      <span className="max-w-[15rem]">
-        <span className="block text-[0.9rem] font-semibold tracking-[-0.01em] text-[#1d1d1f] transition-colors group-hover:text-accent">
-          {title}
-        </span>
-        <span className="mt-0.5 line-clamp-2 block text-[0.78rem] leading-snug text-[#6e6e73]">
-          {description}
-        </span>
-      </span>
+      <span className="mt-0.5 block whitespace-nowrap text-[0.75rem] text-[#6e6e73]">{tag}</span>
     </Link>
   );
 }
