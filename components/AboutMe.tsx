@@ -6,6 +6,7 @@ import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { CometCard } from '@/components/ui/comet-card';
 import { ToolLogo } from '@/components/ui/tool-icon';
+import { FlipWords } from '@/components/ui/flip-words';
 import { reveal, stackContainer, viewportOnce } from '@/lib/motion';
 
 /** Shared frosted-glass panel surface: visibly glassy, not flat white. */
@@ -32,9 +33,9 @@ export function AboutMe() {
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
-        className="grid items-start gap-8 md:grid-cols-[400px_1fr]"
+        className="grid items-stretch gap-8 md:grid-cols-[400px_1fr]"
       >
-        {/* LEFT — profile card (capped height) + summary card */}
+        {/* LEFT — profile card (capped height) + summary + flip line (bottom) */}
         <motion.div variants={reveal} className="flex flex-col gap-4">
           <CometCard className="w-full">
             <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
@@ -74,6 +75,19 @@ export function AboutMe() {
               {t(a.summary, lang)}
             </p>
           </div>
+
+          {/* flip line — pinned to the bottom of the column, filling the gap so
+              the left column ends level with the Languages panel on the right */}
+          {a.flipLine?.enabled !== false && a.flipLine && (
+            <p className="mt-auto whitespace-nowrap px-1 pt-2 text-[15px] leading-[1.7] text-[#1d1d1f]">
+              {t(a.flipLine.prefix, lang)}
+              <FlipWords
+                words={a.flipLine.words.map((w) => t(w, lang))}
+                className="font-semibold text-accent"
+              />
+              {t(a.flipLine.suffix, lang)}
+            </p>
+          )}
         </motion.div>
 
         {/* RIGHT — stacked panels (nested stagger) */}

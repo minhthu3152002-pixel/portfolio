@@ -80,6 +80,16 @@
       "en": "I'm a marketer working across AI & marketing automation, integrated campaigns, copywriting and social media. I build internal tools that remove manual work and ship data-backed campaigns — from 5K+ qualified leads to 26.7M-view social content.",
       "vi": "Mình là một marketer hoạt động khắp các mảng AI & tự động hoá marketing, chiến dịch tích hợp, copywriting và social media. Mình xây các công cụ nội bộ giúp bỏ bớt việc thủ công và triển khai chiến dịch dựa trên số liệu — từ 5K+ lead chất lượng đến nội dung social 26.7M lượt xem."
     },
+    "flipLine": {
+      "enabled": true,
+      "prefix": { "en": "I make your marketing ", "vi": "Mình giúp marketing của bạn " },
+      "words": [
+        { "en": "more creative", "vi": "sáng tạo hơn" },
+        { "en": "more measurable", "vi": "đo lường được" },
+        { "en": "less manual", "vi": "bớt thủ công" }
+      ],
+      "suffix": { "en": "", "vi": "" }
+    },
     "experience": [
       {
         "period": "05/2025 – 07/2026",
@@ -123,12 +133,7 @@
       "Canva",
       "Google Analytics",
       "Google Apps Script",
-      "Claude Code",
-      "Claude",
-      "ChatGPT",
-      "Gemini",
-      "GitHub",
-      "Vercel"
+      "Claude Code"
     ],
     "languages": [
       {

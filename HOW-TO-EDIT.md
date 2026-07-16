@@ -172,9 +172,18 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
     { "en": "Marketer", "vi": "Marketer" }
   ],
   "summary": { "en": "Short bio (2-3 sentences).", "vi": "Tiểu sử ngắn (2-3 câu)." },
+  "flipLine": {
+    "enabled": true,
+    "prefix": { "en": "I make your marketing ", "vi": "Mình giúp marketing của bạn " },
+    "words": [
+      { "en": "more creative", "vi": "sáng tạo hơn" },
+      { "en": "more measurable", "vi": "đo lường được" }
+    ],
+    "suffix": { "en": "", "vi": "" }
+  },
   "experience": [
     {
-      "period": "5/2025 – 07/2026",
+      "period": "05/2025 – 07/2026",
       "title":  { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
       "org": "LIKELION Vietnam"
     }
@@ -203,6 +212,7 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
 | `avatar` | Đường dẫn ảnh chân dung trong `/assets/`. Thay ảnh: upload đè ảnh cùng tên. |
 | `traits` | Các "nhãn" nhỏ nổi trên đầu ảnh (mỗi cái là `{en, vi}`). Thêm/bớt tuỳ ý. |
 | `summary` | Tiểu sử 2-3 câu — song ngữ. |
+| `flipLine` | Câu có **một từ tự đổi lặp lại** (hiển thị dưới thẻ tóm tắt, cột trái). `prefix` = phần đầu câu giữ nguyên, `words` = danh sách các từ luân phiên (mỗi từ `{en, vi}`), `suffix` = phần cuối (có thể để rỗng `""`). **Thêm/bớt từ chỉ cần sửa mảng `words`** — không đụng code. Đặt `"enabled": false` để ẩn cả câu. Mẹo: giữ các từ **dài gần bằng nhau** để câu không nhảy chiều rộng nhiều. |
 | `experience` | Danh sách kinh nghiệm (hiển thị trong panel **tối**). Mỗi mục: `period` (mốc thời gian, ví dụ `"5/2025 – 07/2026"` — thường để chuỗi thường vì giống nhau 2 ngôn ngữ), `title` (vị trí, `{en, vi}`), `org` (nơi làm — giữ 1 bản). |
 | `education` | Học vấn (hiển thị ngay dưới Kinh nghiệm, cùng panel tối). Mỗi mục: `school` (trường — giữ 1 bản), `degree` (bằng cấp, `{en, vi}`), `year` (năm — chuỗi), `gpa` (điểm — tuỳ chọn, bỏ đi cũng được). |
 | `skills` | Danh sách kỹ năng → hiển thị dạng "viên thuốc". Tên tiếng Anh dùng chung thì để chuỗi thường; muốn dịch thì viết `{ "en": "...", "vi": "..." }`. |

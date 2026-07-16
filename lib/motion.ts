@@ -34,6 +34,11 @@ export const HERO_INITIAL_DELAY = 0.15;
 export const PILL_SPEED_MIN = 18;
 export const PILL_SPEED_MAX = 38;
 
+/** How long each word in the About "flip words" line stays before flipping to
+ *  the next, in milliseconds (~2.5s). Change this one number to speed up /
+ *  slow down the whole flip loop. */
+export const FLIP_WORD_INTERVAL = 2500;
+
 /** Shared entrance: blur-to-sharp reveal + rise. */
 const REVEAL_HIDDEN = {
   opacity: 0,

@@ -76,6 +76,15 @@ export type Education = {
   gpa?: string;
 };
 
+/** A looping "flip words" line: static prefix/suffix + a rotating word list.
+ *  Adding/removing a word is pure content — no code change. */
+export type FlipLine = {
+  enabled?: boolean;
+  prefix: Localized;
+  words: Localized[];
+  suffix: Localized;
+};
+
 /** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
 export type About = {
   name: string;
@@ -83,6 +92,7 @@ export type About = {
   avatar: string;
   traits: Localized[];
   summary: Localized;
+  flipLine?: FlipLine;
   experience: Experience[];
   education: Education[];
   skills: Localized[];

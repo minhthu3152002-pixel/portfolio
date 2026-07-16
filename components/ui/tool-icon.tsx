@@ -2,6 +2,7 @@ import {
   siMeta,
   siGoogleanalytics,
   siGoogleappsscript,
+  siClaudecode,
   siClaude,
   siAnthropic,
   siGooglegemini,
@@ -24,7 +25,7 @@ const SPARKLE =
  */
 function resolve(name: string): Glyph | 'sparkle' | null {
   const n = name.toLowerCase();
-  if (n.includes('claude code')) return siAnthropic ?? 'sparkle';
+  if (n.includes('claude code')) return siClaudecode ?? 'sparkle';
   if (n.includes('claude')) return siClaude;
   if (n.includes('anthropic')) return siAnthropic;
   if (n.includes('meta')) return siMeta;
