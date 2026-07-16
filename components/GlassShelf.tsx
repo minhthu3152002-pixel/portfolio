@@ -24,18 +24,19 @@ const DARK = 'rgba(8,8,12,0.92)';
 export function GlassShelf() {
   return (
     <div className="mx-auto max-w-[1000px]">
-      {/* Desktop: wings flank a taller dark panel */}
-      <div className="hidden items-stretch gap-2 md:flex">
+      {/* Desktop: two tall glass slabs flanking a slim dark panel that pokes
+          up ~14px above them and bridges the middle near the top. */}
+      <div className="hidden items-start gap-2.5 md:flex">
         <div
-          className={`${WING} my-[14px] flex flex-1 items-center rounded-l-[28px] px-4`}
+          className={`${WING} mt-[14px] flex h-[500px] w-[220px] items-start rounded-[28px] px-4 pt-4`}
         >
           <Identity />
         </div>
 
-        <DarkPanel className="relative z-10 w-[64%] rounded-[24px]" />
+        <DarkPanel className="relative z-10 flex-1 rounded-[24px]" />
 
         <div
-          className={`${WING} my-[14px] flex flex-1 items-center justify-end rounded-r-[28px] px-4`}
+          className={`${WING} mt-[14px] flex h-[500px] w-[220px] items-start justify-end rounded-[28px] px-4 pt-4`}
         >
           <WifiTime />
         </div>
@@ -103,10 +104,10 @@ function DarkPanel({ className = '' }: { className?: string }) {
   };
 
   return (
-    <div className={`p-5 ${className}`} style={{ background: DARK }}>
-      {/* header row: title left · tool buttons right */}
-      <div className="mb-4 flex items-center justify-between gap-2">
-        <span className="flex items-center gap-2 whitespace-nowrap text-[0.9rem] font-semibold text-white">
+    <div className={`p-4 ${className}`} style={{ background: DARK }}>
+      {/* compact header row: title left · tool buttons right */}
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <span className="flex items-center gap-2 whitespace-nowrap text-base font-semibold text-white">
           <FolderIcon />
           {t(h.shelfTitle, lang)}
         </span>
@@ -123,15 +124,15 @@ function DarkPanel({ className = '' }: { className?: string }) {
         </div>
       </div>
 
-      {/* filter chips */}
-      <div className="mb-4 flex flex-wrap gap-2">
+      {/* single filter-chips row — scrolls horizontally, never wraps */}
+      <div className="no-scrollbar mb-3 flex flex-nowrap gap-2 overflow-x-auto">
         <Chip active={filter === 'all'} onClick={() => setFilter('all')} label={t(h.shelfFilterAll, lang)} />
         {filters.map((f) => (
           <Chip key={f.key} active={filter === f.key} onClick={() => setFilter(f.key)} label={f.label} />
         ))}
       </div>
 
-      {/* card row — animate on mount so cards always render */}
+      {/* one row of small cards — animate on mount so cards always render */}
       <motion.div
         ref={rowRef}
         variants={stackContainerTight}
@@ -141,7 +142,7 @@ function DarkPanel({ className = '' }: { className?: string }) {
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
-        className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 active:cursor-grabbing"
+        className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 active:cursor-grabbing"
       >
         {visible.map((p) => {
           const first = p.tags[0];
@@ -151,16 +152,16 @@ function DarkPanel({ className = '' }: { className?: string }) {
                 href={`/project/${p.id}`}
                 onClick={onCardClick}
                 draggable={false}
-                className="group block w-[200px] shrink-0 select-none rounded-2xl bg-white/5 p-2 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
+                className="group block w-[190px] shrink-0 select-none rounded-xl bg-white/5 p-1.5 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
-                  <Image src={p.cover} alt={t(p.title, lang)} fill sizes="200px" draggable={false} className="object-cover" />
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                  <Image src={p.cover} alt={t(p.title, lang)} fill sizes="190px" draggable={false} className="object-cover" />
                 </div>
-                <div className="px-1 pb-1 pt-2.5">
-                  <p className="truncate text-[0.9rem] font-semibold text-white">
+                <div className="px-0.5 pb-0.5 pt-2">
+                  <p className="truncate text-sm font-semibold text-white">
                     {t(p.title, lang).split('—')[0].trim()}
                   </p>
-                  <p className="mt-0.5 truncate text-[0.74rem] text-white/55">
+                  <p className="mt-0.5 truncate text-xs text-white/55">
                     {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
                   </p>
                 </div>
@@ -189,8 +190,8 @@ function Chip({ active, onClick, label }: { active: boolean; onClick: () => void
 
 function ToolButton({ children }: { children: React.ReactNode }) {
   return (
-    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 text-white/70">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white/10 text-white/70">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
         {children}
       </svg>
     </span>

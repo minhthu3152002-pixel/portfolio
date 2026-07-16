@@ -8,9 +8,10 @@ import { useLanguage } from '@/components/LanguageProvider';
 
 /**
  * Home project block: a frosted-glass card (translucent white + backdrop blur)
- * floating over a soft radial glow of the project's accent, so the color shows
- * THROUGH the frost. Cover sits in a device-like frame. Entrance unfold +
- * focus scaling are applied by the parent (ProjectList).
+ * with two soft accent glows in diagonally-opposite corners (top-left +
+ * bottom-right), both contained inside the card so the center stays clean and
+ * nothing bleeds past the rounded border. Cover sits in a device-like frame.
+ * Entrance unfold + focus scaling are applied by the parent (ProjectList).
  */
 export function ProjectBlock({
   project,
@@ -25,22 +26,30 @@ export function ProjectBlock({
   const heading = title.split('—')[0].trim();
 
   return (
-    <div className="relative">
-      {/* soft colored glow behind the frosted card */}
+    <Link
+      href={`/project/${project.id}`}
+      aria-label={title}
+      className="group relative block overflow-hidden rounded-[28px] border border-white/70 bg-white/55 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
+    >
+      {/* two soft, contained glows on opposite corners — center stays clean */}
       <div
         aria-hidden
-        className="absolute -inset-6 -z-10 rounded-[48px] opacity-40 blur-3xl"
+        className="pointer-events-none absolute inset-0"
         style={{
-          background: `radial-gradient(60% 60% at 30% 30%, ${colors.accent}, transparent 70%)`,
+          background: `radial-gradient(70% 70% at 0% 0%, ${colors.accent}, transparent 70%)`,
+          opacity: 0.3,
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(58% 62% at 100% 100%, ${colors.accent}, transparent 66%)`,
+          opacity: 0.3,
         }}
       />
 
-      <Link
-        href={`/project/${project.id}`}
-        aria-label={title}
-        className="group block rounded-[28px] border border-white/70 bg-white/55 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
-      >
-        <div className="grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
+      <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
           <div>
             <p
               className="mb-5 text-[0.78rem] font-semibold tracking-[0.16em] opacity-70"
@@ -83,6 +92,5 @@ export function ProjectBlock({
           </div>
         </div>
       </Link>
-    </div>
   );
 }
