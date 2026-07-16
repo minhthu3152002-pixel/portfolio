@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #ff7a45;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: theme('colors.bg');
+    color: theme('colors.text');
+    font-family: var(--font-body), sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display), sans-serif;
+    line-height: 1.12;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-6;
+  }
+  .eyebrow {
+    @apply mb-3.5 text-[0.76rem] font-medium uppercase tracking-[0.2em] text-accent;
+  }
+  /* Pill tag with border in current text color. */
+  .tag {
+    @apply rounded-full border border-current px-[18px] py-[7px] text-[0.83rem] font-medium opacity-90;
+  }
+  /* Rich-text: renders <b> emphasis from content.json inside list items. */
+  .rich b {
+    @apply font-semibold text-text;
+  }
+  /* Cross-link anchors inside rich text (e.g. links between projects). */
+  .rich a {
+    @apply font-medium text-[var(--pc,theme(colors.accent))] underline underline-offset-2;
+  }
+}
+
+/* Gradient headline accent (hero italic word). */
+.headline-gradient {
+  background: linear-gradient(92deg, #ff7a45, #c94fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
