@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { GlassShelf } from '@/components/GlassShelf';
+import { heroReveal } from '@/lib/motion';
 
 /**
  * Hero over a full-bleed wallpaper (desktop/mobile variants), with a two-line
@@ -43,34 +45,79 @@ export function Hero() {
         </div>
 
         <div className="wrap relative pb-[210px] pt-36 text-white sm:pt-40">
-          <span className="mb-6 inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[0.78rem] font-medium backdrop-blur-md">
-            {t(h.badge, lang)}
-          </span>
-          <h1 className="mb-6 max-w-[900px] text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
-            <span className="block">{t(h.headline, lang)}</span>
-            <span className="accent-italic block font-normal tracking-[-0.01em]">
-              {t(h.headlineItalic, lang)}
-            </span>
-          </h1>
-          <p className="mb-8 max-w-[560px] text-[1.05rem] leading-relaxed text-white/85">
-            {t(h.subtitle, lang)}
-          </p>
-          <Link
-            href={h.cta.href}
-            className="inline-block rounded-2xl bg-black px-7 py-3.5 text-[0.95rem] font-semibold text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
+          <motion.span
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            className="mb-6 inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[0.78rem] font-medium backdrop-blur-md"
           >
-            {t(h.cta.label, lang)}
-          </Link>
-          <p className="mt-6 text-[0.82rem] text-white/70">
+            {t(h.badge, lang)}
+          </motion.span>
+          <h1 className="mb-6 max-w-[900px] text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
+            <motion.span
+              variants={heroReveal}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+              className="block"
+            >
+              {t(h.headline, lang)}
+            </motion.span>
+            <motion.span
+              variants={heroReveal}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+              className="accent-italic block font-normal tracking-[-0.01em]"
+            >
+              {t(h.headlineItalic, lang)}
+            </motion.span>
+          </h1>
+          <motion.p
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            className="mb-8 max-w-[560px] text-[1.05rem] leading-relaxed text-white/85"
+          >
+            {t(h.subtitle, lang)}
+          </motion.p>
+          <motion.div
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+          >
+            <Link
+              href={h.cta.href}
+              className="inline-block rounded-2xl bg-black px-7 py-3.5 text-[0.95rem] font-semibold text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              {t(h.cta.label, lang)}
+            </Link>
+          </motion.div>
+          <motion.p
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={5}
+            className="mt-6 text-[0.82rem] text-white/70"
+          >
             {t(h.reassurance, lang)}
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Glass shelf overlapping the hero bottom */}
-      <div className="wrap relative z-10 -mt-[170px] mb-4">
+      <motion.div
+        variants={heroReveal}
+        initial="hidden"
+        animate="visible"
+        custom={6}
+        className="wrap relative z-10 -mt-[170px] mb-4"
+      >
         <GlassShelf />
-      </div>
+      </motion.div>
     </>
   );
 }

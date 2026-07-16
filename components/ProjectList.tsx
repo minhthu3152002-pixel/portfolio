@@ -1,119 +1,121 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { projects } from '@/lib/content';
-import { ProjectBlock } from '@/components/ProjectBlock';
+import { useEffect, useRef, useState } from 'react';
 import {
-  stackContainer,
-  stackItem,
-  viewportOnce,
-  FOCUS,
-} from '@/lib/motion';
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+  type MotionValue,
+} from 'framer-motion';
+import { projects, type Project } from '@/lib/content';
+import { ProjectBlock } from '@/components/ProjectBlock';
+import { reveal, viewportOnce } from '@/lib/motion';
+
+/** Sticky top offset (below the floating navbar) + per-card lip. */
+const STICK_TOP = 96;
+const LIP = 16;
 
 /**
- * Home project list. Two motion layers share one "unfolding" signature:
- *  1. ENTRANCE cascade — Framer staggerChildren springs each block in (once).
- *  2. FOCUS scaling — a single rAF loop (desktop only) eases each block toward
- *     scale/opacity based on distance from viewport center (wheel-picker feel);
- *     hovering a block makes it the focused one and eases siblings down.
- * Mobile (<768px) and prefers-reduced-motion skip the focus loop: static,
- * fully-visible blocks.
+ * Home project list as a scroll-driven CARD STACK: each block is sticky at the
+ * top; as the next block scrolls up it covers the previous one (leaving a small
+ * lip), and the covered card scales down / dims — all tied to scroll position
+ * (reverses on scroll up). Desktop only for the scale/dim; mobile keeps the
+ * sticky stacking without transforms; reduced-motion renders a normal list.
  */
 export function ProjectList() {
-  const items = useRef<(HTMLDivElement | null)[]>([]);
-  const hovered = useRef<number | null>(null);
-
+  const reduce = useReducedMotion();
+  const [mobile, setMobile] = useState(false);
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 768px)');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    let raf = 0;
-    const state = items.current.map(() => ({ s: 1, o: 1 }));
-
-    const clear = () => {
-      items.current.forEach((el) => {
-        if (el) {
-          el.style.transform = '';
-          el.style.opacity = '';
-        }
-      });
-    };
-
-    const loop = () => {
-      const mid = window.innerHeight / 2;
-      items.current.forEach((el, i) => {
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        const dist = Math.abs(r.top + r.height / 2 - mid);
-        const tt = Math.min(1, dist / FOCUS.falloff);
-        let targetS = 1 - tt * (1 - FOCUS.minScale);
-        let targetO = 1 - tt * (1 - FOCUS.minOpacity);
-        if (hovered.current !== null) {
-          if (hovered.current === i) {
-            targetS = FOCUS.hoverScale;
-            targetO = 1;
-          } else {
-            targetS = Math.min(targetS, 0.985);
-            targetO = Math.min(targetO, 0.9);
-          }
-        }
-        const st = state[i];
-        st.s += (targetS - st.s) * 0.15;
-        st.o += (targetO - st.o) * 0.15;
-        el.style.transform = `scale(${st.s.toFixed(4)})`;
-        el.style.opacity = st.o.toFixed(3);
-      });
-      raf = requestAnimationFrame(loop);
-    };
-
-    const start = () => {
-      cancelAnimationFrame(raf);
-      if (desktop.matches && !reduce.matches) {
-        raf = requestAnimationFrame(loop);
-      } else {
-        clear();
-      }
-    };
-
-    start();
-    desktop.addEventListener('change', start);
-    reduce.addEventListener('change', start);
-    return () => {
-      cancelAnimationFrame(raf);
-      desktop.removeEventListener('change', start);
-      reduce.removeEventListener('change', start);
-    };
+    const mq = window.matchMedia('(max-width: 767px)');
+    const on = () => setMobile(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
   }, []);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  const sticky = !reduce;
+  const transforms = !reduce && !mobile;
+
   return (
-    <motion.div
-      variants={stackContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      className="flex flex-col gap-6"
-    >
+    <div ref={containerRef}>
       {projects.map((project, i) => (
-        <motion.div
+        <StackedCard
           key={project.id}
-          variants={stackItem}
-          style={{ transformOrigin: 'top' }}
-        >
-          <div
-            ref={(el) => {
-              items.current[i] = el;
-            }}
-            onMouseEnter={() => (hovered.current = i)}
-            onMouseLeave={() => {
-              if (hovered.current === i) hovered.current = null;
-            }}
-            style={{ willChange: 'transform, opacity' }}
-          >
-            <ProjectBlock project={project} num={i + 1} />
-          </div>
-        </motion.div>
+          project={project}
+          index={i}
+          total={projects.length}
+          progress={scrollYProgress}
+          sticky={sticky}
+          transforms={transforms}
+        />
       ))}
-    </motion.div>
+    </div>
+  );
+}
+
+function StackedCard({
+  project,
+  index,
+  total,
+  progress,
+  sticky,
+  transforms,
+}: {
+  project: Project;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  sticky: boolean;
+  transforms: boolean;
+}) {
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+
+  // Covered during this card's scroll window; the last card never dims (push
+  // its range out of [0,1] so it stays at full scale).
+  const r0 = isLast ? 2 : index / total;
+  const r1 = isLast ? 3 : (index + 1) / total;
+  const scale = useTransform(progress, [r0, r1], [1, 0.96]);
+  const y = useTransform(progress, [r0, r1], [0, -22]);
+  const dim = useTransform(progress, [r0, r1], [0, 0.42]);
+
+  return (
+    <div
+      style={sticky ? { position: 'sticky', top: STICK_TOP + index * LIP } : undefined}
+      className={sticky ? undefined : 'mb-6'}
+    >
+      <motion.div
+        style={transforms ? { scale, y } : undefined}
+        className="relative origin-top"
+      >
+        {isFirst ? (
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            <ProjectBlock project={project} num={index + 1} />
+          </motion.div>
+        ) : (
+          <ProjectBlock project={project} num={index + 1} />
+        )}
+
+        {transforms && (
+          <motion.div
+            aria-hidden
+            style={{ opacity: dim }}
+            className="pointer-events-none absolute inset-0 rounded-[28px] bg-black"
+          />
+        )}
+      </motion.div>
+    </div>
   );
 }

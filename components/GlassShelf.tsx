@@ -8,29 +8,61 @@ import { content, projects, pad2, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { stackContainerTight, stackItemTight } from '@/lib/motion';
 
-/** Mix a hex color toward black (pct<0) or white (pct>0). */
-function shade(hex: string, pct: number): string {
+/** Hex -> HSL ({ h: 0-360, s/l: 0-1 }). */
+function hexToHsl(hex: string): { h: number; s: number; l: number } {
   const n = hex.replace('#', '');
-  const r = parseInt(n.slice(0, 2), 16);
-  const g = parseInt(n.slice(2, 4), 16);
-  const b = parseInt(n.slice(4, 6), 16);
-  const target = pct < 0 ? 0 : 255;
-  const p = Math.abs(pct);
-  const to = (c: number) =>
-    Math.round(c + (target - c) * p)
-      .toString(16)
-      .padStart(2, '0');
-  return `#${to(r)}${to(g)}${to(b)}`;
+  const r = parseInt(n.slice(0, 2), 16) / 255;
+  const g = parseInt(n.slice(2, 4), 16) / 255;
+  const b = parseInt(n.slice(4, 6), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0;
+  let s = 0;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+  }
+  return { h, s, l };
 }
 
-/** Velvety diagonal "poster" gradient from a project accent: deep top-left ->
- *  airy bottom-right, with a faint corner highlight. The dark top stop keeps
- *  white text readable even on light accents. */
+/** HSL -> #rrggbb. */
+function hslToHex(h: number, s: number, l: number): string {
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  if (h < 60) [r, g, b] = [c, x, 0];
+  else if (h < 120) [r, g, b] = [x, c, 0];
+  else if (h < 180) [r, g, b] = [0, c, x];
+  else if (h < 240) [r, g, b] = [0, x, c];
+  else if (h < 300) [r, g, b] = [x, 0, c];
+  else [r, g, b] = [c, 0, x];
+  const hex = (v: number) =>
+    Math.round((v + m) * 255)
+      .toString(16)
+      .padStart(2, '0');
+  return `#${hex(r)}${hex(g)}${hex(b)}`;
+}
+
+/**
+ * Soft pastel "poster" gradient from a project accent — same hue as the home
+ * block below, just lower saturation / higher lightness (deep top-left -> airy
+ * bottom-right). The deep top stop stays dark enough to keep white text
+ * readable even on light accents (e.g. amber).
+ */
 function poster(accent: string): string {
-  const deep = shade(accent, -0.5);
-  const mid = shade(accent, -0.12);
-  const airy = shade(accent, 0.16);
-  return `radial-gradient(80% 60% at 15% 0%, rgba(255,255,255,0.18), transparent 55%), linear-gradient(140deg, ${deep} 0%, ${mid} 52%, ${airy} 100%)`;
+  const { h, s } = hexToHsl(accent);
+  const deep = hslToHex(h, Math.min(0.62, Math.max(0.4, s)), 0.3);
+  const mid = hslToHex(h, s * 0.58, 0.56);
+  const airy = hslToHex(h, s * 0.5, 0.74);
+  return `radial-gradient(78% 60% at 15% 0%, rgba(255,255,255,0.16), transparent 55%), linear-gradient(140deg, ${deep} 0%, ${mid} 52%, ${airy} 100%)`;
 }
 
 /**
@@ -129,7 +161,9 @@ export function GlassShelf() {
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerLeave={endDrag}
-          className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 active:cursor-grabbing"
+          // Internal breathing room so the hover lift/shadow never clip against
+          // the scroll container's bounds; negative margins keep spacing tight.
+          className="no-scrollbar -mx-2 -mb-2 -mt-3 flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto px-2 pb-5 pt-3 active:cursor-grabbing"
         >
           {visible.map((p) => {
             const first = p.tags[0];
@@ -140,7 +174,7 @@ export function GlassShelf() {
                   onClick={onCardClick}
                   draggable={false}
                   aria-label={t(p.title, lang)}
-                  className="group relative flex h-[240px] w-[210px] shrink-0 select-none flex-col justify-between overflow-hidden rounded-[20px] border border-white/20 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:-translate-y-1"
+                  className="group relative flex h-[240px] w-[210px] shrink-0 select-none flex-col justify-between overflow-hidden rounded-[20px] border border-white/20 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                   style={{ background: poster(p.colors.accent) }}
                 >
                   {/* hover brighten */}

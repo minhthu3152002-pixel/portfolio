@@ -31,13 +31,19 @@ export function ProjectBlock({
       aria-label={title}
       className="group relative block overflow-hidden rounded-[28px] border border-white/70 bg-white/55 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
     >
-      {/* two soft, contained glows on opposite corners — center stays clean */}
+      {/* uniform hue wash so the whole block reads clearly as its accent color,
+          then two richer glows on opposite corners for depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: colors.accent, opacity: 0.16 }}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background: `radial-gradient(70% 70% at 0% 0%, ${colors.accent}, transparent 70%)`,
-          opacity: 0.3,
+          opacity: 0.42,
         }}
       />
       <div
@@ -45,15 +51,15 @@ export function ProjectBlock({
         className="pointer-events-none absolute inset-0"
         style={{
           background: `radial-gradient(58% 62% at 100% 100%, ${colors.accent}, transparent 66%)`,
-          opacity: 0.3,
+          opacity: 0.42,
         }}
       />
 
       <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
           <div>
             <p
-              className="mb-5 text-[0.78rem] font-semibold tracking-[0.16em] opacity-70"
-              style={{ color: colors.fg }}
+              className="mb-5 text-[0.78rem] font-bold tracking-[0.16em]"
+              style={{ color: colors.accent }}
             >
               {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
             </p>
@@ -78,8 +84,11 @@ export function ProjectBlock({
             </div>
           </div>
 
-          {/* device-like frame with faint white inner border */}
-          <div className="relative rounded-xl border border-black/10 bg-white/50 p-1.5 shadow-[0_30px_60px_rgba(0,0,0,0.12)]">
+          {/* device-like frame; border subtly picks up the project accent */}
+          <div
+            className="relative rounded-xl border bg-white/50 p-1.5 shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
+            style={{ borderColor: `${colors.accent}55` }}
+          >
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-white/60">
               <Image
                 src={project.cover}
