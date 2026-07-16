@@ -23,7 +23,7 @@ export function SectionHeadline({ heading }: { heading?: SectionHeading }) {
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
-      className="mb-8 text-[clamp(1.9rem,4.6vw,2.8rem)] leading-[1.15] text-[#1d1d1f]"
+      className="mb-8 text-center text-[clamp(1.9rem,4.6vw,2.8rem)] leading-[1.15] text-[#1d1d1f]"
     >
       <span className="accent-italic">{t(heading, lang)}</span>
     </motion.h2>
