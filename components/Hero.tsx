@@ -45,21 +45,12 @@ export function Hero() {
         </div>
 
         <div className="wrap relative flex flex-col items-center pb-[210px] pt-36 text-center text-white sm:pt-40">
-          <motion.span
-            variants={heroReveal}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="mb-6 inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[0.78rem] font-medium backdrop-blur-md"
-          >
-            {t(h.badge, lang)}
-          </motion.span>
           <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
             <motion.span
               variants={heroReveal}
               initial="hidden"
               animate="visible"
-              custom={1}
+              custom={0}
               className="block"
             >
               {t(h.headline, lang)}
@@ -68,7 +59,7 @@ export function Hero() {
               variants={heroReveal}
               initial="hidden"
               animate="visible"
-              custom={2}
+              custom={1}
               className="accent-italic block font-normal tracking-[-0.01em]"
             >
               {t(h.headlineItalic, lang)}
@@ -78,7 +69,7 @@ export function Hero() {
             variants={heroReveal}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={2}
             className="mb-8 max-w-[640px] text-[1.05rem] leading-relaxed text-white/85"
           >
             {t(h.subtitle, lang)}
@@ -87,7 +78,7 @@ export function Hero() {
             variants={heroReveal}
             initial="hidden"
             animate="visible"
-            custom={4}
+            custom={3}
           >
             <Link
               href={h.cta.href}
@@ -100,7 +91,7 @@ export function Hero() {
             variants={heroReveal}
             initial="hidden"
             animate="visible"
-            custom={5}
+            custom={4}
             className="mt-6 text-[0.82rem] text-white/70"
           >
             {t(h.reassurance, lang)}
@@ -113,7 +104,7 @@ export function Hero() {
         variants={heroReveal}
         initial="hidden"
         animate="visible"
-        custom={6}
+        custom={5}
         className="wrap relative z-10 -mt-[170px] mb-4"
       >
         <GlassShelf />

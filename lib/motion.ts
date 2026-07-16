@@ -19,7 +19,7 @@ export const REVEAL_STAGGER = 0.15;
  *  so long lists still finish revealing promptly. */
 export const REVEAL_STAGGER_TIGHT = 0.1;
 
-/** Hero on-load sequence: badge → line 1 → line 2 → subtitle → CTA. Slightly
+/** Hero on-load sequence: line 1 → line 2 → subtitle → CTA. Slightly
  *  wider stagger, plus a small initial delay so the wallpaper paints first. */
 export const HERO_STAGGER = 0.18;
 export const HERO_INITIAL_DELAY = 0.15;
@@ -66,8 +66,8 @@ export const reveal: Variants = {
 
 /**
  * Same reveal but delayed by an initial beat + its `custom` index * HERO_STAGGER
- * — used on page load for the hero sequence (badge → line 1 → line 2 →
- * subtitle → CTA → reassurance → shelf).
+ * — used on page load for the hero sequence (line 1 → line 2 → subtitle →
+ * CTA → reassurance → shelf).
  */
 export const heroReveal: Variants = {
   hidden: REVEAL_HIDDEN,

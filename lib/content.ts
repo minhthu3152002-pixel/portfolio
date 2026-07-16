@@ -114,7 +114,6 @@ export type SiteContent = {
   nav: NavMenuItem[];
   projectsHeading?: SectionHeading;
   hero: {
-    badge: Localized;
     headline: Localized;
     headlineItalic: Localized;
     subtitle: Localized;
