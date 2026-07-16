@@ -102,10 +102,10 @@ function StackedCard({
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <ProjectBlock project={project} num={index + 1} />
+            <ProjectBlock project={project} />
           </motion.div>
         ) : (
-          <ProjectBlock project={project} num={index + 1} />
+          <ProjectBlock project={project} />
         )}
       </motion.div>
     </div>
