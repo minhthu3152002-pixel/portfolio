@@ -44,10 +44,10 @@ export function ProjectBlock({
       <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
           <div>
             <p
-              className="mb-5 text-[0.78rem] font-bold tracking-[0.16em]"
+              className="mb-3 text-[1.7rem] leading-none"
               style={{ color: colors.accent }}
             >
-              {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
+              <span className="accent-italic">{pad2(num)}</span>
             </p>
             <h2
               className="mb-4 text-[clamp(1.9rem,4.4vw,3.1rem)] font-extrabold leading-[1.08] tracking-[-0.02em]"
