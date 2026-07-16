@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { content, projects, t, type Lang, type NavMenuItem } from '@/lib/content';
+import { content, projects, pad2, t, type Lang, type NavMenuItem } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import {
   Menu,
@@ -74,17 +74,19 @@ export function Nav() {
   const renderDropdown = (id: string, close?: () => void) => {
     if (id === 'projects') {
       return (
-        <div className="grid gap-1 sm:grid-cols-2">
-          {projects.map((p) => (
-            <ProductItem
-              key={p.id}
-              title={t(p.title, lang)}
-              description={t(p.short, lang)}
-              href={`/project/${p.id}`}
-              src={p.thumb ?? p.cover}
-              onNavigate={close}
-            />
-          ))}
+        <div className="flex w-[200px] flex-col gap-0.5">
+          {projects.map((p) => {
+            const first = p.tags[0];
+            return (
+              <ProductItem
+                key={p.id}
+                title={t(p.title, lang).split('—')[0].trim()}
+                tag={`${pad2(projects.indexOf(p) + 1)} · ${t(first, lang)}`}
+                href={`/project/${p.id}`}
+                onNavigate={close}
+              />
+            );
+          })}
         </div>
       );
     }
