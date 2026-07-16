@@ -63,6 +63,10 @@ export type Experience = { period: Localized; title: Localized; org: string };
 /** One language row: name + level localizable, `value` = 0-100 proficiency. */
 export type Language = { name: Localized; level: Localized; value: number };
 
+/** One headline counter: `value` is the display string (e.g. "26.7M", "5K+");
+ *  the count-up animates its leading number and keeps any suffix. */
+export type AboutStat = { value: string; label: Localized };
+
 /** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
 export type About = {
   name: string;
@@ -70,6 +74,7 @@ export type About = {
   avatar: string;
   traits: Localized[];
   summary: Localized;
+  stats: AboutStat[];
   experience: Experience[];
   skills: Localized[];
   tools: Localized[];

@@ -167,6 +167,9 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
     { "en": "Marketer", "vi": "Marketer" }
   ],
   "summary": { "en": "Short bio (2-3 sentences).", "vi": "Tiểu sử ngắn (2-3 câu)." },
+  "stats": [
+    { "value": "26.7M", "label": { "en": "views", "vi": "lượt xem" } }
+  ],
   "experience": [
     {
       "period": { "en": "2025 – mid 2026", "vi": "2025 – giữa 2026" },
@@ -190,6 +193,7 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
 | `avatar` | Đường dẫn ảnh chân dung trong `/assets/`. Thay ảnh: upload đè ảnh cùng tên. |
 | `traits` | Các "nhãn" nhỏ nổi trên đầu ảnh (mỗi cái là `{en, vi}`). Thêm/bớt tuỳ ý. |
 | `summary` | Tiểu sử 2-3 câu — song ngữ. |
+| `stats` | 3 con số lớn ở đầu "bảng điều khiển" (đếm tăng dần khi xuất hiện). Mỗi mục: `value` = con số hiển thị (`"26.7M"`, `"5K+"`, `"1.5"` — phần chữ M/K/+ giữ nguyên), `label` = chú thích `{en, vi}`. |
 | `experience` | Danh sách kinh nghiệm. Mỗi mục: `period` (mốc thời gian, `{en, vi}`), `title` (vị trí, `{en, vi}`), `org` (nơi làm — giữ 1 bản). |
 | `skills` | Danh sách kỹ năng → hiển thị dạng "viên thuốc". Tên tiếng Anh dùng chung thì để chuỗi thường; muốn dịch thì viết `{ "en": "...", "vi": "..." }`. |
 | `tools` | Công cụ — giống `skills` nhưng viên nhỏ hơn. |

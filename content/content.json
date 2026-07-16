@@ -86,6 +86,11 @@
       "en": "I'm a marketer working across AI & marketing automation, integrated campaigns, copywriting and social media. I build internal tools that remove manual work and ship data-backed campaigns — from 5K+ qualified leads to 26.7M-view social content.",
       "vi": "Mình là một marketer hoạt động khắp các mảng AI & tự động hoá marketing, chiến dịch tích hợp, copywriting và social media. Mình xây các công cụ nội bộ giúp bỏ bớt việc thủ công và triển khai chiến dịch dựa trên số liệu — từ 5K+ lead chất lượng đến nội dung social 26.7M lượt xem."
     },
+    "stats": [
+      { "value": "26.7M", "label": { "en": "views", "vi": "lượt xem" } },
+      { "value": "5K+", "label": { "en": "leads", "vi": "lead" } },
+      { "value": "1.5", "label": { "en": "yrs campaign", "vi": "năm chiến dịch" } }
+    ],
     "experience": [
       {
         "period": { "en": "2025 – mid 2026", "vi": "2025 – giữa 2026" },
