@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
+import { CometCard } from '@/components/ui/comet-card';
 import { reveal, stackContainer, viewportOnce } from '@/lib/motion';
 
 /**
@@ -34,36 +35,39 @@ export function AboutMe() {
       >
         {/* LEFT — profile card (fills height) + summary card */}
         <motion.div variants={reveal} className="flex flex-col gap-5">
-          {/* profile card: avatar fills, chips top, name/role strip bottom */}
-          <div className="relative min-h-[420px] flex-1 overflow-hidden rounded-[28px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
-            <Image
-              src={a.avatar}
-              alt={a.name}
-              fill
-              sizes="(max-width: 767px) 100vw, 380px"
-              className="object-cover"
-            />
-            {/* frosted trait chips along the top edge */}
-            <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
-              {a.traits.map((tr) => (
-                <span
-                  key={t(tr, lang)}
-                  className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-[0.72rem] font-medium text-white backdrop-blur-md"
-                >
-                  {t(tr, lang)}
-                </span>
-              ))}
+          {/* profile card wrapped in the Comet Card 3D tilt + glare (static on
+              touch / reduced-motion). Inner card keeps its radius/shadow. */}
+          <CometCard className="flex-1">
+            <div className="relative h-full min-h-[420px] overflow-hidden rounded-[28px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
+              <Image
+                src={a.avatar}
+                alt={a.name}
+                fill
+                sizes="(max-width: 767px) 100vw, 380px"
+                className="object-cover"
+              />
+              {/* frosted trait chips along the top edge */}
+              <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
+                {a.traits.map((tr) => (
+                  <span
+                    key={t(tr, lang)}
+                    className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-[0.72rem] font-medium text-white backdrop-blur-md"
+                  >
+                    {t(tr, lang)}
+                  </span>
+                ))}
+              </div>
+              {/* frosted glass strip at the bottom */}
+              <div className="absolute inset-x-0 bottom-0 border-t border-white/25 bg-white/10 px-5 py-4 backdrop-blur-md">
+                <p className="text-[1.15rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
+                  {a.name}
+                </p>
+                <p className="mt-0.5 text-[0.85rem] font-medium text-white/80">
+                  {t(a.role, lang)}
+                </p>
+              </div>
             </div>
-            {/* frosted glass strip at the bottom */}
-            <div className="absolute inset-x-0 bottom-0 border-t border-white/25 bg-white/10 px-5 py-4 backdrop-blur-md">
-              <p className="text-[1.15rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
-                {a.name}
-              </p>
-              <p className="mt-0.5 text-[0.85rem] font-medium text-white/80">
-                {t(a.role, lang)}
-              </p>
-            </div>
-          </div>
+          </CometCard>
 
           {/* summary card */}
           <div className="rounded-[20px] border border-white/70 bg-white/60 p-5 backdrop-blur-[20px]">
