@@ -32,7 +32,7 @@ export function ProjectBlock({
     <Link
       href={`/project/${project.id}`}
       aria-label={title}
-      className="group relative block overflow-hidden rounded-[28px] border border-white/70 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
+      className="group relative block overflow-hidden rounded-[28px] border border-white/70 border-t-white/60 p-8 shadow-[0_-18px_40px_rgba(0,0,0,0.14),0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_-18px_40px_rgba(0,0,0,0.14),0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
       style={{ backgroundColor: surface.base }}
     >
       {/* uniform hue wash so the whole block reads clearly as its accent color,

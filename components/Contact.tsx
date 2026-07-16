@@ -1,89 +1,63 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { content, t, type Lang, type Localized } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 
-/** True below 768px (client-only; false on server to avoid hydration drift). */
-function useIsMobile() {
-  const [m, setM] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    const on = () => setM(mq.matches);
-    on();
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
-  return m;
-}
+/** Site primary blue accent (tailwind `accent` = #0071e3) as translucent glass. */
+const GLASS_BG = 'rgba(0,113,227,0.34)';
+const GLASS_BORDER = 'rgba(0,113,227,0.42)';
 
-type Pill = {
+type PillDef = {
   label: Localized;
   sub?: string;
   href: string;
   external?: boolean;
-  anchor: string; // absolute anchor position classes
   z: number;
-  dur: number; // wander loop seconds
-  kx: number[]; // x waypoint offsets (px)
-  ky: number[]; // y waypoint offsets (px)
-  kr: number[]; // rotate waypoints (deg)
 };
 
-/** Contact section: heading/intro on the left, four large pill "bubbles" on the
- *  right that slowly wander along their own randomized waypoint paths (they may
- *  overlap). Real links from content.json; hover/focus scales + pauses drift. */
+/** Per-pill physics state, mutated in place by the shared rAF loop (never via
+ *  React state, so frames stay transform-only and cheap). Coordinates are the
+ *  pill CENTER; the element is positioned at (0,0) and moved with `transform`. */
+type PillMotion = {
+  cx: number;
+  cy: number;
+  vx: number; // px/s
+  vy: number; // px/s
+  angle: number; // deg, drifts within ±4
+  angVel: number; // deg/s
+  w: number;
+  h: number;
+  paused: boolean;
+};
+
+function rand(min: number, max: number): number {
+  return min + Math.random() * (max - min);
+}
+
+/** Contact section: heading/intro on the left; on the right a glass "play area"
+ *  where big translucent bubbles drift DVD-style and bounce off the walls. */
 export function Contact() {
   const { lang } = useLanguage();
   const c = content.contact;
   const reduce = useReducedMotion();
-  const mobile = useIsMobile();
 
   const linkedin = c.socials[0]?.href ?? '#';
-  const pills: Pill[] = [
+  const pills: PillDef[] = [
     {
       label: { en: 'LinkedIn', vi: 'LinkedIn' },
       href: linkedin,
       external: linkedin.startsWith('http'),
-      anchor: 'left-[6%] top-[5%]',
       z: 40,
-      dur: 18,
-      kx: [0, -70, 55, -40, 80],
-      ky: [0, 65, -75, 50, -60],
-      kr: [-5, 4, -7, 3, -6],
     },
-    {
-      label: { en: 'Resume', vi: 'CV' },
-      href: '#',
-      anchor: 'right-[6%] top-[22%]',
-      z: 20,
-      dur: 15,
-      kx: [0, 80, -65, 50, -85],
-      ky: [0, -70, 60, -85, 70],
-      kr: [5, -6, 7, -4, 6],
-    },
-    {
-      label: { en: 'Email', vi: 'Email' },
-      sub: c.email,
-      href: `mailto:${c.email}`,
-      anchor: 'left-[16%] top-[48%]',
-      z: 30,
-      dur: 21,
-      kx: [0, -60, 90, -75, 55],
-      ky: [0, 75, -55, 65, -80],
-      kr: [-4, 6, -5, 7, -3],
-    },
+    { label: { en: 'Resume', vi: 'CV' }, href: '#', z: 20 },
+    { label: { en: 'Email', vi: 'Email' }, sub: c.email, href: `mailto:${c.email}`, z: 30 },
     {
       label: { en: 'Phone', vi: 'Điện thoại' },
       sub: c.phone,
       href: `tel:${c.phone.replace(/\s+/g, '')}`,
-      anchor: 'right-[8%] top-[66%]',
       z: 10,
-      dur: 17,
-      kx: [0, 70, -85, 60, -55],
-      ky: [0, -65, 80, -60, 85],
-      kr: [6, -4, 5, -7, 4],
     },
   ];
 
@@ -105,18 +79,8 @@ export function Contact() {
           <p className="mt-8 text-[0.85rem] text-muted">{t(c.location, lang)}</p>
         </div>
 
-        {/* right: wandering pill bubbles */}
-        <div className="relative h-[380px] w-full overflow-hidden md:h-[480px]">
-          {pills.map((p) => (
-            <FloatingPill
-              key={p.label.toString() + p.href}
-              pill={p}
-              lang={lang}
-              reduce={!!reduce}
-              mobile={mobile}
-            />
-          ))}
-        </div>
+        {/* right: bouncing glass bubbles */}
+        <BouncePlayground pills={pills} lang={lang} reduce={!!reduce} />
       </div>
 
       <p className="mt-16 text-center text-[0.8rem] text-[#a1a1a6]">
@@ -126,65 +90,230 @@ export function Contact() {
   );
 }
 
-function FloatingPill({
-  pill,
+function BouncePlayground({
+  pills,
   lang,
   reduce,
-  mobile,
 }: {
-  pill: Pill;
+  pills: PillDef[];
   lang: Lang;
   reduce: boolean;
-  mobile: boolean;
 }) {
-  const [active, setActive] = useState(false);
-  const amp = mobile ? 0.28 : 1; // mobile: ~±25px vs desktop ±60-90px
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const motions = useRef<PillMotion[]>([]);
+  const [mobile, setMobile] = useState(false);
 
-  const animate = reduce
-    ? { x: 0, y: 0, rotate: 0, scale: 1 }
-    : active
-      ? { x: 0, y: 0, rotate: pill.kr[0], scale: 1.05 }
-      : {
-          x: pill.kx.map((v) => v * amp),
-          y: pill.ky.map((v) => v * amp),
-          rotate: pill.kr,
-          scale: 1,
-        };
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const on = () => setMobile(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
 
-  const transition = reduce
-    ? { duration: 0 }
-    : active
-      ? { duration: 0.4, ease: 'easeOut' as const }
-      : {
-          duration: pill.dur,
-          repeat: Infinity,
-          repeatType: 'mirror' as const,
-          ease: 'easeInOut' as const,
-        };
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const applyTransform = (el: HTMLAnchorElement, s: PillMotion, scale: number) => {
+      el.style.transform = `translate(${s.cx - s.w / 2}px, ${s.cy - s.h / 2}px) rotate(${s.angle}deg) scale(${scale})`;
+    };
+
+    // Rotation-aware half-extents of the axis-aligned bounding box, so a
+    // rotated pill never clips past a wall.
+    const halfExtents = (s: PillMotion) => {
+      const r = Math.abs((s.angle * Math.PI) / 180);
+      const cos = Math.abs(Math.cos(r));
+      const sin = Math.abs(Math.sin(r));
+      return {
+        hw: (s.w / 2) * cos + (s.h / 2) * sin,
+        hh: (s.w / 2) * sin + (s.h / 2) * cos,
+      };
+    };
+
+    // Measure pills + seed non-overlapping starts, velocities and rotation.
+    const init = () => {
+      const W = container.clientWidth;
+      const H = container.clientHeight;
+      const speedScale = mobile ? 0.5 : 1;
+      const states: PillMotion[] = [];
+      pillRefs.current.forEach((el) => {
+        if (!el) return;
+        const w = el.offsetWidth;
+        const h = el.offsetHeight;
+        let cx = W / 2;
+        let cy = H / 2;
+        for (let tries = 0; tries < 300; tries++) {
+          cx = rand(w / 2, Math.max(w / 2, W - w / 2));
+          cy = rand(h / 2, Math.max(h / 2, H - h / 2));
+          const clear = states.every(
+            (o) => Math.hypot(o.cx - cx, o.cy - cy) > Math.max(o.w, w) * 0.72,
+          );
+          if (clear) break;
+        }
+        const speed = rand(12, 25) * speedScale;
+        const dir = rand(0, Math.PI * 2);
+        states.push({
+          cx,
+          cy,
+          vx: Math.cos(dir) * speed,
+          vy: Math.sin(dir) * speed,
+          angle: rand(-4, 4),
+          angVel: (Math.random() < 0.5 ? -1 : 1) * rand(0.5, 1.3),
+          w,
+          h,
+          paused: false,
+        });
+        el.style.opacity = '1';
+      });
+      motions.current = states;
+      states.forEach((s, i) => {
+        const el = pillRefs.current[i];
+        if (el) applyTransform(el, s, 1);
+      });
+    };
+
+    init();
+
+    // Reduced motion: place them statically, no loop.
+    if (reduce) return;
+
+    let last = performance.now();
+    let rafId: number | null = null;
+
+    const step = (now: number) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      const W = container.clientWidth;
+      const H = container.clientHeight;
+      const states = motions.current;
+      for (let i = 0; i < states.length; i++) {
+        const s = states[i];
+        const el = pillRefs.current[i];
+        if (!el) continue;
+        if (s.paused) {
+          applyTransform(el, s, 1.05);
+          continue;
+        }
+        // slow rotation drift, reversing at ±4°
+        s.angle += s.angVel * dt;
+        if (s.angle > 4) {
+          s.angle = 4;
+          s.angVel = -s.angVel;
+        } else if (s.angle < -4) {
+          s.angle = -4;
+          s.angVel = -s.angVel;
+        }
+        s.cx += s.vx * dt;
+        s.cy += s.vy * dt;
+        const { hw, hh } = halfExtents(s);
+        if (s.cx < hw) {
+          s.cx = hw;
+          s.vx = Math.abs(s.vx);
+        } else if (s.cx > W - hw) {
+          s.cx = W - hw;
+          s.vx = -Math.abs(s.vx);
+        }
+        if (s.cy < hh) {
+          s.cy = hh;
+          s.vy = Math.abs(s.vy);
+        } else if (s.cy > H - hh) {
+          s.cy = H - hh;
+          s.vy = -Math.abs(s.vy);
+        }
+        applyTransform(el, s, 1);
+      }
+      rafId = requestAnimationFrame(step);
+    };
+
+    const start = () => {
+      if (rafId == null) {
+        last = performance.now();
+        rafId = requestAnimationFrame(step);
+      }
+    };
+    const stop = () => {
+      if (rafId != null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    // Keep centers inside the box when it resizes.
+    const ro = new ResizeObserver(() => {
+      const W = container.clientWidth;
+      const H = container.clientHeight;
+      motions.current.forEach((s) => {
+        const { hw, hh } = halfExtents(s);
+        s.cx = Math.min(Math.max(s.cx, hw), Math.max(hw, W - hw));
+        s.cy = Math.min(Math.max(s.cy, hh), Math.max(hh, H - hh));
+      });
+    });
+    ro.observe(container);
+
+    // Pause the whole loop while off-screen.
+    const io = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { threshold: 0 },
+    );
+    io.observe(container);
+
+    return () => {
+      stop();
+      ro.disconnect();
+      io.disconnect();
+    };
+  }, [reduce, mobile, lang]);
+
+  const setPaused = (i: number, paused: boolean) => {
+    const s = motions.current[i];
+    if (s) s.paused = paused;
+  };
 
   return (
-    <motion.a
-      href={pill.href}
-      target={pill.external ? '_blank' : undefined}
-      rel={pill.external ? 'noopener noreferrer' : undefined}
-      initial={{ x: 0, y: 0, rotate: pill.kr[0], scale: 1 }}
-      animate={animate}
-      transition={transition}
-      onHoverStart={() => setActive(true)}
-      onHoverEnd={() => setActive(false)}
-      onFocus={() => setActive(true)}
-      onBlur={() => setActive(false)}
-      style={{ zIndex: pill.z, willChange: 'transform' }}
-      className={`absolute ${pill.anchor} flex flex-col items-center justify-center rounded-full border border-white/70 bg-white/90 px-8 py-5 text-center shadow-[0_18px_44px_rgba(0,0,0,0.14)] backdrop-blur-sm outline-none ring-accent/50 focus-visible:ring-2`}
+    <div
+      ref={containerRef}
+      className="relative h-[380px] w-full overflow-hidden rounded-[28px] border border-white/40 md:h-[560px]"
     >
-      <span className="text-[1.15rem] font-extrabold uppercase tracking-tight text-text">
-        {t(pill.label, lang)}
-      </span>
-      {pill.sub && (
-        <span className="mt-0.5 text-[0.8rem] font-medium text-muted">
-          {pill.sub}
-        </span>
-      )}
-    </motion.a>
+      {pills.map((p, i) => (
+        <a
+          key={t(p.label, lang) + p.href}
+          ref={(el) => {
+            pillRefs.current[i] = el;
+          }}
+          href={p.href}
+          target={p.external ? '_blank' : undefined}
+          rel={p.external ? 'noopener noreferrer' : undefined}
+          onPointerEnter={() => setPaused(i, true)}
+          onPointerLeave={() => setPaused(i, false)}
+          onFocus={() => setPaused(i, true)}
+          onBlur={() => setPaused(i, false)}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            zIndex: p.z,
+            opacity: 0,
+            willChange: 'transform',
+            backgroundColor: GLASS_BG,
+            borderColor: GLASS_BORDER,
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            transition: 'opacity 0.5s ease',
+          }}
+          className="flex flex-col items-center justify-center rounded-full border px-9 py-5 text-center text-white outline-none ring-white/70 [text-shadow:0_1px_3px_rgba(0,0,0,0.28)] focus-visible:ring-2 md:px-12 md:py-7"
+        >
+          <span className="text-2xl font-extrabold uppercase tracking-tight md:text-3xl">
+            {t(p.label, lang)}
+          </span>
+          {p.sub && (
+            <span className="mt-1 text-[0.8rem] font-medium normal-case text-white/85 md:text-sm">
+              {p.sub}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
   );
 }
