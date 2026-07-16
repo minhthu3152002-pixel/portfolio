@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Project } from '@/lib/content';
-import { pad2, t } from '@/lib/content';
+import { t } from '@/lib/content';
 import { blockSurface } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 
@@ -14,13 +14,7 @@ import { useLanguage } from '@/components/LanguageProvider';
  * nothing bleeds past the rounded border. Cover sits in a device-like frame.
  * Entrance unfold + focus scaling are applied by the parent (ProjectList).
  */
-export function ProjectBlock({
-  project,
-  num,
-}: {
-  project: Project;
-  num: number;
-}) {
+export function ProjectBlock({ project }: { project: Project }) {
   const { lang } = useLanguage();
   const { colors } = project;
   const title = t(project.title, lang);
@@ -43,12 +37,6 @@ export function ProjectBlock({
 
       <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
           <div>
-            <p
-              className="mb-3 text-[1.7rem] leading-none"
-              style={{ color: colors.accent }}
-            >
-              <span className="accent-italic">{pad2(num)}</span>
-            </p>
             <h2
               className="mb-4 text-[clamp(1.9rem,4.4vw,3.1rem)] font-extrabold leading-[1.08] tracking-[-0.02em]"
               style={{ color: colors.fg }}
