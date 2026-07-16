@@ -9,15 +9,16 @@ import { posterGradient } from '@/lib/colors';
 import { stackContainerTight, stackItemTight } from '@/lib/motion';
 
 /**
- * Folder silhouette in the card's own 210×240 pixel space: a rounded body with
+ * Folder silhouette in the card's own 210×150 pixel space: a rounded body with
  * a ~42%-wide tab protruding flush at the top-left, merged into the body with a
- * smooth fillet. Applied as a clip-path so the card's existing gradient / glow /
- * blur / hover layers show through the folder outline (the card size is fixed,
- * so pixel coordinates are exact at every breakpoint).
+ * smooth fillet. Balanced folder proportion (wider than tall). Applied as a
+ * clip-path so the card's existing gradient / glow / blur / hover layers show
+ * through the folder outline (the card size is fixed, so pixel coordinates are
+ * exact at every breakpoint).
  */
 const FOLDER_PATH =
-  'M10,0 L78,0 Q88,0 88,10 L88,14 Q88,28 102,28 L192,28 Q210,28 210,46 ' +
-  'L210,222 Q210,240 192,240 L18,240 Q0,240 0,222 L0,10 Q0,0 10,0 Z';
+  'M8,0 L80,0 Q88,0 88,8 L88,10 Q88,22 100,22 L194,22 Q210,22 210,38 ' +
+  'L210,134 Q210,150 194,150 L16,150 Q0,150 0,134 L0,8 Q0,0 8,0 Z';
 
 /**
  * Liquid-glass "My Projects" shelf overlapping the hero bottom: one frosted
@@ -134,7 +135,7 @@ export function GlassShelf() {
                       onClick={onCardClick}
                       draggable={false}
                       aria-label={t(p.title, lang)}
-                      className="group relative block h-[240px] w-[210px] select-none transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+                      className="group relative block h-[150px] w-[210px] select-none transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                       style={{
                         background: posterGradient(p.colors.accent),
                         clipPath: `path('${FOLDER_PATH}')`,
@@ -147,7 +148,7 @@ export function GlassShelf() {
                       {/* inner light line along the folder outline (was the border) */}
                       <svg
                         className="pointer-events-none absolute inset-0 h-full w-full"
-                        viewBox="0 0 210 240"
+                        viewBox="0 0 210 150"
                         preserveAspectRatio="none"
                         fill="none"
                         aria-hidden
@@ -155,8 +156,9 @@ export function GlassShelf() {
                         <path d={FOLDER_PATH} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5" />
                       </svg>
 
-                      {/* title + meta — inside, top-left, cleared below the tab */}
-                      <div className="relative px-4 pt-[34px]">
+                      {/* title + meta — anchored to the bottom-left; a 2-line
+                          title grows upward and never clips the bottom edge */}
+                      <div className="absolute inset-x-0 bottom-0 px-4 pb-4">
                         <p className="line-clamp-2 text-[1.02rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
                           {t(p.title, lang).split('—')[0].trim()}
                         </p>
