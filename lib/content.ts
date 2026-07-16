@@ -109,7 +109,6 @@ export type SiteContent = {
   };
   about: About;
   contact: {
-    eyebrow: Localized;
     heading: Localized;
     subtitle: Localized;
     email: string;

@@ -13,8 +13,8 @@ const GLASS =
   'rounded-[24px] border border-white/70 bg-white/55 shadow-[0_12px_32px_rgba(0,0,0,0.06)] backdrop-blur-[20px]';
 
 /**
- * "About me" — two equal-height columns (items-stretch):
- *   LEFT  = Comet-Card profile photo card + summary card below
+ * "About me" — two columns balanced to roughly equal height:
+ *   LEFT  = Comet-Card profile photo card (capped 4/5 aspect) + summary card
  *   RIGHT = stacked panels: Experience (the single DARK panel, with an
  *           Education sub-block) / Skills / Tools / Languages
  * On mobile it collapses to one column. All content is bilingual from
@@ -27,25 +27,23 @@ export function AboutMe() {
 
   return (
     <section id="about" className="wrap scroll-mt-24 py-12 sm:py-16">
-      <p className="eyebrow">{lang === 'vi' ? 'Về tôi' : 'About me'}</p>
-
       <motion.div
         variants={stackContainer}
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
-        className="grid items-stretch gap-10 md:grid-cols-[380px_1fr]"
+        className="grid items-start gap-8 md:grid-cols-[400px_1fr]"
       >
-        {/* LEFT — profile card (fills height) + summary card */}
-        <motion.div variants={reveal} className="flex flex-col gap-5">
-          <CometCard className="flex-1">
-            <div className="relative h-full min-h-[420px] overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
+        {/* LEFT — profile card (capped height) + summary card */}
+        <motion.div variants={reveal} className="flex flex-col gap-4">
+          <CometCard className="w-full">
+            <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
               <Image
                 src={a.avatar}
                 alt={a.name}
                 fill
                 sizes="(max-width: 767px) 100vw, 380px"
-                className="object-cover"
+                className="object-cover object-top"
               />
               {/* frosted trait chips along the top edge */}
               <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
@@ -79,55 +77,39 @@ export function AboutMe() {
         </motion.div>
 
         {/* RIGHT — stacked panels (nested stagger) */}
-        <motion.div variants={stackContainer} className="flex flex-col gap-4">
+        <motion.div variants={stackContainer} className="flex flex-col gap-3">
           {/* Experience — the single DARK panel, with an Education sub-block */}
           <motion.div
             id="about-experience"
             variants={reveal}
-            className="flex flex-1 scroll-mt-24 flex-col rounded-[24px] border border-white/10 p-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:p-6"
+            className="scroll-mt-24 rounded-[24px] border border-white/10 p-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)]"
             style={{ background: 'rgba(12,12,16,0.92)' }}
           >
-            <PanelHeading
-              title={lang === 'vi' ? 'Kinh nghiệm' : 'Experience'}
-              tone="dark"
-            />
-            <ul className="flex flex-col gap-4">
+            <PanelHeading title={lang === 'vi' ? 'Kinh nghiệm' : 'Experience'} tone="dark" />
+            <ul className="flex flex-col gap-2.5">
               {a.experience.map((e, i) => (
-                <li key={i} className="grid grid-cols-[104px_1fr] gap-3">
-                  <span className="tnum pt-0.5 text-xs font-semibold text-accent">
-                    {t(e.period, lang)}
-                  </span>
-                  <span>
-                    <span className="block text-[15px] font-bold tracking-[-0.02em] text-white">
-                      {t(e.title, lang)}
-                    </span>
-                    <span className="block text-[13px] text-white/60">{e.org}</span>
-                  </span>
-                </li>
+                <TimelineRow
+                  key={i}
+                  title={t(e.title, lang)}
+                  sub={e.org}
+                  meta={t(e.period, lang)}
+                />
               ))}
             </ul>
 
             {/* Education sub-block */}
-            <div id="about-education" className="mt-5 scroll-mt-24 border-t border-white/10 pt-4">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/50">
+            <div id="about-education" className="mt-4 scroll-mt-24 border-t border-white/10 pt-3">
+              <h4 className="mb-2.5 text-[15px] font-bold tracking-[-0.02em] text-white/80">
                 {lang === 'vi' ? 'Học vấn' : 'Education'}
-              </p>
-              <ul className="flex flex-col gap-4">
+              </h4>
+              <ul className="flex flex-col gap-2.5">
                 {a.education.map((ed, i) => (
-                  <li key={i} className="grid grid-cols-[104px_1fr] gap-3">
-                    <span className="tnum pt-0.5 text-xs font-semibold text-accent">
-                      {ed.year}
-                    </span>
-                    <span>
-                      <span className="block text-[15px] font-bold tracking-[-0.02em] text-white">
-                        {ed.school}
-                      </span>
-                      <span className="block text-[13px] text-white/60">
-                        {t(ed.degree, lang)}
-                        {ed.gpa ? ` · GPA ${ed.gpa}` : ''}
-                      </span>
-                    </span>
-                  </li>
+                  <TimelineRow
+                    key={i}
+                    title={ed.school}
+                    sub={`${t(ed.degree, lang)}${ed.gpa ? ` · GPA ${ed.gpa}` : ''}`}
+                    meta={ed.year}
+                  />
                 ))}
               </ul>
             </div>
@@ -162,16 +144,18 @@ export function AboutMe() {
             </div>
           </Panel>
 
-          {/* Languages — name + subtle level bar */}
+          {/* Languages — two side-by-side columns */}
           <Panel title={lang === 'vi' ? 'Ngôn ngữ' : 'Languages'}>
-            <ul className="flex flex-col gap-3">
+            <ul className="grid grid-cols-2 gap-x-5 gap-y-3">
               {a.languages.map((l, i) => (
                 <li key={i}>
-                  <div className="mb-1 flex items-baseline justify-between">
-                    <span className="text-[15px] font-semibold text-text">
+                  <div className="mb-1 flex items-baseline justify-between gap-2">
+                    <span className="truncate text-[14px] font-semibold text-text">
                       {t(l.name, lang)}
                     </span>
-                    <span className="text-xs text-muted">{t(l.level, lang)}</span>
+                    <span className="shrink-0 text-[11px] text-muted">
+                      {t(l.level, lang)}
+                    </span>
                   </div>
                   <div className="h-1.5 w-full overflow-hidden rounded-full bg-line">
                     <div
@@ -189,24 +173,52 @@ export function AboutMe() {
   );
 }
 
-/** Small uppercase panel title with an accent dot. `tone` swaps text color for
- *  the dark panel. */
-function PanelHeading({ title, tone = 'light' }: { title: string; tone?: 'light' | 'dark' }) {
+/**
+ * One timeline row: title (bold) + sub (secondary) stacked on the left, and a
+ * right-aligned single-line meta (date / year) that never wraps.
+ */
+function TimelineRow({
+  title,
+  sub,
+  meta,
+}: {
+  title: string;
+  sub: string;
+  meta: string;
+}) {
   return (
-    <div className="mb-3 flex items-center gap-2">
-      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-      <h3
-        className={`text-xs font-semibold uppercase tracking-[0.12em] ${
-          tone === 'dark' ? 'text-white/60' : 'text-muted'
-        }`}
-      >
-        {title}
-      </h3>
-    </div>
+    <li className="flex items-start justify-between gap-3">
+      <span className="min-w-0">
+        <span className="block text-[15px] font-bold tracking-[-0.02em] text-white">
+          {title}
+        </span>
+        <span className="block text-[13px] text-white/60">{sub}</span>
+      </span>
+      <span className="tnum shrink-0 whitespace-nowrap pt-0.5 text-right text-[12px] font-semibold text-accent">
+        {meta}
+      </span>
+    </li>
   );
 }
 
-/** Frosted light-glass panel that grows evenly to match the left column. */
+/**
+ * Panel title in the hero-headline treatment: Inter extrabold, tight tracking,
+ * sentence case (no micro-label uppercase, no accent dot). `tone` swaps color
+ * for the dark panel.
+ */
+function PanelHeading({ title, tone = 'light' }: { title: string; tone?: 'light' | 'dark' }) {
+  return (
+    <h3
+      className={`mb-3 text-[17px] font-extrabold tracking-[-0.02em] ${
+        tone === 'dark' ? 'text-white' : 'text-text'
+      }`}
+    >
+      {title}
+    </h3>
+  );
+}
+
+/** Frosted light-glass panel. */
 function Panel({
   title,
   children,
@@ -217,13 +229,9 @@ function Panel({
   id?: string;
 }) {
   return (
-    <motion.div
-      id={id}
-      variants={reveal}
-      className={`${GLASS} flex flex-1 scroll-mt-24 flex-col p-5 sm:p-6`}
-    >
+    <motion.div id={id} variants={reveal} className={`${GLASS} scroll-mt-24 p-5`}>
       <PanelHeading title={title} />
-      <div className="flex-1">{children}</div>
+      {children}
     </motion.div>
   );
 }

@@ -82,7 +82,7 @@
     },
     "experience": [
       {
-        "period": "5/2025 – 07/2026",
+        "period": "05/2025 – 07/2026",
         "title": { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
         "org": "LIKELION Vietnam"
       },
@@ -144,10 +144,6 @@
     ]
   },
   "contact": {
-    "eyebrow": {
-      "en": "Contact",
-      "vi": "Liên hệ"
-    },
     "heading": {
       "en": "Let's work together!",
       "vi": "Hãy cùng hợp tác nhé!"

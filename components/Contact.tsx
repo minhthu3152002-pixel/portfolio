@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { content, t, type Lang, type Localized } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
+import { PILL_SPEED_MIN, PILL_SPEED_MAX } from '@/lib/motion';
 
 /** Site primary blue accent (tailwind `accent` = #0071e3) as translucent glass. */
 const GLASS_BG = 'rgba(0,113,227,0.34)';
@@ -69,7 +70,6 @@ export function Contact() {
       <div className="mx-auto grid max-w-wrap items-center gap-10 md:grid-cols-2">
         {/* left: heading + intro */}
         <div>
-          <p className="eyebrow">{t(c.eyebrow, lang)}</p>
           <h2 className="mb-4 text-[clamp(2rem,5vw,3rem)] font-extrabold tracking-[-0.02em]">
             {t(c.heading, lang)}
           </h2>
@@ -152,7 +152,7 @@ function BouncePlayground({
           );
           if (clear) break;
         }
-        const speed = rand(12, 25) * speedScale;
+        const speed = rand(PILL_SPEED_MIN, PILL_SPEED_MAX) * speedScale;
         const dir = rand(0, Math.PI * 2);
         states.push({
           cx,
