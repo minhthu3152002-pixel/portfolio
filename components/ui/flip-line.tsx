@@ -83,12 +83,14 @@ export function FlipLine({
   return (
     <div className={className}>
       <div ref={boxRef} className="relative w-full">
-        {/* hidden measurer: every candidate at BASE_PX, semibold */}
+        {/* hidden measurer: every candidate at BASE_PX in the SAME typography as
+            the visible line (panel-heading weight + tracking) so the locked size
+            is measured accurately */}
         <div
           ref={measureRef}
           aria-hidden
-          className="pointer-events-none absolute left-[-9999px] top-0 font-semibold"
-          style={{ fontSize: BASE_PX, visibility: 'hidden' }}
+          className="pointer-events-none absolute left-[-9999px] top-0 font-extrabold"
+          style={{ fontSize: BASE_PX, letterSpacing: '-0.02em', visibility: 'hidden' }}
         >
           {candidates.map((c, i) => (
             <div key={i} className="whitespace-nowrap">
@@ -98,14 +100,14 @@ export function FlipLine({
         </div>
 
         <p
-          className="whitespace-nowrap font-semibold leading-[1.3] text-[#1d1d1f]"
+          className="whitespace-nowrap font-extrabold leading-[1.3] tracking-[-0.02em] text-[#1d1d1f]"
           style={{
             fontSize: fontPx ?? BASE_PX,
             visibility: fontPx ? 'visible' : 'hidden',
           }}
         >
           {t(prefix, lang)}
-          <FlipWords words={wordStrings} className="font-semibold text-accent" />
+          <FlipWords words={wordStrings} className="font-extrabold text-accent" />
           {t(suffix, lang)}
         </p>
       </div>
