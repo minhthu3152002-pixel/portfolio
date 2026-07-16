@@ -3,27 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --accent: #ff7a45;
-  }
   html {
     scroll-behavior: smooth;
   }
   body {
     background: theme('colors.bg');
     color: theme('colors.text');
-    font-family: var(--font-body), sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+  /* Headlines use Inter (the sans) by default; Playfair is applied only where
+     .font-serif is set. line-height >= 1.1 keeps Vietnamese uppercase
+     diacritics (ẤẦẬỀỔ) from clipping. */
   h1,
   h2,
   h3,
   h4,
   h5 {
-    font-family: var(--font-display), sans-serif;
-    line-height: 1.12;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
   a {
     color: inherit;
@@ -36,26 +38,62 @@
     @apply mx-auto w-full max-w-wrap px-6;
   }
   .eyebrow {
-    @apply mb-3.5 text-[0.76rem] font-medium uppercase tracking-[0.2em] text-accent;
+    @apply mb-3 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-accent;
   }
-  /* Pill tag with border in current text color. */
-  .tag {
-    @apply rounded-full border border-current px-[18px] py-[7px] text-[0.83rem] font-medium opacity-90;
+  /* Light pill chip (project tag). */
+  .chip {
+    @apply rounded-full border border-line bg-white px-[14px] py-[6px] text-[0.8rem] font-medium text-text;
   }
-  /* Rich-text: renders <b> emphasis from content.json inside list items. */
+  /* Rich-text: inline emphasis + cross-links from content.json. */
   .rich b {
     @apply font-semibold text-text;
   }
-  /* Cross-link anchors inside rich text (e.g. links between projects). */
   .rich a {
     @apply font-medium text-[var(--pc,theme(colors.accent))] underline underline-offset-2;
   }
 }
 
-/* Gradient headline accent (hero italic word). */
-.headline-gradient {
-  background: linear-gradient(92deg, #ff7a45, #c94fff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+@layer utilities {
+  /* Hide scrollbars on horizontally scrollable rows. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Playfair italic accent line, ~1.05em relative to the sans beside it. */
+.accent-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 1.05em;
+  letter-spacing: -0.01em;
+}
+
+/* Liquid-glass shelf: wallpaper visible through it. Opaque fallback when the
+   browser lacks backdrop-filter support. */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+@supports (backdrop-filter: blur(28px)) or (-webkit-backdrop-filter: blur(28px)) {
+  .glass {
+    -webkit-backdrop-filter: blur(28px) saturate(1.4);
+    backdrop-filter: blur(28px) saturate(1.4);
+  }
+}
+@supports not (
+  (backdrop-filter: blur(28px)) or (-webkit-backdrop-filter: blur(28px))
+) {
+  .glass {
+    background: rgba(30, 32, 40, 0.9);
+  }
 }

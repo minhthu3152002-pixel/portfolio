@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, Be_Vietnam_Pro } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { content, t } from '@/lib/content';
 import { Providers } from '@/components/Providers';
 import { Nav } from '@/components/Nav';
 import { Contact } from '@/components/Contact';
 import './globals.css';
 
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['400', '600', '800'],
-  variable: '--font-display',
+const sans = Inter({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-sans',
   display: 'swap',
 });
 
-const body = Be_Vietnam_Pro({
+const serif = Playfair_Display({
   subsets: ['latin', 'vietnamese'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-body',
+  weight: ['500', '600'],
+  style: ['italic'],
+  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -33,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body>
         <Providers>
           <Nav />

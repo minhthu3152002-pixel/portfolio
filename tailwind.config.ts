@@ -9,19 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#0f1014',
-        surface: '#16181f',
-        line: '#262a36',
-        text: '#eef0f4',
-        muted: '#9aa1b0',
-        accent: '#ff7a45',
+        // Apple light theme
+        bg: '#f5f5f7', // page background
+        surface: '#ffffff', // white sections / cards
+        line: '#e5e5ea', // hairline borders
+        text: '#1d1d1f', // primary text
+        muted: '#6e6e73', // secondary text
+        accent: '#0071e3', // Apple blue (generic accent / links)
       },
       fontFamily: {
-        display: ['var(--font-display)', 'sans-serif'],
-        body: ['var(--font-body)', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
       borderRadius: {
-        card: '22px',
+        card: '28px',
       },
       maxWidth: {
         wrap: '1120px',
