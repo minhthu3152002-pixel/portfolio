@@ -697,7 +697,7 @@
       "id": "Other",
       "title": "Other",
       "short": "University and self-driven projects — from leading a campus design competition to building a full brand identity system.",
-      "tags": ["Event Leadership", "Project Management", "Creative Direction", "Internal Event" "Employee Engagement"],
+      "tags": ["Event Leadership", "Project Management", "Creative Direction", "Internal Event", "Employee Engagement"],
       "colors": { "bg": "#2a1d10", "fg": "#ffefd8", "accent": "#ffb454" },
       "cover": "/assets/event-results.jpg",
       "sections": [
