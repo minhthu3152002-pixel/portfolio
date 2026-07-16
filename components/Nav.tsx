@@ -74,7 +74,7 @@ export function Nav() {
   const renderDropdown = (id: string, close?: () => void) => {
     if (id === 'projects') {
       return (
-        <div className="flex w-[200px] flex-col gap-0.5">
+        <div className="flex w-max min-w-[190px] flex-col gap-0.5">
           {projects.map((p) => {
             const first = p.tags[0];
             return (

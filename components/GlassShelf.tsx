@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { content, projects, pad2, t } from '@/lib/content';
+import { content, projects, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { posterGradient } from '@/lib/colors';
 import { stackContainerTight, stackItemTight } from '@/lib/motion';
@@ -163,7 +163,7 @@ export function GlassShelf() {
                           {t(p.title, lang).split('—')[0].trim()}
                         </p>
                         <p className="mt-1 text-[0.75rem] font-medium text-white/70">
-                          {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
+                          {t(first, lang)}
                         </p>
                       </div>
                     </Link>

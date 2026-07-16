@@ -109,10 +109,10 @@ export function ProductItem({
       onClick={onNavigate}
       className="group block rounded-lg px-2 py-1.5 outline-none transition-colors hover:bg-black/[0.035] focus-visible:ring-2 focus-visible:ring-accent/50"
     >
-      <span className="block text-[0.9rem] font-semibold tracking-[-0.01em] text-[#1d1d1f] transition-colors group-hover:text-accent">
+      <span className="block whitespace-nowrap text-[0.9rem] font-semibold tracking-[-0.01em] text-[#1d1d1f] transition-colors group-hover:text-accent">
         {title}
       </span>
-      <span className="mt-0.5 block text-[0.75rem] text-[#6e6e73]">{tag}</span>
+      <span className="mt-0.5 block whitespace-nowrap text-[0.75rem] text-[#6e6e73]">{tag}</span>
     </Link>
   );
 }
