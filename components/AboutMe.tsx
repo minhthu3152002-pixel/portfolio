@@ -6,7 +6,7 @@ import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { CometCard } from '@/components/ui/comet-card';
 import { ToolLogo } from '@/components/ui/tool-icon';
-import { FlipWords } from '@/components/ui/flip-words';
+import { FlipLine } from '@/components/ui/flip-line';
 import { SectionHeadline } from '@/components/SectionHeadline';
 import { reveal, stackContainer, viewportOnce } from '@/lib/motion';
 
@@ -79,17 +79,16 @@ export function AboutMe() {
             </p>
           </div>
 
-          {/* flip line — pinned to the bottom of the column, filling the gap so
-              the left column ends level with the Languages panel on the right */}
+          {/* flip line — bottom band of the left column, horizontally aligned to
+              the summary card's content box and vertically centered against the
+              Languages panel on the right. Size is locked to the longest variant. */}
           {a.flipLine?.enabled !== false && a.flipLine && (
-            <p className="mt-auto whitespace-nowrap px-1 pt-2 text-[15px] leading-[1.7] text-[#1d1d1f]">
-              {t(a.flipLine.prefix, lang)}
-              <FlipWords
-                words={a.flipLine.words.map((w) => t(w, lang))}
-                className="font-semibold text-accent"
-              />
-              {t(a.flipLine.suffix, lang)}
-            </p>
+            <FlipLine
+              prefix={a.flipLine.prefix}
+              words={a.flipLine.words}
+              suffix={a.flipLine.suffix}
+              className="mt-auto flex min-h-[104px] items-center px-5"
+            />
           )}
         </motion.div>
 
