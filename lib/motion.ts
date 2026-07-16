@@ -32,17 +32,21 @@ export const tabSpring: Transition = {
 /** Home project list: children fan in from the top, one after another. */
 export const stackContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
-/** Each home block: scaled-down + lifted, springs into place. */
+/**
+ * Home block "unfold / drop-down": each block drops in from slightly above,
+ * unfolding from its top edge (scaleY). Pair with `transformOrigin: 'top'` on
+ * the element so the unfold hinges at the top.
+ */
 export const stackItem: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
+  hidden: { opacity: 0, y: -24, scaleY: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { type: 'spring', stiffness: 120, damping: 18 },
+    scaleY: 1,
+    transition: { type: 'spring', stiffness: 130, damping: 20 },
   },
 };
 

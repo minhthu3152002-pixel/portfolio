@@ -6,18 +6,55 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { content, projects, pad2, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
-import { stackContainerTight, stackItemTight, viewportOnce } from '@/lib/motion';
+import { stackContainerTight, stackItemTight } from '@/lib/motion';
+
+/** Frosted glass wing (with an opaque fallback when backdrop-filter is absent). */
+const WING =
+  'border border-white/50 bg-[rgba(60,64,80,0.5)] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.6)] supports-[backdrop-filter]:bg-white/30 supports-[backdrop-filter]:backdrop-blur-[24px] [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]';
+
+const DARK = 'rgba(8,8,12,0.92)';
 
 /**
- * Liquid-glass "My Projects" shelf overlapping the hero bottom: a mac-window
- * chrome over a dark panel with pill filter chips and a horizontally scrollable,
- * drag-to-scroll row of project cards (enabled projects only).
+ * Liquid-glass "notch" shelf: a 3-column row — [glass wing][dark panel][glass
+ * wing]. The dark panel holds the whole UI (header, chips, cards); its height
+ * follows its content and it sits ~14px taller than the wings so it protrudes
+ * like a hardware notch. Under 768px the wings are hidden and the panel goes
+ * full width.
  */
 export function GlassShelf() {
+  return (
+    <div className="mx-auto max-w-[1000px]">
+      {/* Desktop: wings flank a taller dark panel */}
+      <div className="hidden items-stretch gap-2 md:flex">
+        <div
+          className={`${WING} my-[14px] flex flex-1 items-center rounded-l-[28px] px-4`}
+        >
+          <Identity />
+        </div>
+
+        <DarkPanel className="relative z-10 w-[64%] rounded-[24px]" />
+
+        <div
+          className={`${WING} my-[14px] flex flex-1 items-center justify-end rounded-r-[28px] px-4`}
+        >
+          <WifiTime />
+        </div>
+      </div>
+
+      {/* Mobile: dark panel only, full width */}
+      <div className="md:hidden">
+        <DarkPanel className="rounded-[22px]" />
+      </div>
+    </div>
+  );
+}
+
+/** The dark panel: header (title + tools) · filter chips · drag-scroll cards.
+ *  Height is dictated by its content — no fixed height. */
+function DarkPanel({ className = '' }: { className?: string }) {
   const { lang } = useLanguage();
   const h = content.hero;
 
-  // Filters: "All" + each project's first tag (deduped, in order).
   const filters = useMemo(() => {
     const seen = new Set<string>();
     const out: { key: string; label: string }[] = [];
@@ -40,19 +77,13 @@ export function GlassShelf() {
     return key === filter;
   });
 
-  // Drag-to-scroll
   const rowRef = useRef<HTMLDivElement>(null);
   const drag = useRef({ down: false, startX: 0, startLeft: 0, moved: false });
 
   const onPointerDown = (e: React.PointerEvent) => {
     const el = rowRef.current;
     if (!el) return;
-    drag.current = {
-      down: true,
-      startX: e.clientX,
-      startLeft: el.scrollLeft,
-      moved: false,
-    };
+    drag.current = { down: true, startX: e.clientX, startLeft: el.scrollLeft, moved: false };
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const el = rowRef.current;
@@ -64,7 +95,6 @@ export function GlassShelf() {
   const endDrag = () => {
     drag.current.down = false;
   };
-  // Swallow the click that ends a drag so cards don't navigate on drag-release.
   const onCardClick = (e: React.MouseEvent) => {
     if (drag.current.moved) {
       e.preventDefault();
@@ -73,115 +103,83 @@ export function GlassShelf() {
   };
 
   return (
-    <div className="glass mx-auto max-w-[1000px] rounded-[28px] p-2.5">
-      {/* mac-window header */}
-      <div className="flex items-center gap-3 px-3 py-2">
-        <div className="flex gap-1.5" aria-hidden>
-          <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-          <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-          <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-        </div>
-        <div className="flex flex-1 items-center justify-center gap-2 text-[0.82rem] font-medium text-white/90">
+    <div className={`p-5 ${className}`} style={{ background: DARK }}>
+      {/* header row: title left · tool buttons right */}
+      <div className="mb-4 flex items-center justify-between gap-2">
+        <span className="flex items-center gap-2 whitespace-nowrap text-[0.9rem] font-semibold text-white">
           <FolderIcon />
           {t(h.shelfTitle, lang)}
+        </span>
+        <div className="flex items-center gap-1.5" aria-hidden>
+          <ToolButton>
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </ToolButton>
+          <ToolButton>
+            <rect x="4" y="4" width="7" height="7" rx="1.5" />
+            <rect x="13" y="4" width="7" height="7" rx="1.5" />
+            <rect x="4" y="13" width="7" height="7" rx="1.5" />
+            <rect x="13" y="13" width="7" height="7" rx="1.5" />
+          </ToolButton>
         </div>
-        <span className="tnum text-[0.78rem] text-white/60">9:41</span>
       </div>
 
-      {/* dark panel */}
-      <div
-        className="rounded-[20px] p-4"
-        style={{ background: 'rgba(10,10,14,.85)' }}
+      {/* filter chips */}
+      <div className="mb-4 flex flex-wrap gap-2">
+        <Chip active={filter === 'all'} onClick={() => setFilter('all')} label={t(h.shelfFilterAll, lang)} />
+        {filters.map((f) => (
+          <Chip key={f.key} active={filter === f.key} onClick={() => setFilter(f.key)} label={f.label} />
+        ))}
+      </div>
+
+      {/* card row — animate on mount so cards always render */}
+      <motion.div
+        ref={rowRef}
+        variants={stackContainerTight}
+        initial="hidden"
+        animate="visible"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 active:cursor-grabbing"
       >
-        {/* filter chips */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <Chip
-            active={filter === 'all'}
-            onClick={() => setFilter('all')}
-            label={t(h.shelfFilterAll, lang)}
-          />
-          {filters.map((f) => (
-            <Chip
-              key={f.key}
-              active={filter === f.key}
-              onClick={() => setFilter(f.key)}
-              label={f.label}
-            />
-          ))}
-        </div>
-
-        {/* card row */}
-        <motion.div
-          ref={rowRef}
-          variants={stackContainerTight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerLeave={endDrag}
-          className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 active:cursor-grabbing"
-        >
-          {visible.map((p) => {
-            const first = p.tags[0];
-            return (
-              <motion.div
-                key={p.id}
-                variants={stackItemTight}
-                className="snap-start"
+        {visible.map((p) => {
+          const first = p.tags[0];
+          return (
+            <motion.div key={p.id} variants={stackItemTight} className="snap-start">
+              <Link
+                href={`/project/${p.id}`}
+                onClick={onCardClick}
+                draggable={false}
+                className="group block w-[200px] shrink-0 select-none rounded-2xl bg-white/5 p-2 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
               >
-                <Link
-                  href={`/project/${p.id}`}
-                  onClick={onCardClick}
-                  draggable={false}
-                  className="group block w-[200px] shrink-0 select-none rounded-2xl bg-white/5 p-2 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
-                    <Image
-                      src={p.cover}
-                      alt={t(p.title, lang)}
-                      fill
-                      sizes="200px"
-                      draggable={false}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="px-1 pb-1 pt-2.5">
-                    <p className="truncate text-[0.9rem] font-semibold text-white">
-                      {t(p.title, lang).split('—')[0].trim()}
-                    </p>
-                    <p className="mt-0.5 truncate text-[0.74rem] text-white/55">
-                      {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
-                    </p>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                  <Image src={p.cover} alt={t(p.title, lang)} fill sizes="200px" draggable={false} className="object-cover" />
+                </div>
+                <div className="px-1 pb-1 pt-2.5">
+                  <p className="truncate text-[0.9rem] font-semibold text-white">
+                    {t(p.title, lang).split('—')[0].trim()}
+                  </p>
+                  <p className="mt-0.5 truncate text-[0.74rem] text-white/55">
+                    {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </div>
   );
 }
 
-function Chip({
-  active,
-  onClick,
-  label,
-}: {
-  active: boolean;
-  onClick: () => void;
-  label: string;
-}) {
+function Chip({ active, onClick, label }: { active: boolean; onClick: () => void; label: string }) {
   return (
     <button
       onClick={onClick}
       aria-pressed={active}
       className={`rounded-full px-3 py-1 text-[0.76rem] font-medium transition-colors ${
-        active
-          ? 'bg-white text-black'
-          : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
+        active ? 'bg-white text-black' : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
       }`}
     >
       {label}
@@ -189,16 +187,47 @@ function Chip({
   );
 }
 
+function ToolButton({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 text-white/70">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        {children}
+      </svg>
+    </span>
+  );
+}
+
+/** Small identity label (logo mark + name) for the left wing. */
+function Identity() {
+  const { logoText } = content.site;
+  const dot = logoText.indexOf('.');
+  const head = dot === -1 ? logoText : logoText.slice(0, dot);
+  const tail = dot === -1 ? '' : logoText.slice(dot);
+  return (
+    <span className="flex items-center gap-1.5 whitespace-nowrap text-[0.82rem] font-semibold text-white">
+      <span className="h-4 w-4 rounded-[5px] bg-gradient-to-br from-[#4f9dff] to-[#c98bff]" />
+      {head}
+      <span className="text-white/60">{tail}</span>
+    </span>
+  );
+}
+
+/** Fake wifi + time for the right wing. */
+function WifiTime() {
+  return (
+    <span className="flex items-center gap-2 whitespace-nowrap text-white/85">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M12 18.5a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" fill="currentColor" />
+        <path d="M5.5 12.5a9 9 0 0 1 13 0M8.3 15.3a5 5 0 0 1 7.4 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+      </svg>
+      <span className="tnum text-[0.8rem]">9:41</span>
+    </span>
+  );
+}
+
 function FolderIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-      className="text-[#4f9dff]"
-    >
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden className="text-[#4f9dff]">
       <path
         d="M3 6.5A2.5 2.5 0 0 1 5.5 4h3.7c.5 0 1 .2 1.4.6l1 1c.3.3.8.5 1.3.5H18.5A2.5 2.5 0 0 1 21 8.6V17.5A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Z"
         fill="currentColor"

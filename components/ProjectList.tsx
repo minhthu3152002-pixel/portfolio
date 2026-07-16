@@ -95,7 +95,11 @@ export function ProjectList() {
       className="flex flex-col gap-6"
     >
       {projects.map((project, i) => (
-        <motion.div key={project.id} variants={stackItem}>
+        <motion.div
+          key={project.id}
+          variants={stackItem}
+          style={{ transformOrigin: 'top' }}
+        >
           <div
             ref={(el) => {
               items.current[i] = el;
