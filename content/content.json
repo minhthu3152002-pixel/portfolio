@@ -1,46 +1,229 @@
 {
   "site": {
-    "title": "Mavis | Marketing Portfolio",
+    "title": {
+      "en": "Mavis | Marketing Portfolio",
+      "vi": "Mavis | Portfolio Marketing"
+    },
     "logoText": "Mavis",
-    "description": "Marketing portfolio of Mavis: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
-    "nav": [
-      { "label": "Home", "href": "/" },
-      { "label": "Projects", "href": "/#projects" },
-      { "label": "Contact", "href": "/#contact" }
+    "description": {
+      "en": "Marketing portfolio of Mavis: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
+      "vi": "Portfolio marketing của Mavis: AI & tự động hoá marketing, digital marketing, chiến dịch tích hợp, social media và copywriting."
+    }
+  },
+  "nav": [
+    {
+      "id": "projects",
+      "label": { "en": "Projects", "vi": "Dự án" },
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": { "en": "About", "vi": "Về tôi" },
+      "enabled": true
+    },
+    {
+      "id": "contact",
+      "label": { "en": "Contact", "vi": "Liên hệ" },
+      "enabled": true
+    }
+  ],
+  "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
+  "hero": {
+    "badge": {
+      "en": "Marketing Portfolio · Ho Chi Minh City",
+      "vi": "Portfolio Marketing · TP. Hồ Chí Minh"
+    },
+    "headline": {
+      "en": "Mavis’s Marketing Portfolio",
+      "vi": "Portfolio Marketing của Mavis"
+    },
+    "headlineItalic": {
+      "en": "Turning ideas into campaigns that deliver results",
+      "vi": "Biến ý tưởng thành chiến dịch mang lại kết quả"
+    },
+    "subtitle": {
+      "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience integrating AI into marketing workflows.",
+      "vi": "Mình là Mavis, một marketer chuyên về digital marketing, chiến dịch tích hợp, social media và copywriting, có kinh nghiệm thực chiến đưa AI vào quy trình marketing."
+    },
+    "reassurance": {
+      "en": "Data-driven · Bilingual · Based in Ho Chi Minh City",
+      "vi": "Dựa trên dữ liệu · Song ngữ · Tại TP. Hồ Chí Minh"
+    },
+    "cta": {
+      "label": {
+        "en": "View projects",
+        "vi": "Xem dự án"
+      },
+      "href": "#projects"
+    },
+    "shelfTitle": {
+      "en": "My Projects",
+      "vi": "Dự án của mình"
+    },
+    "shelfFilterAll": {
+      "en": "All",
+      "vi": "Tất cả"
+    }
+  },
+  "about": {
+    "heading": { "enabled": true, "en": "About me", "vi": "Về tôi" },
+    "name": "Nguyễn Thị Minh Thu",
+    "role": {
+      "en": "Marketing · AI Automation",
+      "vi": "Marketing · Tự động hoá AI"
+    },
+    "avatar": "/assets/avatar.png",
+    "traits": [
+      { "en": "Marketer", "vi": "Marketer" },
+      { "en": "AI-first", "vi": "Ưu tiên AI" },
+      { "en": "Data-driven", "vi": "Dựa trên dữ liệu" }
+    ],
+    "summary": {
+      "en": "I'm a marketer working across AI & marketing automation, integrated campaigns, copywriting and social media. I build internal tools that remove manual work and ship data-backed campaigns — from 5K+ qualified leads to 26.7M-view social content.",
+      "vi": "Mình là một marketer hoạt động khắp các mảng AI & tự động hoá marketing, chiến dịch tích hợp, copywriting và social media. Mình xây các công cụ nội bộ giúp bỏ bớt việc thủ công và triển khai chiến dịch dựa trên số liệu — từ 5K+ lead chất lượng đến nội dung social 26.7M lượt xem."
+    },
+    "flipLine": {
+      "enabled": true,
+      "prefix": { "en": "I make your marketing ", "vi": "Mình giúp marketing của bạn " },
+      "words": [
+        { "en": "more creative", "vi": "sáng tạo hơn" },
+        { "en": "more measurable", "vi": "đo lường được" },
+        { "en": "less manual", "vi": "bớt thủ công" }
+      ],
+      "suffix": { "en": "", "vi": "" }
+    },
+    "experience": [
+      {
+        "period": "05/2025 – 07/2026",
+        "title": { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
+        "org": "LIKELION Vietnam"
+      },
+      {
+        "period": "08/2024 – 01/2025",
+        "title": { "en": "Copywriter", "vi": "Copywriter" },
+        "org": "WEALLNET CREATIVE NETWORK"
+      },
+      {
+        "period": "02/2023 – 02/2024",
+        "title": { "en": "Marketing Fresher", "vi": "Marketing Fresher" },
+        "org": "Digital Communication DIGIMAT"
+      },
+      {
+        "period": "05/2023 – 08/2023",
+        "title": { "en": "Business Intern", "vi": "Thực tập sinh Kinh doanh" },
+        "org": "FWD Vietnam Life Insurance"
+      }
+    ],
+    "education": [
+      {
+        "school": "HUFLIT University",
+        "degree": { "en": "BBA in Marketing", "vi": "Cử nhân Quản trị Marketing" },
+        "year": "2024",
+        "gpa": "3.0"
+      }
+    ],
+    "skills": [
+      "Content Strategy",
+      "Meta Ads",
+      "Social Media",
+      "Copywriting",
+      "Campaign Management",
+      "Lead Generation"
+    ],
+    "tools": [
+      "Meta Ads Manager",
+      "Canva",
+      "Google Analytics",
+      "Google Apps Script",
+      "Google Trends",
+      "Claude Code",
+      "Claude",
+      "ChatGPT",
+      "Gemini",
+      "GitHub",
+      "Vercel"
+    ],
+    "languages": [
+      {
+        "name": { "en": "Vietnamese", "vi": "Tiếng Việt" },
+        "level": { "en": "Native", "vi": "Bản ngữ" },
+        "value": 100
+      },
+      {
+        "name": { "en": "English", "vi": "Tiếng Anh" },
+        "level": { "en": "Professional", "vi": "Chuyên nghiệp" },
+        "value": 75
+      }
     ]
   },
-  "hero": {
-    "headline": "Mavis’s Marketing Portfolio",
-    "headlineItalic": "Turning ideas into campaigns that deliver results",
-    "subtitle": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience integrating AI into marketing workflows.",
-    "cta": { "label": "View projects", "href": "#projects" }
-  },
   "contact": {
-    "eyebrow": "Contact",
-    "heading": "Let's work together!",
-    "subtitle": "Dedicated to delivering impactful, creative solutions for brands and businesses.",
+    "heading": {
+      "en": "Let's work together!",
+      "vi": "Hãy cùng hợp tác nhé!"
+    },
+    "subtitle": {
+      "en": "Dedicated to delivering impactful, creative solutions for brands and businesses.",
+      "vi": "Luôn tận tâm mang đến những giải pháp sáng tạo, tạo tác động thật cho thương hiệu và doanh nghiệp."
+    },
     "email": "minhthu3152002@gmail.com",
     "phone": "+84 896 487 127",
-    "location": "HCMC",
+    "location": {
+      "en": "HCMC",
+      "vi": "TP.HCM"
+    },
     "socials": [
-      { "label": "LinkedIn", "href": "#" }
+      {
+        "label": "LinkedIn",
+        "href": "#"
+      }
     ],
-    "copyright": "© 2026 Nguyen Thi Minh Thu (Mavis). Marketing Portfolio."
+    "copyright": {
+      "en": "© 2026 Nguyen Thi Minh Thu (Mavis). Marketing Portfolio.",
+      "vi": "© 2026 Nguyễn Thị Minh Thu (Mavis). Portfolio Marketing."
+    }
   },
   "projects": [
     {
       "enabled": true,
       "id": "ai-automation",
-      "title": "AI & Marketing Automation",
-      "short": "Building AI-powered internal tools and personal products — from auto-updating dashboards to email automation and app prototypes.",
-      "tags": ["AI Tools", "Automation", "Claude Code", "Dashboards", "Apps Script"],
-      "colors": { "bg": "#0d2430", "fg": "#d7f5ff", "accent": "#3dd6f5" },
+      "title": {
+        "en": "AI & Marketing Automation",
+        "vi": "AI & Tự động hoá Marketing"
+      },
+      "short": {
+        "en": "Building AI-powered internal tools and personal products — from auto-updating dashboards to email automation and app prototypes.",
+        "vi": "Xây dựng công cụ nội bộ và sản phẩm cá nhân ứng dụng AI — từ dashboard tự cập nhật đến tự động hoá email và bản mẫu ứng dụng."
+      },
+      "tags": [
+        {
+          "en": "AI Tools",
+          "vi": "Công cụ AI"
+        },
+        {
+          "en": "Automation",
+          "vi": "Tự động hoá"
+        },
+        "Claude Code",
+        {
+          "en": "Dashboards",
+          "vi": "Dashboard dữ liệu"
+        },
+        "Apps Script"
+      ],
+      "colors": {
+        "bg": "#e3f6fb",
+        "fg": "#103b45",
+        "accent": "#06b6d4"
+      },
       "cover": "/assets/ktech-events.jpg",
       "sections": [
         {
           "enabled": true,
           "id": "overview",
-          "label": "Overview",
+          "label": {
+            "en": "Overview",
+            "vi": "Tổng quan"
+          },
           "groups": [
             {
               "enabled": true,
@@ -49,16 +232,37 @@
                 {
                   "type": "text",
                   "items": [
-                    "I use AI coding tools (Claude Code, Claude Design) to build marketing automation: internal tools that remove manual work and personal products I ship end-to-end.",
-                    "Internal tools: a campaign landing page, an auto-updating data dashboard and automated email workflows for the K-Tech campaign.",
-                    "Personal products: mobile app concepts prototyped with AI coding tools."
+                    {
+                      "en": "I use AI coding tools (Claude Code, Claude Design) to build marketing automation: internal tools that remove manual work and personal products I ship end-to-end.",
+                      "vi": "Mình dùng các công cụ lập trình AI (Claude Code, Claude Design) để xây dựng tự động hoá marketing: công cụ nội bộ giúp loại bỏ việc thủ công và các sản phẩm cá nhân mình tự phát triển từ đầu đến cuối."
+                    },
+                    {
+                      "en": "Internal tools: a campaign landing page, an auto-updating data dashboard and automated email workflows for the K-Tech campaign.",
+                      "vi": "Công cụ nội bộ: một landing page chiến dịch, một dashboard dữ liệu tự cập nhật và các luồng email tự động cho chiến dịch K-Tech."
+                    },
+                    {
+                      "en": "Personal products: mobile app concepts prototyped with AI coding tools.",
+                      "vi": "Sản phẩm cá nhân: các ý tưởng ứng dụng di động được dựng mẫu bằng công cụ lập trình AI."
+                    }
                   ]
                 },
                 {
                   "type": "stats",
                   "items": [
-                    ["[X]h → [Y]m", "reporting time"],
-                    ["4", "tools shipped"]
+                    [
+                      "[X]h → [Y]m",
+                      {
+                        "en": "reporting time",
+                        "vi": "thời gian báo cáo"
+                      }
+                    ],
+                    [
+                      "4",
+                      {
+                        "en": "tools shipped",
+                        "vi": "công cụ đã hoàn thành"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -68,22 +272,37 @@
         {
           "enabled": true,
           "id": "personal-project",
-          "label": "Personal Project",
+          "label": {
+            "en": "Personal Project",
+            "vi": "Dự án cá nhân"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Pet Care App",
+              "title": {
+                "en": "Pet Care App",
+                "vi": "Ứng dụng Chăm sóc Thú cưng"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "A mobile app concept built with AI coding tools. [I will provide details]"
+                    {
+                      "en": "A mobile app concept built with AI coding tools. [I will provide details]",
+                      "vi": "Một ý tưởng ứng dụng di động được xây dựng bằng công cụ lập trình AI. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-social.jpg", "Pet Care App — concept (placeholder image)"]
+                    [
+                      "/assets/ktech-social.jpg",
+                      {
+                        "en": "Pet Care App — concept (placeholder image)",
+                        "vi": "Ứng dụng Chăm sóc Thú cưng — ý tưởng (ảnh minh hoạ)"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -93,64 +312,121 @@
         {
           "enabled": true,
           "id": "k-tech-tools",
-          "label": "K-Tech Tools",
+          "label": {
+            "en": "K-Tech Tools",
+            "vi": "Công cụ K-Tech"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Landing Page",
+              "title": {
+                "en": "Landing Page",
+                "vi": "Landing Page"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Built and shipped a campaign landing page with <b>Claude Code + Claude Design</b>, deployed via <b>GitHub + Vercel</b>.",
-                    "<b>Purpose:</b> give candidates a single, clear entry point to learn about the program and register.",
-                    "<b>Outcome:</b> reduced candidate confusion and gave the team a fast, reliable page they could update anytime."
+                    {
+                      "en": "Built and shipped a campaign landing page with <b>Claude Code + Claude Design</b>, deployed via <b>GitHub + Vercel</b>.",
+                      "vi": "Xây dựng và hoàn thiện một landing page chiến dịch bằng <b>Claude Code + Claude Design</b>, triển khai qua <b>GitHub + Vercel</b>."
+                    },
+                    {
+                      "en": "<b>Purpose:</b> give candidates a single, clear entry point to learn about the program and register.",
+                      "vi": "<b>Mục tiêu:</b> cho ứng viên một điểm truy cập duy nhất, rõ ràng để tìm hiểu chương trình và đăng ký."
+                    },
+                    {
+                      "en": "<b>Outcome:</b> reduced candidate confusion and gave the team a fast, reliable page they could update anytime.",
+                      "vi": "<b>Kết quả:</b> giảm bối rối cho ứng viên và mang lại cho team một trang nhanh, ổn định, có thể cập nhật bất cứ lúc nào."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-ads.jpg", "Landing page (placeholder image)"]
+                    [
+                      "/assets/ktech-ads.jpg",
+                      {
+                        "en": "Landing page (placeholder image)",
+                        "vi": "Landing page (ảnh minh hoạ)"
+                      }
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Data Dashboard",
+              "title": {
+                "en": "Data Dashboard",
+                "vi": "Dashboard Dữ liệu"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Consolidated scattered Google Sheets into one <b>auto-updating dashboard</b> (Claude + GitHub + Vercel).",
-                    "Gave the team a single source of truth for tracking and analysis.",
-                    "Saved significant manual reporting time each week."
+                    {
+                      "en": "Consolidated scattered Google Sheets into one <b>auto-updating dashboard</b> (Claude + GitHub + Vercel).",
+                      "vi": "Gom nhiều Google Sheets rời rạc thành một <b>dashboard tự cập nhật</b> (Claude + GitHub + Vercel)."
+                    },
+                    {
+                      "en": "Gave the team a single source of truth for tracking and analysis.",
+                      "vi": "Mang lại cho team một nguồn dữ liệu thống nhất để theo dõi và phân tích."
+                    },
+                    {
+                      "en": "Saved significant manual reporting time each week.",
+                      "vi": "Tiết kiệm đáng kể thời gian làm báo cáo thủ công mỗi tuần."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-events.jpg", "Data dashboard (placeholder image)"]
+                    [
+                      "/assets/ktech-events.jpg",
+                      {
+                        "en": "Data dashboard (placeholder image)",
+                        "vi": "Dashboard dữ liệu (ảnh minh hoạ)"
+                      }
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Auto Email",
+              "title": {
+                "en": "Auto Email",
+                "vi": "Email Tự động"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Automated email workflows with <b>Google Apps Script</b>.",
-                    "<b>Trigger logic:</b> emails sent automatically based on form submissions and status changes.",
-                    "<b>Time saved:</b> cut repetitive manual sending while improving response consistency."
+                    {
+                      "en": "Automated email workflows with <b>Google Apps Script</b>.",
+                      "vi": "Tự động hoá các luồng email bằng <b>Google Apps Script</b>."
+                    },
+                    {
+                      "en": "<b>Trigger logic:</b> emails sent automatically based on form submissions and status changes.",
+                      "vi": "<b>Logic kích hoạt:</b> email được gửi tự động dựa trên lượt điền form và thay đổi trạng thái."
+                    },
+                    {
+                      "en": "<b>Time saved:</b> cut repetitive manual sending while improving response consistency.",
+                      "vi": "<b>Tiết kiệm thời gian:</b> giảm việc gửi thủ công lặp đi lặp lại và tăng tính nhất quán khi phản hồi."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-social.jpg", "Auto email workflow (placeholder image)"]
+                    [
+                      "/assets/ktech-social.jpg",
+                      {
+                        "en": "Auto email workflow (placeholder image)",
+                        "vi": "Luồng email tự động (ảnh minh hoạ)"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -161,17 +437,52 @@
     },
     {
       "enabled": true,
-      "id": "KTC",
-      "title": "K-Tech College — Awareness & Lead Campaign",
-      "short": "Built awareness and drove 5K+ qualified leads for an international tech education program through a digital-first, community-driven campaign.",
-      "tags": ["Meta Ads", "Social Media", "Strategy", "Community", "Lead Gen", "Tech Events"],
-      "colors": { "bg": "#1b2340", "fg": "#dfe6ff", "accent": "#7da2ff" },
+      "id": "k-tech",
+      "title": {
+        "en": "K-Tech College — Awareness & Lead Campaign",
+        "vi": "K-Tech College — Chiến dịch Nhận diện & Thu Lead"
+      },
+      "short": {
+        "en": "Built awareness and drove 5K+ qualified leads for an international tech education program through a digital-first, community-driven campaign.",
+        "vi": "Xây dựng nhận diện và mang về 5K+ lead chất lượng cho một chương trình đào tạo công nghệ quốc tế, qua chiến dịch ưu tiên digital và lấy cộng đồng làm trọng tâm."
+      },
+      "tags": [
+        "Meta Ads",
+        {
+          "en": "Social Media",
+          "vi": "Truyền thông MXH"
+        },
+        {
+          "en": "Strategy",
+          "vi": "Chiến lược"
+        },
+        {
+          "en": "Community",
+          "vi": "Cộng đồng"
+        },
+        {
+          "en": "Lead Gen",
+          "vi": "Tạo lead"
+        },
+        {
+          "en": "Tech Events",
+          "vi": "Sự kiện công nghệ"
+        }
+      ],
+      "colors": {
+        "bg": "#e7ecfb",
+        "fg": "#1e2749",
+        "accent": "#4f6ef7"
+      },
       "cover": "/assets/ktech-ads.jpg",
       "sections": [
         {
           "enabled": true,
           "id": "overview",
-          "label": "Overview",
+          "label": {
+            "en": "Overview",
+            "vi": "Tổng quan"
+          },
           "groups": [
             {
               "enabled": true,
@@ -180,45 +491,99 @@
                 {
                   "type": "text",
                   "items": [
-                    "Planned and executed a full-funnel campaign (Awareness → Consideration → Conversion) to promote an international tech education program to Vietnam's IT community.",
-                    "Combined social media, Meta Ads, landing page optimization, third-party job boards and offline tech events into one integrated strategy."
+                    {
+                      "en": "Planned and executed a full-funnel campaign (Awareness → Consideration → Conversion) to promote an international tech education program to Vietnam's IT community.",
+                      "vi": "Lên kế hoạch và triển khai chiến dịch full-funnel (Nhận biết → Cân nhắc → Chuyển đổi) để quảng bá một chương trình đào tạo công nghệ quốc tế đến cộng đồng IT Việt Nam."
+                    },
+                    {
+                      "en": "Combined social media, Meta Ads, landing page optimization, third-party job boards and offline tech events into one integrated strategy.",
+                      "vi": "Kết hợp social media, Meta Ads, tối ưu landing page, các nền tảng tuyển dụng bên thứ ba và sự kiện công nghệ offline thành một chiến lược tích hợp."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Challenge",
+              "title": {
+                "en": "Challenge",
+                "vi": "Thách thức"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Low awareness of the program in Vietnam's tech community.",
-                    "Needed to reach two very different audiences: students and working developers.",
-                    "Limited campaign timeline demanded fast testing and optimization."
+                    {
+                      "en": "Low awareness of the program in Vietnam's tech community.",
+                      "vi": "Chương trình còn ít được biết đến trong cộng đồng công nghệ Việt Nam."
+                    },
+                    {
+                      "en": "Needed to reach two very different audiences: students and working developers.",
+                      "vi": "Cần tiếp cận hai nhóm đối tượng rất khác nhau: sinh viên và lập trình viên đang đi làm."
+                    },
+                    {
+                      "en": "Limited campaign timeline demanded fast testing and optimization.",
+                      "vi": "Thời gian chiến dịch có hạn, đòi hỏi thử nghiệm và tối ưu nhanh."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Results",
+              "title": {
+                "en": "Results",
+                "vi": "Kết quả"
+              },
               "blocks": [
                 {
                   "type": "stats",
                   "items": [
-                    ["174K+", "impressions"],
-                    ["129K+", "engagements"],
-                    ["5K+", "total leads"],
-                    ["33%", "of registrations via Meta Ads"]
+                    [
+                      "174K+",
+                      {
+                        "en": "impressions",
+                        "vi": "lượt hiển thị"
+                      }
+                    ],
+                    [
+                      "129K+",
+                      {
+                        "en": "engagements",
+                        "vi": "lượt tương tác"
+                      }
+                    ],
+                    [
+                      "5K+",
+                      {
+                        "en": "total leads",
+                        "vi": "tổng số lead"
+                      }
+                    ],
+                    [
+                      "33%",
+                      {
+                        "en": "of registrations via Meta Ads",
+                        "vi": "lượt đăng ký đến từ Meta Ads"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "text",
                   "items": [
-                    "Contributed <b>33% of total registrations</b> via Meta Ads while successfully reducing CPL.",
-                    "KTC Hackathon 2025 reached <b>174K+ impressions, 129K+ engagements and 5K+ leads</b>.",
-                    "Achieved high satisfaction scores and positive feedback on candidate support and experience."
+                    {
+                      "en": "Contributed <b>33% of total registrations</b> via Meta Ads while successfully reducing CPL.",
+                      "vi": "Đóng góp <b>33% tổng lượt đăng ký</b> qua Meta Ads đồng thời giảm thành công CPL."
+                    },
+                    {
+                      "en": "KTC Hackathon 2025 reached <b>174K+ impressions, 129K+ engagements and 5K+ leads</b>.",
+                      "vi": "KTC Hackathon 2025 đạt <b>174K+ lượt hiển thị, 129K+ lượt tương tác và 5K+ lead</b>."
+                    },
+                    {
+                      "en": "Achieved high satisfaction scores and positive feedback on candidate support and experience.",
+                      "vi": "Đạt điểm hài lòng cao và phản hồi tích cực về hỗ trợ và trải nghiệm ứng viên."
+                    }
                   ]
                 }
               ]
@@ -230,7 +595,10 @@
                 {
                   "type": "text",
                   "items": [
-                    "<a href=\"/project/ai-automation\">→ See the AI tools I built for this campaign</a>"
+                    {
+                      "en": "<a href=\"/project/ai-automation\">→ See the AI tools I built for this campaign</a>",
+                      "vi": "<a href=\"/project/ai-automation\">→ Xem các công cụ AI mình đã xây cho chiến dịch này</a>"
+                    }
                   ]
                 }
               ]
@@ -240,46 +608,73 @@
         {
           "enabled": true,
           "id": "paid-channel",
-          "label": "Paid Channel",
+          "label": {
+            "en": "Paid Channel",
+            "vi": "Kênh trả phí"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Meta Ads",
+              "title": {
+                "en": "Meta Ads",
+                "vi": "Meta Ads"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Meta Ads:</b> tested 3+ ad angles and multiple formats (carousel, video, single image), refined copy per audience segment to improve CTR and lower cost per application."
+                    {
+                      "en": "<b>Meta Ads:</b> tested 3+ ad angles and multiple formats (carousel, video, single image), refined copy per audience segment to improve CTR and lower cost per application.",
+                      "vi": "<b>Meta Ads:</b> thử nghiệm 3+ hướng quảng cáo và nhiều định dạng (carousel, video, ảnh đơn), tinh chỉnh nội dung theo từng nhóm đối tượng để tăng CTR và giảm chi phí mỗi đơn đăng ký."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-ads.jpg", "Meta Ads performance"]
+                    [
+                      "/assets/ktech-ads.jpg",
+                      {
+                        "en": "Meta Ads performance",
+                        "vi": "Hiệu quả Meta Ads"
+                      }
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "LinkedIn Promoted Jobs",
+              "title": {
+                "en": "LinkedIn Promoted Jobs",
+                "vi": "Tin tuyển dụng LinkedIn"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Promoted job posts on LinkedIn to reach working developers with targeted placements. [I will provide details]"
+                    {
+                      "en": "Promoted job posts on LinkedIn to reach working developers with targeted placements. [I will provide details]",
+                      "vi": "Chạy tin tuyển dụng trên LinkedIn để tiếp cận lập trình viên đang đi làm bằng các vị trí nhắm mục tiêu. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Hiring Platforms",
+              "title": {
+                "en": "Hiring Platforms",
+                "vi": "Nền tảng tuyển dụng"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Partnerships:</b> coordinated with ITviec and VietnamWorks for media placements reaching targeted IT audiences."
+                    {
+                      "en": "<b>Partnerships:</b> coordinated with ITviec and VietnamWorks for media placements reaching targeted IT audiences.",
+                      "vi": "<b>Hợp tác:</b> phối hợp với ITviec và VietnamWorks để đặt truyền thông, tiếp cận đúng đối tượng IT."
+                    }
                   ]
                 }
               ]
@@ -289,71 +684,113 @@
         {
           "enabled": true,
           "id": "free-channel",
-          "label": "Free Channel",
+          "label": {
+            "en": "Free Channel",
+            "vi": "Kênh miễn phí"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Social Media",
+              "title": {
+                "en": "Social Media",
+                "vi": "Truyền thông MXH"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Social media:</b> planned Facebook & LinkedIn content across 4 pillars — career opportunities, program introduction, social proof, event promotion."
+                    {
+                      "en": "<b>Social media:</b> planned Facebook & LinkedIn content across 4 pillars — career opportunities, program introduction, social proof, event promotion.",
+                      "vi": "<b>Social media:</b> lên nội dung Facebook & LinkedIn theo 4 trụ — cơ hội nghề nghiệp, giới thiệu chương trình, social proof, quảng bá sự kiện."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-social.jpg", "Social media content pillars"]
+                    [
+                      "/assets/ktech-social.jpg",
+                      {
+                        "en": "Social media content pillars",
+                        "vi": "Các trụ nội dung social media"
+                      }
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Community",
+              "title": {
+                "en": "Community",
+                "vi": "Cộng đồng"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Nurtured the developer community through group engagement and conversation. [I will provide details]"
+                    {
+                      "en": "Nurtured the developer community through group engagement and conversation. [I will provide details]",
+                      "vi": "Nuôi dưỡng cộng đồng lập trình viên qua tương tác nhóm và trò chuyện. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Seeding",
+              "title": {
+                "en": "Seeding",
+                "vi": "Seeding"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Seeded the program across relevant forums, groups and communities. [I will provide details]"
+                    {
+                      "en": "Seeded the program across relevant forums, groups and communities. [I will provide details]",
+                      "vi": "Seeding chương trình trên các diễn đàn, group và cộng đồng liên quan. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Hiring Platforms — organic",
+              "title": {
+                "en": "Hiring Platforms — organic",
+                "vi": "Nền tảng tuyển dụng — organic"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Landing page & Notion job page:</b> proposed content edits that reduced candidate confusion, and built a Notion job page that helped candidates find roles while saving project costs.",
-                    "Published organic job listings on hiring platforms to reach candidates for free. [I will provide details]"
+                    {
+                      "en": "<b>Landing page & Notion job page:</b> proposed content edits that reduced candidate confusion, and built a Notion job page that helped candidates find roles while saving project costs.",
+                      "vi": "<b>Landing page & trang tuyển dụng Notion:</b> đề xuất chỉnh sửa nội dung giúp giảm bối rối cho ứng viên, và xây một trang tuyển dụng trên Notion giúp ứng viên tìm vị trí phù hợp trong khi tiết kiệm chi phí dự án."
+                    },
+                    {
+                      "en": "Published organic job listings on hiring platforms to reach candidates for free. [I will provide details]",
+                      "vi": "Đăng tin tuyển dụng organic trên các nền tảng để tiếp cận ứng viên miễn phí. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "University Partnerships",
+              "title": {
+                "en": "University Partnerships",
+                "vi": "Hợp tác đại học"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Partnered with universities to reach students through campus channels. [I will provide details]"
+                    {
+                      "en": "Partnered with universities to reach students through campus channels. [I will provide details]",
+                      "vi": "Hợp tác với các trường đại học để tiếp cận sinh viên qua kênh trong trường. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
@@ -363,34 +800,56 @@
         {
           "enabled": true,
           "id": "events",
-          "label": "Events",
+          "label": {
+            "en": "Events",
+            "vi": "Sự kiện"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Offline Events",
+              "title": {
+                "en": "Offline Events",
+                "vi": "Sự kiện offline"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Tech events:</b> developed concepts, agendas and judging criteria for K-TECH FEST, K-TECH NEXUS and KTC HACKATHON; acted as primary contact for all participants."
+                    {
+                      "en": "<b>Tech events:</b> developed concepts, agendas and judging criteria for K-TECH FEST, K-TECH NEXUS and KTC HACKATHON; acted as primary contact for all participants.",
+                      "vi": "<b>Sự kiện công nghệ:</b> xây dựng concept, agenda và tiêu chí chấm cho K-TECH FEST, K-TECH NEXUS và KTC HACKATHON; là đầu mối liên hệ chính cho toàn bộ người tham gia."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/ktech-events.jpg", "Workshops & tech events", 1]
+                    [
+                      "/assets/ktech-events.jpg",
+                      {
+                        "en": "Workshops & tech events",
+                        "vi": "Workshop & sự kiện công nghệ"
+                      },
+                      1
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Online Events",
+              "title": {
+                "en": "Online Events",
+                "vi": "Sự kiện online"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Ran online events and webinars to engage remote audiences. [I will provide details]"
+                    {
+                      "en": "Ran online events and webinars to engage remote audiences. [I will provide details]",
+                      "vi": "Tổ chức sự kiện online và webinar để tương tác với khán giả từ xa. [Mình sẽ bổ sung chi tiết]"
+                    }
                   ]
                 }
               ]
@@ -402,16 +861,44 @@
     {
       "enabled": true,
       "id": "copywriter",
-      "title": "Copywriter Projects",
-      "short": "Strategic messaging, big ideas and content execution for clients across tech, F&B, education and energy.",
-      "tags": ["Copywriting", "Brand Messaging", "Market Research", "Creative Concepts", "Tone of Voice"],
-      "colors": { "bg": "#2a1830", "fg": "#f2e4ff", "accent": "#c98bff" },
+      "title": {
+        "en": "Copywriter Projects",
+        "vi": "Dự án Copywriter"
+      },
+      "short": {
+        "en": "Strategic messaging, big ideas and content execution for clients across tech, F&B, education and energy.",
+        "vi": "Thông điệp chiến lược, big idea và triển khai nội dung cho khách hàng thuộc nhiều ngành: công nghệ, F&B, giáo dục và năng lượng."
+      },
+      "tags": [
+        "Copywriting",
+        {
+          "en": "Brand Messaging",
+          "vi": "Thông điệp thương hiệu"
+        },
+        {
+          "en": "Market Research",
+          "vi": "Nghiên cứu thị trường"
+        },
+        {
+          "en": "Creative Concepts",
+          "vi": "Ý tưởng sáng tạo"
+        },
+        "Tone of Voice"
+      ],
+      "colors": {
+        "bg": "#f3e9fc",
+        "fg": "#3a1f52",
+        "accent": "#9b5de5"
+      },
       "cover": "/assets/copy-overview.jpg",
       "sections": [
         {
           "enabled": true,
           "id": "overview",
-          "label": "Overview",
+          "label": {
+            "en": "Overview",
+            "vi": "Tổng quan"
+          },
           "groups": [
             {
               "enabled": true,
@@ -420,66 +907,124 @@
                 {
                   "type": "text",
                   "items": [
-                    "As a copywriter at WEALLNET Agency, developed messaging strategy and creative concepts for featured clients: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy and Ha Thien Energy</b>."
+                    {
+                      "en": "As a copywriter at WEALLNET Agency, developed messaging strategy and creative concepts for featured clients: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy and Ha Thien Energy</b>.",
+                      "vi": "Ở vai trò copywriter tại WEALLNET Agency, mình phát triển chiến lược thông điệp và ý tưởng sáng tạo cho các khách hàng tiêu biểu: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy và Hà Thiên Energy</b>."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Responsibilities",
+              "title": {
+                "en": "Responsibilities",
+                "vi": "Trách nhiệm"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Conducted market research, competitor analysis and industry trend evaluation for every brief.",
-                    "Analyzed target customer personas and developed key messages with a brand-appropriate tone of voice."
+                    {
+                      "en": "Conducted market research, competitor analysis and industry trend evaluation for every brief.",
+                      "vi": "Thực hiện nghiên cứu thị trường, phân tích đối thủ và đánh giá xu hướng ngành cho mỗi brief."
+                    },
+                    {
+                      "en": "Analyzed target customer personas and developed key messages with a brand-appropriate tone of voice.",
+                      "vi": "Phân tích chân dung khách hàng mục tiêu và xây dựng key message với tone of voice phù hợp thương hiệu."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Challenge",
+              "title": {
+                "en": "Challenge",
+                "vi": "Thách thức"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Each client came from a different industry with distinct audiences — from parents buying kids' smartwatches to takeaway coffee cart owners.",
-                    "Messaging had to balance brand-appropriate tone of voice with concrete conversion goals."
+                    {
+                      "en": "Each client came from a different industry with distinct audiences — from parents buying kids' smartwatches to takeaway coffee cart owners.",
+                      "vi": "Mỗi khách hàng thuộc một ngành khác nhau với tệp đối tượng riêng — từ phụ huynh mua đồng hồ thông minh cho con đến chủ xe cà phê mang đi."
+                    },
+                    {
+                      "en": "Messaging had to balance brand-appropriate tone of voice with concrete conversion goals.",
+                      "vi": "Thông điệp phải cân bằng giữa tone of voice đúng thương hiệu và mục tiêu chuyển đổi cụ thể."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Clients",
+              "title": {
+                "en": "Clients",
+                "vi": "Khách hàng"
+              },
               "blocks": [
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/copy-overview.jpg", "Featured clients & responsibilities", 1]
+                    [
+                      "/assets/copy-overview.jpg",
+                      {
+                        "en": "Featured clients & responsibilities",
+                        "vi": "Khách hàng tiêu biểu & trách nhiệm"
+                      },
+                      1
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Results",
+              "title": {
+                "en": "Results",
+                "vi": "Kết quả"
+              },
               "blocks": [
                 {
                   "type": "stats",
                   "items": [
-                    ["4", "featured clients"],
-                    ["750", "carts — franchise growth target"],
-                    ["3", "audience groups per campaign"]
+                    [
+                      "4",
+                      {
+                        "en": "featured clients",
+                        "vi": "khách hàng tiêu biểu"
+                      }
+                    ],
+                    [
+                      "750",
+                      {
+                        "en": "carts — franchise growth target",
+                        "vi": "xe đẩy — mục tiêu tăng trưởng nhượng quyền"
+                      }
+                    ],
+                    [
+                      "3",
+                      {
+                        "en": "audience groups per campaign",
+                        "vi": "nhóm đối tượng mỗi chiến dịch"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "text",
                   "items": [
-                    "Received <b>positive client feedback</b> on proposals — approved for next steps.",
-                    "Delivered full messaging frameworks (Get who / To do what / By how) ready for media rollout."
+                    {
+                      "en": "Received <b>positive client feedback</b> on proposals — approved for next steps.",
+                      "vi": "Nhận <b>phản hồi tích cực từ khách hàng</b> về đề xuất — được duyệt cho các bước tiếp theo."
+                    },
+                    {
+                      "en": "Delivered full messaging frameworks (Get who / To do what / By how) ready for media rollout.",
+                      "vi": "Bàn giao framework thông điệp hoàn chỉnh (Get who / To do what / By how) sẵn sàng để triển khai truyền thông."
+                    }
                   ]
                 }
               ]
@@ -489,7 +1034,10 @@
         {
           "enabled": true,
           "id": "imoo",
-          "label": "imoo Watch Phone",
+          "label": {
+            "en": "imoo Watch Phone",
+            "vi": "imoo Watch Phone"
+          },
           "groups": [
             {
               "enabled": true,
@@ -498,13 +1046,22 @@
                 {
                   "type": "text",
                   "items": [
-                    "<b>imoo Z7:</b> positioned the smartwatch as peace-of-mind for busy parents (kids 5–12), with content built on safety, real-life stories and product comparisons across Google, Facebook Ads and website UX."
+                    {
+                      "en": "<b>imoo Z7:</b> positioned the smartwatch as peace-of-mind for busy parents (kids 5–12), with content built on safety, real-life stories and product comparisons across Google, Facebook Ads and website UX.",
+                      "vi": "<b>imoo Z7:</b> định vị chiếc smartwatch như sự an tâm cho các bậc phụ huynh bận rộn (trẻ 5–12 tuổi), với nội dung xoay quanh an toàn, câu chuyện thực tế và so sánh sản phẩm trên Google, Facebook Ads và UX website."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/copy-imoo.jpg", "imoo Watch Phone campaign"]
+                    [
+                      "/assets/copy-imoo.jpg",
+                      {
+                        "en": "imoo Watch Phone campaign",
+                        "vi": "Chiến dịch imoo Watch Phone"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -514,7 +1071,10 @@
         {
           "enabled": true,
           "id": "fromcaudat",
-          "label": "FROMCAUDAT Coffee",
+          "label": {
+            "en": "FROMCAUDAT Coffee",
+            "vi": "FROMCAUDAT Coffee"
+          },
           "groups": [
             {
               "enabled": true,
@@ -523,13 +1083,22 @@
                 {
                   "type": "text",
                   "items": [
-                    "<b>FROMCAUDAT:</b> crafted a community-driven narrative ('Nhà Đồng Hành') to scale the takeaway coffee franchise toward 750 carts in 10 months, targeting sellers, student baristas and busy professionals."
+                    {
+                      "en": "<b>FROMCAUDAT:</b> crafted a community-driven narrative ('Nhà Đồng Hành') to scale the takeaway coffee franchise toward 750 carts in 10 months, targeting sellers, student baristas and busy professionals.",
+                      "vi": "<b>FROMCAUDAT:</b> xây dựng câu chuyện lấy cộng đồng làm trọng tâm ('Nhà Đồng Hành') để mở rộng chuỗi nhượng quyền cà phê mang đi lên 750 xe trong 10 tháng, nhắm đến người bán, barista sinh viên và dân văn phòng bận rộn."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/copy-fromcaudat.jpg", "FROMCAUDAT Coffee campaign"]
+                    [
+                      "/assets/copy-fromcaudat.jpg",
+                      {
+                        "en": "FROMCAUDAT Coffee campaign",
+                        "vi": "Chiến dịch FROMCAUDAT Coffee"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -541,16 +1110,59 @@
     {
       "enabled": true,
       "id": "social-media",
-      "title": "Social Media",
-      "short": "Grew community and brand pages to 26.7M views and +15.1K followers, and scripted trend-driven short videos including a 9.9M-view viral hit.",
-      "tags": ["Content Strategy", "Community", "Viral Content", "Analytics", "Visual Design", "Script Writing", "Short Video", "Storytelling"],
-      "colors": { "bg": "#0f2a28", "fg": "#dcfff8", "accent": "#35d0ba" },
+      "title": {
+        "en": "Social Media",
+        "vi": "Truyền thông Mạng xã hội"
+      },
+      "short": {
+        "en": "Grew community and brand pages to 26.7M views and +15.1K followers, and scripted trend-driven short videos including a 9.9M-view viral hit.",
+        "vi": "Phát triển các trang cộng đồng và thương hiệu lên 26.7M lượt xem và +15.1K follower, đồng thời viết kịch bản video ngắn bắt trend, có cả một hit viral 9.9M lượt xem."
+      },
+      "tags": [
+        {
+          "en": "Content Strategy",
+          "vi": "Chiến lược nội dung"
+        },
+        {
+          "en": "Community",
+          "vi": "Cộng đồng"
+        },
+        {
+          "en": "Viral Content",
+          "vi": "Nội dung viral"
+        },
+        {
+          "en": "Analytics",
+          "vi": "Phân tích số liệu"
+        },
+        {
+          "en": "Visual Design",
+          "vi": "Thiết kế hình ảnh"
+        },
+        {
+          "en": "Script Writing",
+          "vi": "Viết kịch bản"
+        },
+        {
+          "en": "Short Video",
+          "vi": "Video ngắn"
+        },
+        "Storytelling"
+      ],
+      "colors": {
+        "bg": "#e2f7f1",
+        "fg": "#0f3b34",
+        "accent": "#10b981"
+      },
       "cover": "/assets/fb-posts.jpg",
       "sections": [
         {
           "enabled": true,
           "id": "overview",
-          "label": "Overview",
+          "label": {
+            "en": "Overview",
+            "vi": "Tổng quan"
+          },
           "groups": [
             {
               "enabled": true,
@@ -559,16 +1171,40 @@
                 {
                   "type": "text",
                   "items": [
-                    "Managed three Facebook pages under WEALLNET: <b>Cong Dong Da Sac</b> (LGBT+ community page), <b>WAN Creative Network</b> (agency brand page) and <b>WANTalk</b> (marketing knowledge hub).",
-                    "Developed video ideas and scripts inspired by TikTok trends and real customer/brand stories, across fashion & beauty, humor & entertainment, food & beverage, and horror."
+                    {
+                      "en": "Managed three Facebook pages under WEALLNET: <b>Cong Dong Da Sac</b> (LGBT+ community page), <b>WAN Creative Network</b> (agency brand page) and <b>WANTalk</b> (marketing knowledge hub).",
+                      "vi": "Quản lý ba trang Facebook thuộc WEALLNET: <b>Cộng Đồng Đa Sắc</b> (trang cộng đồng LGBT+), <b>WAN Creative Network</b> (trang thương hiệu agency) và <b>WANTalk</b> (kênh kiến thức marketing)."
+                    },
+                    {
+                      "en": "Developed video ideas and scripts inspired by TikTok trends and real customer/brand stories, across fashion & beauty, humor & entertainment, food & beverage, and horror.",
+                      "vi": "Phát triển ý tưởng và kịch bản video lấy cảm hứng từ trend TikTok và câu chuyện thật của khách hàng/thương hiệu, trải khắp các mảng làm đẹp & thời trang, hài hước & giải trí, ẩm thực và kinh dị."
+                    }
                   ]
                 },
                 {
                   "type": "stats",
                   "items": [
-                    ["26.7M", "views in 4 months"],
-                    ["+15.1K", "new followers"],
-                    ["9.9M+", "views — top TikTok video"]
+                    [
+                      "26.7M",
+                      {
+                        "en": "views in 4 months",
+                        "vi": "lượt xem trong 4 tháng"
+                      }
+                    ],
+                    [
+                      "+15.1K",
+                      {
+                        "en": "new followers",
+                        "vi": "follower mới"
+                      }
+                    ],
+                    [
+                      "9.9M+",
+                      {
+                        "en": "views — top TikTok video",
+                        "vi": "lượt xem — video TikTok nổi bật nhất"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -578,61 +1214,133 @@
         {
           "enabled": true,
           "id": "facebook-growth",
-          "label": "Facebook Growth",
+          "label": {
+            "en": "Facebook Growth",
+            "vi": "Tăng trưởng Facebook"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Approach & Strategy",
+              "title": {
+                "en": "Approach & Strategy",
+                "vi": "Cách tiếp cận & Chiến lược"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Each page needed its own voice: humorous memes for a community, professional insight for a brand, and educational content for learners.",
-                    "Growth had to come primarily from organic, shareable content — not ad budget.",
-                    "Researched trends and audience behavior to plan, propose and execute monthly content strategies.",
-                    "Created memes, posts and videos; designed visuals; engaged with the community and managed comments daily.",
-                    "Tracked performance and continuously adjusted growth strategy based on data."
+                    {
+                      "en": "Each page needed its own voice: humorous memes for a community, professional insight for a brand, and educational content for learners.",
+                      "vi": "Mỗi trang cần một chất giọng riêng: meme hài hước cho cộng đồng, insight chuyên môn cho thương hiệu, và nội dung giáo dục cho người học."
+                    },
+                    {
+                      "en": "Growth had to come primarily from organic, shareable content — not ad budget.",
+                      "vi": "Tăng trưởng phải đến chủ yếu từ nội dung organic dễ chia sẻ — không dựa vào ngân sách quảng cáo."
+                    },
+                    {
+                      "en": "Researched trends and audience behavior to plan, propose and execute monthly content strategies.",
+                      "vi": "Nghiên cứu trend và hành vi người xem để lên, đề xuất và triển khai chiến lược nội dung hằng tháng."
+                    },
+                    {
+                      "en": "Created memes, posts and videos; designed visuals; engaged with the community and managed comments daily.",
+                      "vi": "Sản xuất meme, bài đăng và video; thiết kế hình ảnh; tương tác cộng đồng và quản lý bình luận mỗi ngày."
+                    },
+                    {
+                      "en": "Tracked performance and continuously adjusted growth strategy based on data.",
+                      "vi": "Theo dõi hiệu quả và liên tục điều chỉnh chiến lược tăng trưởng dựa trên dữ liệu."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Cong Dong Da Sac Page",
+              "title": {
+                "en": "Cong Dong Da Sac Page",
+                "vi": "Trang Cộng Đồng Đa Sắc"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>Cong Dong Da Sac:</b> 26.7M views, 7.3M reach and +15.1K followers in 4 months, with multiple viral posts (3.2M / 2.8M / 2.7M / 2.6M views)."
+                    {
+                      "en": "<b>Cong Dong Da Sac:</b> 26.7M views, 7.3M reach and +15.1K followers in 4 months, with multiple viral posts (3.2M / 2.8M / 2.7M / 2.6M views).",
+                      "vi": "<b>Cộng Đồng Đa Sắc:</b> 26.7M lượt xem, 7.3M reach và +15.1K follower trong 4 tháng, với nhiều bài viral (3.2M / 2.8M / 2.7M / 2.6M lượt xem)."
+                    }
                   ]
                 },
                 {
                   "type": "stats",
                   "items": [
-                    ["26.7M", "views in 4 months"],
-                    ["7.3M", "reach"],
-                    ["+15.1K", "new followers"],
-                    ["3.2M", "views — single top post"]
+                    [
+                      "26.7M",
+                      {
+                        "en": "views in 4 months",
+                        "vi": "lượt xem trong 4 tháng"
+                      }
+                    ],
+                    [
+                      "7.3M",
+                      {
+                        "en": "reach",
+                        "vi": "reach"
+                      }
+                    ],
+                    [
+                      "+15.1K",
+                      {
+                        "en": "new followers",
+                        "vi": "follower mới"
+                      }
+                    ],
+                    [
+                      "3.2M",
+                      {
+                        "en": "views — single top post",
+                        "vi": "lượt xem — một bài nổi bật nhất"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/fb-results.jpg", "4-month performance"],
-                    ["/assets/fb-posts.jpg", "Highlight viral posts"]
+                    [
+                      "/assets/fb-results.jpg",
+                      {
+                        "en": "4-month performance",
+                        "vi": "Hiệu quả 4 tháng"
+                      }
+                    ],
+                    [
+                      "/assets/fb-posts.jpg",
+                      {
+                        "en": "Highlight viral posts",
+                        "vi": "Các bài viral nổi bật"
+                      }
+                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "WAN Creative Network Page",
+              "title": {
+                "en": "WAN Creative Network Page",
+                "vi": "Trang WAN Creative Network"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "<b>WAN Creative Network:</b> 248.5K views, 140.5K users reached (+27.2%), 41% organic traffic.",
-                    "<b>WANTalk:</b> 15.9K views in 4 months with 70% organic traffic."
+                    {
+                      "en": "<b>WAN Creative Network:</b> 248.5K views, 140.5K users reached (+27.2%), 41% organic traffic.",
+                      "vi": "<b>WAN Creative Network:</b> 248.5K lượt xem, tiếp cận 140.5K người dùng (+27.2%), 41% traffic organic."
+                    },
+                    {
+                      "en": "<b>WANTalk:</b> 15.9K views in 4 months with 70% organic traffic.",
+                      "vi": "<b>WANTalk:</b> 15.9K lượt xem trong 4 tháng với 70% traffic organic."
+                    }
                   ]
                 }
               ]
@@ -642,48 +1350,108 @@
         {
           "enabled": true,
           "id": "tiktok-management",
-          "label": "TikTok Management",
+          "label": {
+            "en": "TikTok Management",
+            "vi": "Quản lý TikTok"
+          },
           "groups": [
             {
               "enabled": true,
-              "title": "Approach",
+              "title": {
+                "en": "Approach",
+                "vi": "Cách tiếp cận"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Trends on TikTok expire in days — scripts had to be produced fast while staying entertaining, clear and TikTok-compliant.",
-                    "Each script needed to fit the target audience and brand goals without losing the hook.",
-                    "Stayed on top of viral memes and formats, adapting them to each brand's voice.",
-                    "Tailored scripts to specific audiences (youth, comedy, product storytelling) and aligned video style with marketing goals."
+                    {
+                      "en": "Trends on TikTok expire in days — scripts had to be produced fast while staying entertaining, clear and TikTok-compliant.",
+                      "vi": "Trend trên TikTok chỉ sống vài ngày — kịch bản phải ra nhanh mà vẫn giải trí, rõ ràng và tuân thủ chính sách TikTok."
+                    },
+                    {
+                      "en": "Each script needed to fit the target audience and brand goals without losing the hook.",
+                      "vi": "Mỗi kịch bản phải hợp với đối tượng mục tiêu và mục tiêu thương hiệu mà không đánh mất cái hook."
+                    },
+                    {
+                      "en": "Stayed on top of viral memes and formats, adapting them to each brand's voice.",
+                      "vi": "Luôn bắt kịp meme và format đang viral, biến tấu theo chất giọng của từng thương hiệu."
+                    },
+                    {
+                      "en": "Tailored scripts to specific audiences (youth, comedy, product storytelling) and aligned video style with marketing goals.",
+                      "vi": "Điều chỉnh kịch bản theo từng nhóm đối tượng (giới trẻ, hài, kể chuyện sản phẩm) và đồng bộ phong cách video với mục tiêu marketing."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Results & Highlights",
+              "title": {
+                "en": "Results & Highlights",
+                "vi": "Kết quả & Điểm nhấn"
+              },
               "blocks": [
                 {
                   "type": "stats",
                   "items": [
-                    ["9.9M+", "views — top video"],
-                    ["242K+", "likes on viral hit"],
-                    ["50–100K", "avg. views per series video"]
+                    [
+                      "9.9M+",
+                      {
+                        "en": "views — top video",
+                        "vi": "lượt xem — video nổi bật nhất"
+                      }
+                    ],
+                    [
+                      "242K+",
+                      {
+                        "en": "likes on viral hit",
+                        "vi": "lượt thích trên hit viral"
+                      }
+                    ],
+                    [
+                      "50–100K",
+                      {
+                        "en": "avg. views per series video",
+                        "vi": "lượt xem trung bình mỗi video series"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "text",
                   "items": [
-                    "Scripted a <b>viral video with 9.9M+ views and 242K+ likes</b>.",
-                    "Maintained a video series averaging 50K–100K views per video.",
-                    "Content was widely shared, growing followers and engagement organically."
+                    {
+                      "en": "Scripted a <b>viral video with 9.9M+ views and 242K+ likes</b>.",
+                      "vi": "Viết kịch bản một <b>video viral đạt 9.9M+ lượt xem và 242K+ lượt thích</b>."
+                    },
+                    {
+                      "en": "Maintained a video series averaging 50K–100K views per video.",
+                      "vi": "Duy trì một series video trung bình 50K–100K lượt xem mỗi video."
+                    },
+                    {
+                      "en": "Content was widely shared, growing followers and engagement organically.",
+                      "vi": "Nội dung được chia sẻ rộng rãi, tăng follower và tương tác một cách organic."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/tiktok-overview.jpg", "Fields & responsibilities"],
-                    ["/assets/tiktok-videos.jpg", "Highlight videos"]
+                    [
+                      "/assets/tiktok-overview.jpg",
+                      {
+                        "en": "Fields & responsibilities",
+                        "vi": "Lĩnh vực & trách nhiệm"
+                      }
+                    ],
+                    [
+                      "/assets/tiktok-videos.jpg",
+                      {
+                        "en": "Highlight videos",
+                        "vi": "Các video nổi bật"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -694,17 +1462,51 @@
     },
     {
       "enabled": true,
-      "id": "Other",
-      "title": "Other",
-      "short": "University and self-driven projects — from leading a campus design competition to building a full brand identity system.",
-      "tags": ["Event Leadership", "Project Management", "Creative Direction", "Internal Event", "Employee Engagement"],
-      "colors": { "bg": "#2a1d10", "fg": "#ffefd8", "accent": "#ffb454" },
+      "id": "university",
+      "title": {
+        "en": "Other",
+        "vi": "Khác"
+      },
+      "short": {
+        "en": "University and self-driven projects — from leading a campus design competition to building a full brand identity system.",
+        "vi": "Các dự án đại học và tự thực hiện — từ dẫn dắt một cuộc thi thiết kế cấp trường đến xây dựng trọn bộ hệ thống nhận diện thương hiệu."
+      },
+      "tags": [
+        {
+          "en": "Event Leadership",
+          "vi": "Lãnh đạo sự kiện"
+        },
+        {
+          "en": "Project Management",
+          "vi": "Quản lý dự án"
+        },
+        {
+          "en": "Creative Direction",
+          "vi": "Định hướng sáng tạo"
+        },
+        {
+          "en": "Internal Event",
+          "vi": "Sự kiện nội bộ"
+        },
+        {
+          "en": "Employee Engagement",
+          "vi": "Gắn kết nhân viên"
+        }
+      ],
+      "colors": {
+        "bg": "#fdf0e0",
+        "fg": "#4a3212",
+        "accent": "#f59e0b"
+      },
       "cover": "/assets/event-results.jpg",
       "sections": [
         {
           "enabled": true,
           "id": "overview",
-          "label": "Overview",
+          "label": {
+            "en": "Overview",
+            "vi": "Tổng quan"
+          },
           "groups": [
             {
               "enabled": true,
@@ -713,14 +1515,29 @@
                 {
                   "type": "text",
                   "items": [
-                    "A collection of university and self-driven projects showcasing leadership, project management and brand-building skills — including the <b>Cre8Vibe</b> logo design competition and the <b>Brown Delight</b> chocolate branding project."
+                    {
+                      "en": "A collection of university and self-driven projects showcasing leadership, project management and brand-building skills — including the <b>Cre8Vibe</b> logo design competition and the <b>Brown Delight</b> chocolate branding project.",
+                      "vi": "Tuyển tập các dự án đại học và tự thực hiện, thể hiện năng lực lãnh đạo, quản lý dự án và xây dựng thương hiệu — bao gồm cuộc thi thiết kế logo <b>Cre8Vibe</b> và dự án thương hiệu sô-cô-la <b>Brown Delight</b>."
+                    }
                   ]
                 },
                 {
                   "type": "stats",
                   "items": [
-                    ["300", "participants — Cre8Vibe"],
-                    ["8.5/10", "Brown Delight score"]
+                    [
+                      "300",
+                      {
+                        "en": "participants — Cre8Vibe",
+                        "vi": "người tham gia — Cre8Vibe"
+                      }
+                    ],
+                    [
+                      "8.5/10",
+                      {
+                        "en": "Brown Delight score",
+                        "vi": "điểm Brown Delight"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -730,7 +1547,10 @@
         {
           "enabled": true,
           "id": "cre8vibe",
-          "label": "Cre8Vibe Event",
+          "label": {
+            "en": "Cre8Vibe Event",
+            "vi": "Sự kiện Cre8Vibe"
+          },
           "groups": [
             {
               "enabled": true,
@@ -739,64 +1559,136 @@
                 {
                   "type": "text",
                   "items": [
-                    "Leader of <b>Cre8Vibe</b> — a logo design competition at HUFLIT — owning the entire organization process from concept to post-event evaluation."
+                    {
+                      "en": "Leader of <b>Cre8Vibe</b> — a logo design competition at HUFLIT — owning the entire organization process from concept to post-event evaluation.",
+                      "vi": "Trưởng ban <b>Cre8Vibe</b> — cuộc thi thiết kế logo tại HUFLIT — phụ trách toàn bộ quá trình tổ chức từ concept đến đánh giá sau sự kiện."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Challenge",
+              "title": {
+                "en": "Challenge",
+                "vi": "Thách thức"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Full ownership: objectives, concept, timeline, budget, team assignment, partner coordination and issue handling.",
-                    "Needed to attract participants in a crowded student-event landscape."
+                    {
+                      "en": "Full ownership: objectives, concept, timeline, budget, team assignment, partner coordination and issue handling.",
+                      "vi": "Chịu trách nhiệm toàn diện: mục tiêu, concept, timeline, ngân sách, phân công team, phối hợp đối tác và xử lý sự cố."
+                    },
+                    {
+                      "en": "Needed to attract participants in a crowded student-event landscape.",
+                      "vi": "Cần thu hút người tham gia giữa một 'rừng' sự kiện sinh viên."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Solution",
+              "title": {
+                "en": "Solution",
+                "vi": "Giải pháp"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Defined objectives, concept, timeline and budget; assigned tasks and supervised the team.",
-                    "Built the full communication plan — content, media design and promotion — to drive registrations.",
-                    "Designed competition rules, judging criteria, and scripts for MCs and guest trainers."
+                    {
+                      "en": "Defined objectives, concept, timeline and budget; assigned tasks and supervised the team.",
+                      "vi": "Xác định mục tiêu, concept, timeline và ngân sách; phân công công việc và giám sát team."
+                    },
+                    {
+                      "en": "Built the full communication plan — content, media design and promotion — to drive registrations.",
+                      "vi": "Xây dựng kế hoạch truyền thông đầy đủ — nội dung, thiết kế và quảng bá — để thúc đẩy đăng ký."
+                    },
+                    {
+                      "en": "Designed competition rules, judging criteria, and scripts for MCs and guest trainers.",
+                      "vi": "Thiết kế thể lệ thi, tiêu chí chấm và kịch bản cho MC và khách mời đào tạo."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Results",
+              "title": {
+                "en": "Results",
+                "vi": "Kết quả"
+              },
               "blocks": [
                 {
                   "type": "stats",
                   "items": [
-                    ["300", "participants (+20% vs target)"],
-                    ["+400", "fanpage followers in 2 weeks"],
-                    ["-15%", "vs projected costs"],
-                    ["90%", "positive feedback"]
+                    [
+                      "300",
+                      {
+                        "en": "participants (+20% vs target)",
+                        "vi": "người tham gia (+20% so với mục tiêu)"
+                      }
+                    ],
+                    [
+                      "+400",
+                      {
+                        "en": "fanpage followers in 2 weeks",
+                        "vi": "follower fanpage trong 2 tuần"
+                      }
+                    ],
+                    [
+                      "-15%",
+                      {
+                        "en": "vs projected costs",
+                        "vi": "so với chi phí dự kiến"
+                      }
+                    ],
+                    [
+                      "90%",
+                      {
+                        "en": "positive feedback",
+                        "vi": "phản hồi tích cực"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "text",
                   "items": [
-                    "Attracted <b>300 participants — exceeding target by 20%</b>.",
-                    "Grew the fanpage by 400 followers in two weeks with 3–11% engagement throughout.",
-                    "Kept the event within budget, cutting projected costs by 15%, with 90% positive participant feedback."
+                    {
+                      "en": "Attracted <b>300 participants — exceeding target by 20%</b>.",
+                      "vi": "Thu hút <b>300 người tham gia — vượt mục tiêu 20%</b>."
+                    },
+                    {
+                      "en": "Grew the fanpage by 400 followers in two weeks with 3–11% engagement throughout.",
+                      "vi": "Tăng 400 follower cho fanpage trong hai tuần với mức tương tác 3–11% xuyên suốt."
+                    },
+                    {
+                      "en": "Kept the event within budget, cutting projected costs by 15%, with 90% positive participant feedback.",
+                      "vi": "Giữ sự kiện trong ngân sách, cắt giảm 15% chi phí dự kiến, với 90% phản hồi tích cực từ người tham gia."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/event-overview.jpg", "Role & responsibilities"],
-                    ["/assets/event-results.jpg", "Results & materials"]
+                    [
+                      "/assets/event-overview.jpg",
+                      {
+                        "en": "Role & responsibilities",
+                        "vi": "Vai trò & trách nhiệm"
+                      }
+                    ],
+                    [
+                      "/assets/event-results.jpg",
+                      {
+                        "en": "Results & materials",
+                        "vi": "Kết quả & ấn phẩm"
+                      }
+                    ]
                   ]
                 }
               ]
@@ -806,7 +1698,10 @@
         {
           "enabled": true,
           "id": "brown-delight",
-          "label": "Brown Delight Branding",
+          "label": {
+            "en": "Brown Delight Branding",
+            "vi": "Thương hiệu Brown Delight"
+          },
           "groups": [
             {
               "enabled": true,
@@ -815,61 +1710,118 @@
                 {
                   "type": "text",
                   "items": [
-                    "<b>Brown Delight</b> is a branding project for a Vietnamese chocolate brand aiming for the global market — chocolate infused with local specialty fruits, and packaging inspired by Vietnamese cultural heritage."
+                    {
+                      "en": "<b>Brown Delight</b> is a branding project for a Vietnamese chocolate brand aiming for the global market — chocolate infused with local specialty fruits, and packaging inspired by Vietnamese cultural heritage.",
+                      "vi": "<b>Brown Delight</b> là dự án thương hiệu cho một nhãn sô-cô-la Việt hướng ra thị trường toàn cầu — sô-cô-la kết hợp trái cây đặc sản địa phương, và bao bì lấy cảm hứng từ di sản văn hoá Việt Nam."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Challenge",
+              "title": {
+                "en": "Challenge",
+                "vi": "Thách thức"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Build a cohesive brand from zero: concept, brand key, positioning, identity system and marketing program — all aligned with one cultural story."
+                    {
+                      "en": "Build a cohesive brand from zero: concept, brand key, positioning, identity system and marketing program — all aligned with one cultural story.",
+                      "vi": "Xây dựng một thương hiệu nhất quán từ con số 0: concept, brand key, định vị, hệ thống nhận diện và chương trình marketing — tất cả xoay quanh một câu chuyện văn hoá."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Solution",
+              "title": {
+                "en": "Solution",
+                "vi": "Giải pháp"
+              },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
-                    "Led the project end-to-end, overseeing strategy, execution and creative direction.",
-                    "Researched and executed brand concept, brand key and brand positioning.",
-                    "Led creative development of the Brand Identity System, including packaging featuring Vietnamese cultural architecture and Dak Lak cocoa origin.",
-                    "Proposed and planned a Brand Marketing Program aligned with the set objectives."
+                    {
+                      "en": "Led the project end-to-end, overseeing strategy, execution and creative direction.",
+                      "vi": "Dẫn dắt dự án từ đầu đến cuối, phụ trách chiến lược, triển khai và định hướng sáng tạo."
+                    },
+                    {
+                      "en": "Researched and executed brand concept, brand key and brand positioning.",
+                      "vi": "Nghiên cứu và xây dựng brand concept, brand key và định vị thương hiệu."
+                    },
+                    {
+                      "en": "Led creative development of the Brand Identity System, including packaging featuring Vietnamese cultural architecture and Dak Lak cocoa origin.",
+                      "vi": "Dẫn dắt phát triển sáng tạo Hệ thống Nhận diện Thương hiệu, gồm bao bì lấy cảm hứng kiến trúc văn hoá Việt và nguồn cacao Đắk Lắk."
+                    },
+                    {
+                      "en": "Proposed and planned a Brand Marketing Program aligned with the set objectives.",
+                      "vi": "Đề xuất và lên kế hoạch Chương trình Marketing Thương hiệu bám sát mục tiêu đề ra."
+                    }
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": "Results",
+              "title": {
+                "en": "Results",
+                "vi": "Kết quả"
+              },
               "blocks": [
                 {
                   "type": "stats",
                   "items": [
-                    ["8.5/10", "project score"],
-                    ["1", "complete identity system"]
+                    [
+                      "8.5/10",
+                      {
+                        "en": "project score",
+                        "vi": "điểm dự án"
+                      }
+                    ],
+                    [
+                      "1",
+                      {
+                        "en": "complete identity system",
+                        "vi": "hệ thống nhận diện hoàn chỉnh"
+                      }
+                    ]
                   ]
                 },
                 {
                   "type": "text",
                   "items": [
-                    "Achieved a score of <b>8.5/10</b> with positive feedback from the instructor.",
-                    "Successfully implemented a structured, cohesive branding process from concept to marketing plan."
+                    {
+                      "en": "Achieved a score of <b>8.5/10</b> with positive feedback from the instructor.",
+                      "vi": "Đạt <b>8.5/10</b> với phản hồi tích cực từ giảng viên."
+                    },
+                    {
+                      "en": "Successfully implemented a structured, cohesive branding process from concept to marketing plan.",
+                      "vi": "Triển khai thành công một quy trình xây dựng thương hiệu bài bản, nhất quán từ concept đến kế hoạch marketing."
+                    }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    ["/assets/brand-overview.jpg", "Brand concept & role"],
-                    ["/assets/brand-packaging.jpg", "Packaging details"]
+                    [
+                      "/assets/brand-overview.jpg",
+                      {
+                        "en": "Brand concept & role",
+                        "vi": "Concept thương hiệu & vai trò"
+                      }
+                    ],
+                    [
+                      "/assets/brand-packaging.jpg",
+                      {
+                        "en": "Packaging details",
+                        "vi": "Chi tiết bao bì"
+                      }
+                    ]
                   ]
                 }
               ]

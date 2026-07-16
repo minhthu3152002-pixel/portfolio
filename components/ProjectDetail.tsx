@@ -1,17 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '@/lib/content';
-import { enabledSections, enabledGroups, pad2 } from '@/lib/content';
+import { enabledSections, enabledGroups, pad2, t } from '@/lib/content';
+import { useLanguage } from '@/components/LanguageProvider';
 import { Blocks } from '@/components/Blocks';
-import { pageTransition, fadeUp } from '@/lib/motion';
+import {
+  tabSpring,
+  tabPanel,
+  stackContainerTight,
+  stackItemTight,
+} from '@/lib/motion';
+
+/** Pick black/white text for readability on a hex background. */
+function readableOn(hex: string): string {
+  const m = hex.replace('#', '');
+  const r = parseInt(m.slice(0, 2), 16);
+  const g = parseInt(m.slice(2, 4), 16);
+  const b = parseInt(m.slice(4, 6), 16);
+  const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return lum > 150 ? '#1d1d1f' : '#ffffff';
+}
 
 /**
- * Project detail view: colored hero band, Skills sidebar and a set of pill
- * TABS (sections). Each active tab shows its enabled groups, and each group is
- * an optional sub-heading followed by its content blocks.
+ * Project detail: pastel hero band + sticky glass pill tab bar (sliding active
+ * pill via layoutId, hash-synced, arrow-key navigable) + animated tab panels
+ * whose enabled groups render as sub-headings with text/stats/gallery blocks.
  */
 export function ProjectDetail({
   project: p,
@@ -20,119 +36,155 @@ export function ProjectDetail({
   project: Project;
   num: number;
 }) {
+  const { lang } = useLanguage();
   const { colors } = p;
   const sections = enabledSections(p);
+  const tabText = readableOn(colors.accent);
+
   const [activeId, setActiveId] = useState(sections[0]?.id ?? '');
+  const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Read the URL hash on load (deep-link into a tab).
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && sections.some((s) => s.id === hash)) setActiveId(hash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const selectTab = (id: string, focus = false) => {
+    setActiveId(id);
+    history.replaceState(null, '', `#${id}`);
+    if (focus) {
+      const idx = sections.findIndex((s) => s.id === id);
+      btnRefs.current[idx]?.focus();
+    }
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const idx = sections.findIndex((s) => s.id === activeId);
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      selectTab(sections[(idx + 1) % sections.length].id, true);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      selectTab(sections[(idx - 1 + sections.length) % sections.length].id, true);
+    }
+  };
+
   const active = sections.find((s) => s.id === activeId) ?? sections[0];
   const groups = active ? enabledGroups(active) : [];
 
   return (
-    <motion.main
-      variants={pageTransition}
-      initial="hidden"
-      animate="visible"
-      // `--pc` drives accent bullets, stat numbers, tabs and links across this page.
-      style={{ ['--pc' as string]: colors.accent }}
-    >
+    <main style={{ ['--pc' as string]: colors.accent }}>
+      {/* pastel hero band */}
       <header
-        className="rounded-b-[40px] pb-[70px] pt-20"
+        className="rounded-b-[40px] px-6 pb-16 pt-32"
         style={{ background: colors.bg, color: colors.fg }}
       >
-        <div className="wrap">
+        <div className="mx-auto max-w-wrap">
           <Link
             href="/"
-            className="mb-10 inline-flex items-center gap-2 text-[0.9rem] font-medium opacity-85 transition-opacity hover:opacity-100"
+            className="mb-8 inline-flex items-center gap-2 text-[0.9rem] font-medium opacity-70 transition-opacity hover:opacity-100"
           >
-            ← Back to projects
+            {lang === 'vi' ? '← Quay lại dự án' : '← Back to projects'}
           </Link>
-          <div>
-            <span className="mb-[22px] inline-block rounded-full bg-black/40 px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[0.16em]">
-              {pad2(num)} / PROJECT
-            </span>
-          </div>
-          <h1 className="mb-5 max-w-[840px] text-[clamp(2.1rem,5vw,3.5rem)] font-extrabold uppercase tracking-[-0.01em]">
-            {p.title}
+          <p className="mb-4 text-[0.78rem] font-semibold tracking-[0.16em] opacity-60">
+            {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
+          </p>
+          <h1 className="mb-4 max-w-[840px] text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+            {t(p.title, lang)}
           </h1>
-          <p className="mb-7 max-w-[640px] opacity-90">{p.short}</p>
+          <p className="mb-6 max-w-[640px] text-[1.05rem] leading-relaxed opacity-80">
+            {t(p.short, lang)}
+          </p>
           <div className="flex flex-wrap gap-2.5">
-            {p.tags.map((t) => (
-              <span key={t} className="tag">
-                {t}
+            {p.tags.map((tag) => (
+              <span
+                key={t(tag, lang)}
+                className="rounded-full border border-black/10 bg-white/50 px-[14px] py-[6px] text-[0.8rem] font-medium"
+              >
+                {t(tag, lang)}
               </span>
             ))}
           </div>
         </div>
       </header>
 
-      <div className="wrap grid grid-cols-[250px_1fr] gap-[60px] py-20 max-[820px]:grid-cols-1 max-[820px]:gap-[30px]">
-        <aside>
-          <h4 className="mb-4 text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-muted">
-            Skills
-          </h4>
-          <div className="flex flex-wrap gap-2.5">
-            {p.tags.map((t) => (
-              <span key={t} className="tag !border-line !text-text">
-                {t}
-              </span>
-            ))}
-          </div>
-        </aside>
-
-        <div>
-          {/* Tab bar — one pill per enabled section */}
-          <div
+      {/* sticky glass pill tab bar */}
+      <div className="sticky top-20 z-40 py-4">
+        <div className="mx-auto max-w-wrap px-6">
+          <motion.div
             role="tablist"
             aria-label="Project sections"
-            className="mb-10 flex flex-wrap gap-2.5 border-b border-line pb-6"
-          >
-            {sections.map((s) => {
-              const isActive = s.id === active?.id;
-              return (
-                <button
-                  key={s.id}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActiveId(s.id)}
-                  className={`rounded-full border px-[18px] py-[7px] text-[0.83rem] font-medium transition-colors ${
-                    isActive
-                      ? 'border-transparent bg-[var(--pc)] text-bg'
-                      : 'border-line text-muted hover:text-text'
-                  }`}
-                >
-                  {s.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active tab panel — groups render as sub-headings + blocks */}
-          <motion.div
-            key={active?.id}
-            variants={fadeUp}
+            onKeyDown={onKeyDown}
+            variants={stackContainerTight}
             initial="hidden"
             animate="visible"
+            className="no-scrollbar flex gap-1.5 overflow-x-auto rounded-full border border-line bg-white/70 p-1.5 backdrop-blur-xl"
+          >
+            {sections.map((s, i) => {
+              const isActive = s.id === active?.id;
+              return (
+                <motion.button
+                  key={s.id}
+                  ref={(el) => {
+                    btnRefs.current[i] = el;
+                  }}
+                  variants={stackItemTight}
+                  role="tab"
+                  aria-selected={isActive}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={() => selectTab(s.id)}
+                  className="relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[0.85rem] font-medium transition-colors"
+                  style={{ color: isActive ? tabText : '#6e6e73' }}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="tab-pill"
+                      transition={tabSpring}
+                      className="absolute inset-0 -z-10 rounded-full"
+                      style={{ background: colors.accent }}
+                    />
+                  )}
+                  {t(s.label, lang)}
+                </motion.button>
+              );
+            })}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* animated tab panel */}
+      <div className="mx-auto max-w-wrap px-6 pb-24 pt-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active?.id}
+            variants={tabPanel}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             role="tabpanel"
           >
             {groups.map((g, i) => (
-              <section key={i} className="mb-12 last:mb-0">
+              <section key={i} className="mb-14 last:mb-0">
                 {g.title && (
-                  <h3 className="mb-5 text-[1.2rem] font-extrabold uppercase tracking-[0.04em]">
-                    {g.title}
+                  <h3 className="mb-5 text-[1.4rem] font-bold tracking-[-0.01em]">
+                    {t(g.title, lang)}
                   </h3>
                 )}
-                <Blocks blocks={g.blocks} />
+                <Blocks blocks={g.blocks} lang={lang} />
               </section>
             ))}
           </motion.div>
+        </AnimatePresence>
 
-          <Link
-            href="/"
-            className="mt-10 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
-          >
-            ← Back to all projects
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className="mt-8 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
+        >
+          {lang === 'vi' ? '← Quay lại tất cả dự án' : '← Back to all projects'}
+        </Link>
       </div>
-    </motion.main>
+    </main>
   );
 }

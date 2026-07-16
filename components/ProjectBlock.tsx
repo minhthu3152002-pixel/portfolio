@@ -2,15 +2,17 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import type { Project } from '@/lib/content';
-import { pad2 } from '@/lib/content';
-import { fadeUp, hoverLift, coverTilt, viewportOnce } from '@/lib/motion';
+import { pad2, t } from '@/lib/content';
+import { blockSurface } from '@/lib/colors';
+import { useLanguage } from '@/components/LanguageProvider';
 
 /**
- * Full-width numbered project block on the home page: own color scheme,
- * tags, tilted cover image and a hover lift. Clicking routes to /project/[id].
- * `num` is the project's position among enabled projects.
+ * Home project block: a frosted-glass card (translucent white + backdrop blur)
+ * with two soft accent glows in diagonally-opposite corners (top-left +
+ * bottom-right), both contained inside the card so the center stays clean and
+ * nothing bleeds past the rounded border. Cover sits in a device-like frame.
+ * Entrance unfold + focus scaling are applied by the parent (ProjectList).
  */
 export function ProjectBlock({
   project,
@@ -19,73 +21,71 @@ export function ProjectBlock({
   project: Project;
   num: number;
 }) {
+  const { lang } = useLanguage();
   const { colors } = project;
-  const heading = project.title.split('—')[0].trim();
+  const title = t(project.title, lang);
+  const heading = title.split('—')[0].trim();
+  // Same-hue surfaces as the shelf card above, derived from the one accent.
+  const surface = blockSurface(colors.accent);
 
   return (
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      className="mx-3 my-[18px]"
+    <Link
+      href={`/project/${project.id}`}
+      aria-label={title}
+      className="group relative block overflow-hidden rounded-[28px] border border-white/70 border-t-white/60 p-8 shadow-[0_-18px_40px_rgba(0,0,0,0.14),0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_-18px_40px_rgba(0,0,0,0.14),0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
+      style={{ backgroundColor: surface.base }}
     >
-      <motion.div
-        initial="rest"
-        animate="rest"
-        whileHover="hover"
-        variants={hoverLift}
-        className="relative cursor-pointer overflow-hidden rounded-[36px] py-[88px] max-[820px]:py-[60px]"
-        style={{ background: colors.bg, color: colors.fg }}
-      >
-        <Link
-          href={`/project/${project.id}`}
-          aria-label={project.title}
-          className="block"
-        >
-          <div className="wrap grid grid-cols-[1.05fr_0.95fr] items-center gap-14 max-[820px]:grid-cols-1 max-[820px]:gap-[34px]">
-            <div>
-              <p className="mb-[26px] text-[0.78rem] font-medium tracking-[0.22em] opacity-85">
-                {pad2(num)} / PROJECT
-              </p>
-              <h2 className="mb-5 text-[clamp(1.9rem,4.2vw,3rem)] font-extrabold uppercase tracking-[-0.01em]">
-                {heading}
-              </h2>
-              <p className="mb-[30px] max-w-[520px] text-base opacity-90">
-                {project.short}
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {project.tags.map((t) => (
-                  <span key={t} className="tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+      {/* uniform hue wash so the whole block reads clearly as its accent color,
+          then two richer glows on opposite corners for depth */}
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.wash} />
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.glowTL} />
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.glowBR} />
 
-            <div className="relative">
-              <motion.div
-                variants={coverTilt}
-                className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
-              >
-                <Image
-                  src={project.cover}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 820px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              </motion.div>
-              <div
-                className="absolute bottom-3.5 right-[18px] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-black/55 text-[1.2rem]"
-                style={{ color: colors.fg }}
-              >
-                ↗
-              </div>
+      <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
+          <div>
+            <p
+              className="mb-5 text-[0.78rem] font-bold tracking-[0.16em]"
+              style={{ color: colors.accent }}
+            >
+              {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
+            </p>
+            <h2
+              className="mb-4 text-[clamp(1.9rem,4.4vw,3.1rem)] font-extrabold leading-[1.08] tracking-[-0.02em]"
+              style={{ color: colors.fg }}
+            >
+              {heading}
+            </h2>
+            <p className="mb-7 max-w-[520px] text-[1.02rem] leading-relaxed text-[#4a4a4f]">
+              {t(project.short, lang)}
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {project.tags.map((tag) => (
+                <span
+                  key={t(tag, lang)}
+                  className="rounded-full border border-white/70 bg-white/70 px-[14px] py-[6px] text-[0.8rem] font-medium text-text backdrop-blur-sm"
+                >
+                  {t(tag, lang)}
+                </span>
+              ))}
             </div>
           </div>
-        </Link>
-      </motion.div>
-    </motion.div>
+
+          {/* device-like frame; border subtly picks up the project accent */}
+          <div
+            className="relative rounded-xl border bg-white/50 p-1.5 shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
+            style={{ borderColor: `${colors.accent}55` }}
+          >
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-white/60">
+              <Image
+                src={project.cover}
+                alt={title}
+                fill
+                sizes="(max-width: 820px) 100vw, 45vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </Link>
   );
 }

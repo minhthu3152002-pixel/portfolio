@@ -1,74 +1,137 @@
 import data from '@/content/content.json';
 
-export type NavLink = { label: string; href: string };
+export type Lang = 'en' | 'vi';
 
-export type Social = { label: string; href: string };
+/** A localizable field: either a plain string (same in both langs, e.g. a
+ *  proper noun) or an { en, vi } pair. `t()` resolves it to a string. */
+export type Localized = string | { en: string; vi?: string };
 
-export type Cta = { label: string; href: string };
+/** Resolve a localizable field to a string for the given language, with
+ *  graceful fallback (missing vi -> en; plain string -> itself). */
+export function t(field: Localized | null | undefined, lang: Lang): string {
+  if (field == null) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] ?? field.en ?? '';
+}
+
+export type NavLink = { label: Localized; href: string };
+export type Social = { label: Localized; href: string };
+
+/** A top-level navbar-menu item. `id` selects its dropdown content in Nav. */
+export type NavMenuItem = { id: string; label: Localized; enabled?: boolean };
+
+/** A large section headline: localizable text with an optional `enabled` flag
+ *  (set false to hide the headline without touching code). */
+export type SectionHeading = { enabled?: boolean; en: string; vi?: string };
+export type Cta = { label: Localized; href: string };
 
 export type ProjectColors = { bg: string; fg: string; accent: string };
 
 /** Gallery entry: [src, caption] or [src, caption, 1] where 1 = full width. */
-export type GalleryItem = [string, string] | [string, string, number];
+export type GalleryItem =
+  | [string, Localized]
+  | [string, Localized, number];
 
-/** Stat entry: [value, label] — e.g. ["26.7M", "views in 4 months"]. */
-export type Stat = [string, string];
+/** Stat entry: [value, label] — value is a plain string (a number), label is localizable. */
+export type Stat = [string, Localized];
 
-/** A content block inside a group. Discriminated by `type`. */
-export type TextBlock = { type: 'text'; items: string[] };
+export type TextBlock = { type: 'text'; items: Localized[] };
 export type StatsBlock = { type: 'stats'; items: Stat[] };
 export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
 export type Block = TextBlock | StatsBlock | GalleryBlock;
 
-/** A group is an optional sub-heading + its blocks, inside a tab. */
 export type Group = {
   enabled?: boolean;
-  title: string | null;
+  title: Localized | null;
   blocks: Block[];
 };
 
-/** A section renders as a pill tab; it holds groups. */
 export type Section = {
   enabled?: boolean;
   id: string;
-  label: string;
+  label: Localized;
   groups: Group[];
 };
 
 export type Project = {
   enabled?: boolean;
   id: string;
-  title: string;
-  short: string;
-  tags: string[];
+  title: Localized;
+  short: Localized;
+  tags: Localized[];
   colors: ProjectColors;
   cover: string;
+  /** Optional dedicated nav-dropdown thumbnail; falls back to `cover`. */
+  thumb?: string;
   sections: Section[];
+};
+
+/** One role in the About timeline. `period`/`title` localizable; `org` plain. */
+export type Experience = { period: Localized; title: Localized; org: string };
+
+/** One language row: name + level localizable, `value` = 0-100 proficiency. */
+export type Language = { name: Localized; level: Localized; value: number };
+
+/** One education row. `school`/`year`/`gpa` are plain; `degree` is localizable. */
+export type Education = {
+  school: string;
+  degree: Localized;
+  year: string;
+  gpa?: string;
+};
+
+/** A looping "flip words" line: static prefix/suffix + a rotating word list.
+ *  Adding/removing a word is pure content — no code change. */
+export type FlipLine = {
+  enabled?: boolean;
+  prefix: Localized;
+  words: Localized[];
+  suffix: Localized;
+};
+
+/** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
+export type About = {
+  heading?: SectionHeading;
+  name: string;
+  role: Localized;
+  avatar: string;
+  traits: Localized[];
+  summary: Localized;
+  flipLine?: FlipLine;
+  experience: Experience[];
+  education: Education[];
+  skills: Localized[];
+  tools: Localized[];
+  languages: Language[];
 };
 
 export type SiteContent = {
   site: {
-    title: string;
+    title: Localized;
     logoText: string;
-    description: string;
-    nav: NavLink[];
+    description: Localized;
   };
+  nav: NavMenuItem[];
+  projectsHeading?: SectionHeading;
   hero: {
-    badge: string;
-    headline: string;
-    headlineItalic: string;
-    subtitle: string;
+    badge: Localized;
+    headline: Localized;
+    headlineItalic: Localized;
+    subtitle: Localized;
+    reassurance: Localized;
     cta: Cta;
+    shelfTitle: Localized;
+    shelfFilterAll: Localized;
   };
+  about: About;
   contact: {
-    eyebrow: string;
-    heading: string;
-    subtitle: string;
+    heading: Localized;
+    subtitle: Localized;
     email: string;
     phone: string;
-    location: string;
+    location: Localized;
     socials: Social[];
-    copyright: string;
+    copyright: Localized;
   };
   projects: Project[];
 };
@@ -79,11 +142,8 @@ export const content = data as SiteContent;
 export const isEnabled = (x: { enabled?: boolean }): boolean =>
   x.enabled !== false;
 
-/**
- * Only enabled projects, in author order. Everything downstream (home blocks,
- * routes, numbering) derives from this list so a disabled project vanishes
- * everywhere and numbering closes the gap automatically.
- */
+/** Only enabled projects, in author order — the source for home blocks,
+ *  routes and numbering. */
 export const projects: Project[] = content.projects.filter(isEnabled);
 
 export function getProject(id: string): Project | undefined {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { content, projects, getProject, projectNumber } from '@/lib/content';
+import { content, projects, getProject, projectNumber, t } from '@/lib/content';
 import { ProjectDetail } from '@/components/ProjectDetail';
 
 export function generateStaticParams() {
@@ -16,8 +16,8 @@ export function generateMetadata({
   const project = getProject(params.id);
   if (!project) return {};
   return {
-    title: `${project.title} — ${content.site.title}`,
-    description: project.short,
+    title: `${t(project.title, 'en')} — ${t(content.site.title, 'en')}`,
+    description: t(project.short, 'en'),
   };
 }
 
