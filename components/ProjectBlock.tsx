@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Project } from '@/lib/content';
 import { pad2, t } from '@/lib/content';
+import { blockSurface } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 
 /**
@@ -24,36 +25,21 @@ export function ProjectBlock({
   const { colors } = project;
   const title = t(project.title, lang);
   const heading = title.split('—')[0].trim();
+  // Same-hue surfaces as the shelf card above, derived from the one accent.
+  const surface = blockSurface(colors.accent);
 
   return (
     <Link
       href={`/project/${project.id}`}
       aria-label={title}
-      className="group relative block overflow-hidden rounded-[28px] border border-white/70 bg-white/55 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
+      className="group relative block overflow-hidden rounded-[28px] border border-white/70 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(0,0,0,0.14)] sm:p-12"
+      style={{ backgroundColor: surface.base }}
     >
       {/* uniform hue wash so the whole block reads clearly as its accent color,
           then two richer glows on opposite corners for depth */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{ background: colors.accent, opacity: 0.16 }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(70% 70% at 0% 0%, ${colors.accent}, transparent 70%)`,
-          opacity: 0.42,
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(58% 62% at 100% 100%, ${colors.accent}, transparent 66%)`,
-          opacity: 0.42,
-        }}
-      />
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.wash} />
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.glowTL} />
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={surface.glowBR} />
 
       <div className="relative grid grid-cols-[1.05fr_0.95fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8">
           <div>
