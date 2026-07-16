@@ -24,6 +24,16 @@ export const REVEAL_STAGGER_TIGHT = 0.1;
 export const HERO_STAGGER = 0.18;
 export const HERO_INITIAL_DELAY = 0.15;
 
+/**
+ * Contact "glass bubble" drift speed range, in px/s. Each pill picks a random
+ * speed in [MIN, MAX] (so they never sync); the shared rAF loop and wall
+ * bounces are unchanged. Bump BOTH numbers by the same factor to make every
+ * pill faster/slower in one place (mobile still runs at half speed;
+ * prefers-reduced-motion stays fully static).
+ */
+export const PILL_SPEED_MIN = 18;
+export const PILL_SPEED_MAX = 38;
+
 /** Shared entrance: blur-to-sharp reveal + rise. */
 const REVEAL_HIDDEN = {
   opacity: 0,
