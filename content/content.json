@@ -135,7 +135,13 @@
       "Canva",
       "Google Analytics",
       "Google Apps Script",
-      "Claude Code"
+      "Claude Code",
+      "Google Trends",
+      "Claude",
+      "ChatGPT",
+      "Gemini",
+      "GitHub",
+      "Vercel"
     ],
     "languages": [
       {
