@@ -1456,7 +1456,7 @@
     },
     {
       "enabled": true,
-      "id": "university",
+      "id": "other",
       "title": {
         "en": "Other",
         "vi": "Khác"
