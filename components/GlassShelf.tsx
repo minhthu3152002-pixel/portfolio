@@ -50,7 +50,7 @@ export function GlassShelf() {
   });
 
   return (
-    <div className="glass mx-auto max-w-[1000px] rounded-[28px] p-2.5">
+    <div className="glass mx-auto max-w-[1060px] rounded-[28px] p-2.5">
       {/* mac-window header */}
       <div className="flex items-center gap-3 px-3 py-2">
         <div className="flex gap-1.5" aria-hidden>
@@ -80,7 +80,7 @@ export function GlassShelf() {
           variants={stackContainerTight}
           initial="hidden"
           animate="visible"
-          className="flex flex-wrap justify-center gap-x-4 gap-y-5 pt-1"
+          className="flex flex-wrap justify-center gap-x-3 gap-y-6 pt-1"
         >
           {visible.map((p) => {
             const first = p.tags[0];
@@ -89,15 +89,25 @@ export function GlassShelf() {
                 <Link
                   href={`/project/${p.id}`}
                   aria-label={t(p.title, lang)}
-                  className="group flex w-[132px] flex-col items-center rounded-2xl p-1 text-center outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                  className="group flex w-[188px] flex-col items-center rounded-2xl p-1 text-center outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 >
+                  {/* a. TITLE above — reserved 2-line height so every folder
+                      starts at the same y; wraps, never truncates */}
+                  <div className="mb-2.5 flex h-[46px] w-full items-end justify-center">
+                    <p className="line-clamp-2 text-[16px] font-semibold leading-[1.2] text-white">
+                      {t(p.title, lang).split('—')[0].trim()}
+                    </p>
+                  </div>
+
+                  {/* b. the folder shape */}
                   <Folder id={p.id} colors={p.colors} />
-                  <p className="mt-2.5 line-clamp-1 text-[15px] font-semibold text-white">
-                    {t(p.title, lang).split('—')[0].trim()}
-                  </p>
-                  <p className="mt-0.5 text-[13px] font-medium text-white/60">
-                    {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
-                  </p>
+
+                  {/* c. TAG line below — reserved 2-line height, muted */}
+                  <div className="mt-2.5 flex h-[34px] w-full items-start justify-center">
+                    <p className="line-clamp-2 text-[13px] font-medium leading-[1.2] text-white/55">
+                      {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
+                    </p>
+                  </div>
                 </Link>
               </motion.div>
             );
