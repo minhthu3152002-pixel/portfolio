@@ -19,6 +19,10 @@ export type Social = { label: Localized; href: string };
 
 /** A top-level navbar-menu item. `id` selects its dropdown content in Nav. */
 export type NavMenuItem = { id: string; label: Localized; enabled?: boolean };
+
+/** A large section headline: localizable text with an optional `enabled` flag
+ *  (set false to hide the headline without touching code). */
+export type SectionHeading = { enabled?: boolean; en: string; vi?: string };
 export type Cta = { label: Localized; href: string };
 
 export type ProjectColors = { bg: string; fg: string; accent: string };
@@ -87,6 +91,7 @@ export type FlipLine = {
 
 /** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
 export type About = {
+  heading?: SectionHeading;
   name: string;
   role: Localized;
   avatar: string;
@@ -107,6 +112,7 @@ export type SiteContent = {
     description: Localized;
   };
   nav: NavMenuItem[];
+  projectsHeading?: SectionHeading;
   hero: {
     badge: Localized;
     headline: Localized;

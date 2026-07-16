@@ -252,6 +252,30 @@ About/Contact hiện danh sách liên kết). Nội dung bên trong tự lấy t
 
 ---
 
+## 🅰️ TIÊU ĐỀ LỚN CỦA MỤC (`heading`)
+
+Hai mục có **tiêu đề lớn kiểu chữ nghiêng Playfair** (giống dòng nghiêng ở hero,
+nhưng màu tối) hiện phía trên nội dung:
+
+- **Về tôi / About me** — nằm trong object `about`, trường `heading`.
+- **Dự án / Projects** — nằm ở top-level, trường `projectsHeading` (ngay sau `nav`).
+
+```json
+"about": { "heading": { "enabled": true, "en": "About me", "vi": "Về tôi" }, ... }
+
+"projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" }
+```
+
+| Bạn muốn | Làm gì |
+|---|---|
+| **Đổi chữ tiêu đề** | Sửa `"en"` / `"vi"` trong `heading` (About) hoặc `projectsHeading`. |
+| **Ẩn một tiêu đề** | Đổi `"enabled": true` → `"enabled": false` trong đúng object đó. |
+
+> ℹ️ Đây là **tiêu đề lớn mới** (chữ nghiêng), **không phải** nhãn xanh nhỏ in hoa
+> ("eyebrow") đã bị bỏ trước đó.
+
+---
+
 ## 🍳 CÔNG THỨC (recipes)
 
 ### A. Sửa chữ / số liệu

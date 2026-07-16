@@ -7,6 +7,7 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { CometCard } from '@/components/ui/comet-card';
 import { ToolLogo } from '@/components/ui/tool-icon';
 import { FlipWords } from '@/components/ui/flip-words';
+import { SectionHeadline } from '@/components/SectionHeadline';
 import { reveal, stackContainer, viewportOnce } from '@/lib/motion';
 
 /** Shared frosted-glass panel surface: visibly glassy, not flat white. */
@@ -28,6 +29,8 @@ export function AboutMe() {
 
   return (
     <section id="about" className="wrap scroll-mt-24 py-12 sm:py-16">
+      <SectionHeadline heading={a.heading} />
+
       <motion.div
         variants={stackContainer}
         initial="hidden"

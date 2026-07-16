@@ -44,7 +44,7 @@ export function Hero() {
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#f5f5f7]" />
         </div>
 
-        <div className="wrap relative pb-[210px] pt-36 text-white sm:pt-40">
+        <div className="wrap relative flex flex-col items-center pb-[210px] pt-36 text-center text-white sm:pt-40">
           <motion.span
             variants={heroReveal}
             initial="hidden"
@@ -54,7 +54,7 @@ export function Hero() {
           >
             {t(h.badge, lang)}
           </motion.span>
-          <h1 className="mb-6 max-w-[900px] text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
+          <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
             <motion.span
               variants={heroReveal}
               initial="hidden"
@@ -79,7 +79,7 @@ export function Hero() {
             initial="hidden"
             animate="visible"
             custom={3}
-            className="mb-8 max-w-[560px] text-[1.05rem] leading-relaxed text-white/85"
+            className="mb-8 max-w-[640px] text-[1.05rem] leading-relaxed text-white/85"
           >
             {t(h.subtitle, lang)}
           </motion.p>

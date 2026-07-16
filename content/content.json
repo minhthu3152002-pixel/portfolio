@@ -27,6 +27,7 @@
       "enabled": true
     }
   ],
+  "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
   "hero": {
     "badge": {
       "en": "Marketing Portfolio · Ho Chi Minh City",
@@ -65,6 +66,7 @@
     }
   },
   "about": {
+    "heading": { "enabled": true, "en": "About me", "vi": "Về tôi" },
     "name": "Nguyễn Thị Minh Thu",
     "role": {
       "en": "Marketing · AI Automation",
