@@ -8,7 +8,23 @@ import type { Variants, Transition } from 'framer-motion';
 
 const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-/** Shared entrance: fast blur-to-sharp reveal (Supaste feel). */
+// ⬇️ chỉnh 2 số này để tăng/giảm tốc độ toàn bộ hiệu ứng xuất hiện.
+//    (Adjust these two numbers to speed up / slow down every entrance reveal.)
+/** Độ dài mỗi hiệu ứng xuất hiện, tính bằng giây. */
+export const REVEAL_DURATION = 0.9;
+/** Khoảng cách xuất hiện giữa các phần tử anh em, tính bằng giây. */
+export const REVEAL_STAGGER = 0.15;
+
+/** Tighter stagger for containers with MANY children (card rows, tab groups)
+ *  so long lists still finish revealing promptly. */
+export const REVEAL_STAGGER_TIGHT = 0.1;
+
+/** Hero on-load sequence: badge → line 1 → line 2 → subtitle → CTA. Slightly
+ *  wider stagger, plus a small initial delay so the wallpaper paints first. */
+export const HERO_STAGGER = 0.18;
+export const HERO_INITIAL_DELAY = 0.15;
+
+/** Shared entrance: blur-to-sharp reveal + rise. */
 const REVEAL_HIDDEN = {
   opacity: 0,
   y: 22,
@@ -21,7 +37,7 @@ const REVEAL_SHOWN = {
   scale: 1,
   filter: 'blur(0px)',
 };
-const REVEAL_T: Transition = { duration: 0.5, ease: easeOut };
+const REVEAL_T: Transition = { duration: REVEAL_DURATION, ease: easeOut };
 
 /**
  * Blur-to-sharp reveal item. Plain (no self delay) so it composes with a
@@ -34,14 +50,15 @@ export const reveal: Variants = {
 };
 
 /**
- * Same reveal but delayed by its `custom` index * 0.08s — used on page load for
- * the hero sequence (badge → line 1 → line 2 → subtitle → CTA → shelf).
+ * Same reveal but delayed by an initial beat + its `custom` index * HERO_STAGGER
+ * — used on page load for the hero sequence (badge → line 1 → line 2 →
+ * subtitle → CTA → reassurance → shelf).
  */
 export const heroReveal: Variants = {
   hidden: REVEAL_HIDDEN,
   visible: (i: number = 0) => ({
     ...REVEAL_SHOWN,
-    transition: { ...REVEAL_T, delay: i * 0.08 },
+    transition: { ...REVEAL_T, delay: HERO_INITIAL_DELAY + i * HERO_STAGGER },
   }),
 };
 
@@ -50,12 +67,17 @@ export const fadeUp = reveal;
 export const stackItem = reveal;
 export const stackItemTight = reveal;
 
-/** Stagger container: children reveal 0.06s apart. */
+/** Stagger container so children reveal in sequence (default cadence). */
 export const stackContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
+  visible: { transition: { staggerChildren: REVEAL_STAGGER } },
 };
-export const stackContainerTight = stackContainer;
+
+/** Stagger container for MANY-child rows — capped, tighter cadence. */
+export const stackContainerTight: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: REVEAL_STAGGER_TIGHT } },
+};
 
 /** Shared viewport config for whileInView reveals — fire once, slightly early. */
 export const viewportOnce = { once: true, margin: '-60px' } as const;
@@ -70,10 +92,14 @@ export const tabSpring: Transition = {
   damping: 30,
 };
 
-/** Tab panel swap (AnimatePresence) — blur-to-sharp in, quick blur out. */
+/**
+ * Tab panel swap (AnimatePresence). This is an INTERACTION, not an entrance
+ * reveal, so it keeps a snappy ~0.45s in / quick blur out rather than the
+ * slower REVEAL_DURATION — a 0.9s tab switch would feel laggy.
+ */
 export const tabPanel: Variants = {
   hidden: REVEAL_HIDDEN,
-  visible: { ...REVEAL_SHOWN, transition: REVEAL_T },
+  visible: { ...REVEAL_SHOWN, transition: { duration: 0.45, ease: easeOut } },
   exit: {
     opacity: 0,
     y: -8,
