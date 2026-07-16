@@ -16,6 +16,9 @@ export function t(field: Localized | null | undefined, lang: Lang): string {
 
 export type NavLink = { label: Localized; href: string };
 export type Social = { label: Localized; href: string };
+
+/** A top-level navbar-menu item. `id` selects its dropdown content in Nav. */
+export type NavMenuItem = { id: string; label: Localized; enabled?: boolean };
 export type Cta = { label: Localized; href: string };
 
 export type ProjectColors = { bg: string; fg: string; accent: string };
@@ -54,6 +57,8 @@ export type Project = {
   tags: Localized[];
   colors: ProjectColors;
   cover: string;
+  /** Optional dedicated nav-dropdown thumbnail; falls back to `cover`. */
+  thumb?: string;
   sections: Section[];
 };
 
@@ -90,8 +95,8 @@ export type SiteContent = {
     title: Localized;
     logoText: string;
     description: Localized;
-    nav: NavLink[];
   };
+  nav: NavMenuItem[];
   hero: {
     badge: Localized;
     headline: Localized;

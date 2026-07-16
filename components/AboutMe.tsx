@@ -82,8 +82,9 @@ export function AboutMe() {
         <motion.div variants={stackContainer} className="flex flex-col gap-4">
           {/* Experience — the single DARK panel, with an Education sub-block */}
           <motion.div
+            id="about-experience"
             variants={reveal}
-            className="flex flex-1 flex-col rounded-[24px] border border-white/10 p-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:p-6"
+            className="flex flex-1 scroll-mt-24 flex-col rounded-[24px] border border-white/10 p-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:p-6"
             style={{ background: 'rgba(12,12,16,0.92)' }}
           >
             <PanelHeading
@@ -107,7 +108,7 @@ export function AboutMe() {
             </ul>
 
             {/* Education sub-block */}
-            <div className="mt-5 border-t border-white/10 pt-4">
+            <div id="about-education" className="mt-5 scroll-mt-24 border-t border-white/10 pt-4">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/50">
                 {lang === 'vi' ? 'Học vấn' : 'Education'}
               </p>
@@ -144,7 +145,7 @@ export function AboutMe() {
           </Panel>
 
           {/* Tools — pills with a monochrome brand logo (when available) */}
-          <Panel title={lang === 'vi' ? 'Công cụ' : 'Tools'}>
+          <Panel id="about-tools" title={lang === 'vi' ? 'Công cụ' : 'Tools'}>
             <div className="flex flex-wrap gap-2">
               {a.tools.map((tool) => {
                 const name = t(tool, lang);
@@ -209,12 +210,18 @@ function PanelHeading({ title, tone = 'light' }: { title: string; tone?: 'light'
 function Panel({
   title,
   children,
+  id,
 }: {
   title: string;
   children: React.ReactNode;
+  id?: string;
 }) {
   return (
-    <motion.div variants={reveal} className={`${GLASS} flex flex-1 flex-col p-5 sm:p-6`}>
+    <motion.div
+      id={id}
+      variants={reveal}
+      className={`${GLASS} flex flex-1 scroll-mt-24 flex-col p-5 sm:p-6`}
+    >
       <PanelHeading title={title} />
       <div className="flex-1">{children}</div>
     </motion.div>

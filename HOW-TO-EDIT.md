@@ -209,6 +209,34 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
 
 ---
 
+## 🧭 MENU TRÊN CÙNG (`nav`)
+
+Object `nav` (nằm ngay sau `site`, đầu file) điều khiển **menu thả xuống ở thanh
+điều hướng**: 3 mục **Projects / About / Contact** hiện ở giữa navbar; rê chuột
+vào mỗi mục sẽ mở bảng kính (Projects hiện thumbnail + tên + mô tả từng dự án;
+About/Contact hiện danh sách liên kết). Nội dung bên trong tự lấy từ
+`projects`, `about` và `contact` — **không cần sửa ở đây**.
+
+```json
+"nav": [
+  { "id": "projects", "label": { "en": "Projects", "vi": "Dự án" }, "enabled": true },
+  { "id": "about",    "label": { "en": "About",    "vi": "Về tôi" }, "enabled": true },
+  { "id": "contact",  "label": { "en": "Contact",  "vi": "Liên hệ" }, "enabled": true }
+]
+```
+
+| Bạn muốn | Làm gì |
+|---|---|
+| **Đổi tên một mục menu** | Sửa `label` (`{ "en": "...", "vi": "..." }`) của mục đó. **Giữ nguyên `id`** (id điều khiển nội dung bên trong). |
+| **Ẩn một mục menu** | Đổi `"enabled": true` → `"enabled": false` ở mục đó (mục biến mất khỏi cả navbar desktop lẫn menu hamburger mobile). |
+| **Đổi thứ tự** | Đổi vị trí các khối `{ ... }` trong mảng `nav`. |
+
+> ⚠️ `id` phải là một trong `projects` / `about` / `contact` thì mới có nội dung
+> thả xuống tương ứng. Dự án bị `"enabled": false` sẽ **không** xuất hiện trong
+> menu Projects.
+
+---
+
 ## 🍳 CÔNG THỨC (recipes)
 
 ### A. Sửa chữ / số liệu

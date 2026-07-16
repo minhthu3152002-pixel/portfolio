@@ -8,31 +8,25 @@
     "description": {
       "en": "Marketing portfolio of Nguyen Thi Minh Thu: AI & marketing automation, integrated campaigns, copywriting, social media and university projects.",
       "vi": "Portfolio marketing của Nguyễn Thị Minh Thu: AI & tự động hoá marketing, chiến dịch tích hợp, copywriting, social media và các dự án đại học."
-    },
-    "nav": [
-      {
-        "label": {
-          "en": "Home",
-          "vi": "Trang chủ"
-        },
-        "href": "/"
-      },
-      {
-        "label": {
-          "en": "Projects",
-          "vi": "Dự án"
-        },
-        "href": "/#projects"
-      },
-      {
-        "label": {
-          "en": "Contact",
-          "vi": "Liên hệ"
-        },
-        "href": "/#contact"
-      }
-    ]
+    }
   },
+  "nav": [
+    {
+      "id": "projects",
+      "label": { "en": "Projects", "vi": "Dự án" },
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": { "en": "About", "vi": "Về tôi" },
+      "enabled": true
+    },
+    {
+      "id": "contact",
+      "label": { "en": "Contact", "vi": "Liên hệ" },
+      "enabled": true
+    }
+  ],
   "hero": {
     "badge": {
       "en": "Marketing Portfolio · Ho Chi Minh City",
