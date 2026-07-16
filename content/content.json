@@ -4,7 +4,7 @@
       "en": "Mavis | Marketing Portfolio",
       "vi": "Mavis | Portfolio Marketing"
     },
-    "logoText": "Mavis Porfolio",
+    "logoText": "Mavis Portfolio",
     "description": {
       "en": "Marketing portfolio of Mavis: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
       "vi": "Portfolio marketing của Mavis: AI & tự động hoá marketing, digital marketing, chiến dịch tích hợp, social media và copywriting."
@@ -168,12 +168,12 @@
     "socials": [
       {
         "label": "LinkedIn",
-        "href": "#"
+        "href": "https://www.linkedin.com/in/minh-th%C6%B0-mavis-23978b252/"
       }
     ],
     "copyright": {
-      "en": "© 2026 Nguyen Thi Minh Thu (Mavis). Marketing Portfolio.",
-      "vi": "© 2026 Nguyễn Thị Minh Thu (Mavis). Portfolio Marketing."
+      "en": "© 2026 Nguyen Thi Minh Thư (Mavis). Marketing Portfolio.",
+      "vi": "© 2026 Nguyễn Thị Minh Thư (Mavis). Portfolio Marketing."
     }
   },
   "projects": [
