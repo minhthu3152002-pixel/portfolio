@@ -1,0 +1,249 @@
+{
+  "site": {
+    "title": "Minh Thu — Marketing Portfolio",
+    "description": "Marketing portfolio of Nguyen Thi Minh Thu: integrated campaigns, copywriting, social media, events and brand management.",
+    "logoText": "minhthu.mkt",
+    "nav": [
+      { "label": "Home", "href": "/" },
+      { "label": "Projects", "href": "/#projects" },
+      { "label": "Contact", "href": "/#contact" }
+    ]
+  },
+  "hero": {
+    "badge": "Marketing Portfolio · Ho Chi Minh City",
+    "headline": "Turning ideas into",
+    "headlineItalic": "campaigns with numbers",
+    "headlineTail": "to prove it.",
+    "subtitle": "I'm Minh Thu — a marketer working across integrated campaigns, copywriting, social media, events and branding. Scroll to explore each project."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's work together!",
+    "subtitle": "Dedicated to delivering impactful, creative solutions for brands and businesses.",
+    "email": "minhthu3152002@gmail.com",
+    "phone": "+84 896 487 127",
+    "location": "District 11, HCMC",
+    "socials": [
+      { "label": "LinkedIn", "href": "#" }
+    ],
+    "copyright": "© 2026 Nguyen Thi Minh Thu. Marketing Portfolio."
+  },
+  "projects": [
+    {
+      "id": "k-tech",
+      "num": "01 / INTEGRATED CAMPAIGN",
+      "title": "K-Tech College — Awareness & Lead Campaign",
+      "short": "Built awareness and drove 5K+ qualified leads for an international tech education program through a digital-first, community-driven campaign.",
+      "tags": ["Social Media", "Meta Ads", "Content Strategy", "Community", "Lead Gen", "Tech Events"],
+      "colors": { "bg": "#1b2340", "fg": "#dfe6ff", "accent": "#7da2ff" },
+      "cover": "/assets/ktech-ads.jpg",
+      "overview": [
+        "Planned and executed a full-funnel campaign (Awareness → Consideration → Conversion) to promote an international tech education program to Vietnam's IT community.",
+        "Combined social media, Meta Ads, landing page optimization, third-party job boards and offline tech events into one integrated strategy."
+      ],
+      "challenge": [
+        "Low awareness of the program in Vietnam's tech community.",
+        "Needed to reach two very different audiences: students and working developers.",
+        "Limited campaign timeline demanded fast testing and optimization."
+      ],
+      "solution": [
+        "<b>Landing page & Notion job page:</b> proposed content edits that reduced candidate confusion, and built a Notion job page that helped candidates find roles while saving project costs.",
+        "<b>Social media:</b> planned Facebook & LinkedIn content across 4 pillars — career opportunities, program introduction, social proof, event promotion.",
+        "<b>Meta Ads:</b> tested 3+ ad angles and multiple formats (carousel, video, single image), refined copy per audience segment to improve CTR and lower cost per application.",
+        "<b>Partnerships:</b> coordinated with ITviec and VietnamWorks for media placements reaching targeted IT audiences.",
+        "<b>Tech events:</b> developed concepts, agendas and judging criteria for K-TECH FEST, K-TECH NEXUS and KTC HACKATHON; acted as primary contact for all participants."
+      ],
+      "stats": [
+        ["174K+", "impressions"],
+        ["129K+", "engagements"],
+        ["5K+", "total leads"],
+        ["33%", "of registrations via Meta Ads"]
+      ],
+      "results": [
+        "Contributed <b>33% of total registrations</b> via Meta Ads while successfully reducing CPL.",
+        "KTC Hackathon 2025 reached <b>174K+ impressions, 129K+ engagements and 5K+ leads</b>.",
+        "Achieved high satisfaction scores and positive feedback on candidate support and experience."
+      ],
+      "gallery": [
+        ["/assets/ktech-social.jpg", "Social media content pillars"],
+        ["/assets/ktech-ads.jpg", "Meta Ads performance"],
+        ["/assets/ktech-events.jpg", "Workshops & tech events", 1]
+      ]
+    },
+    {
+      "id": "copywriter",
+      "num": "02 / COPYWRITING",
+      "title": "Copywriter Projects — WEALLNET Agency",
+      "short": "Strategic messaging, big ideas and content execution for clients across tech, F&B, education and energy.",
+      "tags": ["Copywriting", "Brand Messaging", "Market Research", "Creative Concepts", "Tone of Voice"],
+      "colors": { "bg": "#2a1830", "fg": "#f2e4ff", "accent": "#c98bff" },
+      "cover": "/assets/copy-overview.jpg",
+      "overview": [
+        "As a copywriter at WEALLNET Agency, developed messaging strategy and creative concepts for featured clients: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy and Ha Thien Energy</b>."
+      ],
+      "challenge": [
+        "Each client came from a different industry with distinct audiences — from parents buying kids' smartwatches to takeaway coffee cart owners.",
+        "Messaging had to balance brand-appropriate tone of voice with concrete conversion goals."
+      ],
+      "solution": [
+        "Conducted market research, competitor analysis and industry trend evaluation for every brief.",
+        "Analyzed target customer personas and developed key messages with a brand-appropriate tone of voice.",
+        "<b>imoo Z7:</b> positioned the smartwatch as peace-of-mind for busy parents (kids 5–12), with content built on safety, real-life stories and product comparisons across Google, Facebook Ads and website UX.",
+        "<b>FROMCAUDAT:</b> crafted a community-driven narrative ('Nhà Đồng Hành') to scale the takeaway coffee franchise toward 750 carts in 10 months, targeting sellers, student baristas and busy professionals."
+      ],
+      "stats": [
+        ["4", "featured clients"],
+        ["750", "carts — franchise growth target"],
+        ["3", "audience groups per campaign"]
+      ],
+      "results": [
+        "Received <b>positive client feedback</b> on proposals — approved for next steps.",
+        "Delivered full messaging frameworks (Get who / To do what / By how) ready for media rollout."
+      ],
+      "gallery": [
+        ["/assets/copy-imoo.jpg", "imoo Watch Phone campaign"],
+        ["/assets/copy-fromcaudat.jpg", "FROMCAUDAT Coffee campaign"],
+        ["/assets/copy-overview.jpg", "Featured clients & responsibilities", 1]
+      ]
+    },
+    {
+      "id": "facebook",
+      "num": "03 / SOCIAL MEDIA",
+      "title": "Facebook Management — 3 Pages, 26.7M Views",
+      "short": "Grew community and brand pages with viral, high-engagement content: 26.7M views and +15.1K followers in 4 months.",
+      "tags": ["Content Strategy", "Community", "Viral Content", "Analytics", "Visual Design"],
+      "colors": { "bg": "#0f2a28", "fg": "#dcfff8", "accent": "#35d0ba" },
+      "cover": "/assets/fb-posts.jpg",
+      "overview": [
+        "Managed three Facebook pages under WEALLNET: <b>Cong Dong Da Sac</b> (LGBT+ community page), <b>WAN Creative Network</b> (agency brand page) and <b>WANTalk</b> (marketing knowledge hub)."
+      ],
+      "challenge": [
+        "Each page needed its own voice: humorous memes for a community, professional insight for a brand, and educational content for learners.",
+        "Growth had to come primarily from organic, shareable content — not ad budget."
+      ],
+      "solution": [
+        "Researched trends and audience behavior to plan, propose and execute monthly content strategies.",
+        "Created memes, posts and videos; designed visuals; engaged with the community and managed comments daily.",
+        "Tracked performance and continuously adjusted growth strategy based on data."
+      ],
+      "stats": [
+        ["26.7M", "views in 4 months"],
+        ["7.3M", "reach"],
+        ["+15.1K", "new followers"],
+        ["3.2M", "views — single top post"]
+      ],
+      "results": [
+        "<b>Cong Dong Da Sac:</b> 26.7M views, 7.3M reach and +15.1K followers in 4 months, with multiple viral posts (3.2M / 2.8M / 2.7M / 2.6M views).",
+        "<b>WAN Creative Network:</b> 248.5K views, 140.5K users reached (+27.2%), 41% organic traffic.",
+        "<b>WANTalk:</b> 15.9K views in 4 months with 70% organic traffic."
+      ],
+      "gallery": [
+        ["/assets/fb-results.jpg", "4-month performance"],
+        ["/assets/fb-posts.jpg", "Highlight viral posts"]
+      ]
+    },
+    {
+      "id": "tiktok",
+      "num": "04 / SHORT VIDEO",
+      "title": "TikTok Management — Viral Script Writing",
+      "short": "Scripted trend-driven short videos across beauty, humor, F&B and horror — including a viral hit with 9.9M+ views.",
+      "tags": ["Script Writing", "TikTok Trends", "Short Video", "Storytelling"],
+      "colors": { "bg": "#241019", "fg": "#ffe3ec", "accent": "#ff5c8a" },
+      "cover": "/assets/tiktok-videos.jpg",
+      "overview": [
+        "Developed video ideas and scripts inspired by TikTok trends and real customer/brand stories, across fashion & beauty, humor & entertainment, food & beverage, and horror."
+      ],
+      "challenge": [
+        "Trends on TikTok expire in days — scripts had to be produced fast while staying entertaining, clear and TikTok-compliant.",
+        "Each script needed to fit the target audience and brand goals without losing the hook."
+      ],
+      "solution": [
+        "Stayed on top of viral memes and formats, adapting them to each brand's voice.",
+        "Tailored scripts to specific audiences (youth, comedy, product storytelling) and aligned video style with marketing goals."
+      ],
+      "stats": [
+        ["9.9M+", "views — top video"],
+        ["242K+", "likes on viral hit"],
+        ["50–100K", "avg. views per series video"]
+      ],
+      "results": [
+        "Scripted a <b>viral video with 9.9M+ views and 242K+ likes</b>.",
+        "Maintained a video series averaging 50K–100K views per video.",
+        "Content was widely shared, growing followers and engagement organically."
+      ],
+      "gallery": [
+        ["/assets/tiktok-overview.jpg", "Fields & responsibilities"],
+        ["/assets/tiktok-videos.jpg", "Highlight videos"]
+      ]
+    },
+    {
+      "id": "event",
+      "num": "05 / EVENT",
+      "title": "Event Management — Cre8Vibe Competition",
+      "short": "Led a university-wide logo design competition end-to-end: 300 participants, +20% over target, under budget.",
+      "tags": ["Event Leadership", "Project Management", "Communication", "Budgeting"],
+      "colors": { "bg": "#2a1d10", "fg": "#ffefd8", "accent": "#ffb454" },
+      "cover": "/assets/event-results.jpg",
+      "overview": [
+        "Leader of <b>Cre8Vibe</b> — a logo design competition at HUFLIT — owning the entire organization process from concept to post-event evaluation."
+      ],
+      "challenge": [
+        "Full ownership: objectives, concept, timeline, budget, team assignment, partner coordination and issue handling.",
+        "Needed to attract participants in a crowded student-event landscape."
+      ],
+      "solution": [
+        "Defined objectives, concept, timeline and budget; assigned tasks and supervised the team.",
+        "Built the full communication plan — content, media design and promotion — to drive registrations.",
+        "Designed competition rules, judging criteria, and scripts for MCs and guest trainers."
+      ],
+      "stats": [
+        ["300", "participants (+20% vs target)"],
+        ["+400", "fanpage followers in 2 weeks"],
+        ["-15%", "vs projected costs"],
+        ["90%", "positive feedback"]
+      ],
+      "results": [
+        "Attracted <b>300 participants — exceeding target by 20%</b>.",
+        "Grew the fanpage by 400 followers in two weeks with 3–11% engagement throughout.",
+        "Kept the event within budget, cutting projected costs by 15%, with 90% positive participant feedback."
+      ],
+      "gallery": [
+        ["/assets/event-overview.jpg", "Role & responsibilities"],
+        ["/assets/event-results.jpg", "Results & materials"]
+      ]
+    },
+    {
+      "id": "brand",
+      "num": "06 / BRANDING",
+      "title": "Brand Management — Brown Delight",
+      "short": "Led a full branding project for a Vietnamese chocolate brand concept — strategy, identity system and marketing program.",
+      "tags": ["Brand Strategy", "Brand Identity", "Positioning", "Creative Direction"],
+      "colors": { "bg": "#16281a", "fg": "#e2f7e6", "accent": "#7ed491" },
+      "cover": "/assets/brand-packaging.jpg",
+      "overview": [
+        "<b>Brown Delight</b> is a branding project for a Vietnamese chocolate brand aiming for the global market — chocolate infused with local specialty fruits, and packaging inspired by Vietnamese cultural heritage."
+      ],
+      "challenge": [
+        "Build a cohesive brand from zero: concept, brand key, positioning, identity system and marketing program — all aligned with one cultural story."
+      ],
+      "solution": [
+        "Led the project end-to-end, overseeing strategy, execution and creative direction.",
+        "Researched and executed brand concept, brand key and brand positioning.",
+        "Led creative development of the Brand Identity System, including packaging featuring Vietnamese cultural architecture and Dak Lak cocoa origin.",
+        "Proposed and planned a Brand Marketing Program aligned with the set objectives."
+      ],
+      "stats": [
+        ["8.5/10", "project score"],
+        ["1", "complete identity system"]
+      ],
+      "results": [
+        "Achieved a score of <b>8.5/10</b> with positive feedback from the instructor.",
+        "Successfully implemented a structured, cohesive branding process from concept to marketing plan."
+      ],
+      "gallery": [
+        ["/assets/brand-overview.jpg", "Brand concept & role"],
+        ["/assets/brand-packaging.jpg", "Packaging details"]
+      ]
+    }
+  ]
+}
