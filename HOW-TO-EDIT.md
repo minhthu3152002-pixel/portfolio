@@ -1,174 +1,219 @@
 # Hướng dẫn chỉnh sửa nội dung Portfolio
 
-Toàn bộ nội dung hiển thị trên website (chữ, số liệu, dự án, thông tin liên hệ, ảnh)
-đều nằm trong **một file duy nhất**:
+Toàn bộ nội dung website nằm trong **một file duy nhất**:
 
 ```
 content/content.json
 ```
 
-Bạn **không cần biết code**. Chỉ cần sửa file này ngay trên github.com, lưu lại,
-và Vercel sẽ **tự động cập nhật website** sau 1–2 phút.
+Bạn **không cần biết code**. Sửa file này trên github.com → **Commit changes** →
+**Vercel tự động deploy** lại website sau 1–2 phút.
+
+Cấu trúc nội dung có 3 cấp lồng nhau:
+
+```
+project (dự án)  →  section (TAB dạng viên thuốc)  →  group (tiểu mục trong tab)  →  block (khối nội dung)
+```
+
+- **project**: một dự án. Hiện ra ở trang chủ và có trang riêng `/project/<id>`.
+- **section**: hiển thị thành **một TAB** ở trang dự án.
+- **group**: một **tiểu mục** (có tiêu đề phụ, hoặc `"title": null` = không có tiêu đề) bên trong tab.
+- **block**: khối nội dung, có 3 loại:
+  - `"text"` — danh sách gạch đầu dòng.
+  - `"stats"` — các con số lớn `["giá trị", "chú thích"]`.
+  - `"gallery"` — ảnh `["đường-dẫn", "chú thích"]` (thêm số `1` ở cuối để ảnh rộng hết khổ).
+
+> ⚠️ **Cú pháp JSON:** mỗi đoạn chữ nằm trong `"..."`; các mục cách nhau bằng dấu phẩy `,`
+> **trừ mục cuối** thì không có phẩy; không xóa nhầm `{ } [ ] "` hoặc dấu phẩy.
+> Nếu web không cập nhật, thường do thừa/thiếu một dấu phẩy — kiểm tra nhanh tại <https://jsonlint.com>.
 
 ---
 
-## 1. Cách sửa nội dung trên github.com (không cần cài gì cả)
+## 🔀 BẬT / TẮT bất kỳ phần nào (`enabled`)
 
-1. Mở repository trên **github.com** và vào file `content/content.json`.
-2. Bấm biểu tượng **cây bút chì ✏️ (Edit this file)** ở góc trên bên phải.
-3. Sửa nội dung bạn muốn (xem ví dụ bên dưới).
-4. Kéo xuống cuối trang, mục **Commit changes**:
-   - Ô đầu: ghi ngắn gọn bạn vừa sửa gì (ví dụ: `Cập nhật số liệu K-Tech`).
-   - Bấm nút xanh **Commit changes**.
-5. Xong! **Vercel tự động deploy** lại website. Đợi khoảng **1–2 phút** rồi tải lại
-   trang web là thấy thay đổi.
+Mỗi **project**, **section (tab)** và **group** đều có cờ `"enabled"`:
 
-> ⚠️ **Lưu ý quan trọng về cú pháp JSON:**
-> - Mỗi đoạn chữ phải nằm trong dấu ngoặc kép `"..."`.
-> - Các mục cách nhau bằng dấu phẩy `,` — **trừ mục cuối cùng** thì không có dấu phẩy.
-> - Không xóa nhầm dấu `{ }`, `[ ]`, `"` hoặc dấu phẩy.
-> - Nếu GitHub báo lỗi hoặc web không cập nhật, thường là do thừa/thiếu một dấu phẩy.
->   Bạn có thể kiểm tra nhanh bằng cách dán nội dung vào <https://jsonlint.com>.
+- `"enabled": true` → hiển thị.
+- `"enabled": false` → **ẩn hoàn toàn** (khỏi trang chủ, khỏi tab bar, khỏi trang dự án).
+
+Số thứ tự dự án (01, 02, 03…) được **tự động đánh lại** chỉ dựa trên các dự án đang bật.
+Tắt một dự án ở giữa → các dự án sau tự dồn số lại, không bị trống.
 
 ---
 
-## 2. Đổi số liệu (ví dụ: sửa "174K+ impressions")
+## 📑 MỤC LỤC — vị trí chính xác trong content.json
 
-Số liệu nằm trong mục `stats` của mỗi project. Mỗi số liệu là một cặp
-`["con số", "chú thích"]`:
+Đường dẫn dùng chỉ số **bắt đầu từ 0**: `projects[0]` là dự án đầu tiên.
+Ô "text/số liệu" luôn nằm ở `...blocks[j].items`.
 
-```json
-"stats": [
-  ["174K+", "impressions"],
-  ["129K+", "engagements"],
-  ["5K+", "total leads"],
-  ["33%", "of registrations via Meta Ads"]
-]
-```
+### `projects[0]` — AI & Marketing Automation  (id `ai-automation`)
+| Tab (section) | Group (tiểu mục) | Đường dẫn JSON |
+|---|---|---|
+| Overview `sections[0]` | (không tiêu đề) | `projects[0].sections[0].groups[0]` |
+| Personal Project `sections[1]` | Pet Care App | `projects[0].sections[1].groups[0]` |
+| K-Tech Tools `sections[2]` | Landing Page | `projects[0].sections[2].groups[0]` |
+| K-Tech Tools `sections[2]` | Data Dashboard | `projects[0].sections[2].groups[1]` |
+| K-Tech Tools `sections[2]` | Auto Email | `projects[0].sections[2].groups[2]` |
 
-👉 Muốn đổi `174K+` thành `200K+`, chỉ cần sửa:
+### `projects[1]` — K-Tech College  (id `k-tech`)
+| Tab (section) | Group (tiểu mục) | Đường dẫn JSON |
+|---|---|---|
+| Overview `sections[0]` | (giới thiệu) | `projects[1].sections[0].groups[0]` |
+| Overview `sections[0]` | Challenge | `projects[1].sections[0].groups[1]` |
+| Overview `sections[0]` | Results (số liệu) | `projects[1].sections[0].groups[2]` |
+| Overview `sections[0]` | (link chéo → AI tools) | `projects[1].sections[0].groups[3]` |
+| Paid Channel `sections[1]` | Meta Ads | `projects[1].sections[1].groups[0]` |
+| Paid Channel `sections[1]` | LinkedIn Promoted Jobs | `projects[1].sections[1].groups[1]` |
+| Paid Channel `sections[1]` | Hiring Platforms | `projects[1].sections[1].groups[2]` |
+| Free Channel `sections[2]` | Social Media | `projects[1].sections[2].groups[0]` |
+| Free Channel `sections[2]` | Community | `projects[1].sections[2].groups[1]` |
+| Free Channel `sections[2]` | Seeding | `projects[1].sections[2].groups[2]` |
+| Free Channel `sections[2]` | Hiring Platforms — organic | `projects[1].sections[2].groups[3]` |
+| Free Channel `sections[2]` | University Partnerships | `projects[1].sections[2].groups[4]` |
+| Events `sections[3]` | Offline Events | `projects[1].sections[3].groups[0]` |
+| Events `sections[3]` | Online Events | `projects[1].sections[3].groups[1]` |
 
-```json
-  ["200K+", "impressions"],
-```
+### `projects[2]` — Copywriter Projects  (id `copywriter`)
+| Tab (section) | Group (tiểu mục) | Đường dẫn JSON |
+|---|---|---|
+| Overview `sections[0]` | (vai trò) | `projects[2].sections[0].groups[0]` |
+| Overview `sections[0]` | Responsibilities | `projects[2].sections[0].groups[1]` |
+| Overview `sections[0]` | Challenge | `projects[2].sections[0].groups[2]` |
+| Overview `sections[0]` | Clients (ảnh) | `projects[2].sections[0].groups[3]` |
+| Overview `sections[0]` | Results (số liệu) | `projects[2].sections[0].groups[4]` |
+| imoo Watch Phone `sections[1]` | (không tiêu đề) | `projects[2].sections[1].groups[0]` |
+| FROMCAUDAT Coffee `sections[2]` | (không tiêu đề) | `projects[2].sections[2].groups[0]` |
+
+### `projects[3]` — Social Media  (id `social-media`)
+| Tab (section) | Group (tiểu mục) | Đường dẫn JSON |
+|---|---|---|
+| Overview `sections[0]` | (tóm tắt + số liệu) | `projects[3].sections[0].groups[0]` |
+| Facebook Growth `sections[1]` | Approach & Strategy | `projects[3].sections[1].groups[0]` |
+| Facebook Growth `sections[1]` | Cong Dong Da Sac Page | `projects[3].sections[1].groups[1]` |
+| Facebook Growth `sections[1]` | WAN Creative Network Page | `projects[3].sections[1].groups[2]` |
+| TikTok Management `sections[2]` | Approach | `projects[3].sections[2].groups[0]` |
+| TikTok Management `sections[2]` | Results & Highlights | `projects[3].sections[2].groups[1]` |
+
+### `projects[4]` — Other & University Projects  (id `university`)
+| Tab (section) | Group (tiểu mục) | Đường dẫn JSON |
+|---|---|---|
+| Overview `sections[0]` | (giới thiệu + số liệu) | `projects[4].sections[0].groups[0]` |
+| Cre8Vibe Event `sections[1]` | (giới thiệu) | `projects[4].sections[1].groups[0]` |
+| Cre8Vibe Event `sections[1]` | Challenge | `projects[4].sections[1].groups[1]` |
+| Cre8Vibe Event `sections[1]` | Solution | `projects[4].sections[1].groups[2]` |
+| Cre8Vibe Event `sections[1]` | Results (số liệu) | `projects[4].sections[1].groups[3]` |
+| Brown Delight Branding `sections[2]` | (giới thiệu) | `projects[4].sections[2].groups[0]` |
+| Brown Delight Branding `sections[2]` | Challenge | `projects[4].sections[2].groups[1]` |
+| Brown Delight Branding `sections[2]` | Solution | `projects[4].sections[2].groups[2]` |
+| Brown Delight Branding `sections[2]` | Results (số liệu) | `projects[4].sections[2].groups[3]` |
+
+> Ngoài ra: `site` (logo, menu), `hero` (tiêu đề trang chủ + nút CTA), `contact`
+> (email, SĐT, địa chỉ, mạng xã hội) nằm ở đầu file.
 
 ---
 
-## 3. Sửa mô tả / đoạn văn
+## 🍳 CÔNG THỨC (recipes)
 
-- `short`: đoạn mô tả ngắn hiển thị ở trang chủ và đầu trang dự án.
-- `overview`, `challenge`, `solution`, `results`: là **danh sách các gạch đầu dòng**.
+### A. Sửa chữ / số liệu
+Tìm group theo Mục lục ở trên, rồi sửa trong `blocks[...].items`.
+- Block `"text"`: mỗi gạch đầu dòng là một dòng trong `"..."`. In đậm bằng `<b>...</b>`.
+- Block `"stats"`: mỗi số là một cặp `["giá trị", "chú thích"]`.
+- Block `"gallery"`: mỗi ảnh là `["/assets/ten-anh.jpg", "chú thích"]`.
 
-Ví dụ sửa phần Challenge:
-
-```json
-"challenge": [
-  "Câu gạch đầu dòng thứ nhất.",
-  "Câu gạch đầu dòng thứ hai."
-]
-```
-
-👉 **Thêm một gạch đầu dòng mới**: thêm một dòng trong ngoặc kép và nhớ dấu phẩy:
-
-```json
-"challenge": [
-  "Câu cũ.",
-  "Câu mới bạn vừa thêm."
-]
-```
-
-👉 **In đậm một cụm từ**: bọc trong thẻ `<b>...</b>`:
-
-```json
-"Contributed <b>33% of total registrations</b> via Meta Ads."
-```
-
----
-
-## 4. Thêm 1 project mới
-
-Mỗi project là một khối `{ ... }` nằm trong danh sách `projects`.
-Cách dễ nhất: **copy nguyên một project có sẵn**, dán xuống dưới (nhớ dấu phẩy ngăn
-cách giữa các project), rồi sửa nội dung. Cấu trúc một project:
-
+### B. Thêm một GROUP mới (tiểu mục mới trong 1 tab)
+Vào `groups` của tab cần thêm, thêm một khối như sau (nhớ dấu phẩy ngăn cách):
 ```json
 {
-  "id": "ten-duong-dan",                     // dùng cho URL: /project/ten-duong-dan (chữ thường, không dấu, không cách)
-  "num": "07 / CATEGORY",                    // số thứ tự + loại dự án
-  "title": "Tên dự án — Mô tả ngắn",
-  "short": "Một câu tóm tắt dự án.",
-  "tags": ["Kỹ năng 1", "Kỹ năng 2"],
-  "colors": { "bg": "#1b2340", "fg": "#dfe6ff", "accent": "#7da2ff" },
-  "cover": "/assets/ten-anh.jpg",            // ảnh bìa (xem mục 5)
-  "overview": ["Đoạn giới thiệu."],
-  "challenge": ["Thử thách."],
-  "solution": ["Giải pháp."],
-  "stats": [["Số", "Chú thích"]],
-  "results": ["Kết quả đạt được."],
-  "gallery": [
-    ["/assets/anh-1.jpg", "Chú thích ảnh 1"],
-    ["/assets/anh-2.jpg", "Chú thích ảnh 2", 1]
+  "enabled": true,
+  "title": "Tên tiểu mục mới",
+  "blocks": [
+    { "type": "text", "items": ["Nội dung gạch đầu dòng."] }
   ]
 }
 ```
 
-Giải thích các trường:
-- `id`: chuỗi định danh, xuất hiện trong đường link. Không được trùng với project khác.
-- `colors`: `bg` = màu nền khối, `fg` = màu chữ trên nền đó, `accent` = màu nhấn (số liệu, chấm tròn).
-- `gallery`: mỗi ảnh là `["đường-dẫn-ảnh", "chú thích"]`. Thêm số `1` ở cuối
-  (`["...", "...", 1]`) để ảnh chiếm **toàn bộ chiều ngang**.
-
-> Trang chủ và các trang chi tiết được tạo **tự động** từ danh sách này — thêm một
-> project là website sẽ tự có thêm một khối và một trang mới.
-
----
-
-## 5. Thay ảnh trong /public/assets/
-
-Tất cả ảnh nằm trong thư mục:
-
-```
-public/assets/
-```
-
-Trong `content.json`, đường dẫn ảnh luôn bắt đầu bằng `/assets/...`
-(ví dụ `/assets/ktech-ads.jpg`).
-
-**Cách thêm hoặc thay ảnh trên github.com:**
-
-1. Mở thư mục `public/assets/` trên github.com.
-2. Bấm **Add file → Upload files**, kéo thả ảnh mới vào, rồi **Commit changes**.
-   - Nên đặt tên ảnh không dấu, không khoảng trắng (ví dụ: `ktech-ads.jpg`).
-   - Nên dùng ảnh ngang tỉ lệ **16:9** để hiển thị đẹp nhất.
-3. Trong `content.json`, trỏ tới ảnh mới bằng đường dẫn `/assets/ten-anh-moi.jpg`:
-
+### C. Thêm một TAB mới (section mới trong 1 dự án)
+Vào `sections` của dự án, thêm một khối:
 ```json
-"cover": "/assets/ten-anh-moi.jpg"
+{
+  "enabled": true,
+  "id": "ten-tab-khong-dau",
+  "label": "Tên Tab hiển thị",
+  "groups": [
+    {
+      "enabled": true,
+      "title": null,
+      "blocks": [
+        { "type": "text", "items": ["Nội dung của tab."] }
+      ]
+    }
+  ]
+}
 ```
 
-👉 **Thay ảnh cũ mà không đổi tên**: chỉ cần upload ảnh mới **trùng tên** với ảnh cũ,
-website sẽ tự dùng ảnh mới, không cần sửa `content.json`.
+### D. Đổi thứ tự dự án
+Chỉ cần **đổi vị trí khối `{ ... }` của dự án trong mảng `projects`** (cắt/dán lên trên
+hoặc xuống dưới). Số thứ tự 01, 02… **tự đánh lại** theo vị trí mới — không cần sửa gì thêm.
+
+### E. TẮT / BẬT một phần
+Đổi `"enabled": true` ↔ `"enabled": false` ở đúng cấp (project / section / group).
 
 ---
 
-## 6. Các nội dung khác (tiêu đề, liên hệ)
+## ✅ 3 VÍ DỤ CỤ THỂ
 
-- **Tiêu đề trang chủ / phụ đề**: mục `hero` trong `content.json`.
-- **Email, số điện thoại, địa chỉ, mạng xã hội**: mục `contact`.
-- **Tên logo, menu điều hướng**: mục `site`.
+### Ví dụ 1 — Điền số liệu placeholder ở tab Overview của AI & Marketing Automation
+Mở `projects[0].sections[0].groups[0].blocks[1].items` và đổi `[X]h → [Y]m`:
+```json
+"items": [
+  ["8h → 20m", "reporting time"],
+  ["4", "tools shipped"]
+]
+```
 
-Sửa y hệt cách ở trên: đổi chữ trong ngoặc kép rồi **Commit changes**.
+### Ví dụ 2 — TẮT dự án "Social Media" (ẩn khỏi toàn site)
+Tại `projects[3]`, đổi cờ ở đầu dự án:
+```json
+{
+  "enabled": false,
+  "id": "social-media",
+  ...
+}
+```
+Kết quả: dự án biến mất khỏi trang chủ, link `/project/social-media` không còn, và các
+dự án còn lại **tự đánh số lại** (K-Tech = 02, Copywriter = 03, University = 04).
+
+### Ví dụ 3 — Thêm group "Podcast" vào tab TikTok Management
+Vào `projects[3].sections[2].groups`, thêm vào cuối mảng (nhớ dấu phẩy trước khối mới):
+```json
+{
+  "enabled": true,
+  "title": "Podcast",
+  "blocks": [
+    { "type": "text", "items": ["Kịch bản podcast ngắn cho thương hiệu."] },
+    { "type": "stats", "items": [["120K", "lượt nghe"]] }
+  ]
+}
+```
+
+---
+
+## 🖼️ Ảnh (thư mục /public/assets/)
+Tất cả ảnh nằm trong `public/assets/`. Trong `content.json` đường dẫn luôn bắt đầu bằng
+`/assets/...`. Upload ảnh mới: mở `public/assets/` trên github.com → **Add file → Upload
+files** → **Commit changes**. Thay ảnh cũ mà không đổi tên: chỉ cần upload đè ảnh trùng
+tên. Nên dùng ảnh ngang tỉ lệ **16:9**.
 
 ---
 
 ## Tóm tắt
-
-| Bạn muốn | Sửa ở đâu |
+| Bạn muốn | Làm gì |
 |---|---|
-| Đổi số liệu | `stats` trong `content.json` |
-| Sửa mô tả | `short`, `overview`, `challenge`, `solution`, `results` |
-| Thêm project | Thêm một khối `{ }` vào `projects` |
-| Thay ảnh | Upload vào `public/assets/` + trỏ đường dẫn `/assets/...` |
-| Đổi email/liên hệ | `contact` trong `content.json` |
+| Sửa chữ / số liệu | Sửa `blocks[...].items` của group tương ứng (xem Mục lục) |
+| Thêm tiểu mục | Thêm 1 `group` vào `groups` của tab (recipe B) |
+| Thêm tab | Thêm 1 `section` vào `sections` của dự án (recipe C) |
+| Đổi thứ tự dự án | Đổi vị trí trong mảng `projects` (recipe D) |
+| Ẩn / hiện một phần | Đổi `"enabled"` true ↔ false (recipe E) |
+| Thay ảnh | Upload vào `public/assets/` |
 
-Mỗi lần **Commit changes** trên GitHub → **Vercel tự động deploy** → đợi 1–2 phút → xong. 🎉
+Mỗi lần **Commit changes** → **Vercel tự động deploy** → đợi 1–2 phút → xong. 🎉

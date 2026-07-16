@@ -6,9 +6,11 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      {/* Only enabled projects are in `projects`; numbering (01, 02…) follows
+          their order, so disabling one closes the gap automatically. */}
       <div id="projects">
-        {projects.map((project) => (
-          <ProjectBlock key={project.id} project={project} />
+        {projects.map((project, i) => (
+          <ProjectBlock key={project.id} project={project} num={i + 1} />
         ))}
       </div>
     </main>

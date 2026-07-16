@@ -4,13 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/content';
+import { pad2 } from '@/lib/content';
 import { fadeUp, hoverLift, coverTilt, viewportOnce } from '@/lib/motion';
 
 /**
  * Full-width numbered project block on the home page: own color scheme,
  * tags, tilted cover image and a hover lift. Clicking routes to /project/[id].
+ * `num` is the project's position among enabled projects.
  */
-export function ProjectBlock({ project }: { project: Project }) {
+export function ProjectBlock({
+  project,
+  num,
+}: {
+  project: Project;
+  num: number;
+}) {
   const { colors } = project;
   const heading = project.title.split('—')[0].trim();
 
@@ -38,7 +46,7 @@ export function ProjectBlock({ project }: { project: Project }) {
           <div className="wrap grid grid-cols-[1.05fr_0.95fr] items-center gap-14 max-[820px]:grid-cols-1 max-[820px]:gap-[34px]">
             <div>
               <p className="mb-[26px] text-[0.78rem] font-medium tracking-[0.22em] opacity-85">
-                {project.num} PROJECT
+                {pad2(num)} / PROJECT
               </p>
               <h2 className="mb-5 text-[clamp(1.9rem,4.2vw,3rem)] font-extrabold uppercase tracking-[-0.01em]">
                 {heading}

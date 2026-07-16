@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { content, projects, getProject } from '@/lib/content';
+import { content, projects, getProject, projectNumber } from '@/lib/content';
 import { ProjectDetail } from '@/components/ProjectDetail';
 
 export function generateStaticParams() {
+  // Only enabled projects get routes.
   return projects.map((p) => ({ id: p.id }));
 }
 
@@ -23,5 +24,5 @@ export function generateMetadata({
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = getProject(params.id);
   if (!project) notFound();
-  return <ProjectDetail project={project} />;
+  return <ProjectDetail project={project} num={projectNumber(project.id)} />;
 }

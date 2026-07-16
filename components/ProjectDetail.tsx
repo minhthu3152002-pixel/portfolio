@@ -1,23 +1,37 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/content';
-import { RichList } from '@/components/RichList';
-import { Gallery } from '@/components/Gallery';
-import { Reveal } from '@/components/Reveal';
-import { pageTransition } from '@/lib/motion';
+import { enabledSections, enabledGroups, pad2 } from '@/lib/content';
+import { Blocks } from '@/components/Blocks';
+import { pageTransition, fadeUp } from '@/lib/motion';
 
-/** Project detail view: colored hero band, Skills sidebar and content sections. */
-export function ProjectDetail({ project: p }: { project: Project }) {
+/**
+ * Project detail view: colored hero band, Skills sidebar and a set of pill
+ * TABS (sections). Each active tab shows its enabled groups, and each group is
+ * an optional sub-heading followed by its content blocks.
+ */
+export function ProjectDetail({
+  project: p,
+  num,
+}: {
+  project: Project;
+  num: number;
+}) {
   const { colors } = p;
+  const sections = enabledSections(p);
+  const [activeId, setActiveId] = useState(sections[0]?.id ?? '');
+  const active = sections.find((s) => s.id === activeId) ?? sections[0];
+  const groups = active ? enabledGroups(active) : [];
 
   return (
     <motion.main
       variants={pageTransition}
       initial="hidden"
       animate="visible"
-      // `--pc` drives accent bullets, stat numbers and links across this page.
+      // `--pc` drives accent bullets, stat numbers, tabs and links across this page.
       style={{ ['--pc' as string]: colors.accent }}
     >
       <header
@@ -33,7 +47,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
           </Link>
           <div>
             <span className="mb-[22px] inline-block rounded-full bg-black/40 px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[0.16em]">
-              {p.num} PROJECT
+              {pad2(num)} / PROJECT
             </span>
           </div>
           <h1 className="mb-5 max-w-[840px] text-[clamp(2.1rem,5vw,3.5rem)] font-extrabold uppercase tracking-[-0.01em]">
@@ -65,57 +79,60 @@ export function ProjectDetail({ project: p }: { project: Project }) {
         </aside>
 
         <div>
-          <Section title="Overview">
-            <RichList items={p.overview} />
-          </Section>
-          <Section title="Challenge">
-            <RichList items={p.challenge} />
-          </Section>
-          <Section title="Solution">
-            <RichList items={p.solution} />
-          </Section>
-          <Section title="Result">
-            <div className="mt-2 flex flex-wrap gap-10">
-              {p.stats.map(([value, label], i) => (
-                <div key={i}>
-                  <b className="block font-display text-[2.2rem] font-extrabold text-[var(--pc)]">
-                    {value}
-                  </b>
-                  <small className="text-muted">{label}</small>
-                </div>
-              ))}
-            </div>
-            <RichList items={p.results} className="mt-7" />
-          </Section>
-          <Section title="Gallery">
-            <Gallery items={p.gallery} />
-          </Section>
+          {/* Tab bar — one pill per enabled section */}
+          <div
+            role="tablist"
+            aria-label="Project sections"
+            className="mb-10 flex flex-wrap gap-2.5 border-b border-line pb-6"
+          >
+            {sections.map((s) => {
+              const isActive = s.id === active?.id;
+              return (
+                <button
+                  key={s.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveId(s.id)}
+                  className={`rounded-full border px-[18px] py-[7px] text-[0.83rem] font-medium transition-colors ${
+                    isActive
+                      ? 'border-transparent bg-[var(--pc)] text-bg'
+                      : 'border-line text-muted hover:text-text'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active tab panel — groups render as sub-headings + blocks */}
+          <motion.div
+            key={active?.id}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            role="tabpanel"
+          >
+            {groups.map((g, i) => (
+              <section key={i} className="mb-12 last:mb-0">
+                {g.title && (
+                  <h3 className="mb-5 text-[1.2rem] font-extrabold uppercase tracking-[0.04em]">
+                    {g.title}
+                  </h3>
+                )}
+                <Blocks blocks={g.blocks} />
+              </section>
+            ))}
+          </motion.div>
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
+            className="mt-10 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
           >
             ← Back to all projects
           </Link>
         </div>
       </div>
     </motion.main>
-  );
-}
-
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Reveal as="section" className="mb-16">
-      <h3 className="mb-[22px] text-[1.45rem] font-extrabold uppercase tracking-[0.04em]">
-        {title}
-      </h3>
-      {children}
-    </Reveal>
   );
 }

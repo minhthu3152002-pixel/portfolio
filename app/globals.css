@@ -46,6 +46,10 @@
   .rich b {
     @apply font-semibold text-text;
   }
+  /* Cross-link anchors inside rich text (e.g. links between projects). */
+  .rich a {
+    @apply font-medium text-[var(--pc,theme(colors.accent))] underline underline-offset-2;
+  }
 }
 
 /* Gradient headline accent (hero italic word). */
