@@ -57,20 +57,24 @@ export function hslToHex(h: number, s: number, l: number): string {
 }
 
 /**
- * Shelf card — softened "pastel poster" gradient from a project accent.
- *
- * Same hue as the block below, ~65-70% of the accent's punch: capped saturation
- * and raised lightness for an airy poster feel. The top-left stop stays *deep*
- * (low lightness) rather than highly saturated, which keeps white text readable
- * even on light accents like amber — deepen the top stop, don't crank saturation.
+ * Softened "pastel poster" gradient stops for a project accent — same hue as
+ * the home block, ~65-70% of the accent's punch: capped saturation and raised
+ * lightness for an airy poster feel. The top-left `deep` stop stays low-
+ * lightness (not highly saturated) so white text/graphics read even on light
+ * accents like amber. Shared by the CSS gradient and the SVG folder fill.
  */
-export function posterGradient(accent: string): string {
+export function posterStops(accent: string): { deep: string; mid: string; airy: string } {
   const { h, s } = hexToHsl(accent);
-  // Deep top-left stop: bounded saturation, dark enough for white text (>=4:1).
-  const deep = hslToHex(h, Math.min(0.62, Math.max(0.44, s * 0.74)), 0.34);
-  // Mid + airy stops: same hue, progressively lighter and less saturated.
-  const mid = hslToHex(h, Math.min(0.55, s * 0.62), 0.55);
-  const airy = hslToHex(h, Math.min(0.5, s * 0.55), 0.74);
+  return {
+    deep: hslToHex(h, Math.min(0.62, Math.max(0.44, s * 0.74)), 0.34),
+    mid: hslToHex(h, Math.min(0.55, s * 0.62), 0.55),
+    airy: hslToHex(h, Math.min(0.5, s * 0.55), 0.74),
+  };
+}
+
+/** Shelf poster gradient as a CSS background string (deep → mid → airy). */
+export function posterGradient(accent: string): string {
+  const { deep, mid, airy } = posterStops(accent);
   return (
     `radial-gradient(78% 60% at 15% 0%, rgba(255,255,255,0.16), transparent 55%), ` +
     `linear-gradient(140deg, ${deep} 0%, ${mid} 52%, ${airy} 100%)`

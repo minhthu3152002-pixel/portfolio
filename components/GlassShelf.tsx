@@ -1,19 +1,26 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { content, projects, pad2, t } from '@/lib/content';
+import { content, projects, pad2, t, type ProjectColors } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
-import { posterGradient } from '@/lib/colors';
+import { posterStops } from '@/lib/colors';
 import { stackContainerTight, stackItemTight } from '@/lib/motion';
+
+/** Folder silhouette in a 100×76 viewBox: rounded body with a ~40%-wide tab
+ *  protruding flush on the top-left, merging into the body with a smooth
+ *  fillet (Finder / iOS folder icon). */
+const FOLDER_PATH =
+  'M6,0 L36,0 Q42,0 42,6 L42,8 Q42,15 49,15 L91,15 Q100,15 100,24 ' +
+  'L100,67 Q100,76 91,76 L9,76 Q0,76 0,67 L0,6 Q0,0 6,0 Z';
 
 /**
  * Liquid-glass "My Projects" shelf overlapping the hero bottom: one frosted
- * glass window with a mac-style header (traffic lights · centered title · time)
- * over a dark panel holding filter chips and a drag-to-scroll row of accent
- * "gradient poster" project cards (enabled projects only).
+ * glass window with a mac-style header over a dark panel holding filter chips
+ * and a wrapping row of macOS-style FOLDER icons (enabled projects only). Each
+ * folder is a flat gradient shape in the project's own accent; its title and a
+ * muted number·tag line sit below it. The whole folder links to the project.
  */
 export function GlassShelf() {
   const { lang } = useLanguage();
@@ -42,33 +49,6 @@ export function GlassShelf() {
     return key === filter;
   });
 
-  // Drag-to-scroll
-  const rowRef = useRef<HTMLDivElement>(null);
-  const drag = useRef({ down: false, startX: 0, startLeft: 0, moved: false });
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    const el = rowRef.current;
-    if (!el) return;
-    drag.current = { down: true, startX: e.clientX, startLeft: el.scrollLeft, moved: false };
-  };
-  const onPointerMove = (e: React.PointerEvent) => {
-    const el = rowRef.current;
-    if (!el || !drag.current.down) return;
-    const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > 4) drag.current.moved = true;
-    el.scrollLeft = drag.current.startLeft - dx;
-  };
-  const endDrag = () => {
-    drag.current.down = false;
-  };
-  // Swallow the click that ends a drag so cards don't navigate on drag-release.
-  const onCardClick = (e: React.MouseEvent) => {
-    if (drag.current.moved) {
-      e.preventDefault();
-      drag.current.moved = false;
-    }
-  };
-
   return (
     <div className="glass mx-auto max-w-[1000px] rounded-[28px] p-2.5">
       {/* mac-window header */}
@@ -95,58 +75,29 @@ export function GlassShelf() {
           ))}
         </div>
 
-        {/* card row */}
+        {/* folder row — 5 across on desktop, wraps to a grid on tablet/mobile */}
         <motion.div
-          ref={rowRef}
           variants={stackContainerTight}
           initial="hidden"
           animate="visible"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerLeave={endDrag}
-          // Internal breathing room so the hover lift/shadow never clip against
-          // the scroll container's bounds; negative margins keep spacing tight.
-          className="no-scrollbar -mx-2 -mb-2 -mt-3 flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto px-2 pb-5 pt-3 active:cursor-grabbing"
+          className="flex flex-wrap justify-center gap-x-4 gap-y-5 pt-1"
         >
           {visible.map((p) => {
             const first = p.tags[0];
             return (
-              <motion.div key={p.id} variants={stackItemTight} className="snap-start">
+              <motion.div key={p.id} variants={stackItemTight}>
                 <Link
                   href={`/project/${p.id}`}
-                  onClick={onCardClick}
-                  draggable={false}
                   aria-label={t(p.title, lang)}
-                  className="group relative flex h-[240px] w-[210px] shrink-0 select-none flex-col justify-between overflow-hidden rounded-[20px] border border-white/20 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
-                  style={{ background: posterGradient(p.colors.accent) }}
+                  className="group flex w-[132px] flex-col items-center rounded-2xl p-1 text-center outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 >
-                  {/* hover brighten */}
-                  <div className="pointer-events-none absolute inset-0 bg-white/0 transition-colors duration-300 group-hover:bg-white/5" />
-
-                  {/* title + meta */}
-                  <div className="relative">
-                    <p className="line-clamp-2 text-[1.02rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
-                      {t(p.title, lang).split('—')[0].trim()}
-                    </p>
-                    <p className="mt-1 text-[0.75rem] font-medium text-white/70">
-                      {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
-                    </p>
-                  </div>
-
-                  {/* small secondary thumbnail at the bottom */}
-                  <div className="relative overflow-hidden rounded-lg border border-white/20 shadow-[0_6px_16px_rgba(0,0,0,0.25)]">
-                    <div className="relative aspect-video w-full">
-                      <Image
-                        src={p.cover}
-                        alt={t(p.title, lang)}
-                        fill
-                        sizes="180px"
-                        draggable={false}
-                        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
+                  <Folder id={p.id} colors={p.colors} />
+                  <p className="mt-2.5 line-clamp-1 text-[15px] font-semibold text-white">
+                    {t(p.title, lang).split('—')[0].trim()}
+                  </p>
+                  <p className="mt-0.5 text-[13px] font-medium text-white/60">
+                    {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
+                  </p>
                 </Link>
               </motion.div>
             );
@@ -154,6 +105,34 @@ export function GlassShelf() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+/** A single flat-gradient folder shape filled with the project's accent. */
+function Folder({ id, colors }: { id: string; colors: ProjectColors }) {
+  const { deep, mid, airy } = posterStops(colors.accent);
+  const gid = `folder-fill-${id}`;
+  const hid = `folder-hl-${id}`;
+  return (
+    <svg
+      viewBox="0 0 100 76"
+      aria-hidden
+      className="block h-auto w-full drop-shadow-[0_10px_22px_rgba(0,0,0,0.38)] transition-all duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_16px_30px_rgba(0,0,0,0.46)]"
+    >
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={deep} />
+          <stop offset="52%" stopColor={mid} />
+          <stop offset="100%" stopColor={airy} />
+        </linearGradient>
+        <radialGradient id={hid} cx="0.18" cy="0.04" r="0.7">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="60%" stopColor="#ffffff" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <path d={FOLDER_PATH} fill={`url(#${gid})`} />
+      <path d={FOLDER_PATH} fill={`url(#${hid})`} />
+    </svg>
   );
 }
 
