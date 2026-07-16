@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "Minh Thu — Marketing Portfolio",
-    "logoText": "minhthu.mkt",
-    "description": "Marketing portfolio of Nguyen Thi Minh Thu: AI & marketing automation, integrated campaigns, copywriting, social media and university projects.",
+    "title": "Mavis | Marketing Portfolio",
+    "logoText": "Mavis",
+    "description": "Marketing portfolio of Nguyen Thi Minh Thu: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
     "nav": [
       { "label": "Home", "href": "/" },
       { "label": "Projects", "href": "/#projects" },
@@ -10,10 +10,9 @@
     ]
   },
   "hero": {
-    "badge": "Marketing Portfolio · Ho Chi Minh City",
     "headline": "Turning ideas into",
     "headlineItalic": "campaigns with numbers to prove it.",
-    "subtitle": "I'm Minh Thu — a marketer working across AI & marketing automation, integrated campaigns, copywriting, social media and university projects. Scroll to explore each project.",
+    "subtitle": "I'm Mavis — a marketer working across AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
     "cta": { "label": "View projects", "href": "#projects" }
   },
   "contact": {
@@ -22,11 +21,11 @@
     "subtitle": "Dedicated to delivering impactful, creative solutions for brands and businesses.",
     "email": "minhthu3152002@gmail.com",
     "phone": "+84 896 487 127",
-    "location": "District 11, HCMC",
+    "location": "HCMC",
     "socials": [
       { "label": "LinkedIn", "href": "#" }
     ],
-    "copyright": "© 2026 Nguyen Thi Minh Thu. Marketing Portfolio."
+    "copyright": "© 2026 Nguyen Thi Minh Thu (Mavis). Marketing Portfolio."
   },
   "projects": [
     {
@@ -162,10 +161,10 @@
     },
     {
       "enabled": true,
-      "id": "k-tech",
+      "id": "KTC",
       "title": "K-Tech College — Awareness & Lead Campaign",
       "short": "Built awareness and drove 5K+ qualified leads for an international tech education program through a digital-first, community-driven campaign.",
-      "tags": ["Social Media", "Meta Ads", "Content Strategy", "Community", "Lead Gen", "Tech Events"],
+      "tags": ["Meta Ads", "Social Media", "Strategy", "Community", "Lead Gen", "Tech Events"],
       "colors": { "bg": "#1b2340", "fg": "#dfe6ff", "accent": "#7da2ff" },
       "cover": "/assets/ktech-ads.jpg",
       "sections": [
@@ -695,10 +694,10 @@
     },
     {
       "enabled": true,
-      "id": "university",
-      "title": "Other & University Projects",
+      "id": "Other",
+      "title": "Other",
       "short": "University and self-driven projects — from leading a campus design competition to building a full brand identity system.",
-      "tags": ["Event Leadership", "Project Management", "Communication", "Budgeting", "Brand Strategy", "Brand Identity", "Positioning", "Creative Direction"],
+      "tags": ["Event Leadership", "Project Management", "Creative Direction", "Internal Event" "Employee Engagement"],
       "colors": { "bg": "#2a1d10", "fg": "#ffefd8", "accent": "#ffb454" },
       "cover": "/assets/event-results.jpg",
       "sections": [
