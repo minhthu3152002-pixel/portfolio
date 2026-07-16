@@ -167,18 +167,23 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
     { "en": "Marketer", "vi": "Marketer" }
   ],
   "summary": { "en": "Short bio (2-3 sentences).", "vi": "Tiểu sử ngắn (2-3 câu)." },
-  "stats": [
-    { "value": "26.7M", "label": { "en": "views", "vi": "lượt xem" } }
-  ],
   "experience": [
     {
-      "period": { "en": "2025 – mid 2026", "vi": "2025 – giữa 2026" },
-      "title":  { "en": "Marketing", "vi": "Marketing" },
-      "org": "K-Tech College"
+      "period": "5/2025 – 07/2026",
+      "title":  { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
+      "org": "LIKELION Vietnam"
+    }
+  ],
+  "education": [
+    {
+      "school": "HUFLIT University",
+      "degree": { "en": "BBA in Marketing", "vi": "Cử nhân Quản trị Marketing" },
+      "year": "2024",
+      "gpa": "3.0"
     }
   ],
   "skills": ["Content Strategy", "Meta Ads"],
-  "tools":  ["Canva", "Claude Code"],
+  "tools":  ["Canva", "Claude Code", "GitHub"],
   "languages": [
     { "name": { "en": "Vietnamese", "vi": "Tiếng Việt" },
       "level": { "en": "Native", "vi": "Bản ngữ" }, "value": 100 }
@@ -193,14 +198,14 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
 | `avatar` | Đường dẫn ảnh chân dung trong `/assets/`. Thay ảnh: upload đè ảnh cùng tên. |
 | `traits` | Các "nhãn" nhỏ nổi trên đầu ảnh (mỗi cái là `{en, vi}`). Thêm/bớt tuỳ ý. |
 | `summary` | Tiểu sử 2-3 câu — song ngữ. |
-| `stats` | 3 con số lớn ở đầu "bảng điều khiển" (đếm tăng dần khi xuất hiện). Mỗi mục: `value` = con số hiển thị (`"26.7M"`, `"5K+"`, `"1.5"` — phần chữ M/K/+ giữ nguyên), `label` = chú thích `{en, vi}`. |
-| `experience` | Danh sách kinh nghiệm. Mỗi mục: `period` (mốc thời gian, `{en, vi}`), `title` (vị trí, `{en, vi}`), `org` (nơi làm — giữ 1 bản). |
+| `experience` | Danh sách kinh nghiệm (hiển thị trong panel **tối**). Mỗi mục: `period` (mốc thời gian, ví dụ `"5/2025 – 07/2026"` — thường để chuỗi thường vì giống nhau 2 ngôn ngữ), `title` (vị trí, `{en, vi}`), `org` (nơi làm — giữ 1 bản). |
+| `education` | Học vấn (hiển thị ngay dưới Kinh nghiệm, cùng panel tối). Mỗi mục: `school` (trường — giữ 1 bản), `degree` (bằng cấp, `{en, vi}`), `year` (năm — chuỗi), `gpa` (điểm — tuỳ chọn, bỏ đi cũng được). |
 | `skills` | Danh sách kỹ năng → hiển thị dạng "viên thuốc". Tên tiếng Anh dùng chung thì để chuỗi thường; muốn dịch thì viết `{ "en": "...", "vi": "..." }`. |
-| `tools` | Công cụ — giống `skills` nhưng viên nhỏ hơn. |
+| `tools` | Công cụ — viên thuốc có **logo** tự động. Tên khớp các thương hiệu sau sẽ hiện logo: Meta, Canva*, Google Analytics, Google Apps Script, Claude / Claude Code, ChatGPT*, Gemini, GitHub, Vercel. (*Canva & ChatGPT chưa có trong bộ icon → hiện chữ không kèm logo, không bị lỗi ảnh.) Tên lạ → chỉ hiện chữ. |
 | `languages` | Ngôn ngữ. Mỗi mục: `name` + `level` (`{en, vi}`) và `value` = mức thành thạo **0–100** (điều khiển độ dài thanh bar). |
 
-> 💡 Muốn thêm một kinh nghiệm / kỹ năng / ngôn ngữ? Chỉ cần thêm một mục `{ ... }`
-> vào đúng mảng (nhớ dấu phẩy ngăn cách). Muốn bớt thì xoá cả mục đó.
+> 💡 Muốn thêm một kinh nghiệm / học vấn / kỹ năng / ngôn ngữ? Chỉ cần thêm một
+> mục `{ ... }` vào đúng mảng (nhớ dấu phẩy ngăn cách). Muốn bớt thì xoá cả mục đó.
 
 ---
 

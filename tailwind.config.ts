@@ -18,7 +18,13 @@ const config: Config = {
         accent: '#0071e3', // Apple blue (generic accent / links)
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        sans: [
+          'var(--font-sans)',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'system-ui',
+          'sans-serif',
+        ],
         serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
       borderRadius: {

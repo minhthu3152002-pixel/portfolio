@@ -9,7 +9,8 @@
   body {
     background: theme('colors.bg');
     color: theme('colors.text');
-    font-family: var(--font-sans), system-ui, sans-serif;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui,
+      sans-serif;
     font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -23,7 +24,8 @@
   h3,
   h4,
   h5 {
-    font-family: var(--font-sans), system-ui, sans-serif;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui,
+      sans-serif;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }

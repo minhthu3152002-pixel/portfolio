@@ -86,21 +86,34 @@
       "en": "I'm a marketer working across AI & marketing automation, integrated campaigns, copywriting and social media. I build internal tools that remove manual work and ship data-backed campaigns — from 5K+ qualified leads to 26.7M-view social content.",
       "vi": "Mình là một marketer hoạt động khắp các mảng AI & tự động hoá marketing, chiến dịch tích hợp, copywriting và social media. Mình xây các công cụ nội bộ giúp bỏ bớt việc thủ công và triển khai chiến dịch dựa trên số liệu — từ 5K+ lead chất lượng đến nội dung social 26.7M lượt xem."
     },
-    "stats": [
-      { "value": "26.7M", "label": { "en": "views", "vi": "lượt xem" } },
-      { "value": "5K+", "label": { "en": "leads", "vi": "lead" } },
-      { "value": "1.5", "label": { "en": "yrs campaign", "vi": "năm chiến dịch" } }
-    ],
     "experience": [
       {
-        "period": { "en": "2025 – mid 2026", "vi": "2025 – giữa 2026" },
-        "title": { "en": "Marketing", "vi": "Marketing" },
-        "org": "K-Tech College"
+        "period": "5/2025 – 07/2026",
+        "title": { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
+        "org": "LIKELION Vietnam"
       },
       {
-        "period": { "en": "2024 – 2025", "vi": "2024 – 2025" },
-        "title": { "en": "Copywriter · Social Media", "vi": "Copywriter · Social Media" },
-        "org": "WEALLNET Agency"
+        "period": "08/2024 – 01/2025",
+        "title": { "en": "Copywriter", "vi": "Copywriter" },
+        "org": "WEALLNET CREATIVE NETWORK"
+      },
+      {
+        "period": "02/2023 – 02/2024",
+        "title": { "en": "Marketing Fresher", "vi": "Marketing Fresher" },
+        "org": "Digital Communication DIGIMAT"
+      },
+      {
+        "period": "05/2023 – 08/2023",
+        "title": { "en": "Business Intern", "vi": "Thực tập sinh Kinh doanh" },
+        "org": "FWD Vietnam Life Insurance"
+      }
+    ],
+    "education": [
+      {
+        "school": "HUFLIT University",
+        "degree": { "en": "BBA in Marketing", "vi": "Cử nhân Quản trị Marketing" },
+        "year": "2024",
+        "gpa": "3.0"
       }
     ],
     "skills": [
@@ -114,9 +127,14 @@
     "tools": [
       "Meta Ads Manager",
       "Canva",
-      "Claude Code",
+      "Google Analytics",
       "Google Apps Script",
-      "Google Analytics"
+      "Claude Code",
+      "Claude",
+      "ChatGPT",
+      "Gemini",
+      "GitHub",
+      "Vercel"
     ],
     "languages": [
       {
