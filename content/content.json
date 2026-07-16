@@ -4,7 +4,7 @@
       "en": "Mavis | Marketing Portfolio",
       "vi": "Mavis | Portfolio Marketing"
     },
-    "logoText": "Mavis",
+    "logoText": "Mavis Porfolio",
     "description": {
       "en": "Marketing portfolio of Mavis: AI & marketing automation, digital marketing, integrated campaigns, social media and copywriting.",
       "vi": "Portfolio marketing của Mavis: AI & tự động hoá marketing, digital marketing, chiến dịch tích hợp, social media và copywriting."
@@ -29,10 +29,6 @@
   ],
   "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
   "hero": {
-    "badge": {
-      "en": "Marketing Portfolio · Ho Chi Minh City",
-      "vi": "Portfolio Marketing · TP. Hồ Chí Minh"
-    },
     "headline": {
       "en": "Mavis’s Marketing Portfolio",
       "vi": "Portfolio Marketing của Mavis"
@@ -42,12 +38,12 @@
       "vi": "Biến ý tưởng thành chiến dịch mang lại kết quả"
     },
     "subtitle": {
-      "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience integrating AI into marketing workflows.",
-      "vi": "Mình là Mavis, một marketer chuyên về digital marketing, chiến dịch tích hợp, social media và copywriting, có kinh nghiệm thực chiến đưa AI vào quy trình marketing."
+      "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience applying AI to marketing workflows.",
+"vi": "Mình là Mavis, một marketer chuyên về digital marketing, chiến dịch tích hợp, social media và copywriting, có kinh nghiệm thực chiến và áp dụng AI vào quy trình marketing."
     },
     "reassurance": {
       "en": "Data-driven · Bilingual · Based in Ho Chi Minh City",
-      "vi": "Dựa trên dữ liệu · Song ngữ · Tại TP. Hồ Chí Minh"
+      "vi": "Dựa trên dữ liệu · Song ngữ · TP. Hồ Chí Minh"
     },
     "cta": {
       "label": {
@@ -67,20 +63,18 @@
   },
   "about": {
     "heading": { "enabled": true, "en": "About me", "vi": "Về tôi" },
-    "name": "Nguyễn Thị Minh Thu",
+    "name": "Nguyễn Thị Minh Thư (Mavis)",
     "role": {
-      "en": "Marketing · AI Automation",
-      "vi": "Marketing · Tự động hoá AI"
+      "en": "Marketing Executive",
+      "vi": "Marketing Executive"
     },
     "avatar": "/assets/avatar.png",
     "traits": [
       { "en": "Marketer", "vi": "Marketer" },
-      { "en": "AI-first", "vi": "Ưu tiên AI" },
-      { "en": "Data-driven", "vi": "Dựa trên dữ liệu" }
     ],
     "summary": {
-      "en": "I'm a marketer working across AI & marketing automation, integrated campaigns, copywriting and social media. I build internal tools that remove manual work and ship data-backed campaigns — from 5K+ qualified leads to 26.7M-view social content.",
-      "vi": "Mình là một marketer hoạt động khắp các mảng AI & tự động hoá marketing, chiến dịch tích hợp, copywriting và social media. Mình xây các công cụ nội bộ giúp bỏ bớt việc thủ công và triển khai chiến dịch dựa trên số liệu — từ 5K+ lead chất lượng đến nội dung social 26.7M lượt xem."
+     "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, copywriting, and social media. I create data-driven campaigns that have generated 5K+ qualified leads and 26.7M social media views, while also building AI-powered internal tools to reduce manual work.",
+     "vi": "Mình là Mavis, một marketer chuyên về digital marketing, chiến dịch tích hợp, copywriting và social media. Mình triển khai các chiến dịch dựa trên dữ liệu, tạo ra hơn 5K lead chất lượng và 26,7 triệu lượt xem trên social media, đồng thời xây dựng các công cụ nội bộ ứng dụng AI để giảm bớt công việc thủ công."
     },
     "flipLine": {
       "enabled": true,
@@ -95,7 +89,7 @@
     "experience": [
       {
         "period": "05/2025 – 07/2026",
-        "title": { "en": "Marketing Executive", "vi": "Chuyên viên Marketing" },
+        "title": { "en": "Marketing Executive", "vi": "Marketing Executive" },
         "org": "LIKELION Vietnam"
       },
       {
@@ -110,14 +104,14 @@
       },
       {
         "period": "05/2023 – 08/2023",
-        "title": { "en": "Business Intern", "vi": "Thực tập sinh Kinh doanh" },
+        "title": { "en": "Business Intern", "vi": "Business Intern" },
         "org": "FWD Vietnam Life Insurance"
       }
     ],
     "education": [
       {
         "school": "HUFLIT University",
-        "degree": { "en": "BBA in Marketing", "vi": "Cử nhân Quản trị Marketing" },
+        "degree": { "en": "BBA in Marketing", "vi": "Cử nhân Quản trị Kinh doanh chuyên ngành Marketing" },
         "year": "2024",
         "gpa": "3.0"
       }
