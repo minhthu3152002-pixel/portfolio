@@ -1,12 +1,15 @@
+'use client';
+
 import Link from 'next/link';
-import { content } from '@/lib/content';
+import { content, t } from '@/lib/content';
+import { useLanguage } from '@/components/LanguageProvider';
 
 /**
- * Sticky top navigation. Logo text splits at the first "." so the suffix
- * (e.g. ".mkt") renders in the accent color — edit site.logoText in
- * content.json to change it.
+ * Sticky top navigation with a bilingual EN|VI toggle. Logo text splits at the
+ * first "." so the suffix (e.g. ".mkt") renders in the accent color.
  */
 export function Nav() {
+  const { lang, setLang } = useLanguage();
   const { logoText, nav } = content.site;
   const dot = logoText.indexOf('.');
   const logoHead = dot === -1 ? logoText : logoText.slice(0, dot);
@@ -22,18 +25,48 @@ export function Nav() {
           {logoHead}
           <span className="text-accent">{logoTail}</span>
         </Link>
-        <div className="flex gap-[26px] text-[0.88rem] text-muted">
+        <div className="flex items-center gap-[26px] text-[0.88rem] text-muted">
           {nav.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className="transition-colors hover:text-text"
             >
-              {link.label}
+              {t(link.label, lang)}
             </Link>
           ))}
+          <LanguageToggle lang={lang} setLang={setLang} />
         </div>
       </div>
     </nav>
+  );
+}
+
+function LanguageToggle({
+  lang,
+  setLang,
+}: {
+  lang: 'en' | 'vi';
+  setLang: (l: 'en' | 'vi') => void;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label="Language"
+      className="flex items-center rounded-full border border-line p-0.5 text-[0.75rem] font-semibold"
+    >
+      {(['en', 'vi'] as const).map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          aria-pressed={lang === l}
+          className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
+            lang === l ? 'bg-accent text-[#1a0d05]' : 'text-muted hover:text-text'
+          }`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
   );
 }

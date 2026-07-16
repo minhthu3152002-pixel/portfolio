@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, Be_Vietnam_Pro } from 'next/font/google';
-import { content } from '@/lib/content';
+import { content, t } from '@/lib/content';
 import { Providers } from '@/components/Providers';
 import { Nav } from '@/components/Nav';
 import { Contact } from '@/components/Contact';
@@ -20,9 +20,11 @@ const body = Be_Vietnam_Pro({
   display: 'swap',
 });
 
+// Default (server) metadata is English; LanguageProvider updates the document
+// title/description client-side to match the visitor's chosen language.
 export const metadata: Metadata = {
-  title: content.site.title,
-  description: content.site.description,
+  title: t(content.site.title, 'en'),
+  description: t(content.site.description, 'en'),
 };
 
 export default function RootLayout({

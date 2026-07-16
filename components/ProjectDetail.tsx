@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/content';
-import { enabledSections, enabledGroups, pad2 } from '@/lib/content';
+import { enabledSections, enabledGroups, pad2, t } from '@/lib/content';
+import { useLanguage } from '@/components/LanguageProvider';
 import { Blocks } from '@/components/Blocks';
 import { pageTransition, fadeUp } from '@/lib/motion';
 
@@ -20,6 +21,7 @@ export function ProjectDetail({
   project: Project;
   num: number;
 }) {
+  const { lang } = useLanguage();
   const { colors } = p;
   const sections = enabledSections(p);
   const [activeId, setActiveId] = useState(sections[0]?.id ?? '');
@@ -43,21 +45,21 @@ export function ProjectDetail({
             href="/"
             className="mb-10 inline-flex items-center gap-2 text-[0.9rem] font-medium opacity-85 transition-opacity hover:opacity-100"
           >
-            ← Back to projects
+            {lang === 'vi' ? '← Quay lại dự án' : '← Back to projects'}
           </Link>
           <div>
             <span className="mb-[22px] inline-block rounded-full bg-black/40 px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[0.16em]">
-              {pad2(num)} / PROJECT
+              {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
             </span>
           </div>
           <h1 className="mb-5 max-w-[840px] text-[clamp(2.1rem,5vw,3.5rem)] font-extrabold uppercase tracking-[-0.01em]">
-            {p.title}
+            {t(p.title, lang)}
           </h1>
-          <p className="mb-7 max-w-[640px] opacity-90">{p.short}</p>
+          <p className="mb-7 max-w-[640px] opacity-90">{t(p.short, lang)}</p>
           <div className="flex flex-wrap gap-2.5">
-            {p.tags.map((t) => (
-              <span key={t} className="tag">
-                {t}
+            {p.tags.map((tag) => (
+              <span key={t(tag, lang)} className="tag">
+                {t(tag, lang)}
               </span>
             ))}
           </div>
@@ -67,12 +69,12 @@ export function ProjectDetail({
       <div className="wrap grid grid-cols-[250px_1fr] gap-[60px] py-20 max-[820px]:grid-cols-1 max-[820px]:gap-[30px]">
         <aside>
           <h4 className="mb-4 text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-muted">
-            Skills
+            {lang === 'vi' ? 'Kỹ năng' : 'Skills'}
           </h4>
           <div className="flex flex-wrap gap-2.5">
-            {p.tags.map((t) => (
-              <span key={t} className="tag !border-line !text-text">
-                {t}
+            {p.tags.map((tag) => (
+              <span key={t(tag, lang)} className="tag !border-line !text-text">
+                {t(tag, lang)}
               </span>
             ))}
           </div>
@@ -99,7 +101,7 @@ export function ProjectDetail({
                       : 'border-line text-muted hover:text-text'
                   }`}
                 >
-                  {s.label}
+                  {t(s.label, lang)}
                 </button>
               );
             })}
@@ -117,10 +119,10 @@ export function ProjectDetail({
               <section key={i} className="mb-12 last:mb-0">
                 {g.title && (
                   <h3 className="mb-5 text-[1.2rem] font-extrabold uppercase tracking-[0.04em]">
-                    {g.title}
+                    {t(g.title, lang)}
                   </h3>
                 )}
-                <Blocks blocks={g.blocks} />
+                <Blocks blocks={g.blocks} lang={lang} />
               </section>
             ))}
           </motion.div>
@@ -129,7 +131,7 @@ export function ProjectDetail({
             href="/"
             className="mt-10 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
           >
-            ← Back to all projects
+            {lang === 'vi' ? '← Quay lại tất cả dự án' : '← Back to all projects'}
           </Link>
         </div>
       </div>

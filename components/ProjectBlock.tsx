@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/content';
-import { pad2 } from '@/lib/content';
+import { pad2, t } from '@/lib/content';
+import { useLanguage } from '@/components/LanguageProvider';
 import { fadeUp, hoverLift, coverTilt, viewportOnce } from '@/lib/motion';
 
 /**
@@ -19,8 +20,10 @@ export function ProjectBlock({
   project: Project;
   num: number;
 }) {
+  const { lang } = useLanguage();
   const { colors } = project;
-  const heading = project.title.split('—')[0].trim();
+  const title = t(project.title, lang);
+  const heading = title.split('—')[0].trim();
 
   return (
     <motion.div
@@ -40,24 +43,24 @@ export function ProjectBlock({
       >
         <Link
           href={`/project/${project.id}`}
-          aria-label={project.title}
+          aria-label={title}
           className="block"
         >
           <div className="wrap grid grid-cols-[1.05fr_0.95fr] items-center gap-14 max-[820px]:grid-cols-1 max-[820px]:gap-[34px]">
             <div>
               <p className="mb-[26px] text-[0.78rem] font-medium tracking-[0.22em] opacity-85">
-                {pad2(num)} / PROJECT
+                {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
               </p>
               <h2 className="mb-5 text-[clamp(1.9rem,4.2vw,3rem)] font-extrabold uppercase tracking-[-0.01em]">
                 {heading}
               </h2>
               <p className="mb-[30px] max-w-[520px] text-base opacity-90">
-                {project.short}
+                {t(project.short, lang)}
               </p>
               <div className="flex flex-wrap gap-2.5">
-                {project.tags.map((t) => (
-                  <span key={t} className="tag">
-                    {t}
+                {project.tags.map((tag) => (
+                  <span key={t(tag, lang)} className="tag">
+                    {t(tag, lang)}
                   </span>
                 ))}
               </div>
@@ -70,7 +73,7 @@ export function ProjectBlock({
               >
                 <Image
                   src={project.cover}
-                  alt={project.title}
+                  alt={title}
                   fill
                   sizes="(max-width: 820px) 100vw, 45vw"
                   className="object-cover"
