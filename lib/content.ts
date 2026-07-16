@@ -57,6 +57,25 @@ export type Project = {
   sections: Section[];
 };
 
+/** One role in the About timeline. `period`/`title` localizable; `org` plain. */
+export type Experience = { period: Localized; title: Localized; org: string };
+
+/** One language row: name + level localizable, `value` = 0-100 proficiency. */
+export type Language = { name: Localized; level: Localized; value: number };
+
+/** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
+export type About = {
+  name: string;
+  role: Localized;
+  avatar: string;
+  traits: Localized[];
+  summary: Localized;
+  experience: Experience[];
+  skills: Localized[];
+  tools: Localized[];
+  languages: Language[];
+};
+
 export type SiteContent = {
   site: {
     title: Localized;
@@ -74,6 +93,7 @@ export type SiteContent = {
     shelfTitle: Localized;
     shelfFilterAll: Localized;
   };
+  about: About;
   contact: {
     eyebrow: Localized;
     heading: Localized;
