@@ -2,12 +2,22 @@
 
 import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { content, projects, pad2, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { posterGradient } from '@/lib/colors';
 import { stackContainerTight, stackItemTight } from '@/lib/motion';
+
+/**
+ * Folder silhouette in the card's own 210×240 pixel space: a rounded body with
+ * a ~42%-wide tab protruding flush at the top-left, merged into the body with a
+ * smooth fillet. Applied as a clip-path so the card's existing gradient / glow /
+ * blur / hover layers show through the folder outline (the card size is fixed,
+ * so pixel coordinates are exact at every breakpoint).
+ */
+const FOLDER_PATH =
+  'M10,0 L78,0 Q88,0 88,10 L88,14 Q88,28 102,28 L192,28 Q210,28 210,46 ' +
+  'L210,222 Q210,240 192,240 L18,240 Q0,240 0,222 L0,10 Q0,0 10,0 Z';
 
 /**
  * Liquid-glass "My Projects" shelf overlapping the hero bottom: one frosted
@@ -107,47 +117,56 @@ export function GlassShelf() {
           onPointerLeave={endDrag}
           // Internal breathing room so the hover lift/shadow never clip against
           // the scroll container's bounds; negative margins keep spacing tight.
-          className="no-scrollbar -mx-2 -mb-2 -mt-3 flex cursor-grab snap-x snap-mandatory gap-3.5 overflow-x-auto px-2 pb-5 pt-3 active:cursor-grabbing"
+          className="no-scrollbar -mx-2 -mb-2 -mt-3 flex cursor-grab snap-x snap-mandatory gap-7 overflow-x-auto px-2 pb-5 pt-3 active:cursor-grabbing"
         >
           {visible.map((p) => {
             const first = p.tags[0];
             return (
-              <motion.div key={p.id} variants={stackItemTight} className="snap-start">
-                <Link
-                  href={`/project/${p.id}`}
-                  onClick={onCardClick}
-                  draggable={false}
-                  aria-label={t(p.title, lang)}
-                  className="group relative flex h-[240px] w-[210px] shrink-0 select-none flex-col justify-between overflow-hidden rounded-[20px] border border-white/20 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
-                  style={{ background: posterGradient(p.colors.accent) }}
-                >
-                  {/* hover brighten */}
-                  <div className="pointer-events-none absolute inset-0 bg-white/0 transition-colors duration-300 group-hover:bg-white/5" />
+              <motion.div key={p.id} variants={stackItemTight} className="shrink-0 snap-start">
+                {/* focus ring lives on an unclipped wrapper (clip-path would
+                    hide the Link's own outline) */}
+                <div className="rounded-[22px] focus-within:ring-2 focus-within:ring-white/70">
+                  {/* outer shadow via drop-shadow so it follows the folder
+                      outline — a box-shadow would be cut by the clip-path */}
+                  <div style={{ filter: 'drop-shadow(0 14px 34px rgba(0,0,0,0.35))' }}>
+                    <Link
+                      href={`/project/${p.id}`}
+                      onClick={onCardClick}
+                      draggable={false}
+                      aria-label={t(p.title, lang)}
+                      className="group relative block h-[240px] w-[210px] select-none transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+                      style={{
+                        background: posterGradient(p.colors.accent),
+                        clipPath: `path('${FOLDER_PATH}')`,
+                        WebkitClipPath: `path('${FOLDER_PATH}')`,
+                      }}
+                    >
+                      {/* hover brighten */}
+                      <div className="pointer-events-none absolute inset-0 bg-white/0 transition-colors duration-300 group-hover:bg-white/5" />
 
-                  {/* title + meta */}
-                  <div className="relative">
-                    <p className="line-clamp-2 text-[1.02rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
-                      {t(p.title, lang).split('—')[0].trim()}
-                    </p>
-                    <p className="mt-1 text-[0.75rem] font-medium text-white/70">
-                      {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
-                    </p>
-                  </div>
+                      {/* inner light line along the folder outline (was the border) */}
+                      <svg
+                        className="pointer-events-none absolute inset-0 h-full w-full"
+                        viewBox="0 0 210 240"
+                        preserveAspectRatio="none"
+                        fill="none"
+                        aria-hidden
+                      >
+                        <path d={FOLDER_PATH} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5" />
+                      </svg>
 
-                  {/* small secondary thumbnail at the bottom */}
-                  <div className="relative overflow-hidden rounded-lg border border-white/20 shadow-[0_6px_16px_rgba(0,0,0,0.25)]">
-                    <div className="relative aspect-video w-full">
-                      <Image
-                        src={p.cover}
-                        alt={t(p.title, lang)}
-                        fill
-                        sizes="180px"
-                        draggable={false}
-                        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                    </div>
+                      {/* title + meta — inside, top-left, cleared below the tab */}
+                      <div className="relative px-4 pt-[34px]">
+                        <p className="line-clamp-2 text-[1.02rem] font-bold leading-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
+                          {t(p.title, lang).split('—')[0].trim()}
+                        </p>
+                        <p className="mt-1 text-[0.75rem] font-medium text-white/70">
+                          {pad2(projects.indexOf(p) + 1)} · {t(first, lang)}
+                        </p>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
+                </div>
               </motion.div>
             );
           })}
