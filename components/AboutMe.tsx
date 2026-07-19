@@ -47,7 +47,7 @@ export function AboutMe() {
                 alt={a.name}
                 fill
                 sizes="(max-width: 767px) 100vw, 380px"
-                className="object-cover object-[center_-20px]"
+                className="object-cover object-[center_-58px]"
               />
               {/* frosted trait chips along the top edge */}
               <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
