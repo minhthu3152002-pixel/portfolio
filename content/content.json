@@ -75,6 +75,20 @@
      "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, copywriting, and social media. I create data-driven campaigns that have generated 5K+ qualified leads and 26.7M social media views, while also building AI-powered internal tools to reduce manual work.",
      "vi": "Mình là Mavis, một marketer chuyên về digital marketing, chiến dịch tích hợp, copywriting và social media. Mình triển khai các chiến dịch dựa trên dữ liệu, tạo ra hơn 5K lead chất lượng và 26,7 triệu lượt xem trên social media, đồng thời xây dựng các công cụ nội bộ ứng dụng AI để giảm bớt công việc thủ công."
     },
+    "personality": {
+      "enabled": true,
+      "title": { "en": "A bit about me", "vi": "Một chút về mình" },
+      "items": [
+        { "icon": "zodiac", "label": { "en": "Zodiac", "vi": "Cung hoàng đạo" },
+          "value": { "en": "Gemini", "vi": "Song Tử" } },
+        { "icon": "mbti", "label": { "en": "MBTI", "vi": "MBTI" },
+          "value": { "en": "ENFJ", "vi": "ENFJ" } },
+        { "icon": "eq", "label": { "en": "EQ", "vi": "EQ" },
+          "value": { "en": "50/64", "vi": "50/64" } },
+        { "icon": "iq", "label": { "en": "IQ", "vi": "IQ" },
+          "value": { "en": "111 (SD 15)", "vi": "111 (SD 15)" } }
+      ]
+    },
     "flipLine": {
       "enabled": true,
       "prefix": { "en": "I make your marketing ", "vi": "Mình giúp marketing của bạn " },

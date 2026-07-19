@@ -1,10 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { useCallback, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { CometCard } from '@/components/ui/comet-card';
+import { PersonalityCard } from '@/components/ui/personality-card';
 import { ToolLogo } from '@/components/ui/tool-icon';
 import { FlipLine } from '@/components/ui/flip-line';
 import { SectionHeadline } from '@/components/SectionHeadline';
@@ -27,6 +29,14 @@ export function AboutMe() {
   const { lang } = useLanguage();
   const a = content.about;
 
+  const [personaOpen, setPersonaOpen] = useState(false);
+  const avatarRef = useRef<HTMLDivElement>(null);
+  const personality = a.personality;
+  const hasPersonality = personality != null && personality.enabled !== false;
+
+  // Stable so the popover's event-wiring effect doesn't re-run each render.
+  const setPersonaOpenStable = useCallback((v: boolean) => setPersonaOpen(v), []);
+
   return (
     <section id="about" className="wrap scroll-mt-24 py-12 sm:py-16">
       <SectionHeadline heading={a.heading} />
@@ -40,37 +50,68 @@ export function AboutMe() {
       >
         {/* LEFT — profile card (capped height) + summary + flip line (bottom) */}
         <motion.div variants={reveal} className="flex flex-col gap-4">
-          <CometCard className="w-full">
-            <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
-              <Image
-                src={a.avatar}
-                alt={a.name}
-                fill
-                sizes="(max-width: 767px) 100vw, 380px"
-                className="object-cover object-[center_-75px]"
+          <div className="relative">
+            <CometCard className="w-full">
+              <div
+                ref={avatarRef}
+                {...(hasPersonality
+                  ? {
+                      role: 'button',
+                      tabIndex: 0,
+                      'aria-haspopup': 'dialog' as const,
+                      'aria-expanded': personaOpen,
+                      'aria-label':
+                        lang === 'vi'
+                          ? 'Xem thông tin tính cách'
+                          : 'View personality details',
+                    }
+                  : {})}
+                className={`group relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)] outline-none transition-shadow ${
+                  hasPersonality
+                    ? 'cursor-pointer hover:shadow-[0_28px_72px_rgba(0,0,0,0.22)] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2'
+                    : ''
+                }`}
+              >
+                <Image
+                  src={a.avatar}
+                  alt={a.name}
+                  fill
+                  sizes="(max-width: 767px) 100vw, 380px"
+                  className="object-cover object-[center_-75px]"
+                />
+                {/* frosted trait chips along the top edge */}
+                <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
+                  {a.traits.map((tr) => (
+                    <span
+                      key={t(tr, lang)}
+                      className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-[0.72rem] font-medium text-white backdrop-blur-md"
+                    >
+                      {t(tr, lang)}
+                    </span>
+                  ))}
+                </div>
+                {/* frosted glass strip at the bottom */}
+                <div className="absolute inset-x-0 bottom-0 border-t border-white/25 bg-white/10 px-5 py-4 backdrop-blur-md">
+                  <p className="text-[1.15rem] font-bold leading-tight tracking-[-0.02em] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
+                    {a.name}
+                  </p>
+                  <p className="mt-0.5 text-[0.85rem] font-medium text-white/80">
+                    {t(a.role, lang)}
+                  </p>
+                </div>
+              </div>
+            </CometCard>
+
+            {hasPersonality && (
+              <PersonalityCard
+                open={personaOpen}
+                onOpenChange={setPersonaOpenStable}
+                personality={personality}
+                lang={lang}
+                triggerRef={avatarRef}
               />
-              {/* frosted trait chips along the top edge */}
-              <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
-                {a.traits.map((tr) => (
-                  <span
-                    key={t(tr, lang)}
-                    className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-[0.72rem] font-medium text-white backdrop-blur-md"
-                  >
-                    {t(tr, lang)}
-                  </span>
-                ))}
-              </div>
-              {/* frosted glass strip at the bottom */}
-              <div className="absolute inset-x-0 bottom-0 border-t border-white/25 bg-white/10 px-5 py-4 backdrop-blur-md">
-                <p className="text-[1.15rem] font-bold leading-tight tracking-[-0.02em] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
-                  {a.name}
-                </p>
-                <p className="mt-0.5 text-[0.85rem] font-medium text-white/80">
-                  {t(a.role, lang)}
-                </p>
-              </div>
-            </div>
-          </CometCard>
+            )}
+          </div>
 
           {/* summary card */}
           <div className={`${GLASS} p-5`}>

@@ -89,6 +89,16 @@ export type FlipLine = {
   suffix: Localized;
 };
 
+/** One personality row: `icon` keys the lucide glyph, label + value localizable. */
+export type PersonalityItem = { icon: string; label: Localized; value: Localized };
+
+/** "Personality card" popover shown from the About avatar. */
+export type Personality = {
+  enabled?: boolean;
+  title: Localized;
+  items: PersonalityItem[];
+};
+
 /** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
 export type About = {
   heading?: SectionHeading;
@@ -97,6 +107,7 @@ export type About = {
   avatar: string;
   traits: Localized[];
   summary: Localized;
+  personality?: Personality;
   flipLine?: FlipLine;
   experience: Experience[];
   education: Education[];
