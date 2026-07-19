@@ -24,6 +24,15 @@ export const REVEAL_STAGGER_TIGHT = 0.1;
 export const HERO_STAGGER = 0.24;
 export const HERO_INITIAL_DELAY = 0.15;
 
+/** Per-letter fade-in on the two hero headline lines: seconds between
+ *  consecutive letters (~35ms). The bold line runs first, then the italic. */
+export const HERO_LETTER_STAGGER = 0.035;
+/** How long a single letter takes to fade from 0 → full opacity. */
+export const HERO_LETTER_DURATION = 0.5;
+/** Pause after one hero line finishes its per-letter fade before the next
+ *  line (or the subtitle) begins. */
+export const HERO_LINE_DELAY = 0.2;
+
 /**
  * Contact "glass bubble" drift speed range, in px/s. Each pill picks a random
  * speed in [MIN, MAX] (so they never sync); the shared rAF loop and wall
@@ -74,6 +83,42 @@ export const heroReveal: Variants = {
   visible: (i: number = 0) => ({
     ...REVEAL_SHOWN,
     transition: { ...REVEAL_T, delay: HERO_INITIAL_DELAY + i * HERO_STAGGER },
+  }),
+};
+
+/**
+ * Same blur-to-sharp reveal, but the delay is passed directly (in seconds) as
+ * the `custom` value instead of being derived from an index. Lets the hero
+ * chain the subtitle/CTA/shelf onto the exact moment the per-letter headline
+ * finishes. */
+export const heroFadeAt: Variants = {
+  hidden: REVEAL_HIDDEN,
+  visible: (delay: number = 0) => ({
+    ...REVEAL_SHOWN,
+    transition: { ...REVEAL_T, delay },
+  }),
+};
+
+/**
+ * One letter of a hero headline line: opacity-only fade (no transform) so the
+ * split spans stay `inline` and the line can still wrap + `text-wrap: balance`.
+ * Composed under a `staggerChildren` container (see heroLine). */
+export const heroLetter: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: HERO_LETTER_DURATION, ease: easeOut },
+  },
+};
+
+/**
+ * Container for one hero headline line: staggers its letter children. `custom`
+ * is the absolute delay (seconds) before this line's first letter fades in, so
+ * the italic line can start exactly when the bold line finishes. */
+export const heroLine: Variants = {
+  hidden: {},
+  visible: (delay: number = 0) => ({
+    transition: { delayChildren: delay, staggerChildren: HERO_LETTER_STAGGER },
   }),
 };
 

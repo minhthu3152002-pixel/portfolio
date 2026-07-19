@@ -15,7 +15,7 @@ const sans = Inter({
 
 const serif = Playfair_Display({
   subsets: ['latin', 'vietnamese'],
-  weight: ['500', '600'],
+  weight: ['400', '500', '600'],
   style: ['italic'],
   variable: '--font-serif',
   display: 'swap',
