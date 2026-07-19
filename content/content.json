@@ -70,6 +70,10 @@
     "avatar": "/assets/avatar.png",
     "traits": [
       { "en": "Marketer", "vi": "Marketer" }
+      { "en": "Gemini", "vi": "Song Tử" },
+      { "en": "ENFJ", "vi": "ENFJ" },
+      { "en": "EQ 50/64", "vi": "EQ 50/64" },
+      { "en": "IQ 111", "vi": "IQ 111" }
     ],
     "summary": {
      "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, copywriting, and social media. I create data-driven campaigns that have generated 5K+ qualified leads and 26.7M social media views, while also building AI-powered internal tools to reduce manual work.",
