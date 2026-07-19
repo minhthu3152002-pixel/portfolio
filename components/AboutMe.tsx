@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState, type KeyboardEvent } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
@@ -34,12 +34,8 @@ export function AboutMe() {
   const personality = a.personality;
   const hasPersonality = personality != null && personality.enabled !== false;
 
-  const onAvatarKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      setPersonaOpen((v) => !v);
-    }
-  };
+  // Stable so the popover's event-wiring effect doesn't re-run each render.
+  const setPersonaOpenStable = useCallback((v: boolean) => setPersonaOpen(v), []);
 
   return (
     <section id="about" className="wrap scroll-mt-24 py-12 sm:py-16">
@@ -68,8 +64,6 @@ export function AboutMe() {
                         lang === 'vi'
                           ? 'Xem thông tin tính cách'
                           : 'View personality details',
-                      onClick: () => setPersonaOpen((v) => !v),
-                      onKeyDown: onAvatarKeyDown,
                     }
                   : {})}
                 className={`group relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.16)] outline-none transition-shadow ${
@@ -111,7 +105,7 @@ export function AboutMe() {
             {hasPersonality && (
               <PersonalityCard
                 open={personaOpen}
-                onClose={() => setPersonaOpen(false)}
+                onOpenChange={setPersonaOpenStable}
                 personality={personality}
                 lang={lang}
                 triggerRef={avatarRef}
