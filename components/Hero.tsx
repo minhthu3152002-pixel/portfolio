@@ -45,7 +45,7 @@ export function Hero() {
         </div>
 
         <div className="wrap relative flex flex-col items-center pb-[210px] pt-36 text-center text-white sm:pt-40">
-          <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
+          <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
             <motion.span
               variants={heroReveal}
               initial="hidden"

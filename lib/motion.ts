@@ -11,7 +11,7 @@ const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 // ⬇️ chỉnh 2 số này để tăng/giảm tốc độ toàn bộ hiệu ứng xuất hiện.
 //    (Adjust these two numbers to speed up / slow down every entrance reveal.)
 /** Độ dài mỗi hiệu ứng xuất hiện, tính bằng giây. */
-export const REVEAL_DURATION = 0.9;
+export const REVEAL_DURATION = 1.2;
 /** Khoảng cách xuất hiện giữa các phần tử anh em, tính bằng giây. */
 export const REVEAL_STAGGER = 0.15;
 
@@ -21,7 +21,7 @@ export const REVEAL_STAGGER_TIGHT = 0.1;
 
 /** Hero on-load sequence: line 1 → line 2 → subtitle → CTA. Slightly
  *  wider stagger, plus a small initial delay so the wallpaper paints first. */
-export const HERO_STAGGER = 0.18;
+export const HERO_STAGGER = 0.24;
 export const HERO_INITIAL_DELAY = 0.15;
 
 /**
@@ -37,7 +37,7 @@ export const PILL_SPEED_MAX = 38;
 /** How long each word in the About "flip words" line stays before flipping to
  *  the next, in milliseconds (~2.5s). Change this one number to speed up /
  *  slow down the whole flip loop. */
-export const FLIP_WORD_INTERVAL = 2500;
+export const FLIP_WORD_INTERVAL = 1700;
 
 /** Shared entrance: blur-to-sharp reveal + rise. */
 const REVEAL_HIDDEN = {

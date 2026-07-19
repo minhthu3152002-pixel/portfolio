@@ -36,7 +36,7 @@ export function AboutMe() {
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
-        className="grid items-stretch gap-8 md:grid-cols-[440px_1fr]"
+        className="grid items-stretch gap-8 md:grid-cols-[500px_1fr]"
       >
         {/* LEFT — profile card (capped height) + summary + flip line (bottom) */}
         <motion.div variants={reveal} className="flex flex-col gap-4">
