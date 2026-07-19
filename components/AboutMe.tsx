@@ -74,8 +74,9 @@ export function AboutMe() {
                 sizes="(max-width: 767px) 100vw, 380px"
                 className="object-cover object-[center_-75px]"
               />
-              {/* frosted trait chips along the top edge — glassy but readable,
-                  with an optional lucide icon before the label */}
+              {/* frosted trait chips along the top edge — dark frosted glass to
+                  match the name strip below, so white text reads on light OR
+                  dark photo areas. Optional lucide icon before the label. */}
               <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
                 {a.traits.map((tr) => {
                   const label = t(tr, lang);
@@ -83,7 +84,9 @@ export function AboutMe() {
                   return (
                     <span
                       key={label}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/20 px-3 py-1 text-[0.72rem] font-semibold text-white backdrop-blur-md [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]"
+                      className={`inline-flex items-center rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[0.72rem] font-semibold text-white backdrop-blur-md [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] ${
+                        Icon ? 'gap-1.5' : ''
+                      }`}
                     >
                       {Icon && <Icon size={13} strokeWidth={2} className="shrink-0" aria-hidden />}
                       {label}
