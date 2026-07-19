@@ -27,8 +27,8 @@ function detectInitialLang(): Lang {
   } catch {
     /* ignore */
   }
-  const nav = window.navigator.language?.toLowerCase() ?? '';
-  return nav.startsWith('vi') ? 'vi' : 'en';
+  // No saved choice → always default to English (no browser-language sniff).
+  return 'en';
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
