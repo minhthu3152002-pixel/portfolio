@@ -1,22 +1,29 @@
-import { t, type Lang, type Stat } from '@/lib/content';
+'use client';
 
-/** Big stat numbers in white rounded cards. Number color = project accent
- *  (--pc). Values are language-independent; labels localized. */
+import { motion } from 'framer-motion';
+import { t, type Lang, type Stat } from '@/lib/content';
+import { tabSpring } from '@/lib/motion';
+
+/** Big stat numbers in "liquid glass" cards. Number color = project accent
+ *  (--pc). Values are language-independent; labels localized. Hover gives a
+ *  gentle spring lift (reuses tabSpring) — never an instant change. */
 export function Stats({ items, lang }: { items: Stat[]; lang: Lang }) {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+    <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
       {items.map(([value, label], i) => (
-        <div
+        <motion.div
           key={i}
-          className="rounded-2xl bg-white p-5 shadow-[0_6px_20px_rgba(0,0,0,0.06)]"
+          whileHover={{ y: -4 }}
+          transition={tabSpring}
+          className="liquid-glass rounded-[24px] p-6"
         >
           <b className="block text-[2rem] font-extrabold tabular-nums leading-none tracking-[-0.02em] text-[var(--pc,theme(colors.accent))]">
             {value}
           </b>
-          <small className="mt-2 block text-[0.85rem] leading-snug text-muted">
+          <small className="mt-2.5 block text-[0.85rem] leading-snug text-[#1d1d1f]/55">
             {t(label, lang)}
           </small>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
