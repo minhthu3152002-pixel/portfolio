@@ -2,20 +2,34 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { GlassShelf } from '@/components/GlassShelf';
-import { heroReveal } from '@/lib/motion';
+import {
+  heroReveal,
+  heroBlurIn,
+  heroPopIn,
+  heroFade,
+  heroStepDelay,
+  HERO_BLUR,
+  HERO_BLUR_SOFT,
+} from '@/lib/motion';
 
 /**
  * Hero over a full-bleed wallpaper (desktop/mobile variants), with a two-line
  * headline (bold Inter + Playfair italic) and CTA — then the
  * liquid-glass project shelf overlapping the hero's bottom edge.
+ *
+ * On-load entrance: each whole element (never per-letter) blurs from soft →
+ * sharp in sequence — bold line → italic line → subtitle → CTA — with the
+ * navbar settling in last (handled in Nav). prefers-reduced-motion collapses
+ * this to a plain fade of everything together.
  */
 export function Hero() {
   const { lang } = useLanguage();
   const h = content.hero;
+  const reduce = useReducedMotion();
 
   return (
     <>
@@ -44,41 +58,41 @@ export function Hero() {
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#f5f5f7]" />
         </div>
 
-        <div className="wrap relative flex flex-col items-center pb-[210px] pt-36 text-center text-white sm:pt-40">
+        <div className="wrap relative flex flex-col items-center pb-[230px] pt-36 text-center text-white sm:pb-[250px] sm:pt-40">
           <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
             <motion.span
-              variants={heroReveal}
+              variants={reduce ? heroFade : heroBlurIn}
               initial="hidden"
               animate="visible"
-              custom={0}
+              custom={reduce ? undefined : { delay: heroStepDelay(0), blur: HERO_BLUR }}
               className="block"
             >
               {t(h.headline, lang)}
             </motion.span>
             <motion.span
-              variants={heroReveal}
+              variants={reduce ? heroFade : heroBlurIn}
               initial="hidden"
               animate="visible"
-              custom={1}
+              custom={reduce ? undefined : { delay: heroStepDelay(1), blur: HERO_BLUR }}
               className="accent-italic block font-normal tracking-[-0.01em]"
             >
               {t(h.headlineItalic, lang)}
             </motion.span>
           </h1>
           <motion.p
-            variants={heroReveal}
+            variants={reduce ? heroFade : heroBlurIn}
             initial="hidden"
             animate="visible"
-            custom={2}
+            custom={reduce ? undefined : { delay: heroStepDelay(2), blur: HERO_BLUR_SOFT }}
             className="mb-8 max-w-[640px] text-[1.05rem] leading-relaxed text-white/85"
           >
             {t(h.subtitle, lang)}
           </motion.p>
           <motion.div
-            variants={heroReveal}
+            variants={reduce ? heroFade : heroPopIn}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={reduce ? undefined : { delay: heroStepDelay(3) }}
           >
             <Link
               href={h.cta.href}
@@ -92,10 +106,10 @@ export function Hero() {
 
       {/* Glass shelf overlapping the hero bottom */}
       <motion.div
-        variants={heroReveal}
+        variants={reduce ? heroFade : heroReveal}
         initial="hidden"
         animate="visible"
-        custom={4}
+        custom={reduce ? undefined : 4}
         className="wrap relative z-10 -mt-[170px] mb-4"
       >
         <GlassShelf />

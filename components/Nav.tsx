@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { content, projects, t, type Lang, type NavMenuItem } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
+import { heroNavIn, heroFade, heroStepDelay, HERO_NAV_STEP } from '@/lib/motion';
 import {
   Menu,
   MenuItem,
@@ -22,9 +24,24 @@ type LinkDef = { label: string; href: string; external?: boolean };
  */
 export function Nav() {
   const { lang, setLang } = useLanguage();
+  const reduce = useReducedMotion();
+  // The navbar entrance only plays on the homepage first load (the Nav lives in
+  // the root layout and persists across routes). Everywhere else it just renders.
+  const isHome = usePathname() === '/';
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Entrance props: animate as the last step of the hero sequence on home;
+  // render statically (no entrance) on every other page so it can't break.
+  const navMotion = isHome
+    ? {
+        initial: 'hidden' as const,
+        animate: 'visible' as const,
+        variants: reduce ? heroFade : heroNavIn,
+        custom: reduce ? undefined : { delay: heroStepDelay(HERO_NAV_STEP) },
+      }
+    : { initial: false as const };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -104,8 +121,9 @@ export function Nav() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3">
+      <motion.div {...navMotion} className="pointer-events-auto w-full max-w-[720px]">
       <nav
-        className={`pointer-events-auto flex w-full max-w-[720px] items-center justify-between gap-3 rounded-[26px] border border-white/10 bg-black/85 text-white backdrop-blur-xl transition-all duration-300 ${
+        className={`flex w-full items-center justify-between gap-3 rounded-[26px] border border-white/10 bg-black/85 text-white backdrop-blur-xl transition-all duration-300 ${
           scrolled ? 'px-4 py-1.5 shadow-lg' : 'px-5 py-2.5'
         }`}
       >
@@ -145,6 +163,7 @@ export function Nav() {
           </button>
         </div>
       </nav>
+      </motion.div>
 
       {/* mobile glass sheet */}
       <AnimatePresence>

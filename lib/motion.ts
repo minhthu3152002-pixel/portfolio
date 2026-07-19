@@ -77,6 +77,71 @@ export const heroReveal: Variants = {
   }),
 };
 
+/* ── Homepage hero blur-to-sharp entrance ─────────────────────────────────────
+ * Each element starts blurred + faded and resolves to sharp + full opacity,
+ * sequenced one after another with a small overlap. Order:
+ *   bold line → italic line → subtitle → CTA → navbar (last).
+ * The three knobs below are the only numbers to tune. prefers-reduced-motion is
+ * handled in the components (plain fade of everything together — see heroFade).
+ */
+/** Blur applied to the two headline lines at the start of their entrance (px). */
+export const HERO_BLUR = 16;
+/** Lighter blur for the subtitle (px). */
+export const HERO_BLUR_SOFT = 8;
+/** Duration of each hero element's entrance (seconds). */
+export const HERO_ELEMENT_DURATION = 0.7;
+/** Delay between the start of one hero element and the next — the overlap (seconds). */
+export const HERO_STEP_DELAY = 0.25;
+
+/** Absolute start delay for hero step `n` (0 = bold line). Shared by the Hero
+ *  component and the Nav so the navbar can time itself as the last step. */
+export const heroStepDelay = (step: number): number =>
+  HERO_INITIAL_DELAY + step * HERO_STEP_DELAY;
+
+/** Step index of the navbar in the hero sequence (it goes last). */
+export const HERO_NAV_STEP = 4;
+
+/** Whole-element blur-to-sharp entrance (NOT per-letter). custom: `{ delay, blur }`. */
+export const heroBlurIn: Variants = {
+  hidden: (c: { blur?: number } = {}) => ({
+    opacity: 0,
+    y: 8,
+    filter: `blur(${c.blur ?? HERO_BLUR}px)`,
+  }),
+  visible: (c: { delay?: number } = {}) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: HERO_ELEMENT_DURATION, ease: easeOut, delay: c.delay ?? 0 },
+  }),
+};
+
+/** CTA entrance: fade + slight scale-in, no blur. custom: `{ delay }`. */
+export const heroPopIn: Variants = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: (c: { delay?: number } = {}) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { duration: HERO_ELEMENT_DURATION, ease: easeOut, delay: c.delay ?? 0 },
+  }),
+};
+
+/** Navbar entrance: fade + small slide-down from the top, no blur. custom: `{ delay }`. */
+export const heroNavIn: Variants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: (c: { delay?: number } = {}) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: HERO_ELEMENT_DURATION, ease: easeOut, delay: c.delay ?? 0 },
+  }),
+};
+
+/** prefers-reduced-motion hero entrance: plain fade, no blur/movement, all at once. */
+export const heroFade: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.5, ease: easeOut } },
+};
+
 /** Aliases so existing consumers keep working with the new signature. */
 export const fadeUp = reveal;
 export const stackItem = reveal;
