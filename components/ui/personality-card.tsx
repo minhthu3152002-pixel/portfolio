@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type RefObject } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   Sparkles,
@@ -27,7 +28,7 @@ const ICONS: Record<string, LucideIcon> = {
 /** Show/hide grace period (ms) so moving between avatar and panel never flickers. */
 const HOVER_DELAY = 120;
 /** How far down-right of the pointer the panel sits, so it's never under the cursor. */
-const CURSOR_OFFSET = 16;
+const CURSOR_OFFSET = 12;
 /** Panel width (keep in sync with the w-[280px] class) + viewport safe-margin. */
 const PANEL_W = 280;
 const VIEWPORT_MARGIN = 12;
@@ -70,6 +71,9 @@ export function PersonalityCard({
   // on touch and for keyboard-focus opens where there is no pointer).
   const [pos, setPos] = useState<Pos | null>(null);
   const [hoverMode, setHoverMode] = useState(false);
+  // Gate the body portal until mounted (document exists client-side only).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const clearTimer = () => {
     if (timer.current != null) {
@@ -200,7 +204,7 @@ export function PersonalityCard({
 
   const anchored = pos == null;
 
-  return (
+  const panel = (
     <AnimatePresence>
       {open && (
         <motion.div
@@ -248,4 +252,13 @@ export function PersonalityCard({
       )}
     </AnimatePresence>
   );
+
+  // Follow-cursor placement uses `position: fixed`, which must resolve against
+  // the viewport. Ancestors of the avatar carry `filter: blur(0px)` (from the
+  // entrance reveal) and a 3D `transform` (the Comet card tilt) — either makes a
+  // fixed descendant resolve against THAT box instead, throwing the panel a few
+  // cm off the pointer. Portalling to <body> escapes those containing blocks so
+  // clientX/clientY map exactly to the cursor. The anchored (touch / keyboard)
+  // variant stays inline, positioned relative to the avatar wrapper.
+  return !anchored && mounted ? createPortal(panel, document.body) : panel;
 }
