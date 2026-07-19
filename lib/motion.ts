@@ -67,7 +67,7 @@ export const reveal: Variants = {
 /**
  * Same reveal but delayed by an initial beat + its `custom` index * HERO_STAGGER
  * — used on page load for the hero sequence (line 1 → line 2 → subtitle →
- * CTA → reassurance → shelf).
+ * CTA → shelf).
  */
 export const heroReveal: Variants = {
   hidden: REVEAL_HIDDEN,

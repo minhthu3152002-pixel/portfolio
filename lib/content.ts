@@ -117,7 +117,6 @@ export type SiteContent = {
     headline: Localized;
     headlineItalic: Localized;
     subtitle: Localized;
-    reassurance: Localized;
     cta: Cta;
     shelfTitle: Localized;
     shelfFilterAll: Localized;

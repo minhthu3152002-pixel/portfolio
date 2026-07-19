@@ -10,7 +10,7 @@ import { heroReveal } from '@/lib/motion';
 
 /**
  * Hero over a full-bleed wallpaper (desktop/mobile variants), with a two-line
- * headline (bold Inter + Playfair italic), CTA and reassurance row — then the
+ * headline (bold Inter + Playfair italic) and CTA — then the
  * liquid-glass project shelf overlapping the hero's bottom edge.
  */
 export function Hero() {
@@ -87,15 +87,6 @@ export function Hero() {
               {t(h.cta.label, lang)}
             </Link>
           </motion.div>
-          <motion.p
-            variants={heroReveal}
-            initial="hidden"
-            animate="visible"
-            custom={4}
-            className="mt-6 text-[0.82rem] text-white/70"
-          >
-            {t(h.reassurance, lang)}
-          </motion.p>
         </div>
       </section>
 
@@ -104,7 +95,7 @@ export function Hero() {
         variants={heroReveal}
         initial="hidden"
         animate="visible"
-        custom={5}
+        custom={4}
         className="wrap relative z-10 -mt-[170px] mb-4"
       >
         <GlassShelf />
