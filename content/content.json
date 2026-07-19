@@ -30,12 +30,12 @@
   "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
   "hero": {
     "headline": {
-      "en": "Mavis’s Portfolio",
-      "vi": "Portfolio của Mavis"
+      "en": "Mavis",
+      "vi": "Mavis"
     },
     "headlineItalic": {
-      "en": "Turning ideas into campaigns that deliver results",
-      "vi": "Biến ý tưởng thành chiến dịch mang lại kết quả"
+      "en": "Marketing Portfolio",
+      "vi": "Marketing Portfolio"
     },
     "subtitle": {
       "en": "I’m Mavis, a marketer specializing in digital marketing, integrated campaigns, social media and copywriting, with hands-on experience applying AI to marketing workflows.",
@@ -117,8 +117,10 @@
       }
     ],
     "skills": [
+      "Digital Marketing",
+      "Campaign Planning",
       "Content Strategy",
-      "Meta Ads",
+      "Data Analysis",
       "Social Media",
       "Copywriting",
       "Campaign Management",
@@ -127,6 +129,7 @@
     "tools": [
       "Meta Ads Manager",
       "Canva",
+      "Notion",
       "Google Analytics",
       "Google Apps Script",
       "Google Trends",
