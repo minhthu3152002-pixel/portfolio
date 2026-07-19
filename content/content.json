@@ -1,4 +1,5 @@
 {
+  "_toc": "TABLE OF CONTENTS — site | nav | hero | about | contact | projects: 1 ai-automation, 2 k-tech, 3 social-media, 4 copywriter, 5 other  (Ctrl+F a name or 'PROJECT 3' to jump)",
   "site": {
     "title": {
       "en": "Mavis | Marketing Portfolio",
@@ -29,6 +30,7 @@
   ],
   "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
   "hero": {
+    "_section": "===== HERO · homepage headline =====",
     "headline": {
       "en": "Mavis",
       "vi": "Mavis"
@@ -62,6 +64,7 @@
     }
   },
   "about": {
+    "_section": "===== ABOUT · about me =====",
     "heading": { "enabled": true, "en": "About me", "vi": "Về tôi" },
     "name": "Nguyễn Thị Minh Thư (Mavis)",
     "role": {
@@ -181,6 +184,7 @@
   },
   "projects": [
     {
+      "_section": "===== PROJECT 1 · AI & MARKETING AUTOMATION =====",
       "enabled": true,
       "id": "ai-automation",
       "title": {
@@ -433,6 +437,7 @@
       ]
     },
     {
+      "_section": "===== PROJECT 2 · K-TECH COLLEGE =====",
       "enabled": true,
       "id": "k-tech",
       "title": {
@@ -856,6 +861,7 @@
       ]
     },
     {
+      "_section": "===== PROJECT 3 · SOCIAL MEDIA =====",
       "enabled": true,
       "id": "social-media",
       "title": {
@@ -1209,6 +1215,7 @@
       ]
     },
     {
+      "_section": "===== PROJECT 4 · COPYWRITER =====",
       "enabled": true,
       "id": "copywriter",
       "title": {
@@ -1458,6 +1465,7 @@
       ]
     },
     {
+      "_section": "===== PROJECT 5 · OTHER =====",
       "enabled": true,
       "id": "other",
       "title": {
