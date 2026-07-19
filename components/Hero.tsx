@@ -6,7 +6,13 @@ import { motion } from 'framer-motion';
 import { content, t } from '@/lib/content';
 import { useLanguage } from '@/components/LanguageProvider';
 import { GlassShelf } from '@/components/GlassShelf';
-import { heroReveal } from '@/lib/motion';
+import { SplitText, splitTextEnd } from '@/components/ui/split-text';
+import {
+  heroFadeAt,
+  HERO_INITIAL_DELAY,
+  HERO_LINE_DELAY,
+  HERO_STAGGER,
+} from '@/lib/motion';
 
 /**
  * Hero over a full-bleed wallpaper (desktop/mobile variants), with a two-line
@@ -16,6 +22,14 @@ import { heroReveal } from '@/lib/motion';
 export function Hero() {
   const { lang } = useLanguage();
   const h = content.hero;
+
+  // Sequence the two headline lines letter-by-letter, then chain the subtitle
+  // → CTA → reassurance → shelf onto the exact moment the italic line finishes.
+  const boldText = t(h.headline, lang);
+  const italicText = t(h.headlineItalic, lang);
+  const boldStart = HERO_INITIAL_DELAY;
+  const italicStart = splitTextEnd(boldText, boldStart) + HERO_LINE_DELAY;
+  const restStart = splitTextEnd(italicText, italicStart) + HERO_LINE_DELAY;
 
   return (
     <>
@@ -46,39 +60,33 @@ export function Hero() {
 
         <div className="wrap relative flex flex-col items-center pb-[210px] pt-36 text-center text-white sm:pt-40">
           <h1 className="mb-6 max-w-[900px] text-balance text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.1] tracking-[-0.03em] drop-shadow-sm">
-            <motion.span
-              variants={heroReveal}
-              initial="hidden"
-              animate="visible"
-              custom={0}
+            <SplitText
+              text={boldText}
+              delay={boldStart}
               className="block"
-            >
-              {t(h.headline, lang)}
-            </motion.span>
-            <motion.span
-              variants={heroReveal}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-              className="accent-italic block font-normal tracking-[-0.01em]"
-            >
-              {t(h.headlineItalic, lang)}
-            </motion.span>
+            />
+            {/* Italic line: constrained max-width + balance so both EN and VI
+                break into two roughly-equal lines above. */}
+            <SplitText
+              text={italicText}
+              delay={italicStart}
+              className="accent-italic mx-auto block max-w-[15em] text-balance tracking-[-0.01em]"
+            />
           </h1>
           <motion.p
-            variants={heroReveal}
+            variants={heroFadeAt}
             initial="hidden"
             animate="visible"
-            custom={2}
+            custom={restStart}
             className="mb-8 max-w-[640px] text-[1.05rem] leading-relaxed text-white/85"
           >
             {t(h.subtitle, lang)}
           </motion.p>
           <motion.div
-            variants={heroReveal}
+            variants={heroFadeAt}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={restStart + HERO_STAGGER}
           >
             <Link
               href={h.cta.href}
@@ -88,10 +96,10 @@ export function Hero() {
             </Link>
           </motion.div>
           <motion.p
-            variants={heroReveal}
+            variants={heroFadeAt}
             initial="hidden"
             animate="visible"
-            custom={4}
+            custom={restStart + 2 * HERO_STAGGER}
             className="mt-6 text-[0.82rem] text-white/70"
           >
             {t(h.reassurance, lang)}
@@ -101,10 +109,10 @@ export function Hero() {
 
       {/* Glass shelf overlapping the hero bottom */}
       <motion.div
-        variants={heroReveal}
+        variants={heroFadeAt}
         initial="hidden"
         animate="visible"
-        custom={5}
+        custom={restStart + 3 * HERO_STAGGER}
         className="wrap relative z-10 -mt-[170px] mb-4"
       >
         <GlassShelf />
