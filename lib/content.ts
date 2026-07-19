@@ -89,15 +89,10 @@ export type FlipLine = {
   suffix: Localized;
 };
 
-/** One personality row: `icon` keys the lucide glyph, label + value localizable. */
-export type PersonalityItem = { icon: string; label: Localized; value: Localized };
-
-/** "Personality card" popover shown from the About avatar. */
-export type Personality = {
-  enabled?: boolean;
-  title: Localized;
-  items: PersonalityItem[];
-};
+/** An avatar trait chip: a localizable label, plus an optional `icon` string
+ *  that keys a lucide glyph (see TRAIT_ICONS in AboutMe). Plain strings and
+ *  `{ en, vi }` (no icon) render text-only. */
+export type Trait = string | { en: string; vi?: string; icon?: string };
 
 /** "About me" block — single source under content.about (see HOW-TO-EDIT.md). */
 export type About = {
@@ -105,9 +100,8 @@ export type About = {
   name: string;
   role: Localized;
   avatar: string;
-  traits: Localized[];
+  traits: Trait[];
   summary: Localized;
-  personality?: Personality;
   flipLine?: FlipLine;
   experience: Experience[];
   education: Education[];

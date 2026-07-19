@@ -176,19 +176,10 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
   "role":   { "en": "Marketing · AI Automation", "vi": "Marketing · Tự động hoá AI" },
   "avatar": "/assets/avatar.png",
   "traits": [
-    { "en": "Marketer", "vi": "Marketer" }
+    { "en": "Marketer", "vi": "Marketer" },
+    { "en": "Gemini", "vi": "Song Tử", "icon": "zodiac" }
   ],
   "summary": { "en": "Short bio (2-3 sentences).", "vi": "Tiểu sử ngắn (2-3 câu)." },
-  "personality": {
-    "enabled": true,
-    "title": { "en": "A bit about me", "vi": "Một chút về mình" },
-    "items": [
-      { "icon": "zodiac", "label": { "en": "Zodiac", "vi": "Cung hoàng đạo" },
-        "value": { "en": "Gemini", "vi": "Song Tử" } },
-      { "icon": "mbti", "label": { "en": "MBTI", "vi": "MBTI" },
-        "value": { "en": "ENFJ", "vi": "ENFJ" } }
-    ]
-  },
   "flipLine": {
     "enabled": true,
     "prefix": { "en": "I make your marketing ", "vi": "Mình giúp marketing của bạn " },
@@ -227,9 +218,8 @@ kệ dự án và các khối dự án ở trang chủ. Ảnh chân dung để t
 | `name` | Tên hiển thị (giữ nguyên 1 bản, không cần `{en, vi}`). |
 | `role` | Chức danh ngắn — song ngữ `{en, vi}`. |
 | `avatar` | Đường dẫn ảnh chân dung trong `/assets/`. Thay ảnh: upload đè ảnh cùng tên. |
-| `traits` | Các "nhãn" nhỏ nổi trên đầu ảnh (mỗi cái là `{en, vi}`). Thêm/bớt tuỳ ý. |
+| `traits` | Các "nhãn" nhỏ (viên thuốc kính mờ) nổi trên đầu ảnh. Mỗi cái là `{en, vi}`, và có thể **thêm biểu tượng** bằng trường `icon` (tuỳ chọn): `"icon": "zodiac"` (Sparkles), `"mbti"` (BrainCircuit), `"eq"` (HeartHandshake), `"iq"` (Lightbulb). Không có `icon` → chỉ hiện chữ. Thêm/bớt tuỳ ý. |
 | `summary` | Tiểu sử 2-3 câu — song ngữ. |
-| `personality` | **Thẻ tính cách** hiện lên khi **bấm/chạm vào ảnh chân dung** (mở ra kiểu kính mờ như menu navbar; bấm ra ngoài hoặc Esc để đóng). `title` = tiêu đề thẻ (`{en, vi}`), `items` = danh sách các dòng. Mỗi dòng: `icon` (chọn biểu tượng — xem bảng dưới), `label` (nhãn mờ bên trái, `{en, vi}`) và `value` (giá trị in đậm bên phải, `{en, vi}`). **Thêm/bớt một dòng chỉ cần sửa mảng `items`** — không đụng code. Đặt `"enabled": false` để tắt cả thẻ (ảnh trở lại bình thường, không bấm được). Icon hỗ trợ: `zodiac` (Cung hoàng đạo), `mbti` (MBTI), `eq` (EQ), `iq` (IQ). Dùng `icon` lạ → dòng đó không có biểu tượng (vẫn hiện chữ, không lỗi). |
 | `flipLine` | Câu có **một từ tự đổi lặp lại** (hiển thị dưới thẻ tóm tắt, cột trái). `prefix` = phần đầu câu giữ nguyên, `words` = danh sách các từ luân phiên (mỗi từ `{en, vi}`), `suffix` = phần cuối (có thể để rỗng `""`). **Thêm/bớt từ chỉ cần sửa mảng `words`** — không đụng code. Đặt `"enabled": false` để ẩn cả câu. Mẹo: giữ các từ **dài gần bằng nhau** để câu không nhảy chiều rộng nhiều. |
 | `experience` | Danh sách kinh nghiệm (hiển thị trong panel **tối**). Mỗi mục: `period` (mốc thời gian, ví dụ `"5/2025 – 07/2026"` — thường để chuỗi thường vì giống nhau 2 ngôn ngữ), `title` (vị trí, `{en, vi}`), `org` (nơi làm — giữ 1 bản). |
 | `education` | Học vấn (hiển thị ngay dưới Kinh nghiệm, cùng panel tối). Mỗi mục: `school` (trường — giữ 1 bản), `degree` (bằng cấp, `{en, vi}`), `year` (năm — chuỗi), `gpa` (điểm — tuỳ chọn, bỏ đi cũng được). |
