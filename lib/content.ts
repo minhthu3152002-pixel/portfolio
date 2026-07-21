@@ -118,6 +118,10 @@ export type SiteContent = {
   };
   nav: NavMenuItem[];
   projectsHeading?: SectionHeading;
+  /** Interface microcopy (aria-labels, button text) — see content.ui. */
+  ui: {
+    backToProjects: Localized;
+  };
   hero: {
     headline: Localized;
     headlineItalic: Localized;

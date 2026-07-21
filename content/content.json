@@ -29,6 +29,10 @@
     }
   ],
   "projectsHeading": { "enabled": true, "en": "Projects", "vi": "Dự án" },
+  "ui": {
+    "_section": "===== UI · nhãn giao diện (aria-label nút, v.v.) =====",
+    "backToProjects": { "en": "Back to projects", "vi": "Quay lại danh sách dự án" }
+  },
   "hero": {
     "_section": "===== HERO · homepage headline =====",
     "headline": {

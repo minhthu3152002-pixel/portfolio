@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { ChevronLeft } from 'lucide-react';
 import type { Project } from '@/lib/content';
-import { enabledSections, enabledGroups, pad2, t } from '@/lib/content';
+import { content, enabledSections, enabledGroups, t } from '@/lib/content';
 import { headerGradient } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 import { Blocks } from '@/components/Blocks';
@@ -30,14 +31,9 @@ function readableOn(hex: string): string {
  * pill via layoutId, hash-synced, arrow-key navigable) + animated tab panels
  * whose enabled groups render as sub-headings with text/stats/gallery blocks.
  */
-export function ProjectDetail({
-  project: p,
-  num,
-}: {
-  project: Project;
-  num: number;
-}) {
+export function ProjectDetail({ project: p }: { project: Project }) {
   const { lang } = useLanguage();
+  const reduce = useReducedMotion();
   const { colors } = p;
   const sections = enabledSections(p);
   const tabText = readableOn(colors.accent);
@@ -83,15 +79,21 @@ export function ProjectDetail({
         style={{ background: headerGradient(colors.bg), color: colors.fg }}
       >
         <div className="mx-auto max-w-wrap">
+          {/* iOS-26 liquid-glass round back button (icon inherits header fg) */}
           <Link
             href="/"
-            className="mb-10 inline-flex items-center gap-2 text-[0.9rem] font-medium opacity-60 transition-opacity hover:opacity-100"
+            aria-label={t(content.ui.backToProjects, lang)}
+            className="group mb-10 inline-flex rounded-full outline-none"
           >
-            {lang === 'vi' ? '← Quay lại dự án' : '← Back to projects'}
+            <motion.span
+              whileHover={reduce ? undefined : { scale: 1.03 }}
+              whileTap={reduce ? undefined : { scale: 0.96 }}
+              transition={tabSpring}
+              className="liquid-glass flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/70 group-focus-visible:ring-2 group-focus-visible:ring-white/60"
+            >
+              <ChevronLeft size={20} strokeWidth={2} aria-hidden />
+            </motion.span>
           </Link>
-          <p className="mb-5 text-[0.78rem] font-semibold tracking-[0.16em] opacity-55">
-            {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
-          </p>
           <h1 className="mb-5 max-w-[840px] text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em] [text-shadow:0_1px_2px_rgba(0,0,0,0.05)]">
             {t(p.title, lang)}
           </h1>
