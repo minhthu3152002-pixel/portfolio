@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { ChevronLeft } from 'lucide-react';
 import type { Project } from '@/lib/content';
-import { enabledSections, enabledGroups, pad2, t } from '@/lib/content';
+import { content, enabledSections, enabledGroups, t } from '@/lib/content';
+import { headerGradient } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 import { Blocks } from '@/components/Blocks';
 import {
@@ -29,14 +31,9 @@ function readableOn(hex: string): string {
  * pill via layoutId, hash-synced, arrow-key navigable) + animated tab panels
  * whose enabled groups render as sub-headings with text/stats/gallery blocks.
  */
-export function ProjectDetail({
-  project: p,
-  num,
-}: {
-  project: Project;
-  num: number;
-}) {
+export function ProjectDetail({ project: p }: { project: Project }) {
   const { lang } = useLanguage();
+  const reduce = useReducedMotion();
   const { colors } = p;
   const sections = enabledSections(p);
   const tabText = readableOn(colors.accent);
@@ -76,32 +73,38 @@ export function ProjectDetail({
 
   return (
     <main style={{ ['--pc' as string]: colors.accent }}>
-      {/* pastel hero band */}
+      {/* lit-glass hero band — gradient bg→deeper + soft radial light spot */}
       <header
-        className="rounded-b-[40px] px-6 pb-16 pt-32"
-        style={{ background: colors.bg, color: colors.fg }}
+        className="rounded-b-[36px] px-6 pb-20 pt-32"
+        style={{ background: headerGradient(colors.bg), color: colors.fg }}
       >
         <div className="mx-auto max-w-wrap">
+          {/* iOS-26 liquid-glass round back button (icon inherits header fg) */}
           <Link
             href="/"
-            className="mb-8 inline-flex items-center gap-2 text-[0.9rem] font-medium opacity-70 transition-opacity hover:opacity-100"
+            aria-label={t(content.ui.backToProjects, lang)}
+            className="group mb-10 inline-flex rounded-full outline-none"
           >
-            {lang === 'vi' ? '← Quay lại dự án' : '← Back to projects'}
+            <motion.span
+              whileHover={reduce ? undefined : { scale: 1.03 }}
+              whileTap={reduce ? undefined : { scale: 0.96 }}
+              transition={tabSpring}
+              className="liquid-glass flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/70 group-focus-visible:ring-2 group-focus-visible:ring-white/60"
+            >
+              <ChevronLeft size={20} strokeWidth={2} aria-hidden />
+            </motion.span>
           </Link>
-          <p className="mb-4 text-[0.78rem] font-semibold tracking-[0.16em] opacity-60">
-            {pad2(num)} / {lang === 'vi' ? 'DỰ ÁN' : 'PROJECT'}
-          </p>
-          <h1 className="mb-4 max-w-[840px] text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          <h1 className="mb-5 max-w-[840px] text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em] [text-shadow:0_1px_2px_rgba(0,0,0,0.05)]">
             {t(p.title, lang)}
           </h1>
-          <p className="mb-6 max-w-[640px] text-[1.05rem] leading-relaxed opacity-80">
+          <p className="mb-8 max-w-[640px] text-[1.0625rem] leading-[1.6] opacity-80">
             {t(p.short, lang)}
           </p>
           <div className="flex flex-wrap gap-2.5">
             {p.tags.map((tag) => (
               <span
                 key={t(tag, lang)}
-                className="rounded-full border border-black/10 bg-white/50 px-[14px] py-[6px] text-[0.8rem] font-medium"
+                className="rounded-full border border-white/50 bg-white/40 px-[14px] py-[6px] text-[0.8rem] font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md"
               >
                 {t(tag, lang)}
               </span>
@@ -110,8 +113,8 @@ export function ProjectDetail({
         </div>
       </header>
 
-      {/* sticky glass pill tab bar */}
-      <div className="sticky top-20 z-40 py-4">
+      {/* sticky liquid-glass pill tab bar */}
+      <div className="sticky top-20 z-40 py-5">
         <div className="mx-auto max-w-wrap px-6">
           <motion.div
             role="tablist"
@@ -120,7 +123,7 @@ export function ProjectDetail({
             variants={stackContainerTight}
             initial="hidden"
             animate="visible"
-            className="no-scrollbar flex gap-1.5 overflow-x-auto rounded-full border border-line bg-white/70 p-1.5 backdrop-blur-xl"
+            className="liquid-glass no-scrollbar flex gap-1.5 overflow-x-auto rounded-full p-2"
           >
             {sections.map((s, i) => {
               const isActive = s.id === active?.id;
@@ -131,18 +134,20 @@ export function ProjectDetail({
                     btnRefs.current[i] = el;
                   }}
                   variants={stackItemTight}
+                  whileHover={isActive ? undefined : { y: -2 }}
+                  transition={tabSpring}
                   role="tab"
                   aria-selected={isActive}
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => selectTab(s.id)}
                   className="relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[0.85rem] font-medium transition-colors"
-                  style={{ color: isActive ? tabText : '#6e6e73' }}
+                  style={{ color: isActive ? tabText : 'rgba(29,29,31,0.55)' }}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="tab-pill"
                       transition={tabSpring}
-                      className="absolute inset-0 -z-10 rounded-full"
+                      className="absolute inset-0 -z-10 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_2px_8px_rgba(0,0,0,0.12)]"
                       style={{ background: colors.accent }}
                     />
                   )}
@@ -155,7 +160,7 @@ export function ProjectDetail({
       </div>
 
       {/* animated tab panel */}
-      <div className="mx-auto max-w-wrap px-6 pb-24 pt-4">
+      <div className="mx-auto max-w-wrap px-6 pb-28 pt-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={active?.id}
@@ -166,9 +171,9 @@ export function ProjectDetail({
             role="tabpanel"
           >
             {groups.map((g, i) => (
-              <section key={i} className="mb-14 last:mb-0">
+              <section key={i} className="mb-20 last:mb-0">
                 {g.title && (
-                  <h3 className="mb-5 text-[1.4rem] font-bold tracking-[-0.01em]">
+                  <h3 className="mb-6 text-[1.4rem] font-bold leading-[1.2] tracking-[-0.02em]">
                     {t(g.title, lang)}
                   </h3>
                 )}
@@ -180,7 +185,7 @@ export function ProjectDetail({
 
         <Link
           href="/"
-          className="mt-8 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
+          className="mt-10 inline-flex items-center gap-2 text-[0.9rem] font-medium text-[var(--pc)]"
         >
           {lang === 'vi' ? '← Quay lại tất cả dự án' : '← Back to all projects'}
         </Link>

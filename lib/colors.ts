@@ -78,6 +78,21 @@ export function posterGradient(accent: string): string {
 }
 
 /**
+ * Project-detail header — a smooth vertical gradient from the project's pastel
+ * `colors.bg` (top) to a slightly deeper shade of the SAME hue (bottom), with a
+ * very soft radial light spot near the top so the band reads as lit glass, not
+ * a flat color block. Deepening only lightness (not saturation) keeps it calm.
+ */
+export function headerGradient(bg: string): string {
+  const { h, s, l } = hexToHsl(bg);
+  const deeper = hslToHex(h, s, Math.max(0, l - 0.1));
+  return (
+    `radial-gradient(60% 48% at 50% 0%, rgba(255,255,255,0.55), transparent 62%), ` +
+    `linear-gradient(180deg, ${bg} 0%, ${deeper} 100%)`
+  );
+}
+
+/**
  * Home block — a light frosted tint of the SAME hue (clearly teal/blue/purple/
  * green/amber, never near-white) plus the two accent corner-glow layers.
  *
