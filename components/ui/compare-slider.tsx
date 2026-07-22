@@ -78,7 +78,7 @@ export function CompareSlider({
   return (
     <figure>
       {caption && (
-        <figcaption className="mb-3 text-[0.85rem] text-[#1d1d1f]/55">{t(caption, lang)}</figcaption>
+        <p className="mb-2 text-xs text-[#1d1d1f]/45">{t(caption, lang)}</p>
       )}
       <div
         ref={ref}

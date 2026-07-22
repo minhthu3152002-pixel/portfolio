@@ -16,7 +16,6 @@ import { Stats } from '@/components/Stats';
 import { ToolLogo } from '@/components/ui/tool-icon';
 import { LivePreview } from '@/components/ui/live-preview';
 import { CompareSlider } from '@/components/ui/compare-slider';
-import { Lightbox } from '@/components/ui/lightbox';
 import { reveal, viewportOnce } from '@/lib/motion';
 
 /** A bullet like "<b>Title</b> rest of the sentence" -> title/description.
@@ -175,31 +174,6 @@ function GalleryCell({ src, caption, lang }: { src: string; caption?: Localized;
   );
 }
 
-/** A small stacked side-note image (e.g. a confirmation/reminder email) next
- *  to a wide landing-page preview. The thumbnail is cropped to fill its
- *  fixed-height slot; the zoom button opens the real, uncropped image. */
-function SideNoteCell({ src, caption, lang }: { src: string; caption?: Localized; lang: Lang }) {
-  const alt = caption ? t(caption, lang) : '';
-  return (
-    // Below sm the column isn't stretched to match the embed's height (it's
-    // its own grid row), so each cell falls back to a fixed aspect ratio
-    // instead of flex-1/h-full — otherwise the (absolutely positioned) image
-    // has nothing to size against and collapses to zero height.
-    <figure className="flex flex-col sm:h-full sm:min-h-0 sm:flex-1">
-      <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[16px] border border-white/50 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.06)] sm:aspect-auto sm:h-full sm:min-h-0 sm:flex-1">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover object-top" />
-        <Lightbox src={src} alt={alt} />
-      </div>
-      {caption && (
-        <figcaption className="mt-1.5 line-clamp-2 text-[0.68rem] leading-snug text-[#1d1d1f]/55">
-          {t(caption, lang)}
-        </figcaption>
-      )}
-    </figure>
-  );
-}
-
 /**
  * One group of a project tab, in the bento showcase layout:
  *   HEADER  — group heading + intro text + tool chips
@@ -240,18 +214,6 @@ export function GroupPanel({
   const remainingTextBlocks = remaining.filter((b): b is TextBlock => b.type === 'text');
   const statsBlocks = remaining.filter((b) => b.type === 'stats');
 
-  // A wide browser preview followed only by supporting images (e.g. the
-  // Coffee Chat confirmation/reminder emails): render as one composite —
-  // preview ~3/4 width, images stacked in a narrow column whose combined
-  // height matches the preview, not the generic uniform bento grid.
-  const first = visualCells[0];
-  const sideNotes = visualCells.slice(1);
-  const isPreviewWithNotes =
-    visualCells.length >= 2 &&
-    first?.kind === 'embed' &&
-    first.block.frame !== 'mobile' &&
-    sideNotes.every((c) => c.kind === 'image');
-
   const soleCell = visualCells.length === 1 ? visualCells[0] : undefined;
   const soleIsMobile = soleCell?.kind === 'embed' && soleCell.block.frame === 'mobile';
 
@@ -290,20 +252,7 @@ export function GroupPanel({
       </div>
 
       {/* PREVIEW GRID */}
-      {isPreviewWithNotes && first?.kind === 'embed' ? (
-        <div className="mb-10 grid grid-cols-1 items-stretch gap-4 sm:mx-auto sm:max-w-[75%] sm:grid-cols-4">
-          <div className="sm:col-span-3">
-            <EmbedCell block={first.block} lang={lang} />
-          </div>
-          <div className="flex flex-col gap-3 sm:col-span-1">
-            {sideNotes.map((cell, i) =>
-              cell.kind === 'image' ? (
-                <SideNoteCell key={i} src={cell.src} caption={cell.caption} lang={lang} />
-              ) : null,
-            )}
-          </div>
-        </div>
-      ) : soleCell ? (
+      {soleCell ? (
         <div className="mb-10 flex justify-center sm:mx-auto sm:max-w-[75%]">
           <div className={soleIsMobile ? 'w-full max-w-[320px]' : 'w-full'}>
             {soleCell.kind === 'embed' ? (

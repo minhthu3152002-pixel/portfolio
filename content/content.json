@@ -414,11 +414,12 @@
                 {
                   "type": "embed",
                   "frame": "browser",
-                  "title": {
+                  "caption": {
                     "en": "Preview landing page",
                     "vi": "Xem trước landing page"
                   },
-                  "url": "https://ktc-coffee-chat.vercel.app/"
+                  "url": "https://ktc-coffee-chat.vercel.app/",
+                  "aspect": "2606/1594"
                 },
                 {
                   "type": "text",
@@ -451,25 +452,6 @@
                       "en": "Centralized registration data into one source for easy tracking, checking, and management.",
                       "vi": "Tập trung dữ liệu đăng ký về một nguồn để team dễ theo dõi, kiểm tra và quản lý."
                     }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/previews/coffee-chat-email-registed.png",
-                      {
-                        "en": "Confirmation email sent automatically after registration.",
-                        "vi": "Email xác nhận tự động gửi sau khi đăng ký."
-                      }
-                    ],
-                    [
-                      "/previews/coffee-chat-email-remind.png",
-                      {
-                        "en": "Reminder email sent 24h before the event.",
-                        "vi": "Email remind tham gia sự kiện trước 24h."
-                      }
-                    ]
                   ]
                 },
                 {
@@ -681,11 +663,11 @@
                 {
                   "type": "embed",
                   "frame": "browser",
-                  "url": "https://marketing-dashboard-dem.vercel.app/",
-                  "note": {
+                  "caption": {
                     "en": "For security reasons, the data shown on the dashboard is sample data.",
                     "vi": "Vì lý do bảo mật, dữ liệu hiển thị trên dashboard là dữ liệu mẫu."
-                  }
+                  },
+                  "url": "https://marketing-dashboard-dem.vercel.app/"
                 },
                 {
                   "type": "text",
