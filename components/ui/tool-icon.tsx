@@ -8,6 +8,9 @@ import {
   siGooglegemini,
   siGithub,
   siVercel,
+  siReact,
+  siVite,
+  siSupabase,
 } from 'simple-icons';
 
 /** Minimal shape we use from a simple-icons icon. */
@@ -34,6 +37,9 @@ function resolve(name: string): Glyph | 'sparkle' | null {
   if (n.includes('gemini')) return siGooglegemini;
   if (n.includes('github')) return siGithub;
   if (n.includes('vercel')) return siVercel;
+  if (n.includes('react')) return siReact;
+  if (n.includes('vite')) return siVite;
+  if (n.includes('supabase')) return siSupabase;
   return null;
 }
 

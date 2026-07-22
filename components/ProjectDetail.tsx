@@ -170,6 +170,11 @@ export function ProjectDetail({ project: p }: { project: Project }) {
             exit="exit"
             role="tabpanel"
           >
+            {active?.eyebrow && (
+              <p className="mb-3 text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-[var(--pc)]">
+                {t(active.eyebrow, lang)}
+              </p>
+            )}
             {groups.map((g, i) => (
               <section key={i} className="mb-20 last:mb-0">
                 {g.title && (

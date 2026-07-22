@@ -38,7 +38,19 @@ export type Stat = [string, Localized];
 export type TextBlock = { type: 'text'; items: Localized[] };
 export type StatsBlock = { type: 'stats'; items: Stat[] };
 export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
-export type Block = TextBlock | StatsBlock | GalleryBlock;
+/** Live-site preview: a device frame ("mobile" notch or "browser" chrome)
+ *  wrapping a poster image (if given) or a lazy-loaded iframe of `url`. The
+ *  whole frame is a link that opens `url` in a new tab. */
+export type EmbedBlock = {
+  type: 'embed';
+  frame: 'mobile' | 'browser';
+  url: string;
+  poster?: string;
+};
+/** A row of tool pills (brand logo when available, via ToolLogo). Plain
+ *  strings — tool names are the same in both languages. */
+export type ToolsBlock = { type: 'tools'; items: string[] };
+export type Block = TextBlock | StatsBlock | GalleryBlock | EmbedBlock | ToolsBlock;
 
 export type Group = {
   enabled?: boolean;
@@ -50,6 +62,8 @@ export type Section = {
   enabled?: boolean;
   id: string;
   label: Localized;
+  /** Small micro-label shown above a tab's panel content (e.g. "Personal", "KTC"). */
+  eyebrow?: Localized;
   groups: Group[];
 };
 
