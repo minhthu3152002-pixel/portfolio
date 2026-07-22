@@ -290,6 +290,10 @@
                 {
                   "type": "embed",
                   "frame": "mobile",
+                  "caption": {
+                    "en": "Try it out — enter a name to get started.",
+                    "vi": "Bạn có thể nhập tên để dùng thử."
+                  },
                   "url": "https://mavis-steel.vercel.app/",
                   "poster": "/previews/mavis-noti-mobile.png"
                 },
@@ -373,8 +377,12 @@
                   "prose": true,
                   "items": [
                     {
-                      "en": "I built a dedicated landing page for an online Coffee Chat between FPT Software Korea and Vietnamese candidates, to create a clear touchpoint before registration. Instead of letting event details scatter across social posts and messages, the landing page helps candidates quickly grasp the program's value, picture the on-site opportunity in Korea more clearly, and lowers the barrier to signing up. It also helps the team collect data, send confirmation emails, and manage candidate information in one centralized flow.",
-                      "vi": "Mình xây dựng một landing page riêng cho buổi Coffee Chat trực tuyến giữa FPT Software Korea và ứng viên Việt Nam, nhằm tạo một điểm chạm rõ ràng trước khi đăng ký. Thay vì để thông tin sự kiện phân tán qua social post và tin nhắn, landing page giúp ứng viên nhanh chóng hiểu giá trị chương trình, hình dung rõ hơn về cơ hội làm việc on-site tại Hàn Quốc và giảm bớt rào cản khi đăng ký. Đồng thời, trang hỗ trợ team thu thập dữ liệu, gửi email xác nhận và quản lý thông tin ứng viên theo một quy trình tập trung."
+                      "en": "<b>Idea:</b> Build a dedicated landing page for the online Coffee Chat between FPT Software Korea and Vietnamese candidates, creating one clear touchpoint before registration — instead of scattering event details across social posts and messages.",
+                      "vi": "<b>Idea:</b> Xây dựng một landing page riêng cho buổi Coffee Chat trực tuyến giữa FPT Software Korea và ứng viên Việt Nam, tạo một điểm chạm rõ ràng trước khi đăng ký — thay vì để thông tin sự kiện phân tán qua social post và tin nhắn."
+                    },
+                    {
+                      "en": "<b>Problem:</b> Candidates had no single place to quickly grasp the program's value or picture the on-site opportunity in Korea, which raised the barrier to signing up. On the team side, registration data, confirmation emails, and candidate information weren't centralized, making the whole process harder to manage.",
+                      "vi": "<b>Problem:</b> Ứng viên không có một nơi duy nhất để nhanh chóng hiểu giá trị chương trình hay hình dung rõ cơ hội làm việc on-site tại Hàn Quốc, khiến rào cản đăng ký tăng lên. Về phía team, dữ liệu đăng ký, email xác nhận và thông tin ứng viên chưa được tập trung, khiến cả quy trình khó quản lý hơn."
                     }
                   ]
                 },

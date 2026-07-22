@@ -135,6 +135,9 @@ export function LivePreview({
           {t(title, lang)}
         </p>
       )}
+      {caption && (
+        <p className="mb-2 text-xs text-[#1d1d1f]/45">{t(caption, lang)}</p>
+      )}
       <div className="liquid-glass overflow-hidden rounded-[24px]">
         {frame === 'browser' && (
           <div className="flex items-center gap-3 border-b border-black/[0.06] px-4 py-2.5">
@@ -155,9 +158,6 @@ export function LivePreview({
 
       {note && (
         <p className="mt-2 text-center text-[0.78rem] text-[#1d1d1f]/45">{t(note, lang)}</p>
-      )}
-      {caption && (
-        <figcaption className="mt-2 text-[0.85rem] text-[#1d1d1f]/55">{t(caption, lang)}</figcaption>
       )}
     </figure>
   );

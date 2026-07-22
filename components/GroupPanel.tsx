@@ -56,7 +56,7 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
         {block.items.map((it, j) => (
           <p
             key={j}
-            className="rich text-xs leading-relaxed text-[#3a3a3c]"
+            className="rich text-sm leading-relaxed text-[#3a3a3c]"
             dangerouslySetInnerHTML={{ __html: t(it, lang) }}
           />
         ))}
@@ -80,14 +80,14 @@ function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
         {block.items.map((item, i) => {
           const { title, desc } = splitBold(t(item, lang));
           return (
-            <div key={i} className={i > 0 ? 'border-t border-black/[0.06] pt-4' : undefined}>
+            <div key={i}>
               <p
-                className="text-[0.95rem] font-bold leading-snug text-text"
+                className="text-base font-bold leading-snug text-text"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               {desc && (
                 <p
-                  className="mt-1.5 text-[0.88rem] leading-relaxed text-muted"
+                  className="mt-1.5 text-sm font-normal leading-relaxed text-muted"
                   dangerouslySetInnerHTML={{ __html: desc }}
                 />
               )}
@@ -209,7 +209,7 @@ export function GroupPanel({ group, lang }: { group: Group; lang: Lang }) {
 
       {/* PREVIEW GRID */}
       {visualCells.length > 0 && (
-        <div className="mb-10 grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
+        <div className="mb-10 grid grid-cols-1 items-start gap-4 sm:mx-auto sm:max-w-[75%] sm:grid-cols-3">
           {visualCells.map((cell, i) => (
             <div key={i} className={spanClass(cell)}>
               {cell.kind === 'embed' ? (
