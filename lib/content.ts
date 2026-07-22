@@ -110,6 +110,8 @@ export type Project = {
   cover: string;
   /** Optional dedicated nav-dropdown thumbnail; falls back to `cover`. */
   thumb?: string;
+  /** Decorative lucide-react icon name for the homepage card's corner badge. */
+  icon?: string;
   sections: Section[];
 };
 

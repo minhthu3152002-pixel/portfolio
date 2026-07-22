@@ -189,6 +189,7 @@
       "_section": "===== PROJECT 1 · AI & MARKETING AUTOMATION =====",
       "enabled": true,
       "id": "ai-automation",
+      "icon": "Sparkles",
       "title": {
         "en": "AI & Marketing Automation",
         "vi": "AI & Marketing Automation"
@@ -728,6 +729,7 @@
       "_section": "===== PROJECT 2 · K-TECH COLLEGE =====",
       "enabled": true,
       "id": "k-tech",
+      "icon": "GraduationCap",
       "title": {
         "en": "K-Tech College — Awareness & Lead Campaign",
         "vi": "K-Tech College — Chiến dịch Nhận diện & Thu Lead"
@@ -1152,6 +1154,7 @@
       "_section": "===== PROJECT 3 · SOCIAL MEDIA =====",
       "enabled": true,
       "id": "social-media",
+      "icon": "MessageCircle",
       "title": {
         "en": "Social Media",
         "vi": "Social Media"
@@ -1506,6 +1509,7 @@
       "_section": "===== PROJECT 4 · COPYWRITER =====",
       "enabled": true,
       "id": "copywriter",
+      "icon": "PenLine",
       "title": {
         "en": "Copywriter Projects",
         "vi": "Copywriter Projects"
@@ -1756,6 +1760,7 @@
       "_section": "===== PROJECT 5 · OTHER =====",
       "enabled": true,
       "id": "other",
+      "icon": "FolderOpen",
       "title": {
         "en": "Other",
         "vi": "Khác"
