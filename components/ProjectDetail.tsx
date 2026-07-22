@@ -123,7 +123,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
             variants={stackContainerTight}
             initial="hidden"
             animate="visible"
-            className="liquid-glass no-scrollbar flex gap-1.5 overflow-x-auto rounded-full p-2"
+            className="liquid-glass no-scrollbar mx-auto flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full p-2"
           >
             {sections.map((s, i) => {
               const isActive = s.id === active?.id;

@@ -406,6 +406,10 @@
                 {
                   "type": "embed",
                   "frame": "browser",
+                  "title": {
+                    "en": "Preview landing page",
+                    "vi": "Xem trước landing page"
+                  },
                   "url": "https://ktc-coffee-chat.vercel.app/"
                 },
                 {

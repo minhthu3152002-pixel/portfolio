@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import {
   t,
   type Group,
@@ -17,13 +16,9 @@ import { Stats } from '@/components/Stats';
 import { ToolLogo } from '@/components/ui/tool-icon';
 import { LivePreview } from '@/components/ui/live-preview';
 import { CompareSlider } from '@/components/ui/compare-slider';
-import { reveal, viewportOnce, tabSpring } from '@/lib/motion';
+import { reveal, viewportOnce } from '@/lib/motion';
 
-const L = {
-  viewLive: { en: 'View live', vi: 'Xem bản live' } as Localized,
-};
-
-/** A bullet like "<b>Title</b> rest of the sentence" -> card title/description.
+/** A bullet like "<b>Title</b> rest of the sentence" -> item title/description.
  *  No <b> tag -> the whole line becomes the title, no description. */
 function splitBold(html: string): { title: string; desc: string } {
   const m = html.match(/^<b>(.*?)<\/b>\s*(.*)$/s);
@@ -31,17 +26,25 @@ function splitBold(html: string): { title: string; desc: string } {
   return { title: html, desc: '' };
 }
 
+/** "How it's built" / "Implementation" -> the left box; anything else
+ *  (Solution / Feature / ...) -> the right box. */
+function isImplementationTitle(block: TextBlock): boolean {
+  const title = t(block.title, 'en').toLowerCase();
+  return title.includes('built') || title.includes('implement') || title.includes('how it');
+}
+
 type VisualCell =
   | { kind: 'embed'; block: EmbedBlock }
   | { kind: 'compare'; block: CompareBlock }
   | { kind: 'image'; src: string; caption?: Localized; full?: boolean };
 
-/** Bento span for a visual cell in the 3-col grid (1 col on mobile). */
-function spanClass(cell: VisualCell, sole: boolean): string {
+/** Bento span for a visual cell in the 3-col grid (1 col on mobile). Browser
+ *  embeds always take the full row so any trailing gallery images (e.g. the
+ *  Coffee Chat confirmation/reminder emails) land on their own row below it. */
+function spanClass(cell: VisualCell): string {
   if (cell.kind === 'compare') return 'sm:col-span-3';
   if (cell.kind === 'embed') {
-    if (cell.block.frame === 'mobile') return 'sm:col-span-1';
-    return sole ? 'sm:col-span-3' : 'sm:col-span-2';
+    return cell.block.frame === 'mobile' ? 'sm:col-span-1' : 'sm:col-span-3';
   }
   return cell.full ? 'sm:col-span-3' : 'sm:col-span-1';
 }
@@ -53,7 +56,7 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
         {block.items.map((it, j) => (
           <p
             key={j}
-            className="rich text-[1rem] leading-[1.7] text-[#3a3a3c]"
+            className="rich text-xs leading-relaxed text-[#3a3a3c]"
             dangerouslySetInnerHTML={{ __html: t(it, lang) }}
           />
         ))}
@@ -63,19 +66,21 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
   return <RichList items={block.items} lang={lang} className="max-w-[640px]" />;
 }
 
-function FeatureCardGrid({ block, lang }: { block: TextBlock; lang: Lang }) {
+/** One "feature box": a single card holding the block's title + every bullet
+ *  stacked vertically (bold lead-in + description), not one card per bullet. */
+function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
   return (
-    <div className="mb-10 last:mb-0">
+    <div className="liquid-glass rounded-[24px] p-6">
       {block.title && (
         <h4 className="mb-4 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
           {t(block.title, lang)}
         </h4>
       )}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="flex flex-col gap-4">
         {block.items.map((item, i) => {
           const { title, desc } = splitBold(t(item, lang));
           return (
-            <div key={i} className="liquid-glass rounded-[20px] p-4">
+            <div key={i} className={i > 0 ? 'border-t border-black/[0.06] pt-4' : undefined}>
               <p
                 className="text-[0.95rem] font-bold leading-snug text-text"
                 dangerouslySetInnerHTML={{ __html: title }}
@@ -90,6 +95,30 @@ function FeatureCardGrid({ block, lang }: { block: TextBlock; lang: Lang }) {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+/** Solution/Feature + Implementation render as exactly two side-by-side
+ *  boxes (Implementation left, Solution right); a single extra text block
+ *  renders as one full-width box; more than two falls back to a stack. */
+function FeatureBoxes({ blocks, lang }: { blocks: TextBlock[]; lang: Lang }) {
+  if (blocks.length === 0) return null;
+  if (blocks.length === 2) {
+    const left = blocks.find(isImplementationTitle) ?? blocks[1];
+    const right = blocks.find((b) => b !== left) ?? blocks[0];
+    return (
+      <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FeatureBox block={left} lang={lang} />
+        <FeatureBox block={right} lang={lang} />
+      </div>
+    );
+  }
+  return (
+    <div className="mb-10 flex flex-col gap-4">
+      {blocks.map((b, i) => (
+        <FeatureBox key={i} block={b} lang={lang} />
+      ))}
     </div>
   );
 }
@@ -114,29 +143,11 @@ function GalleryCell({ src, caption, lang }: { src: string; caption?: Localized;
   );
 }
 
-function ViewLiveButton({ href, lang }: { href: string; lang: Lang }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={reduce ? undefined : { scale: 1.03 }}
-      whileTap={reduce ? undefined : { scale: 0.97 }}
-      transition={tabSpring}
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-black/85 px-5 py-2.5 text-[0.85rem] font-semibold text-white outline-none backdrop-blur-xl transition-colors hover:bg-black/70 focus-visible:ring-2 focus-visible:ring-white/50"
-    >
-      {t(L.viewLive, lang)}
-      <ArrowUpRight size={15} strokeWidth={2.25} aria-hidden />
-    </motion.a>
-  );
-}
-
 /**
  * One group of a project tab, in the bento showcase layout:
- *   HEADER  — group heading + intro text + tool chips (left), "View live" CTA (right)
+ *   HEADER  — group heading + intro text + tool chips
  *   GRID    — bento grid of every visual block (embed/gallery/compare), hidden if none
- *   FEATURES— remaining text blocks as 2-col cards, stats as-is
+ *   FEATURES— remaining text blocks as two side-by-side boxes, stats as-is
  */
 export function GroupPanel({ group, lang }: { group: Group; lang: Lang }) {
   const blocks = group.blocks;
@@ -155,15 +166,12 @@ export function GroupPanel({ group, lang }: { group: Group; lang: Lang }) {
       }
     }
   }
-  const sole = visualCells.length === 1;
 
   const remaining = blocks.filter(
     (b, i) => i !== introIdx && b.type !== 'tools' && b.type !== 'embed' && b.type !== 'gallery' && b.type !== 'compare',
   );
-
-  const embedBlock = blocks.find((b): b is EmbedBlock => b.type === 'embed');
-  const compareBlock = blocks.find((b): b is CompareBlock => b.type === 'compare');
-  const liveUrl = embedBlock?.url ?? compareBlock?.liveUrl;
+  const remainingTextBlocks = remaining.filter((b): b is TextBlock => b.type === 'text');
+  const statsBlocks = remaining.filter((b) => b.type === 'stats');
 
   return (
     <motion.section
@@ -174,39 +182,36 @@ export function GroupPanel({ group, lang }: { group: Group; lang: Lang }) {
       className="mb-20 last:mb-0"
     >
       {/* HEADER */}
-      <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-0">
-          {group.title && (
-            <h3 className="mb-4 text-[1.4rem] font-bold leading-[1.2] tracking-[-0.02em]">
-              {t(group.title, lang)}
-            </h3>
-          )}
-          {intro && <IntroText block={intro} lang={lang} />}
-          {toolsBlock && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {toolsBlock.items.map((tool) => {
-                const name = t(tool, lang);
-                return (
-                  <span
-                    key={name}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-[5px] text-[0.75rem] font-medium text-text"
-                  >
-                    <ToolLogo name={name} className="shrink-0 text-muted" />
-                    {name}
-                  </span>
-                );
-              })}
-            </div>
-          )}
-        </div>
-        {liveUrl && <ViewLiveButton href={liveUrl} lang={lang} />}
+      <div className="mb-8">
+        {group.title && (
+          <h3 className="mb-4 text-4xl font-bold leading-[1.15] tracking-[-0.02em]">
+            {t(group.title, lang)}
+          </h3>
+        )}
+        {intro && <IntroText block={intro} lang={lang} />}
+        {toolsBlock && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {toolsBlock.items.map((tool) => {
+              const name = t(tool, lang);
+              return (
+                <span
+                  key={name}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-[5px] text-[0.75rem] font-medium text-text"
+                >
+                  <ToolLogo name={name} className="shrink-0 text-muted" />
+                  {name}
+                </span>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* PREVIEW GRID */}
       {visualCells.length > 0 && (
         <div className="mb-10 grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
           {visualCells.map((cell, i) => (
-            <div key={i} className={spanClass(cell, sole)}>
+            <div key={i} className={spanClass(cell)}>
               {cell.kind === 'embed' ? (
                 <LivePreview
                   url={cell.block.url}
@@ -238,19 +243,14 @@ export function GroupPanel({ group, lang }: { group: Group; lang: Lang }) {
       )}
 
       {/* FEATURES */}
-      {remaining.map((b, i) => {
-        if (b.type === 'stats') {
-          return (
-            <div key={i} className="mb-10 last:mb-0">
-              <Stats items={b.items} lang={lang} />
-            </div>
-          );
-        }
-        if (b.type === 'text') {
-          return <FeatureCardGrid key={i} block={b} lang={lang} />;
-        }
-        return null;
-      })}
+      {statsBlocks.map((b, i) =>
+        b.type === 'stats' ? (
+          <div key={`stats-${i}`} className="mb-10 last:mb-0">
+            <Stats items={b.items} lang={lang} />
+          </div>
+        ) : null,
+      )}
+      <FeatureBoxes blocks={remainingTextBlocks} lang={lang} />
     </motion.section>
   );
 }

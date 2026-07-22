@@ -88,34 +88,35 @@ export function CompareSlider({
         onPointerLeave={endDrag}
         className="relative w-full touch-none select-none overflow-hidden rounded-[24px] border border-white/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_2px_rgba(0,0,0,0.04),0_12px_32px_rgba(0,0,0,0.08)]"
       >
-        {/* BEFORE — drives the height via its natural ratio */}
-        {beforeFailed ? (
+        {/* AFTER — base layer (shows through right of the handle), drives
+            the height via its natural ratio */}
+        {afterFailed ? (
           <div className="aspect-[16/10] w-full">
             <Placeholder label={t(L.missing, lang)} />
           </div>
         ) : (
           <img
-            src={before}
+            src={after}
             alt=""
             draggable={false}
-            onError={() => setBeforeFailed(true)}
+            onError={() => setAfterFailed(true)}
             className="block h-auto w-full select-none object-cover object-top"
           />
         )}
 
-        {/* AFTER — full-size overlay, clipped to `pos%` from the left */}
+        {/* BEFORE — overlay revealed left of the handle, clipped to `pos%` */}
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
-          {afterFailed ? (
+          {beforeFailed ? (
             <Placeholder label={t(L.missing, lang)} />
           ) : (
             <img
-              src={after}
+              src={before}
               alt=""
               draggable={false}
-              onError={() => setAfterFailed(true)}
+              onError={() => setBeforeFailed(true)}
               className="absolute inset-0 h-full w-full select-none object-cover object-top"
             />
           )}
