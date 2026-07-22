@@ -176,7 +176,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
               </p>
             )}
             {groups.map((g, i) => (
-              <GroupPanel key={i} group={g} lang={lang} />
+              <GroupPanel key={i} group={g} lang={lang} spacious={active?.id === 'landing-page'} />
             ))}
           </motion.div>
         </AnimatePresence>
