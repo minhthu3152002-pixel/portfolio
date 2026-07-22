@@ -8,7 +8,7 @@ import type { Project } from '@/lib/content';
 import { content, enabledSections, enabledGroups, t } from '@/lib/content';
 import { headerGradient } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
-import { Blocks } from '@/components/Blocks';
+import { GroupPanel } from '@/components/GroupPanel';
 import {
   tabSpring,
   tabPanel,
@@ -75,7 +75,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
     <main style={{ ['--pc' as string]: colors.accent }}>
       {/* lit-glass hero band — gradient bg→deeper + soft radial light spot */}
       <header
-        className="rounded-b-[36px] px-6 pb-20 pt-32"
+        className="rounded-b-[36px] px-6 pb-20 pt-10 sm:pt-12"
         style={{ background: headerGradient(colors.bg), color: colors.fg }}
       >
         <div className="mx-auto max-w-wrap">
@@ -113,8 +113,8 @@ export function ProjectDetail({ project: p }: { project: Project }) {
         </div>
       </header>
 
-      {/* sticky liquid-glass pill tab bar */}
-      <div className="sticky top-20 z-40 py-5">
+      {/* sticky liquid-glass pill tab bar — only this bar sticks on scroll */}
+      <div className="sticky top-3 z-40 py-5">
         <div className="mx-auto max-w-wrap px-6">
           <motion.div
             role="tablist"
@@ -123,7 +123,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
             variants={stackContainerTight}
             initial="hidden"
             animate="visible"
-            className="liquid-glass no-scrollbar flex gap-1.5 overflow-x-auto rounded-full p-2"
+            className="liquid-glass no-scrollbar mx-auto flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full p-2"
           >
             {sections.map((s, i) => {
               const isActive = s.id === active?.id;
@@ -170,15 +170,13 @@ export function ProjectDetail({ project: p }: { project: Project }) {
             exit="exit"
             role="tabpanel"
           >
+            {active?.eyebrow && (
+              <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--pc,theme(colors.accent))]">
+                {t(active.eyebrow, lang)}
+              </p>
+            )}
             {groups.map((g, i) => (
-              <section key={i} className="mb-20 last:mb-0">
-                {g.title && (
-                  <h3 className="mb-6 text-[1.4rem] font-bold leading-[1.2] tracking-[-0.02em]">
-                    {t(g.title, lang)}
-                  </h3>
-                )}
-                <Blocks blocks={g.blocks} lang={lang} />
-              </section>
+              <GroupPanel key={i} group={g} lang={lang} spacious={active?.id === 'landing-page'} />
             ))}
           </motion.div>
         </AnimatePresence>

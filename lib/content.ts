@@ -35,10 +35,55 @@ export type GalleryItem =
 /** Stat entry: [value, label] — value is a plain string (a number), label is localizable. */
 export type Stat = [string, Localized];
 
-export type TextBlock = { type: 'text'; items: Localized[] };
+/** Text block: a bullet list by default, or `prose: true` for paragraph(s).
+ *  Optional `title` renders a small sub-heading above the block. Items may
+ *  carry trusted inline <b>/<a> markup from content.json. */
+export type TextBlock = {
+  type: 'text';
+  title?: Localized;
+  prose?: boolean;
+  items: Localized[];
+};
 export type StatsBlock = { type: 'stats'; items: Stat[] };
 export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
-export type Block = TextBlock | StatsBlock | GalleryBlock;
+
+/** A horizontal row of tool chips (reuses the About Tools chip style). */
+export type ToolsBlock = { type: 'tools'; items: Localized[] };
+
+/** A live preview embedded in a browser or phone frame. When `embeddable` is
+ *  false (or the iframe fails) it shows `poster` + an "open live" button. The
+ *  iframe lazy-mounts near the viewport so many previews don't boot at once. */
+export type EmbedBlock = {
+  type: 'embed';
+  title?: Localized;
+  frame?: 'browser' | 'mobile'; // default 'browser'
+  url: string; // live link: iframe src + open button
+  embeddable?: boolean; // default true; false => poster + open button only
+  poster?: string; // fallback image (embeddable=false or iframe error)
+  aspect?: string; // default: browser '16/10', mobile '9/19.5'
+  note?: Localized; // small note under the frame (e.g. "sample data")
+  caption?: Localized;
+};
+
+/** A before/after image compare slider (draggable divider). */
+export type CompareBlock = {
+  type: 'compare';
+  title?: Localized;
+  before: string; // image path
+  after: string; // image path
+  beforeLabel?: Localized; // default { en: 'Old', vi: 'Cũ' }
+  afterLabel?: Localized; // default { en: 'New', vi: 'Mới' }
+  liveUrl?: string; // if set => "View live ↗" button (new tab)
+  caption?: Localized;
+};
+
+export type Block =
+  | TextBlock
+  | StatsBlock
+  | GalleryBlock
+  | ToolsBlock
+  | EmbedBlock
+  | CompareBlock;
 
 export type Group = {
   enabled?: boolean;
@@ -49,6 +94,8 @@ export type Group = {
 export type Section = {
   enabled?: boolean;
   id: string;
+  /** Small kicker shown above the tab panel's first heading. */
+  eyebrow?: Localized;
   label: Localized;
   groups: Group[];
 };
@@ -63,6 +110,8 @@ export type Project = {
   cover: string;
   /** Optional dedicated nav-dropdown thumbnail; falls back to `cover`. */
   thumb?: string;
+  /** Decorative lucide-react icon name for the homepage card's corner badge. */
+  icon?: string;
   sections: Section[];
 };
 

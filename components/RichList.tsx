@@ -19,7 +19,7 @@ export function RichList({
       {items.map((item, i) => (
         <li
           key={i}
-          className="rich relative mb-3 pl-6 text-[1rem] leading-relaxed text-[#3a3a3c] before:absolute before:left-0 before:top-[0.6em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--pc,theme(colors.accent))] before:content-['']"
+          className="rich relative mb-3 pl-6 text-sm leading-relaxed text-[#3a3a3c] before:absolute before:left-0 before:top-[0.6em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--pc,theme(colors.accent))] before:content-['']"
           dangerouslySetInnerHTML={{ __html: t(item, lang) }}
         />
       ))}

@@ -25,9 +25,14 @@ type LinkDef = { label: string; href: string; external?: boolean };
 export function Nav() {
   const { lang, setLang } = useLanguage();
   const reduce = useReducedMotion();
+  const pathname = usePathname();
   // The navbar entrance only plays on the homepage first load (the Nav lives in
   // the root layout and persists across routes). Everywhere else it just renders.
-  const isHome = usePathname() === '/';
+  const isHome = pathname === '/';
+  // Project detail pages have their own sticky tab bar; keep the navbar in
+  // normal flow there so it scrolls away instead of floating on top of it
+  // (avoids two glass bars stacking while scrolling).
+  const isProjectPage = pathname?.startsWith('/project/') ?? false;
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -120,7 +125,13 @@ export function Nav() {
   };
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3">
+    <header
+      className={
+        isProjectPage
+          ? 'relative z-50 flex w-full justify-center px-3 pt-3'
+          : 'pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3'
+      }
+    >
       <motion.div {...navMotion} className="pointer-events-auto w-full max-w-[720px]">
       <nav
         className={`flex w-full items-center justify-between gap-3 rounded-[26px] border border-white/10 bg-black/85 text-white backdrop-blur-xl transition-all duration-300 ${

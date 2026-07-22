@@ -189,6 +189,7 @@
       "_section": "===== PROJECT 1 · AI & MARKETING AUTOMATION =====",
       "enabled": true,
       "id": "ai-automation",
+      "icon": "Sparkles",
       "title": {
         "en": "AI & Marketing Automation",
         "vi": "AI & Marketing Automation"
@@ -221,51 +222,131 @@
       "cover": "/assets/ktech-events.jpg",
       "sections": [
         {
+          "_section": "===== P1 · TAB Mini web/app =====",
           "enabled": true,
-          "id": "overview",
+          "id": "mini-web-app",
+          "eyebrow": {
+            "en": "Personal",
+            "vi": "Personal"
+          },
           "label": {
-            "en": "Overview",
-            "vi": "Tổng quan"
+            "en": "Mini web/app",
+            "vi": "Mini web/app"
           },
           "groups": [
             {
               "enabled": true,
-              "title": null,
+              "title": {
+                "en": "Mavis",
+                "vi": "Mavis"
+              },
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "I use AI coding tools (Claude Code, Claude Design) to build marketing automation: internal tools that remove manual work and personal products I ship end-to-end.",
-                      "vi": "Mình dùng các công cụ lập trình AI (Claude Code, Claude Design) để xây dựng tự động hoá marketing: công cụ nội bộ giúp loại bỏ việc thủ công và các sản phẩm cá nhân mình tự phát triển từ đầu đến cuối."
-                    },
-                    {
-                      "en": "Internal tools: a campaign landing page, an auto-updating data dashboard and automated email workflows for the K-Tech campaign.",
-                      "vi": "Công cụ nội bộ: một landing page chiến dịch, một dashboard dữ liệu tự cập nhật và các luồng email tự động cho chiến dịch K-Tech."
-                    },
-                    {
-                      "en": "Personal products: mobile app concepts prototyped with AI coding tools.",
-                      "vi": "Sản phẩm cá nhân: các ý tưởng ứng dụng di động được dựng mẫu bằng công cụ lập trình AI."
+                      "en": "Mavis started as a spur-of-the-moment idea one afternoon when I wanted to try vibe coding. I wanted a little tool to remind me and my friends to drink water and check the weather, but I didn't want it to be just another dry reminder app. So I turned those small daily habits into the experience of caring for a hamster named Mít. The character is personal too: friends and family often associate hamsters with me.",
+                      "vi": "Mavis bắt đầu từ một ý tưởng ngẫu hứng trong một buổi chiều muốn thử vibe coding. Mình muốn tạo một công cụ nhắc thời tiết và uống nước cho bản thân, bạn bè, nhưng không muốn nó chỉ là một ứng dụng reminder khô khan. Vì vậy, mình biến những thói quen nhỏ hằng ngày thành trải nghiệm chăm sóc một bé hamster tên Mít. Nhân vật này cũng mang dấu ấn cá nhân vì bạn bè và người thân thường liên tưởng hamster đến mình."
                     }
                   ]
                 },
                 {
-                  "type": "stats",
+                  "type": "text",
+                  "title": {
+                    "en": "Highlights",
+                    "vi": "Tính năng nổi bật"
+                  },
                   "items": [
-                    [
-                      "[X]h → [Y]m",
-                      {
-                        "en": "reporting time",
-                        "vi": "thời gian báo cáo"
-                      }
-                    ],
-                    [
-                      "4",
-                      {
-                        "en": "tools shipped",
-                        "vi": "công cụ đã hoàn thành"
-                      }
-                    ]
+                    {
+                      "en": "Mít changes expression based on the time of day and how well it's cared for.",
+                      "vi": "Mít thay đổi biểu cảm theo thời gian trong ngày và mức độ được người dùng chăm sóc."
+                    },
+                    {
+                      "en": "Water reminders at five fixed times, auto-resetting each new day.",
+                      "vi": "Nhắc uống nước theo 5 khung giờ cố định và tự động reset vào mỗi ngày mới."
+                    },
+                    {
+                      "en": "Visual activity rings track water intake, interactions, and your daily streak.",
+                      "vi": "Vòng hoạt động trực quan theo dõi lượng nước, số lần tương tác và chuỗi ngày duy trì."
+                    },
+                    {
+                      "en": "The 🔥 streak only counts when you complete all of the day's pet-care activities.",
+                      "vi": "Chuỗi 🔥 chỉ được ghi nhận khi hoàn thành đủ các hoạt động chăm pet trong ngày."
+                    },
+                    {
+                      "en": "Location-based weather with reminders tailored to the real conditions.",
+                      "vi": "Hiển thị thời tiết theo vị trí và đưa ra lời nhắc phù hợp với điều kiện thực tế."
+                    },
+                    {
+                      "en": "Push notifications for water, weather, feeding times, and daily interactions.",
+                      "vi": "Gửi push notification cho uống nước, thời tiết, giờ ăn và các tương tác trong ngày."
+                    },
+                    {
+                      "en": "Rename the pet; use it without an account, or sign in to sync across devices.",
+                      "vi": "Đổi tên pet được; dùng không cần đăng nhập hoặc đăng nhập để đồng bộ dữ liệu giữa nhiều thiết bị."
+                    }
+                  ]
+                },
+                {
+                  "type": "embed",
+                  "frame": "mobile",
+                  "caption": {
+                    "en": "Try it out — enter a name to get started.",
+                    "vi": "Bạn có thể nhập tên để dùng thử."
+                  },
+                  "url": "https://mavis-steel.vercel.app/",
+                  "poster": "/previews/mavis-noti-mobile.png"
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "How it's built",
+                    "vi": "Cách triển khai"
+                  },
+                  "items": [
+                    {
+                      "en": "Built with Vite + React.",
+                      "vi": "Xây dựng bằng Vite + React."
+                    },
+                    {
+                      "en": "A PWA with Add to Home Screen, usable as a standalone app.",
+                      "vi": "PWA, Add to Home Screen, dùng như một ứng dụng độc lập."
+                    },
+                    {
+                      "en": "Open-Meteo for weather data — no API key required.",
+                      "vi": "Open-Meteo lấy dữ liệu thời tiết, không cần API key."
+                    },
+                    {
+                      "en": "OneSignal for the push-notification system.",
+                      "vi": "OneSignal cho hệ thống push notification."
+                    },
+                    {
+                      "en": "Vercel Serverless Functions + a cron job send notifications even when the app is closed.",
+                      "vi": "Vercel Serverless Function + cron job để gửi thông báo ngay cả khi app không mở."
+                    },
+                    {
+                      "en": "Google Login + Supabase Auth to store streaks and sync data.",
+                      "vi": "Google Login + Supabase Auth để lưu chuỗi hoạt động và đồng bộ dữ liệu."
+                    },
+                    {
+                      "en": "Character art created with ChatGPT; ideas and feature flows developed with Claude; built with Claude Code.",
+                      "vi": "Tạo hình nhân vật bằng ChatGPT; phát triển ý tưởng và luồng tính năng cùng Claude; triển khai bằng Claude Code."
+                    }
+                  ]
+                },
+                {
+                  "type": "tools",
+                  "items": [
+                    "ChatGPT",
+                    "Claude",
+                    "Claude Code",
+                    "React",
+                    "Vite",
+                    "Supabase",
+                    "Open-Meteo",
+                    "OneSignal",
+                    "Vercel"
                   ]
                 }
               ]
@@ -273,39 +354,236 @@
           ]
         },
         {
+          "_section": "===== P1 · TAB Landing page =====",
           "enabled": true,
-          "id": "personal-project",
+          "id": "landing-page",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
           "label": {
-            "en": "Personal Project",
-            "vi": "Dự án cá nhân"
+            "en": "Landing page",
+            "vi": "Landing page"
           },
           "groups": [
             {
               "enabled": true,
               "title": {
-                "en": "Pet Care App",
-                "vi": "Ứng dụng Chăm sóc Thú cưng"
+                "en": "Coffee Chat — FPT Software Korea",
+                "vi": "Coffee Chat — FPT Software Korea"
               },
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "A mobile app concept built with AI coding tools. [I will provide details]",
-                      "vi": "Một ý tưởng ứng dụng di động được xây dựng bằng công cụ lập trình AI. [Mình sẽ bổ sung chi tiết]"
+                      "en": "<b>Idea:</b> Build a dedicated landing page for the online Coffee Chat between FPT Software Korea and Vietnamese candidates, creating one clear touchpoint before registration — instead of scattering event details across social posts and messages.",
+                      "vi": "<b>Idea:</b> Xây dựng một landing page riêng cho buổi Coffee Chat trực tuyến giữa FPT Software Korea và ứng viên Việt Nam, tạo một điểm chạm rõ ràng trước khi đăng ký — thay vì để thông tin sự kiện phân tán qua social post và tin nhắn."
+                    },
+                    {
+                      "en": "<b>Problem:</b> Candidates had no single place to quickly grasp the program's value or picture the on-site opportunity in Korea, which raised the barrier to signing up. On the team side, registration data, confirmation emails, and candidate information weren't centralized, making the whole process harder to manage.",
+                      "vi": "<b>Problem:</b> Ứng viên không có một nơi duy nhất để nhanh chóng hiểu giá trị chương trình hay hình dung rõ cơ hội làm việc on-site tại Hàn Quốc, khiến rào cản đăng ký tăng lên. Về phía team, dữ liệu đăng ký, email xác nhận và thông tin ứng viên chưa được tập trung, khiến cả quy trình khó quản lý hơn."
                     }
                   ]
                 },
                 {
-                  "type": "gallery",
+                  "type": "text",
+                  "title": {
+                    "en": "Solution",
+                    "vi": "Giải pháp"
+                  },
                   "items": [
-                    [
-                      "/assets/ktech-social.jpg",
-                      {
-                        "en": "Pet Care App — concept (placeholder image)",
-                        "vi": "Ứng dụng Chăm sóc Thú cưng — ý tưởng (ảnh minh hoạ)"
-                      }
-                    ]
+                    {
+                      "en": "A landing page focused on the event's value, the essential info, and the sign-up CTA.",
+                      "vi": "Landing page tập trung vào giá trị sự kiện, thông tin cần thiết và CTA đăng ký."
+                    },
+                    {
+                      "en": "A short, easy-to-follow journey from learning about the event to completing the form.",
+                      "vi": "Hành trình từ tìm hiểu đến hoàn tất form theo hướng ngắn gọn, dễ hiểu."
+                    },
+                    {
+                      "en": "An automatic confirmation email after registration.",
+                      "vi": "Tự động gửi email xác nhận sau khi đăng ký."
+                    },
+                    {
+                      "en": "All data gathered into one source so the team can track it easily.",
+                      "vi": "Gom dữ liệu về một nguồn để team thuận tiện theo dõi."
+                    }
+                  ]
+                },
+                {
+                  "type": "embed",
+                  "frame": "browser",
+                  "caption": {
+                    "en": "Preview landing page",
+                    "vi": "Xem trước landing page"
+                  },
+                  "url": "https://ktc-coffee-chat.vercel.app/",
+                  "aspect": "2606/1594"
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "How it's built",
+                    "vi": "Cách triển khai"
+                  },
+                  "items": [
+                    {
+                      "en": "Developed the concept, content structure, and messaging of the landing page myself.",
+                      "vi": "Tự xây dựng concept, cấu trúc nội dung và messaging của landing page."
+                    },
+                    {
+                      "en": "Designed the UX/UI around the candidate journey from discovery to completed registration.",
+                      "vi": "Thiết kế UX/UI theo hành trình ứng viên từ tìm hiểu đến hoàn tất đăng ký."
+                    },
+                    {
+                      "en": "Developed the interface with Claude Design to match the event's key visual.",
+                      "vi": "Phát triển giao diện cùng Claude Design để đồng bộ với key visual của sự kiện."
+                    },
+                    {
+                      "en": "Coded the landing page and set up the registration form.",
+                      "vi": "Code landing page và thiết lập form đăng ký."
+                    },
+                    {
+                      "en": "Auto-sent confirmation emails via Apps Script right after a candidate submits.",
+                      "vi": "Tự động gửi email xác nhận bằng Apps Script ngay sau khi ứng viên submit."
+                    },
+                    {
+                      "en": "Centralized registration data into one source for easy tracking, checking, and management.",
+                      "vi": "Tập trung dữ liệu đăng ký về một nguồn để team dễ theo dõi, kiểm tra và quản lý."
+                    }
+                  ]
+                },
+                {
+                  "type": "tools",
+                  "items": [
+                    "Claude Code",
+                    "Claude Design",
+                    "GitHub",
+                    "Vercel",
+                    "Supabase",
+                    "Apps Script"
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": {
+                "en": "K-Tech College",
+                "vi": "K-Tech College"
+              },
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "<b>Idea:</b> Optimize K-Tech College's recruitment landing page, where candidates explore the program and submit applications — not just a visual redesign, but improving the whole journey from choosing a role to capturing the data.",
+                      "vi": "<b>Idea:</b> Tối ưu landing page tuyển dụng của K-Tech College, nơi ứng viên tìm hiểu chương trình và nộp hồ sơ. Không chỉ redesign giao diện, mà cải thiện toàn bộ hành trình từ chọn vị trí đến ghi nhận dữ liệu."
+                    },
+                    {
+                      "en": "<b>Problem:</b> The content structure didn't help candidates quickly identify the right role; sectors and job listings weren't clear enough; the apply flow made finishing an application harder; incoming data risked being inaccurate, incomplete, or not reaching the right system; and the team spent extra time checking and processing applications manually.",
+                      "vi": "<b>Problem:</b> Cấu trúc nội dung chưa giúp ứng viên nhanh chóng xác định vị trí phù hợp; phần sector và job listing chưa đủ rõ ràng; luồng apply còn gây khó khi hoàn tất hồ sơ; dữ liệu đầu vào có nguy cơ sai lệch, thiếu thông tin hoặc không về đúng hệ thống; team mất thêm thời gian kiểm tra và xử lý hồ sơ thủ công."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Solution",
+                    "vi": "Giải pháp"
+                  },
+                  "items": [
+                    {
+                      "en": "Restructured content around the explore-and-apply journey.",
+                      "vi": "Tái cấu trúc nội dung theo hành trình tìm hiểu và ứng tuyển."
+                    },
+                    {
+                      "en": "Clarified sectors, open roles, and how to choose a job.",
+                      "vi": "Làm rõ sector, vị trí tuyển dụng và cách lựa chọn job."
+                    },
+                    {
+                      "en": "Optimized the apply form to cut unnecessary steps.",
+                      "vi": "Tối ưu form apply để giảm thao tác không cần thiết."
+                    },
+                    {
+                      "en": "Redesigned the post-submit data flow so applications are recorded accurately.",
+                      "vi": "Thiết kế lại luồng dữ liệu sau khi submit để hồ sơ được ghi nhận chính xác."
+                    },
+                    {
+                      "en": "Connected content, UX, conversion, and operations in one solution.",
+                      "vi": "Kết nối nội dung, UX, conversion và vận hành trong cùng một giải pháp."
+                    }
+                  ]
+                },
+                {
+                  "type": "compare",
+                  "before": "/previews/ktc-college-before.png",
+                  "after": "/previews/ktc-college-after.png",
+                  "beforeLabel": {
+                    "en": "Old",
+                    "vi": "Cũ"
+                  },
+                  "afterLabel": {
+                    "en": "New",
+                    "vi": "Mới"
+                  },
+                  "liveUrl": "https://ktc.likelion.edu.vn/",
+                  "caption": {
+                    "en": "Drag to compare the landing page before and after optimization.",
+                    "vi": "Kéo để so sánh landing page trước và sau khi tối ưu."
+                  }
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "How it's built",
+                    "vi": "Cách triển khai"
+                  },
+                  "items": [
+                    {
+                      "en": "Reviewed the entire structure and content of the landing page.",
+                      "vi": "Rà soát lại toàn bộ cấu trúc và nội dung landing page."
+                    },
+                    {
+                      "en": "Reorganized the sectors and the list of open roles.",
+                      "vi": "Tổ chức lại phần sector và danh sách vị trí tuyển dụng."
+                    },
+                    {
+                      "en": "Added filters so candidates can quickly find a suitable role.",
+                      "vi": "Thêm bộ lọc để ứng viên nhanh chóng tìm được vị trí phù hợp."
+                    },
+                    {
+                      "en": "Optimized the job-page UI/UX and the JD content.",
+                      "vi": "Tối ưu UI/UX job page và nội dung JD."
+                    },
+                    {
+                      "en": "Improved the job-selection and form-completion flow.",
+                      "vi": "Cải thiện luồng chọn job và hoàn tất form."
+                    },
+                    {
+                      "en": "Adjusted how data is captured and routed to the system.",
+                      "vi": "Điều chỉnh cách dữ liệu được ghi nhận và chuyển về hệ thống."
+                    },
+                    {
+                      "en": "Added checks to reduce errors, dropped, or duplicate applications.",
+                      "vi": "Kiểm tra để hạn chế sai lệch, rơi rớt hoặc trùng lặp hồ sơ."
+                    },
+                    {
+                      "en": "Compared the before and after versions to gauge the improvement.",
+                      "vi": "So sánh phiên bản trước và sau để đánh giá mức độ cải thiện."
+                    }
+                  ]
+                },
+                {
+                  "type": "tools",
+                  "items": [
+                    "Claude Code",
+                    "GitHub",
+                    "Vercel",
+                    "Supabase"
                   ]
                 }
               ]
@@ -313,123 +591,132 @@
           ]
         },
         {
+          "_section": "===== P1 · TAB Marketing dashboard =====",
           "enabled": true,
-          "id": "k-tech-tools",
+          "id": "marketing-dashboard",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
           "label": {
-            "en": "K-Tech Tools",
-            "vi": "Công cụ K-Tech"
+            "en": "Marketing dashboard",
+            "vi": "Marketing dashboard"
           },
           "groups": [
             {
               "enabled": true,
               "title": {
-                "en": "Landing Page",
-                "vi": "Landing Page"
+                "en": "Dashboard",
+                "vi": "Dashboard"
               },
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "Built and shipped a campaign landing page with <b>Claude Code + Claude Design</b>, deployed via <b>GitHub + Vercel</b>.",
-                      "vi": "Xây dựng và hoàn thiện một landing page chiến dịch bằng <b>Claude Code + Claude Design</b>, triển khai qua <b>GitHub + Vercel</b>."
+                      "en": "<b>Idea:</b> Build a dashboard that lets the whole team track marketing and recruitment progress in one place — turning scattered operational data into visual, readable information usable every day.",
+                      "vi": "<b>Idea:</b> Xây dựng một dashboard giúp cả team theo dõi tiến độ marketing và recruitment tại một nơi; chuyển dữ liệu vận hành rời rạc thành thông tin trực quan, dễ đọc và dùng được hằng ngày."
                     },
                     {
-                      "en": "<b>Purpose:</b> give candidates a single, clear entry point to learn about the program and register.",
-                      "vi": "<b>Mục tiêu:</b> cho ứng viên một điểm truy cập duy nhất, rõ ràng để tìm hiểu chương trình và đăng ký."
-                    },
-                    {
-                      "en": "<b>Outcome:</b> reduced candidate confusion and gave the team a fast, reliable page they could update anytime.",
-                      "vi": "<b>Kết quả:</b> giảm bối rối cho ứng viên và mang lại cho team một trang nhanh, ổn định, có thể cập nhật bất cứ lúc nào."
+                      "en": "<b>Problem:</b> Data lived across many sheets and sources; naming, statuses, and structure weren't consistent; compiling reports manually was slow and error-prone; when issues arose, the team struggled to trace numbers back to their original source; and members had to keep asking each other for progress updates. The dashboard also serves the Korean team, so it needed Vietnamese–Korean bilingual support and costs shown in KRW alongside VND.",
+                      "vi": "<b>Problem:</b> Dữ liệu nằm ở nhiều sheet và nhiều nguồn; cách đặt tên, trạng thái và cấu trúc chưa đồng nhất; tổng hợp báo cáo thủ công tốn thời gian và dễ sai lệch; khi có vấn đề, team khó truy ngược số liệu về source ban đầu; các thành viên phải hỏi lại nhau để cập nhật tiến độ. Ngoài ra, dashboard phục vụ cả team Hàn Quốc nên cần song ngữ Việt–Hàn và hiển thị chi phí theo KRW bên cạnh VND."
                     }
                   ]
                 },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/ktech-ads.jpg",
-                      {
-                        "en": "Landing page (placeholder image)",
-                        "vi": "Landing page (ảnh minh hoạ)"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Data Dashboard",
-                "vi": "Dashboard Dữ liệu"
-              },
-              "blocks": [
                 {
                   "type": "text",
+                  "title": {
+                    "en": "Solution",
+                    "vi": "Giải pháp"
+                  },
                   "items": [
                     {
-                      "en": "Consolidated scattered Google Sheets into one <b>auto-updating dashboard</b> (Claude + GitHub + Vercel).",
-                      "vi": "Gom nhiều Google Sheets rời rạc thành một <b>dashboard tự cập nhật</b> (Claude + GitHub + Vercel)."
+                      "en": "Consolidated data from many sheets into one shared system.",
+                      "vi": "Gom dữ liệu từ nhiều sheet về một hệ thống chung."
                     },
                     {
-                      "en": "Gave the team a single source of truth for tracking and analysis.",
-                      "vi": "Mang lại cho team một nguồn dữ liệu thống nhất để theo dõi và phân tích."
+                      "en": "Standardized data with a unified mapping ruleset.",
+                      "vi": "Chuẩn hoá dữ liệu theo bộ quy tắc mapping thống nhất."
                     },
                     {
-                      "en": "Saved significant manual reporting time each week.",
-                      "vi": "Tiết kiệm đáng kể thời gian làm báo cáo thủ công mỗi tuần."
+                      "en": "Built the dashboard with easy-to-read charts and metrics.",
+                      "vi": "Xây dựng dashboard với biểu đồ và chỉ số dễ theo dõi."
+                    },
+                    {
+                      "en": "Vietnamese–Korean bilingual support so both teams share one dashboard.",
+                      "vi": "Hỗ trợ song ngữ Việt–Hàn để cả hai team dùng chung một dashboard."
+                    },
+                    {
+                      "en": "Converted and displayed costs in KRW alongside VND for the Korean team.",
+                      "vi": "Quy đổi và hiển thị chi phí theo KRW bên cạnh VND cho team Hàn Quốc."
+                    },
+                    {
+                      "en": "Ensured every figure can be cross-checked and traced back to its source.",
+                      "vi": "Đảm bảo mỗi số liệu đều có thể đối chiếu và truy ngược về source gốc."
+                    },
+                    {
+                      "en": "Let the team check progress on their own without daily manual compiling.",
+                      "vi": "Giúp team chủ động xem tiến độ mà không cần tổng hợp thủ công mỗi ngày."
                     }
                   ]
                 },
                 {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/ktech-events.jpg",
-                      {
-                        "en": "Data dashboard (placeholder image)",
-                        "vi": "Dashboard dữ liệu (ảnh minh hoạ)"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Auto Email",
-                "vi": "Email Tự động"
-              },
-              "blocks": [
+                  "type": "embed",
+                  "frame": "browser",
+                  "caption": {
+                    "en": "For security reasons, the data shown on the dashboard is sample data.",
+                    "vi": "Vì lý do bảo mật, dữ liệu hiển thị trên dashboard là dữ liệu mẫu."
+                  },
+                  "url": "https://marketing-dashboard-dem.vercel.app/"
+                },
                 {
                   "type": "text",
+                  "title": {
+                    "en": "How it's built",
+                    "vi": "Cách triển khai"
+                  },
                   "items": [
                     {
-                      "en": "Automated email workflows with <b>Google Apps Script</b>.",
-                      "vi": "Tự động hoá các luồng email bằng <b>Google Apps Script</b>."
+                      "en": "Aggregated data from multiple sheets.",
+                      "vi": "Tổng hợp dữ liệu từ nhiều sheet."
                     },
                     {
-                      "en": "<b>Trigger logic:</b> emails sent automatically based on form submissions and status changes.",
-                      "vi": "<b>Logic kích hoạt:</b> email được gửi tự động dựa trên lượt điền form và thay đổi trạng thái."
+                      "en": "Built a mapping ruleset for names, statuses, and data structure.",
+                      "vi": "Xây dựng bộ quy tắc mapping cho tên, trạng thái và cấu trúc dữ liệu."
                     },
                     {
-                      "en": "<b>Time saved:</b> cut repetitive manual sending while improving response consistency.",
-                      "vi": "<b>Tiết kiệm thời gian:</b> giảm việc gửi thủ công lặp đi lặp lại và tăng tính nhất quán khi phản hồi."
+                      "en": "Validated the data after normalization.",
+                      "vi": "Kiểm tra dữ liệu sau khi chuẩn hoá."
+                    },
+                    {
+                      "en": "Cross-checked against the original source before visualizing.",
+                      "vi": "Đối chiếu ngược với source gốc trước khi trực quan hoá."
+                    },
+                    {
+                      "en": "Set up a Vietnamese–Korean bilingual interface (language toggle on the dashboard).",
+                      "vi": "Thiết lập giao diện song ngữ Việt–Hàn (chuyển đổi ngôn ngữ trên dashboard)."
+                    },
+                    {
+                      "en": "Converted and displayed costs in KRW alongside VND.",
+                      "vi": "Quy đổi và hiển thị chi phí theo KRW bên cạnh VND."
+                    },
+                    {
+                      "en": "Designed charts and metrics for daily reporting.",
+                      "vi": "Thiết kế biểu đồ và chỉ số phục vụ báo cáo hằng ngày."
+                    },
+                    {
+                      "en": "Used sample data on the public version to preserve security.",
+                      "vi": "Dùng dữ liệu mẫu trên phiên bản public để đảm bảo bảo mật."
                     }
                   ]
                 },
                 {
-                  "type": "gallery",
+                  "type": "tools",
                   "items": [
-                    [
-                      "/assets/ktech-social.jpg",
-                      {
-                        "en": "Auto email workflow (placeholder image)",
-                        "vi": "Luồng email tự động (ảnh minh hoạ)"
-                      }
-                    ]
+                    "Claude Code",
+                    "GitHub",
+                    "Vercel"
                   ]
                 }
               ]
@@ -442,6 +729,7 @@
       "_section": "===== PROJECT 2 · K-TECH COLLEGE =====",
       "enabled": true,
       "id": "k-tech",
+      "icon": "GraduationCap",
       "title": {
         "en": "K-Tech College — Awareness & Lead Campaign",
         "vi": "K-Tech College — Chiến dịch Nhận diện & Thu Lead"
@@ -866,6 +1154,7 @@
       "_section": "===== PROJECT 3 · SOCIAL MEDIA =====",
       "enabled": true,
       "id": "social-media",
+      "icon": "MessageCircle",
       "title": {
         "en": "Social Media",
         "vi": "Social Media"
@@ -1220,6 +1509,7 @@
       "_section": "===== PROJECT 4 · COPYWRITER =====",
       "enabled": true,
       "id": "copywriter",
+      "icon": "PenLine",
       "title": {
         "en": "Copywriter Projects",
         "vi": "Copywriter Projects"
@@ -1470,6 +1760,7 @@
       "_section": "===== PROJECT 5 · OTHER =====",
       "enabled": true,
       "id": "other",
+      "icon": "FolderOpen",
       "title": {
         "en": "Other",
         "vi": "Khác"
