@@ -221,58 +221,6 @@
       "cover": "/assets/ktech-events.jpg",
       "sections": [
         {
-          "enabled": true,
-          "id": "overview",
-          "label": {
-            "en": "Overview",
-            "vi": "Tổng quan"
-          },
-          "groups": [
-            {
-              "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "I use AI coding tools (Claude Code, Claude Design) to build marketing automation: internal tools that remove manual work and personal products I ship end-to-end.",
-                      "vi": "Mình dùng các công cụ lập trình AI (Claude Code, Claude Design) để xây dựng tự động hoá marketing: công cụ nội bộ giúp loại bỏ việc thủ công và các sản phẩm cá nhân mình tự phát triển từ đầu đến cuối."
-                    },
-                    {
-                      "en": "Internal tools: a campaign landing page, an auto-updating data dashboard and automated email workflows for the K-Tech campaign.",
-                      "vi": "Công cụ nội bộ: một landing page chiến dịch, một dashboard dữ liệu tự cập nhật và các luồng email tự động cho chiến dịch K-Tech."
-                    },
-                    {
-                      "en": "Personal products: mobile app concepts prototyped with AI coding tools.",
-                      "vi": "Sản phẩm cá nhân: các ý tưởng ứng dụng di động được dựng mẫu bằng công cụ lập trình AI."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "[X]h → [Y]m",
-                      {
-                        "en": "reporting time",
-                        "vi": "thời gian báo cáo"
-                      }
-                    ],
-                    [
-                      "4",
-                      {
-                        "en": "tools shipped",
-                        "vi": "công cụ đã hoàn thành"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "_section": "===== P1 · TAB Mini web/app =====",
           "enabled": true,
           "id": "mini-web-app",
@@ -343,7 +291,7 @@
                   "type": "embed",
                   "frame": "mobile",
                   "url": "https://mavis-steel.vercel.app/",
-                  "poster": "/previews/mavis-poster.png"
+                  "poster": "/previews/mavis-noti-mobile.png"
                 },
                 {
                   "type": "text",
@@ -722,7 +670,6 @@
                   "type": "embed",
                   "frame": "browser",
                   "url": "https://marketing-dashboard-dem.vercel.app/",
-                  "poster": "/previews/dashboard-poster.png",
                   "note": {
                     "en": "For security reasons, the data shown on the dashboard is sample data.",
                     "vi": "Vì lý do bảo mật, dữ liệu hiển thị trên dashboard là dữ liệu mẫu."

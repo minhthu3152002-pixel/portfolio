@@ -141,7 +141,11 @@ export function LivePreview({
           src={poster}
           alt=""
           onError={() => setPosterFailed(true)}
-          className="h-full w-full object-cover object-top"
+          className={
+            isMobile
+              ? 'h-full w-full object-contain object-center'
+              : 'h-full w-full object-cover object-top'
+          }
         />
       ) : (
         <div
@@ -169,7 +173,7 @@ export function LivePreview({
   );
 
   return (
-    <figure className="mb-6 last:mb-0">
+    <figure>
       {frame === 'mobile' ? (
         <div className="mx-auto w-full max-w-[300px]">
           {/* phone bezel */}

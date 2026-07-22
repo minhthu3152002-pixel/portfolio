@@ -1,12 +1,9 @@
 'use client';
 
 import { useRef, useState, type PointerEvent as ReactPointerEvent, type KeyboardEvent } from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { t, type Lang, type Localized } from '@/lib/content';
 
 const L = {
-  viewLive: { en: 'View live', vi: 'Xem bản live' } as Localized,
-  viewLiveAria: { en: 'View the live page in a new tab', vi: 'Mở trang live ở tab mới' } as Localized,
   handleAria: { en: 'Drag to compare before and after', vi: 'Kéo để so sánh trước và sau' } as Localized,
   missing: { en: 'Image coming soon', vi: 'Ảnh sẽ cập nhật' } as Localized,
 };
@@ -34,8 +31,6 @@ export function CompareSlider({
   after,
   beforeLabel,
   afterLabel,
-  liveUrl,
-  title,
   caption,
   lang,
 }: {
@@ -43,7 +38,6 @@ export function CompareSlider({
   after: string;
   beforeLabel?: Localized;
   afterLabel?: Localized;
-  liveUrl?: string;
   title?: Localized;
   caption?: Localized;
   lang: Lang;
@@ -82,7 +76,10 @@ export function CompareSlider({
   };
 
   return (
-    <figure className="mb-6 last:mb-0">
+    <figure>
+      {caption && (
+        <figcaption className="mb-3 text-[0.85rem] text-[#1d1d1f]/55">{t(caption, lang)}</figcaption>
+      )}
       <div
         ref={ref}
         onPointerDown={onPointerDown}
@@ -148,21 +145,6 @@ export function CompareSlider({
           </div>
         </div>
       </div>
-
-      {liveUrl && (
-        <a
-          href={liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t(L.viewLiveAria, lang)}
-          className="mt-3 inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-[var(--pc,theme(colors.accent))]"
-        >
-          {t(L.viewLive, lang)} <ArrowUpRight size={16} strokeWidth={2} aria-hidden />
-        </a>
-      )}
-      {caption && (
-        <figcaption className="mt-2 text-[0.85rem] text-[#1d1d1f]/55">{t(caption, lang)}</figcaption>
-      )}
     </figure>
   );
 }
