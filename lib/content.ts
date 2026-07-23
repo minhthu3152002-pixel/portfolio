@@ -96,7 +96,7 @@ export type EmbedBlock = {
   url: string; // live link: iframe src + open button
   embeddable?: boolean; // default true; false => poster + open button only
   poster?: string; // fallback image (embeddable=false or iframe error)
-  aspect?: string; // default: browser '16/10', mobile '9/19.5'
+  aspect?: string; // default: browser '4/3', mobile '9/16'
   note?: Localized; // small note under the frame (e.g. "sample data")
   caption?: Localized;
 };

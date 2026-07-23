@@ -407,7 +407,7 @@ export function GroupPanel({
           <MasonryGallery items={galleryBlock?.items ?? []} lang={lang} />
         </div>
       ) : soleCell ? (
-        <div className="mb-10 flex justify-center sm:mx-auto sm:max-w-[75%]">
+        <div className="mb-10 flex justify-center">
           <div className={soleIsMobile ? 'w-full max-w-[320px]' : 'w-full'}>
             {soleCell.kind === 'embed' ? (
               <EmbedCell block={soleCell.block} lang={lang} />
@@ -419,7 +419,7 @@ export function GroupPanel({
           </div>
         </div>
       ) : visualCells.length > 1 ? (
-        <div className="mb-10 grid grid-cols-1 items-start gap-4 sm:mx-auto sm:max-w-[75%] sm:grid-cols-3">
+        <div className="mb-10 grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
           {visualCells.map((cell, i) => (
             <div key={i} className={spanClass(cell)}>
               {cell.kind === 'embed' ? (

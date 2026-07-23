@@ -54,7 +54,7 @@ export function LivePreview({
 }) {
   const reduce = useReducedMotion();
   const isMobile = frame === 'mobile';
-  const ratio = aspect ?? (isMobile ? '9/16' : '16/10');
+  const ratio = aspect ?? (isMobile ? '9/16' : '4/3');
 
   const nearRef = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);

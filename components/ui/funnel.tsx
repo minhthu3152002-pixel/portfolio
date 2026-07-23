@@ -9,6 +9,11 @@ import {
   FileText,
   Award,
   Trophy,
+  Megaphone,
+  UserPlus,
+  CheckCircle2,
+  Bell,
+  MapPin,
   ArrowRight,
   ArrowDown,
   type LucideIcon,
@@ -25,6 +30,11 @@ const FUNNEL_ICONS: Record<string, LucideIcon> = {
   FileText,
   Award,
   Trophy,
+  Megaphone,
+  UserPlus,
+  CheckCircle2,
+  Bell,
+  MapPin,
 };
 
 /**
