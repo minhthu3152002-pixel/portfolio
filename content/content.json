@@ -997,23 +997,6 @@
             },
             {
               "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "tools",
-                  "items": [
-                    "Meta Ads",
-                    "LinkedIn Promoted Jobs",
-                    "TopDev",
-                    "ITviec",
-                    "Claude Code",
-                    "Google Sheets"
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
               "title": "Meta Ads · Job Post Campaigns",
               "blocks": [
                 {

@@ -9,6 +9,7 @@ import { content, enabledSections, enabledGroups, t } from '@/lib/content';
 import { headerGradient } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 import { GroupPanel } from '@/components/GroupPanel';
+import { FreeChannelGroupPanel } from '@/components/FreeChannelGroupPanel';
 import {
   tabSpring,
   tabPanel,
@@ -175,17 +176,24 @@ export function ProjectDetail({ project: p }: { project: Project }) {
                 {t(active.eyebrow, lang)}
               </p>
             )}
-            {groups.map((g, i) => (
-              <GroupPanel
-                key={i}
-                group={g}
-                lang={lang}
-                spacious={active?.id === 'landing-page'}
-                masonry={active?.id === 'gallery'}
-                flatText={p.id === 'k-tech'}
-                wideIntro={p.id === 'k-tech' && active?.id === 'overview'}
-              />
-            ))}
+            {groups.map((g, i) => {
+              const isKtechFree = p.id === 'k-tech' && active?.id === 'free';
+              const isToolsOnlyGroup = g.blocks.length === 1 && g.blocks[0].type === 'tools';
+              if (isKtechFree && !isToolsOnlyGroup) {
+                return <FreeChannelGroupPanel key={i} group={g} lang={lang} />;
+              }
+              return (
+                <GroupPanel
+                  key={i}
+                  group={g}
+                  lang={lang}
+                  spacious={active?.id === 'landing-page'}
+                  masonry={active?.id === 'gallery'}
+                  flatText={p.id === 'k-tech'}
+                  wideIntro={p.id === 'k-tech' && active?.id === 'overview'}
+                />
+              );
+            })}
           </motion.div>
         </AnimatePresence>
 
