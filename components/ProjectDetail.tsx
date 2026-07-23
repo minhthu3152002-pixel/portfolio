@@ -190,7 +190,8 @@ export function ProjectDetail({ project: p }: { project: Project }) {
                   spacious={active?.id === 'landing-page'}
                   masonry={active?.id === 'gallery'}
                   flatText={p.id === 'k-tech'}
-                  wideIntro={p.id === 'k-tech' && active?.id === 'overview'}
+                  wideIntro={p.id === 'k-tech'}
+                  bulletItems={p.id === 'k-tech'}
                 />
               );
             })}

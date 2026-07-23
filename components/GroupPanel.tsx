@@ -76,9 +76,23 @@ function IntroText({ block, lang, wide }: { block: TextBlock; lang: Lang; wide?:
  *  stacked vertically. A bullet's bold `<b>` lead-in (if any) renders as a
  *  bold sub-title; the rest is always plain, smaller description text.
  *  `flatText` drops the card chrome (bg/border/shadow/rounded/padding) for
- *  a plain-paragraph look — used project-wide for K-Tech College. */
-function FeatureBox({ block, lang, flatText }: { block: TextBlock; lang: Lang; flatText?: boolean }) {
+ *  a plain-paragraph look — used project-wide for K-Tech College.
+ *  `bulletItems` prefixes each non-prose item with a dot marker (matching
+ *  RichList) — also K-Tech College only; skipped for `prose` blocks, which
+ *  are flowing paragraphs rather than a bullet list. */
+function FeatureBox({
+  block,
+  lang,
+  flatText,
+  bulletItems,
+}: {
+  block: TextBlock;
+  lang: Lang;
+  flatText?: boolean;
+  bulletItems?: boolean;
+}) {
   const showBox = block.boxed || !flatText;
+  const showBullets = bulletItems && !block.prose;
   return (
     <div className={showBox ? 'liquid-glass rounded-[24px] p-6' : ''}>
       {block.title && (
@@ -90,7 +104,13 @@ function FeatureBox({ block, lang, flatText }: { block: TextBlock; lang: Lang; f
         {block.items.map((item, i) => {
           const { title, desc } = splitBold(t(item, lang));
           return (
-            <div key={i}>
+            <div key={i} className={showBullets ? 'relative pl-6' : ''}>
+              {showBullets && (
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-[0.55em] h-[7px] w-[7px] rounded-full bg-[var(--pc,theme(colors.accent))]"
+                />
+              )}
               {title && (
                 <p
                   className="text-[1.0625rem] font-bold leading-snug text-text"
@@ -116,7 +136,17 @@ function FeatureBox({ block, lang, flatText }: { block: TextBlock; lang: Lang; f
  *  Strategy-vs-Challenges pair) — keyword-matched left/right within a pair
  *  when one side clearly reads as "the built/implementation side", original
  *  order otherwise. An odd block left over renders as one full-width box. */
-function FeatureBoxes({ blocks, lang, flatText }: { blocks: TextBlock[]; lang: Lang; flatText?: boolean }) {
+function FeatureBoxes({
+  blocks,
+  lang,
+  flatText,
+  bulletItems,
+}: {
+  blocks: TextBlock[];
+  lang: Lang;
+  flatText?: boolean;
+  bulletItems?: boolean;
+}) {
   if (blocks.length === 0) return null;
   const rows: TextBlock[][] = [];
   for (let i = 0; i < blocks.length; i += 2) {
@@ -137,12 +167,12 @@ function FeatureBoxes({ blocks, lang, flatText }: { blocks: TextBlock[]; lang: L
       {rows.map((row, i) =>
         row.length === 2 ? (
           <div key={i} className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <FeatureBox block={row[0]} lang={lang} flatText={flatText} />
-            <FeatureBox block={row[1]} lang={lang} flatText={flatText} />
+            <FeatureBox block={row[0]} lang={lang} flatText={flatText} bulletItems={bulletItems} />
+            <FeatureBox block={row[1]} lang={lang} flatText={flatText} bulletItems={bulletItems} />
           </div>
         ) : (
           <div key={i} className="mb-10">
-            <FeatureBox block={row[0]} lang={lang} flatText={flatText} />
+            <FeatureBox block={row[0]} lang={lang} flatText={flatText} bulletItems={bulletItems} />
           </div>
         ),
       )}
@@ -184,12 +214,19 @@ function Cards({ items, lang }: { items: CardItem[]; lang: Lang }) {
  *  in original content.json order. Consecutive text blocks buffer up and
  *  flush as paired FeatureBoxes rows; stats/chart/funnel render inline at
  *  their own position, each in its own full-width row. */
-function renderFeatures(remaining: Block[], lang: Lang, flatText?: boolean): React.ReactNode[] {
+function renderFeatures(
+  remaining: Block[],
+  lang: Lang,
+  flatText?: boolean,
+  bulletItems?: boolean,
+): React.ReactNode[] {
   const output: React.ReactNode[] = [];
   let textBuffer: TextBlock[] = [];
   const flushText = (key: string) => {
     if (textBuffer.length === 0) return;
-    output.push(<FeatureBoxes key={key} blocks={textBuffer} lang={lang} flatText={flatText} />);
+    output.push(
+      <FeatureBoxes key={key} blocks={textBuffer} lang={lang} flatText={flatText} bulletItems={bulletItems} />,
+    );
     textBuffer = [];
   };
 
@@ -285,6 +322,7 @@ export function GroupPanel({
   masonry,
   flatText,
   wideIntro,
+  bulletItems,
 }: {
   group: Group;
   lang: Lang;
@@ -300,6 +338,9 @@ export function GroupPanel({
   /** Let the group's intro paragraph/list fill the full container width
    *  instead of the usual 640px reading-width cap. */
   wideIntro?: boolean;
+  /** Prefix each non-prose feature-box item with a dot marker (RichList
+   *  style). K-Tech College only. */
+  bulletItems?: boolean;
 }) {
   const blocks = group.blocks;
 
@@ -394,7 +435,7 @@ export function GroupPanel({
       ) : null}
 
       {/* FEATURES */}
-      {renderFeatures(remaining, lang, flatText)}
+      {renderFeatures(remaining, lang, flatText, bulletItems)}
     </motion.section>
   );
 }

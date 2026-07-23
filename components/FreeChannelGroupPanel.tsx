@@ -7,6 +7,7 @@ import {
   type Lang,
   type TextBlock,
   type GalleryBlock,
+  type FunnelBlock,
 } from '@/lib/content';
 import { RichList } from '@/components/RichList';
 import { Stats } from '@/components/Stats';
@@ -42,16 +43,21 @@ function TextContent({ block, lang }: { block: TextBlock; lang: Lang }) {
 
 /**
  * K-Tech College "Free channel" tab only: a 2-column group layout —
- * full-width heading, left column = every text/stats/chart/funnel block in
- * order, right column = that group's gallery images as a horizontal-scroll
- * carousel (uniform cropped cards, click-to-morph lightbox). Groups without
+ * full-width heading, left column = every text/stats/chart block in order,
+ * right column = that group's gallery images as a horizontal-scroll
+ * carousel (uniform cropped cards, click-to-morph lightbox). A funnel block
+ * (if present) renders full-width below the 2-column row instead of inside
+ * the narrow left column, so its steps have room to breathe. Groups without
  * a gallery collapse to a single full-width text column. Kept entirely
  * separate from GroupPanel so no other tab or project is affected.
  */
 export function FreeChannelGroupPanel({ group, lang }: { group: Group; lang: Lang }) {
   const galleryBlock = group.blocks.find((b): b is GalleryBlock => b.type === 'gallery');
   const hasGallery = !!galleryBlock && galleryBlock.items.length > 0;
-  const contentBlocks = group.blocks.filter((b) => b.type !== 'gallery' && b.type !== 'tools');
+  const funnelBlock = group.blocks.find((b): b is FunnelBlock => b.type === 'funnel');
+  const contentBlocks = group.blocks.filter(
+    (b) => b.type !== 'gallery' && b.type !== 'tools' && b.type !== 'funnel',
+  );
   const groupId = typeof group.title === 'string' ? group.title : t(group.title, 'en') || 'group';
 
   return (
@@ -78,7 +84,6 @@ export function FreeChannelGroupPanel({ group, lang }: { group: Group; lang: Lan
                 <DonutChart key={i} data={b.data} title={b.title} subtitle={b.subtitle} note={b.note} lang={lang} />
               );
             }
-            if (b.type === 'funnel') return <Funnel key={i} steps={b.steps} lang={lang} />;
             return null;
           })}
         </div>
@@ -89,6 +94,12 @@ export function FreeChannelGroupPanel({ group, lang }: { group: Group; lang: Lan
           </div>
         )}
       </div>
+
+      {funnelBlock && (
+        <div className="mt-8">
+          <Funnel steps={funnelBlock.steps} lang={lang} />
+        </div>
+      )}
     </motion.section>
   );
 }
