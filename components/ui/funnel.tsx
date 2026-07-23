@@ -6,6 +6,9 @@ import {
   Flame,
   Send,
   Repeat,
+  FileText,
+  Award,
+  Trophy,
   ArrowRight,
   ArrowDown,
   type LucideIcon,
@@ -19,6 +22,9 @@ const FUNNEL_ICONS: Record<string, LucideIcon> = {
   Flame,
   Send,
   Repeat,
+  FileText,
+  Award,
+  Trophy,
 };
 
 /**

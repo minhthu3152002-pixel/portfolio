@@ -76,6 +76,13 @@ export type FunnelStep = {
 };
 export type FunnelBlock = { type: 'funnel'; steps: FunnelStep[] };
 
+/** One short card: a bold title + a description line. */
+export type CardItem = { title: Localized; desc: Localized };
+
+/** A row of N short cards (e.g. platform blurbs) — always boxed, one row on
+ *  desktop/tablet, stacked on mobile. */
+export type CardsBlock = { type: 'cards'; items: CardItem[] };
+
 /** A horizontal row of tool chips (reuses the About Tools chip style). */
 export type ToolsBlock = { type: 'tools'; items: Localized[] };
 
@@ -114,7 +121,8 @@ export type Block =
   | EmbedBlock
   | CompareBlock
   | ChartBlock
-  | FunnelBlock;
+  | FunnelBlock
+  | CardsBlock;
 
 export type Group = {
   enabled?: boolean;

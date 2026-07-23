@@ -13,6 +13,7 @@ import {
   type CompareBlock,
   type StatsBlock,
   type GalleryBlock,
+  type CardItem,
 } from '@/lib/content';
 import { RichList } from '@/components/RichList';
 import { Stats } from '@/components/Stats';
@@ -162,6 +163,23 @@ function StatsSection({ block, lang }: { block: StatsBlock; lang: Lang }) {
   );
 }
 
+/** A row of N short cards (e.g. platform blurbs) — always boxed, evenly
+ *  split on desktop/tablet, stacked on mobile. */
+function Cards({ items, lang }: { items: CardItem[]; lang: Lang }) {
+  return (
+    <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3 last:mb-0">
+      {items.map((c, i) => (
+        <div key={i} className="liquid-glass rounded-[24px] p-6">
+          <h4 className="mb-2 text-[1.0625rem] font-bold tracking-[-0.01em] text-text">
+            {t(c.title, lang)}
+          </h4>
+          <p className="text-sm leading-relaxed text-muted">{t(c.desc, lang)}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /** Renders the "features" area — everything left after intro/tools/visual —
  *  in original content.json order. Consecutive text blocks buffer up and
  *  flush as paired FeatureBoxes rows; stats/chart/funnel render inline at
@@ -195,6 +213,8 @@ function renderFeatures(remaining: Block[], lang: Lang, flatText?: boolean): Rea
           <Funnel steps={b.steps} lang={lang} />
         </div>,
       );
+    } else if (b.type === 'cards') {
+      output.push(<Cards key={i} items={b.items} lang={lang} />);
     }
   });
   flushText('text-end');

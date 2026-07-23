@@ -940,9 +940,18 @@
                   "prose": true,
                   "items": [
                     {
-                      "en": "Use Meta Ads, LinkedIn Promoted Jobs and paid recruitment platforms like Topdev and ITViec to generate applications for each JD, while optimizing based on CP/CV, candidate quality and recruitment progress, instead of focusing only on traffic or engagement.",
-                      "vi": "Sử dụng Meta Ads, Linkedin Promoted Jobs và các nền tảng tuyển dụng trả phí như Topdev, ITViec để tạo nguồn hồ sơ cho từng JD, đồng thời tối ưu dựa trên CP/CV, chất lượng ứng viên và tiến độ tuyển dụng, thay vì chỉ tập trung vào traffic hay engagement."
-                    },
+                      "en": "Use Meta Ads, LinkedIn Promoted Jobs and paid recruitment platforms like TopDev and ITviec to generate applications for each JD, while optimizing based on CP/CV, candidate quality and recruitment progress, instead of focusing only on traffic or engagement.",
+                      "vi": "Sử dụng Meta Ads, LinkedIn Promoted Jobs và các nền tảng tuyển dụng trả phí như TopDev, ITviec để tạo nguồn hồ sơ cho từng JD, đồng thời tối ưu dựa trên CP/CV, chất lượng ứng viên và tiến độ tuyển dụng, thay vì chỉ tập trung vào traffic hay engagement."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Challenge",
+                    "vi": "Thách thức"
+                  },
+                  "items": [
                     {
                       "en": "Recruitment positions differ in industry, seniority, region and priority level, so a single campaign or one common audience group cannot be applied to the entire program.",
                       "vi": "Các vị trí tuyển dụng khác nhau về ngành nghề, seniority, khu vực và mức độ ưu tiên, nên không thể áp dụng một campaign hoặc một nhóm audience chung cho toàn bộ chương trình."
@@ -1003,7 +1012,7 @@
             },
             {
               "enabled": true,
-              "title": "Meta Ads: Job Post Campaigns",
+              "title": "Meta Ads · Job Post Campaigns",
               "blocks": [
                 {
                   "type": "text",
@@ -1040,6 +1049,35 @@
                       "✓",
                       "Job-driven creatives"
                     ]
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Strategy & Insight",
+                    "vi": "Strategy & Insight"
+                  },
+                  "items": [
+                    {
+                      "en": "Split campaigns by job or by groups of jobs with similar characteristics, instead of running one shared campaign.",
+                      "vi": "Chia campaign theo từng job hoặc nhóm job có đặc điểm tương đồng, thay vì chạy một campaign chung."
+                    },
+                    {
+                      "en": "Split audiences into fresher, experienced, non-IT and retargeting to increase relevance.",
+                      "vi": "Tách audience thành fresher, experienced, non-IT và retargeting để tăng độ liên quan."
+                    },
+                    {
+                      "en": "Prioritize budget based on how urgent each JD is, the number of CVs needed and historical CP/CV.",
+                      "vi": "Ưu tiên ngân sách theo mức độ gấp của JD, số lượng CV cần bổ sung và historical CP/CV."
+                    },
+                    {
+                      "en": "Build separate creative for each job, emphasizing salary, location, requirements and the apply CTA.",
+                      "vi": "Xây dựng creative riêng cho từng job, nhấn mạnh salary, location, requirements và CTA ứng tuyển."
+                    },
+                    {
+                      "en": "Track CV volume and application quality together to optimize real performance.",
+                      "vi": "Theo dõi đồng thời volume CV và chất lượng hồ sơ để tối ưu performance thực tế."
+                    }
                   ]
                 },
                 {
@@ -1096,7 +1134,7 @@
             },
             {
               "enabled": true,
-              "title": "Event Campaigns",
+              "title": "Meta Ads · Event Campaigns",
               "blocks": [
                 {
                   "type": "text",
@@ -1146,6 +1184,44 @@
                         "vi": "người tham gia"
                       }
                     ]
+                  ]
+                },
+                {
+                  "type": "funnel",
+                  "steps": [
+                    {
+                      "label": "88 Meta leads",
+                      "icon": "Share2"
+                    },
+                    {
+                      "label": {
+                        "en": "71 registrations",
+                        "vi": "71 lượt đăng ký"
+                      },
+                      "icon": "Users"
+                    },
+                    {
+                      "label": {
+                        "en": "40 submissions",
+                        "vi": "40 bài dự thi"
+                      },
+                      "icon": "FileText"
+                    },
+                    {
+                      "label": {
+                        "en": "8 finalists",
+                        "vi": "8 đội vào chung kết"
+                      },
+                      "icon": "Award"
+                    },
+                    {
+                      "label": {
+                        "en": "2 winners",
+                        "vi": "2 đội chiến thắng"
+                      },
+                      "icon": "Trophy",
+                      "highlight": true
+                    }
                   ]
                 },
                 {
@@ -1208,34 +1284,35 @@
                 },
                 {
                   "type": "text",
+                  "prose": true,
                   "title": {
-                    "en": "Ideathon Results",
-                    "vi": "Kết quả Ideathon"
+                    "en": "Performance Insight",
+                    "vi": "Đánh giá hiệu quả"
                   },
                   "items": [
                     {
-                      "en": "Meta Ads recorded 88 leads, reaching 176% of KPI.",
-                      "vi": "Meta Ads ghi nhận 88 leads, đạt 176% KPI."
-                    },
+                      "en": "The campaign's effectiveness came from choosing a high-demand topic, pairing it with audience targeting closely matched to the IT, product, design, marketing and business groups, and using clear messaging about the program format, benefits and prizes to increase the registration rate.",
+                      "vi": "Hiệu quả campaign đến từ việc chọn đúng chủ đề có nhu cầu cao, kết hợp audience targeting sát với nhóm IT, product, design, marketing và business, đồng thời sử dụng thông điệp rõ ràng về format chương trình, quyền lợi và giải thưởng để tăng tỷ lệ đăng ký."
+                    }
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Sample Meta Ads Planning Sheet",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
                     {
-                      "en": "Maintained a CPL of 10,461 VNĐ.",
-                      "vi": "Duy trì CPL 10.461 VNĐ."
-                    },
-                    {
-                      "en": "Had 71 registrations, equivalent to 110 participants.",
-                      "vi": "Có 71 lượt đăng ký, tương đương 110 người tham gia."
-                    },
-                    {
-                      "en": "Received 40 submissions with a total of 72 members.",
-                      "vi": "Thu về 40 bài dự thi với tổng cộng 72 thành viên."
-                    },
-                    {
-                      "en": "Selected 8 teams for the final round and 2 winning teams.",
-                      "vi": "Chọn 8 đội vào vòng chung kết và 2 đội chiến thắng."
-                    },
-                    {
-                      "en": "The low CPL was due to choosing a relevant AI topic, audience targeting closely matched to needs, clear creative messaging and an attractive prize structure.",
-                      "vi": "CPL thấp nhờ lựa chọn chủ đề AI phù hợp, audience targeting sát nhu cầu, creative message rõ ràng và cơ cấu giải thưởng hấp dẫn."
+                      "en": "This is a sample that simulates how I build a Meta Ads media plan, showing my planning approach, audience segmentation, budget allocation and campaign structure.",
+                      "vi": "Đây là bản sample mô phỏng cách mình xây dựng media plan cho Meta Ads, dùng để thể hiện tư duy planning, audience segmentation, budget allocation và campaign structure."
                     }
                   ]
                 },
@@ -1243,18 +1320,73 @@
                   "type": "embed",
                   "frame": "browser",
                   "caption": {
-                    "en": "For security reasons, only the Meta Plan tab is shown — the rest of the workbook is private.",
-                    "vi": "Vì lý do bảo mật, chỉ hiển thị tab Meta Plan — các phần còn lại của file được ẩn."
+                    "en": "Simplified media planning framework. Sample data is used to protect confidential campaign information.",
+                    "vi": "Khung kế hoạch media được đơn giản hóa. Dữ liệu mẫu được sử dụng để bảo vệ thông tin chiến dịch bảo mật."
                   },
-                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1",
-                  "title": {
-                    "en": "How I built the Meta Plan (sample sheet)",
-                    "vi": "Cách mình build Meta Plan (sample sheet)"
-                  }
+                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1"
                 },
                 {
-                  "type": "gallery",
-                  "items": []
+                  "type": "text",
+                  "items": [
+                    {
+                      "en": "Audience breakdown by candidate group.",
+                      "vi": "Audience breakdown theo từng nhóm ứng viên."
+                    },
+                    {
+                      "en": "Budget allocation by objective and campaign phase.",
+                      "vi": "Budget allocation theo objective và giai đoạn campaign."
+                    },
+                    {
+                      "en": "Creative mapping by audience and CTA.",
+                      "vi": "Mapping creative theo audience và CTA."
+                    },
+                    {
+                      "en": "Tracking performance to optimize assets and media mix.",
+                      "vi": "Theo dõi performance để tối ưu asset và media mix."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Hiring Platforms",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Alongside Meta Ads, I also use paid recruitment platforms to expand candidate sources, distribute JDs to the right audience groups and add CVs for hard-to-fill positions.",
+                      "vi": "Bên cạnh Meta Ads, mình cũng sử dụng các nền tảng tuyển dụng trả phí để mở rộng nguồn ứng viên, phân phối JD theo đúng nhóm đối tượng và bổ sung CV cho các vị trí khó tuyển."
+                    }
+                  ]
+                },
+                {
+                  "type": "cards",
+                  "items": [
+                    {
+                      "title": "LinkedIn Promoted Jobs",
+                      "desc": {
+                        "en": "Well-suited for reaching candidates who are already working, especially for positions that need experience or clear targeting by industry and seniority.",
+                        "vi": "Phù hợp để tiếp cận ứng viên đang đi làm, đặc biệt với các vị trí cần kinh nghiệm hoặc cần targeting rõ theo ngành nghề và seniority."
+                      }
+                    },
+                    {
+                      "title": "ITviec",
+                      "desc": {
+                        "en": "Prioritized for tech positions, helping expand reach to IT candidates who want to change jobs and are actively looking for new opportunities.",
+                        "vi": "Ưu tiên cho các vị trí công nghệ, giúp mở rộng reach đến nhóm ứng viên IT có nhu cầu chuyển việc và đang chủ động tìm kiếm cơ hội mới."
+                      }
+                    },
+                    {
+                      "title": "TopDev",
+                      "desc": {
+                        "en": "Used to supplement the CV pool for IT positions, especially when application volume needs to increase quickly.",
+                        "vi": "Sử dụng để bổ sung nguồn CV cho các vị trí IT, đặc biệt khi cần tăng volume hồ sơ trong thời gian ngắn."
+                      }
+                    }
+                  ]
                 }
               ]
             }
