@@ -867,31 +867,7 @@
                 },
                 {
                   "type": "text",
-                  "title": {
-                    "en": "Strategy",
-                    "vi": "Chiến lược"
-                  },
-                  "items": [
-                    {
-                      "en": "Build a multi-channel marketing strategy for recruitment, community and events.",
-                      "vi": "Xây dựng chiến lược marketing đa kênh cho tuyển dụng, cộng đồng và sự kiện."
-                    },
-                    {
-                      "en": "Center each JD to develop content, choose channels and allocate budget.",
-                      "vi": "Lấy từng JD làm trung tâm để phát triển nội dung, lựa chọn kênh và phân bổ ngân sách."
-                    },
-                    {
-                      "en": "Leverage credibility from previous seasons to focus on conversion instead of just awareness communication.",
-                      "vi": "Tận dụng uy tín từ các mùa trước để tập trung vào conversion thay vì chỉ truyền thông nhận diện."
-                    },
-                    {
-                      "en": "Connect marketing with recruitment, from attracting CVs to screening, matching and hiring.",
-                      "vi": "Kết nối marketing với recruitment, từ thu hút CV đến screening, matching và hiring."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
+                  "boxed": true,
                   "title": {
                     "en": "Challenges",
                     "vi": "Thách thức"
@@ -912,6 +888,32 @@
                     {
                       "en": "Must simultaneously operate job campaigns, community and online/offline events.",
                       "vi": "Phải đồng thời vận hành job campaigns, community và các sự kiện online/offline."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "boxed": true,
+                  "title": {
+                    "en": "Strategy",
+                    "vi": "Chiến lược"
+                  },
+                  "items": [
+                    {
+                      "en": "Build a multi-channel marketing strategy for recruitment, community and events.",
+                      "vi": "Xây dựng chiến lược marketing đa kênh cho tuyển dụng, cộng đồng và sự kiện."
+                    },
+                    {
+                      "en": "Center each JD to develop content, choose channels and allocate budget.",
+                      "vi": "Lấy từng JD làm trung tâm để phát triển nội dung, lựa chọn kênh và phân bổ ngân sách."
+                    },
+                    {
+                      "en": "Leverage credibility from previous seasons to focus on conversion instead of just awareness communication.",
+                      "vi": "Tận dụng uy tín từ các mùa trước để tập trung vào conversion thay vì chỉ truyền thông nhận diện."
+                    },
+                    {
+                      "en": "Connect marketing with recruitment, from attracting CVs to screening, matching and hiring.",
+                      "vi": "Kết nối marketing với recruitment, từ thu hút CV đến screening, matching và hiring."
                     }
                   ]
                 }
