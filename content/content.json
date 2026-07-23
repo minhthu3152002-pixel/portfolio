@@ -999,337 +999,306 @@
             },
             {
               "enabled": true,
-              "title": "Meta Ads · Job Post Campaigns",
+              "title": null,
               "blocks": [
                 {
-                  "type": "text",
-                  "prose": true,
-                  "items": [
+                  "type": "metaAdsSwitcher",
+                  "heading": "Meta Ads",
+                  "panels": [
                     {
-                      "en": "Deployed Meta Ads in a job-driven direction, with separate content and audience for each group of positions.",
-                      "vi": "Triển khai Meta Ads theo hướng job-driven, với nội dung và audience riêng cho từng nhóm vị trí."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "~1.200",
-                      "CV"
-                    ],
-                    [
-                      "~1.300 KRW",
-                      {
-                        "en": "CP/CV",
-                        "vi": "CP/CV"
-                      }
-                    ],
-                    [
-                      "4",
-                      {
-                        "en": "audience groups",
-                        "vi": "nhóm audience"
-                      }
-                    ],
-                    [
-                      "✓",
-                      "Job-driven creatives"
-                    ]
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Strategy & Insight",
-                    "vi": "Strategy & Insight"
-                  },
-                  "items": [
-                    {
-                      "en": "Split campaigns by job or by groups of jobs with similar characteristics, instead of running one shared campaign.",
-                      "vi": "Chia campaign theo từng job hoặc nhóm job có đặc điểm tương đồng, thay vì chạy một campaign chung."
-                    },
-                    {
-                      "en": "Split audiences into fresher, experienced, non-IT and retargeting to increase relevance.",
-                      "vi": "Tách audience thành fresher, experienced, non-IT và retargeting để tăng độ liên quan."
-                    },
-                    {
-                      "en": "Prioritize budget based on how urgent each JD is, the number of CVs needed and historical CP/CV.",
-                      "vi": "Ưu tiên ngân sách theo mức độ gấp của JD, số lượng CV cần bổ sung và historical CP/CV."
-                    },
-                    {
-                      "en": "Build separate creative for each job, emphasizing salary, location, requirements and the apply CTA.",
-                      "vi": "Xây dựng creative riêng cho từng job, nhấn mạnh salary, location, requirements và CTA ứng tuyển."
-                    },
-                    {
-                      "en": "Track CV volume and application quality together to optimize real performance.",
-                      "vi": "Theo dõi đồng thời volume CV và chất lượng hồ sơ để tối ưu performance thực tế."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Results",
-                    "vi": "Kết quả"
-                  },
-                  "items": [
-                    {
-                      "en": "Attracted about 1,200 CVs from Meta Ads.",
-                      "vi": "Thu hút khoảng 1.200 CV từ Meta Ads."
-                    },
-                    {
-                      "en": "Maintained an average CP/CV of about 1,300 KRW, equivalent to 25,000–27,000 VNĐ.",
-                      "vi": "Duy trì CP/CV trung bình khoảng 1.300 KRW, tương đương 25.000–27.000 VNĐ."
-                    },
-                    {
-                      "en": "The fresher and retargeting groups generated good lead volume at a competitive cost.",
-                      "vi": "Nhóm fresher và retargeting tạo lượng lead tốt với chi phí cạnh tranh."
-                    },
-                    {
-                      "en": "Kept costs stable while expanding across more JD groups and recruitment regions.",
-                      "vi": "Duy trì chi phí ổn định khi mở rộng nhiều nhóm JD và khu vực tuyển dụng."
-                    }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/previews/paid-job-1.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/paid-job-2.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/paid-job-3.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/paid-job-4.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/paid-job-5.jpg",
-                      ""
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": "Meta Ads · Event Campaigns",
-              "blocks": [
-                {
-                  "type": "text",
-                  "prose": true,
-                  "items": [
-                    {
-                      "en": "Planned and deployed Meta Ads for recruitment events such as May Matching Week and Ideathon, combining the goals of attracting a talent pool, event registration and retargeting within the same media plan.",
-                      "vi": "Lập kế hoạch và triển khai Meta Ads cho các sự kiện tuyển dụng như May Matching Week và Ideathon, kết hợp mục tiêu thu hút talent pool, event registration và retargeting trong cùng một media plan."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "88",
-                      {
-                        "en": "Meta leads",
-                        "vi": "Meta leads"
-                      }
-                    ],
-                    [
-                      "10.461 VNĐ",
-                      {
-                        "en": "CPL",
-                        "vi": "CPL"
-                      }
-                    ],
-                    [
-                      "176%",
-                      {
-                        "en": "KPI",
-                        "vi": "KPI"
-                      }
-                    ],
-                    [
-                      "71",
-                      {
-                        "en": "registrations",
-                        "vi": "lượt đăng ký"
-                      }
-                    ],
-                    [
-                      "110",
-                      {
-                        "en": "participants",
-                        "vi": "người tham gia"
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "type": "funnel",
-                  "steps": [
-                    {
-                      "label": "88 Meta leads",
-                      "icon": "Share2"
-                    },
-                    {
-                      "label": {
-                        "en": "71 registrations",
-                        "vi": "71 lượt đăng ký"
+                      "id": "job-post",
+                      "chipLabel": {
+                        "en": "Job Post Campaigns",
+                        "vi": "Job Post Campaigns"
                       },
-                      "icon": "Users"
-                    },
-                    {
-                      "label": {
-                        "en": "40 submissions",
-                        "vi": "40 bài dự thi"
+                      "title": {
+                        "en": "Job Post Campaigns",
+                        "vi": "Job Post Campaigns"
                       },
-                      "icon": "FileText"
-                    },
-                    {
-                      "label": {
-                        "en": "8 finalists",
-                        "vi": "8 đội vào chung kết"
+                      "description": {
+                        "en": "Deployed Meta Ads in a job-driven direction, with separate content and audience for each group of positions.",
+                        "vi": "Triển khai Meta Ads theo hướng job-driven, với nội dung và audience riêng cho từng nhóm vị trí."
                       },
-                      "icon": "Award"
-                    },
-                    {
-                      "label": {
-                        "en": "2 winners",
-                        "vi": "2 đội chiến thắng"
+                      "kpis": [
+                        [
+                          "~1.200",
+                          "CV"
+                        ],
+                        [
+                          "~1.300 KRW",
+                          {
+                            "en": "CP/CV",
+                            "vi": "CP/CV"
+                          }
+                        ],
+                        [
+                          "4",
+                          {
+                            "en": "audience groups",
+                            "vi": "nhóm audience"
+                          }
+                        ],
+                        [
+                          "✓",
+                          "Job-driven creatives"
+                        ]
+                      ],
+                      "columns": {
+                        "leftTitle": {
+                          "en": "Strategy & Insight",
+                          "vi": "Strategy & Insight"
+                        },
+                        "leftItems": [
+                          {
+                            "en": "Split campaigns by job or by groups of jobs with similar characteristics.",
+                            "vi": "Chia campaign theo từng job hoặc nhóm job có đặc điểm tương đồng."
+                          },
+                          {
+                            "en": "Split audiences into fresher, experienced, non-IT and retargeting.",
+                            "vi": "Phân nhóm audience thành fresher, experienced, non-IT và retargeting."
+                          },
+                          {
+                            "en": "Allocate budget by urgency, the number of CVs needed and historical CP/CV.",
+                            "vi": "Phân bổ ngân sách theo urgency, lượng CV cần bổ sung và historical CP/CV."
+                          },
+                          {
+                            "en": "Build separate creative for each JD, highlighting salary, location, requirements and CTA.",
+                            "vi": "Xây dựng creative riêng theo từng JD, làm nổi bật salary, location, requirements và CTA."
+                          },
+                          {
+                            "en": "Track CV volume and application quality together to optimize performance.",
+                            "vi": "Theo dõi đồng thời volume CV và chất lượng hồ sơ để tối ưu performance."
+                          }
+                        ],
+                        "rightTitle": {
+                          "en": "Results",
+                          "vi": "Kết quả"
+                        },
+                        "rightItems": [
+                          {
+                            "en": "Attracted about 1,200 CVs from Meta Ads.",
+                            "vi": "Thu hút khoảng 1.200 CV từ Meta Ads."
+                          },
+                          {
+                            "en": "Maintained an average CP/CV of about 1,300 KRW, equivalent to 25,000–27,000 VNĐ.",
+                            "vi": "Duy trì CP/CV trung bình khoảng 1.300 KRW, tương đương 25.000–27.000 VNĐ."
+                          },
+                          {
+                            "en": "The fresher and retargeting groups generated good lead volume at a competitive cost.",
+                            "vi": "Nhóm fresher và retargeting tạo lượng lead tốt với chi phí cạnh tranh."
+                          },
+                          {
+                            "en": "Kept costs stable while expanding across more JDs and recruitment regions.",
+                            "vi": "Duy trì chi phí ổn định khi mở rộng nhiều JD và khu vực tuyển dụng."
+                          }
+                        ]
                       },
-                      "icon": "Trophy",
-                      "highlight": true
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Approach",
-                    "vi": "Cách tiếp cận"
-                  },
-                  "items": [
-                    {
-                      "en": "Built a media plan with a budget of 20 million VNĐ.",
-                      "vi": "Xây dựng media plan với ngân sách 20 triệu VNĐ."
+                      "gallery": [
+                        [
+                          "/previews/paid-job-1.jpg",
+                          ""
+                        ],
+                        [
+                          "/previews/paid-job-2.jpg",
+                          ""
+                        ],
+                        [
+                          "/previews/paid-job-3.jpg",
+                          ""
+                        ],
+                        [
+                          "/previews/paid-job-4.jpg",
+                          ""
+                        ],
+                        [
+                          "/previews/paid-job-5.jpg",
+                          ""
+                        ]
+                      ]
                     },
                     {
-                      "en": "Allocated 75% to talent pool and event, 25% to Ideathon.",
-                      "vi": "Phân bổ 75% cho talent pool và event, 25% cho Ideathon."
+                      "id": "event",
+                      "chipLabel": {
+                        "en": "Event Campaigns",
+                        "vi": "Event Campaigns"
+                      },
+                      "title": {
+                        "en": "Event Campaigns",
+                        "vi": "Event Campaigns"
+                      },
+                      "description": {
+                        "en": "Planned and deployed Meta Ads for May Matching Week and Ideathon, combining talent acquisition, event registration and retargeting within the same media plan.",
+                        "vi": "Lập kế hoạch và triển khai Meta Ads cho May Matching Week và Ideathon, kết hợp talent acquisition, event registration và retargeting trong cùng một media plan."
+                      },
+                      "kpis": [
+                        [
+                          "88",
+                          {
+                            "en": "Meta leads",
+                            "vi": "Meta leads"
+                          }
+                        ],
+                        [
+                          "10.461 VNĐ",
+                          {
+                            "en": "CPL",
+                            "vi": "CPL"
+                          }
+                        ],
+                        [
+                          "176%",
+                          {
+                            "en": "KPI",
+                            "vi": "KPI"
+                          }
+                        ],
+                        [
+                          "71",
+                          {
+                            "en": "registrations",
+                            "vi": "lượt đăng ký"
+                          }
+                        ],
+                        [
+                          "110",
+                          {
+                            "en": "participants",
+                            "vi": "người tham gia"
+                          }
+                        ]
+                      ],
+                      "note": {
+                        "en": "Registration and participant results include contributions from Meta Ads, university partnerships, social media and community.",
+                        "vi": "Kết quả đăng ký và số người tham gia có đóng góp từ Meta Ads, university partnership, social media và community."
+                      },
+                      "insight": {
+                        "en": "The low CPL was due to choosing a relevant AI topic, audience targeting closely matched to needs, clear creative messaging and an attractive prize structure.",
+                        "vi": "CPL thấp nhờ lựa chọn chủ đề AI phù hợp, audience targeting sát nhu cầu, creative message rõ ràng và cơ cấu giải thưởng hấp dẫn."
+                      },
+                      "funnel": [
+                        {
+                          "label": "88 Meta leads",
+                          "icon": "Share2"
+                        },
+                        {
+                          "label": {
+                            "en": "71 registrations",
+                            "vi": "71 lượt đăng ký"
+                          },
+                          "icon": "Users"
+                        },
+                        {
+                          "label": {
+                            "en": "40 submissions",
+                            "vi": "40 bài dự thi"
+                          },
+                          "icon": "FileText"
+                        },
+                        {
+                          "label": {
+                            "en": "8 finalists",
+                            "vi": "8 đội vào chung kết"
+                          },
+                          "icon": "Award"
+                        },
+                        {
+                          "label": {
+                            "en": "2 winners",
+                            "vi": "2 đội chiến thắng"
+                          },
+                          "icon": "Trophy",
+                          "highlight": true
+                        }
+                      ],
+                      "columns": {
+                        "leftTitle": {
+                          "en": "Media Approach",
+                          "vi": "Media Approach"
+                        },
+                        "leftItems": [
+                          {
+                            "en": "Built a media plan with a budget of 20 million VNĐ.",
+                            "vi": "Xây dựng media plan với ngân sách 20 triệu VNĐ."
+                          },
+                          {
+                            "en": "Allocated 75% to talent pool and event, 25% to Ideathon.",
+                            "vi": "Phân bổ 75% cho talent pool và event, 25% cho Ideathon."
+                          },
+                          {
+                            "en": "Segmented audiences into experienced, fresher, non-IT and retargeting.",
+                            "vi": "Phân nhóm audience theo experienced, fresher, non-IT và retargeting."
+                          },
+                          {
+                            "en": "Combined Lead Ads and Instant Form.",
+                            "vi": "Kết hợp Lead Ads và Instant Form."
+                          },
+                          {
+                            "en": "Adjusted budget, audience and assets by phase.",
+                            "vi": "Điều chỉnh ngân sách, audience và asset theo từng giai đoạn."
+                          }
+                        ],
+                        "rightTitle": {
+                          "en": "Creative Direction",
+                          "vi": "Định hướng sáng tạo"
+                        },
+                        "rightItems": [
+                          {
+                            "en": "Used former candidates' stories to increase credibility.",
+                            "vi": "Sử dụng câu chuyện ứng viên cũ để tăng độ tin cậy."
+                          },
+                          {
+                            "en": "Combined job posts with event information.",
+                            "vi": "Kết hợp job post với thông tin sự kiện."
+                          },
+                          {
+                            "en": "Clarified the format, benefits, prizes and CTA.",
+                            "vi": "Làm rõ format, quyền lợi, giải thưởng và CTA."
+                          },
+                          {
+                            "en": "Separated messaging for IT and non-IT groups.",
+                            "vi": "Tách thông điệp cho nhóm IT và non-IT."
+                          }
+                        ]
+                      },
+                      "gallery": []
                     },
                     {
-                      "en": "Segmented audiences into experienced, fresher, non-IT and retargeting.",
-                      "vi": "Phân nhóm audience theo experienced, fresher, non-IT và retargeting."
-                    },
-                    {
-                      "en": "Combined Lead Ads and Instant Form to shorten the registration journey.",
-                      "vi": "Kết hợp Lead Ads và Instant Form để rút ngắn hành trình đăng ký."
-                    },
-                    {
-                      "en": "Developed multiple creative groups including case study, hot jobs, event information, prize and benefit.",
-                      "vi": "Phát triển nhiều nhóm creative gồm case study, hot jobs, event information, prize và benefit."
-                    },
-                    {
-                      "en": "Adjusted budget, audience and assets according to each campaign phase.",
-                      "vi": "Điều chỉnh ngân sách, audience và asset theo từng giai đoạn campaign."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Creative direction",
-                    "vi": "Định hướng sáng tạo"
-                  },
-                  "items": [
-                    {
-                      "en": "Used former candidates' stories to increase credibility.",
-                      "vi": "Sử dụng câu chuyện ứng viên cũ để tăng độ tin cậy."
-                    },
-                    {
-                      "en": "Combined job posts with event information to both generate leads and drive registrations.",
-                      "vi": "Kết hợp job post với thông tin sự kiện để vừa tạo lead vừa thúc đẩy đăng ký."
-                    },
-                    {
-                      "en": "Clarified the format, benefits, prizes and CTA to join.",
-                      "vi": "Làm rõ format, quyền lợi, giải thưởng và CTA tham gia."
-                    },
-                    {
-                      "en": "Separated messaging for IT and non-IT groups to increase relevance.",
-                      "vi": "Tách thông điệp cho nhóm IT và non-IT để tăng mức độ liên quan."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "prose": true,
-                  "title": {
-                    "en": "Performance Insight",
-                    "vi": "Đánh giá hiệu quả"
-                  },
-                  "items": [
-                    {
-                      "en": "The campaign's effectiveness came from choosing a high-demand topic, pairing it with audience targeting closely matched to the IT, product, design, marketing and business groups, and using clear messaging about the program format, benefits and prizes to increase the registration rate.",
-                      "vi": "Hiệu quả campaign đến từ việc chọn đúng chủ đề có nhu cầu cao, kết hợp audience targeting sát với nhóm IT, product, design, marketing và business, đồng thời sử dụng thông điệp rõ ràng về format chương trình, quyền lợi và giải thưởng để tăng tỷ lệ đăng ký."
-                    }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": []
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": "Sample Meta Ads Planning Sheet",
-              "blocks": [
-                {
-                  "type": "text",
-                  "prose": true,
-                  "items": [
-                    {
-                      "en": "This is a sample that simulates how I build a Meta Ads media plan, showing my planning approach, audience segmentation, budget allocation and campaign structure.",
-                      "vi": "Đây là bản sample mô phỏng cách mình xây dựng media plan cho Meta Ads, dùng để thể hiện tư duy planning, audience segmentation, budget allocation và campaign structure."
-                    }
-                  ]
-                },
-                {
-                  "type": "embed",
-                  "frame": "browser",
-                  "caption": {
-                    "en": "Simplified media planning framework. Sample data is used to protect confidential campaign information.",
-                    "vi": "Khung kế hoạch media được đơn giản hóa. Dữ liệu mẫu được sử dụng để bảo vệ thông tin chiến dịch bảo mật."
-                  },
-                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1"
-                },
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Audience breakdown by candidate group.",
-                      "vi": "Audience breakdown theo từng nhóm ứng viên."
-                    },
-                    {
-                      "en": "Budget allocation by objective and campaign phase.",
-                      "vi": "Budget allocation theo objective và giai đoạn campaign."
-                    },
-                    {
-                      "en": "Creative mapping by audience and CTA.",
-                      "vi": "Mapping creative theo audience và CTA."
-                    },
-                    {
-                      "en": "Tracking performance to optimize assets and media mix.",
-                      "vi": "Theo dõi performance để tối ưu asset và media mix."
+                      "id": "planning",
+                      "chipLabel": {
+                        "en": "Sample Meta Ads Plan",
+                        "vi": "Sample Meta Ads Plan"
+                      },
+                      "title": {
+                        "en": "Sample Meta Ads Planning Sheet",
+                        "vi": "Sample Meta Ads Planning Sheet"
+                      },
+                      "description": {
+                        "en": "This is a sample that simulates how I build a Meta Ads media plan, including audience segmentation, budget allocation, campaign structure and creative mapping.",
+                        "vi": "Đây là bản sample mô phỏng cách mình xây dựng media plan cho Meta Ads, bao gồm audience segmentation, budget allocation, campaign structure và creative mapping."
+                      },
+                      "embedUrl": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1",
+                      "embedCaption": {
+                        "en": "Simplified media planning framework. Sample data is used to protect confidential campaign information.",
+                        "vi": "Khung kế hoạch media được đơn giản hóa. Dữ liệu mẫu được sử dụng để bảo vệ thông tin chiến dịch bảo mật."
+                      },
+                      "bullets": [
+                        {
+                          "en": "Audience breakdown by candidate group.",
+                          "vi": "Audience breakdown theo từng nhóm ứng viên."
+                        },
+                        {
+                          "en": "Budget allocation by objective and campaign phase.",
+                          "vi": "Budget allocation theo objective và campaign phase."
+                        },
+                        {
+                          "en": "Creative mapping by audience and CTA.",
+                          "vi": "Creative mapping theo audience và CTA."
+                        },
+                        {
+                          "en": "Tracking performance to optimize assets and media mix.",
+                          "vi": "Tracking performance để tối ưu asset và media mix."
+                        }
+                      ]
                     }
                   ]
                 }

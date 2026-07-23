@@ -10,6 +10,7 @@ import { headerGradient } from '@/lib/colors';
 import { useLanguage } from '@/components/LanguageProvider';
 import { GroupPanel } from '@/components/GroupPanel';
 import { FreeChannelGroupPanel } from '@/components/FreeChannelGroupPanel';
+import { MetaAdsSwitcher } from '@/components/ui/meta-ads-switcher';
 import {
   tabSpring,
   tabPanel,
@@ -181,6 +182,13 @@ export function ProjectDetail({ project: p }: { project: Project }) {
               const isToolsOnlyGroup = g.blocks.length === 1 && g.blocks[0].type === 'tools';
               if (isKtechFree && !isToolsOnlyGroup) {
                 return <FreeChannelGroupPanel key={i} group={g} lang={lang} />;
+              }
+              const switcherBlock = g.blocks.find(
+                (b): b is Extract<(typeof g.blocks)[number], { type: 'metaAdsSwitcher' }> =>
+                  b.type === 'metaAdsSwitcher',
+              );
+              if (switcherBlock) {
+                return <MetaAdsSwitcher key={i} block={switcherBlock} lang={lang} />;
               }
               return (
                 <GroupPanel

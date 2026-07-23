@@ -116,6 +116,43 @@ export type CompareBlock = {
   caption?: Localized;
 };
 
+/** A two-column pair of bullet lists within a switcher panel (e.g.
+ *  Strategy | Results). */
+export type PanelColumns = {
+  leftTitle: Localized;
+  leftItems: Localized[];
+  rightTitle: Localized;
+  rightItems: Localized[];
+};
+
+/** One chip-switchable content panel (see MetaAdsSwitcherBlock). Only
+ *  `title`/`description` are required — everything else renders only if
+ *  present, in a fixed order: kpis -> note -> insight -> funnel -> columns
+ *  -> embed(+embedCaption) -> bullets -> gallery. */
+export type SwitcherPanel = {
+  id: string;
+  chipLabel: Localized;
+  title: Localized;
+  description: Localized;
+  kpis?: Stat[];
+  note?: Localized;
+  insight?: Localized;
+  funnel?: FunnelStep[];
+  columns?: PanelColumns;
+  embedUrl?: string;
+  embedCaption?: Localized;
+  bullets?: Localized[];
+  gallery?: GalleryItem[];
+};
+
+/** A chip-based content switcher: one heading, N chips, one panel visible
+ *  at a time (K-Tech College Paid tab's "Meta Ads" section). */
+export type MetaAdsSwitcherBlock = {
+  type: 'metaAdsSwitcher';
+  heading: Localized;
+  panels: SwitcherPanel[];
+};
+
 export type Block =
   | TextBlock
   | StatsBlock
@@ -125,7 +162,8 @@ export type Block =
   | CompareBlock
   | ChartBlock
   | FunnelBlock
-  | CardsBlock;
+  | CardsBlock
+  | MetaAdsSwitcherBlock;
 
 export type Group = {
   enabled?: boolean;
