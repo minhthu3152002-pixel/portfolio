@@ -60,7 +60,7 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
         {block.items.map((it, j) => (
           <p
             key={j}
-            className="rich text-sm leading-relaxed text-[#3a3a3c]"
+            className="rich text-base leading-relaxed text-[#3a3a3c]"
             dangerouslySetInnerHTML={{ __html: t(it, lang) }}
           />
         ))}
@@ -72,10 +72,12 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
 
 /** One "feature box": a single card holding the block's title + every bullet
  *  stacked vertically. A bullet's bold `<b>` lead-in (if any) renders as a
- *  bold sub-title; the rest is always plain, smaller description text. */
-function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
+ *  bold sub-title; the rest is always plain, smaller description text.
+ *  `flatText` drops the card chrome (bg/border/shadow/rounded/padding) for
+ *  a plain-paragraph look — used project-wide for K-Tech College. */
+function FeatureBox({ block, lang, flatText }: { block: TextBlock; lang: Lang; flatText?: boolean }) {
   return (
-    <div className="liquid-glass rounded-[24px] p-6">
+    <div className={flatText ? '' : 'liquid-glass rounded-[24px] p-6'}>
       {block.title && (
         <h4 className="mb-4 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
           {t(block.title, lang)}
@@ -88,13 +90,13 @@ function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
             <div key={i}>
               {title && (
                 <p
-                  className="text-base font-bold leading-snug text-text"
+                  className="text-[1.0625rem] font-bold leading-snug text-text"
                   dangerouslySetInnerHTML={{ __html: title }}
                 />
               )}
               {desc && (
                 <p
-                  className={`text-xs font-normal leading-relaxed text-muted ${title ? 'mt-1.5' : ''}`}
+                  className={`text-sm font-normal leading-relaxed text-muted ${title ? 'mt-1.5' : ''}`}
                   dangerouslySetInnerHTML={{ __html: desc }}
                 />
               )}
@@ -111,7 +113,7 @@ function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
  *  Strategy-vs-Challenges pair) — keyword-matched left/right within a pair
  *  when one side clearly reads as "the built/implementation side", original
  *  order otherwise. An odd block left over renders as one full-width box. */
-function FeatureBoxes({ blocks, lang }: { blocks: TextBlock[]; lang: Lang }) {
+function FeatureBoxes({ blocks, lang, flatText }: { blocks: TextBlock[]; lang: Lang; flatText?: boolean }) {
   if (blocks.length === 0) return null;
   const rows: TextBlock[][] = [];
   for (let i = 0; i < blocks.length; i += 2) {
@@ -132,12 +134,12 @@ function FeatureBoxes({ blocks, lang }: { blocks: TextBlock[]; lang: Lang }) {
       {rows.map((row, i) =>
         row.length === 2 ? (
           <div key={i} className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <FeatureBox block={row[0]} lang={lang} />
-            <FeatureBox block={row[1]} lang={lang} />
+            <FeatureBox block={row[0]} lang={lang} flatText={flatText} />
+            <FeatureBox block={row[1]} lang={lang} flatText={flatText} />
           </div>
         ) : (
           <div key={i} className="mb-10">
-            <FeatureBox block={row[0]} lang={lang} />
+            <FeatureBox block={row[0]} lang={lang} flatText={flatText} />
           </div>
         ),
       )}
@@ -162,12 +164,12 @@ function StatsSection({ block, lang }: { block: StatsBlock; lang: Lang }) {
  *  in original content.json order. Consecutive text blocks buffer up and
  *  flush as paired FeatureBoxes rows; stats/chart/funnel render inline at
  *  their own position, each in its own full-width row. */
-function renderFeatures(remaining: Block[], lang: Lang): React.ReactNode[] {
+function renderFeatures(remaining: Block[], lang: Lang, flatText?: boolean): React.ReactNode[] {
   const output: React.ReactNode[] = [];
   let textBuffer: TextBlock[] = [];
   const flushText = (key: string) => {
     if (textBuffer.length === 0) return;
-    output.push(<FeatureBoxes key={key} blocks={textBuffer} lang={lang} />);
+    output.push(<FeatureBoxes key={key} blocks={textBuffer} lang={lang} flatText={flatText} />);
     textBuffer = [];
   };
 
@@ -240,7 +242,7 @@ function GalleryCell({ src, caption, lang }: { src: string; caption?: Localized;
         />
       </div>
       {caption && (
-        <figcaption className="mt-2 text-[0.85rem] text-[#1d1d1f]/55">
+        <figcaption className="mt-2 text-[0.95rem] text-[#1d1d1f]/55">
           {t(caption, lang)}
         </figcaption>
       )}
@@ -259,6 +261,7 @@ export function GroupPanel({
   lang,
   spacious,
   masonry,
+  flatText,
 }: {
   group: Group;
   lang: Lang;
@@ -268,6 +271,9 @@ export function GroupPanel({
   /** Standalone photo-gallery tab: a CSS masonry grid + click-to-zoom
    *  lightbox instead of the bento preview grid used everywhere else. */
   masonry?: boolean;
+  /** Drop the card chrome around text feature boxes for a plain-paragraph
+   *  look (highlight-number stats keep their boxes regardless). */
+  flatText?: boolean;
 }) {
   const blocks = group.blocks;
 
@@ -362,7 +368,7 @@ export function GroupPanel({
       ) : null}
 
       {/* FEATURES */}
-      {renderFeatures(remaining, lang)}
+      {renderFeatures(remaining, lang, flatText)}
     </motion.section>
   );
 }

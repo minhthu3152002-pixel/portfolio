@@ -13,7 +13,7 @@ const DEFAULT_AFTER = { en: 'New', vi: 'Mới' } as Localized;
 
 function Placeholder({ label }: { label: string }) {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-black/[0.04] to-black/[0.1] text-[0.85rem] text-[#1d1d1f]/40">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-black/[0.04] to-black/[0.1] text-[0.95rem] text-[#1d1d1f]/40">
       {label}
     </div>
   );
@@ -78,7 +78,7 @@ export function CompareSlider({
   return (
     <figure>
       {caption && (
-        <p className="mb-2 text-xs text-[#1d1d1f]/45">{t(caption, lang)}</p>
+        <p className="mb-2 text-sm text-[#1d1d1f]/45">{t(caption, lang)}</p>
       )}
       <div
         ref={ref}

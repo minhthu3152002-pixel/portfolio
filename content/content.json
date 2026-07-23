@@ -731,12 +731,12 @@
       "id": "k-tech",
       "icon": "GraduationCap",
       "title": {
-        "en": "K-Tech College — Awareness & Lead Campaign",
-        "vi": "K-Tech College — Chiến dịch Nhận diện & Thu Lead"
+        "en": "K-Tech College",
+        "vi": "K-Tech College"
       },
       "short": {
-        "en": "Built awareness and drove 5K+ qualified leads for an international tech education program through a digital-first, community-driven campaign.",
-        "vi": "Xây dựng nhận diện và mang về 5K+ lead chất lượng cho một chương trình đào tạo công nghệ quốc tế, qua chiến dịch ưu tiên digital và lấy cộng đồng làm trọng tâm."
+        "en": "Building on previous seasons, driving 5K+ leads for an international recruitment program through integrated campaigns.",
+        "vi": "Tiếp tục kế thừa và phát triển dự án, mang về 5K+ lead cho chương trình tuyển dụng quốc tế, qua integrated campaigns"
       },
       "tags": [
         "Integrated Campaigns",
@@ -909,54 +909,6 @@
                       "vi": "Phải đồng thời vận hành job campaigns, community và các sự kiện online/offline."
                     }
                   ]
-                },
-                {
-                  "type": "stats",
-                  "title": {
-                    "en": "First 3 months of Season 3 — results",
-                    "vi": "Kết quả 3 tháng đầu mùa 3"
-                  },
-                  "items": [
-                    [
-                      "5.000+",
-                      "CV"
-                    ],
-                    [
-                      "50+",
-                      {
-                        "en": "hires",
-                        "vi": "lượt tuyển"
-                      }
-                    ],
-                    [
-                      "< 27K",
-                      {
-                        "en": "CP/CV",
-                        "vi": "CP/CV"
-                      }
-                    ],
-                    [
-                      "41,1%",
-                      {
-                        "en": "CV from free channels",
-                        "vi": "CV từ free channels"
-                      }
-                    ],
-                    [
-                      "500+",
-                      {
-                        "en": "community members",
-                        "vi": "thành viên cộng đồng"
-                      }
-                    ],
-                    [
-                      "4+",
-                      {
-                        "en": "events",
-                        "vi": "sự kiện"
-                      }
-                    ]
-                  ]
                 }
               ]
             }
@@ -1029,7 +981,24 @@
             },
             {
               "enabled": true,
-              "title": "Job Post Campaigns",
+              "title": null,
+              "blocks": [
+                {
+                  "type": "tools",
+                  "items": [
+                    "Meta Ads",
+                    "LinkedIn Promoted Jobs",
+                    "TopDev",
+                    "ITviec",
+                    "Claude Code",
+                    "Google Sheets"
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Meta Ads: Job Post Campaigns",
               "blocks": [
                 {
                   "type": "text",
@@ -1038,31 +1007,6 @@
                     {
                       "en": "Deployed Meta Ads in a job-driven direction, with separate content and audience for each group of positions.",
                       "vi": "Triển khai Meta Ads theo hướng job-driven, với nội dung và audience riêng cho từng nhóm vị trí."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Results",
-                    "vi": "Kết quả"
-                  },
-                  "items": [
-                    {
-                      "en": "Attracted about 1,200 CVs from Meta Ads.",
-                      "vi": "Thu hút khoảng 1.200 CV từ Meta Ads."
-                    },
-                    {
-                      "en": "Maintained an average CP/CV of about 1,300 KRW, equivalent to 25,000–27,000 VNĐ.",
-                      "vi": "Duy trì CP/CV trung bình khoảng 1.300 KRW, tương đương 25.000–27.000 VNĐ."
-                    },
-                    {
-                      "en": "The fresher and retargeting groups generated good lead volume at a competitive cost.",
-                      "vi": "Nhóm fresher và retargeting tạo lượng lead tốt với chi phí cạnh tranh."
-                    },
-                    {
-                      "en": "Kept costs stable while expanding across more JD groups and recruitment regions.",
-                      "vi": "Duy trì chi phí ổn định khi mở rộng nhiều nhóm JD và khu vực tuyển dụng."
                     }
                   ]
                 },
@@ -1094,8 +1038,54 @@
                   ]
                 },
                 {
+                  "type": "text",
+                  "title": {
+                    "en": "Results",
+                    "vi": "Kết quả"
+                  },
+                  "items": [
+                    {
+                      "en": "Attracted about 1,200 CVs from Meta Ads.",
+                      "vi": "Thu hút khoảng 1.200 CV từ Meta Ads."
+                    },
+                    {
+                      "en": "Maintained an average CP/CV of about 1,300 KRW, equivalent to 25,000–27,000 VNĐ.",
+                      "vi": "Duy trì CP/CV trung bình khoảng 1.300 KRW, tương đương 25.000–27.000 VNĐ."
+                    },
+                    {
+                      "en": "The fresher and retargeting groups generated good lead volume at a competitive cost.",
+                      "vi": "Nhóm fresher và retargeting tạo lượng lead tốt với chi phí cạnh tranh."
+                    },
+                    {
+                      "en": "Kept costs stable while expanding across more JD groups and recruitment regions.",
+                      "vi": "Duy trì chi phí ổn định khi mở rộng nhiều nhóm JD và khu vực tuyển dụng."
+                    }
+                  ]
+                },
+                {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/paid-job-1.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/paid-job-2.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/paid-job-3.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/paid-job-4.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/paid-job-5.jpg",
+                      ""
+                    ]
+                  ]
                 }
               ]
             },
@@ -1111,6 +1101,46 @@
                       "en": "Planned and deployed Meta Ads for recruitment events such as May Matching Week and Ideathon, combining the goals of attracting a talent pool, event registration and retargeting within the same media plan.",
                       "vi": "Lập kế hoạch và triển khai Meta Ads cho các sự kiện tuyển dụng như May Matching Week và Ideathon, kết hợp mục tiêu thu hút talent pool, event registration và retargeting trong cùng một media plan."
                     }
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "items": [
+                    [
+                      "88",
+                      {
+                        "en": "Meta leads",
+                        "vi": "Meta leads"
+                      }
+                    ],
+                    [
+                      "10.461 VNĐ",
+                      {
+                        "en": "CPL",
+                        "vi": "CPL"
+                      }
+                    ],
+                    [
+                      "176%",
+                      {
+                        "en": "KPI",
+                        "vi": "KPI"
+                      }
+                    ],
+                    [
+                      "71",
+                      {
+                        "en": "registrations",
+                        "vi": "lượt đăng ký"
+                      }
+                    ],
+                    [
+                      "110",
+                      {
+                        "en": "participants",
+                        "vi": "người tham gia"
+                      }
+                    ]
                   ]
                 },
                 {
@@ -1172,15 +1202,6 @@
                   ]
                 },
                 {
-                  "type": "embed",
-                  "frame": "browser",
-                  "caption": {
-                    "en": "For security reasons, only the Meta Plan tab is shown — the rest of the workbook is private.",
-                    "vi": "Vì lý do bảo mật, chỉ hiển thị tab Meta Plan — các phần còn lại của file được ẩn."
-                  },
-                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1"
-                },
-                {
                   "type": "text",
                   "title": {
                     "en": "Ideathon Results",
@@ -1214,65 +1235,21 @@
                   ]
                 },
                 {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "88",
-                      {
-                        "en": "Meta leads",
-                        "vi": "Meta leads"
-                      }
-                    ],
-                    [
-                      "10.461 VNĐ",
-                      {
-                        "en": "CPL",
-                        "vi": "CPL"
-                      }
-                    ],
-                    [
-                      "176%",
-                      {
-                        "en": "KPI",
-                        "vi": "KPI"
-                      }
-                    ],
-                    [
-                      "71",
-                      {
-                        "en": "registrations",
-                        "vi": "lượt đăng ký"
-                      }
-                    ],
-                    [
-                      "110",
-                      {
-                        "en": "participants",
-                        "vi": "người tham gia"
-                      }
-                    ]
-                  ]
+                  "type": "embed",
+                  "frame": "browser",
+                  "caption": {
+                    "en": "For security reasons, only the Meta Plan tab is shown — the rest of the workbook is private.",
+                    "vi": "Vì lý do bảo mật, chỉ hiển thị tab Meta Plan — các phần còn lại của file được ẩn."
+                  },
+                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1",
+                  "title": {
+                    "en": "How I built the Meta Plan (sample sheet)",
+                    "vi": "Cách mình build Meta Plan (sample sheet)"
+                  }
                 },
                 {
                   "type": "gallery",
                   "items": []
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "tools",
-                  "items": [
-                    "Meta Ads",
-                    "LinkedIn Promoted Jobs",
-                    "TopDev",
-                    "ITviec",
-                    "Claude Code",
-                    "Google Sheets"
-                  ]
                 }
               ]
             }
@@ -1396,7 +1373,40 @@
                 },
                 {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/free-social-1.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-2.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-3.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-4.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-5.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-6.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-7.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-social-8.png",
+                      ""
+                    ]
+                  ]
                 }
               ]
             },
@@ -1478,7 +1488,28 @@
                 },
                 {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/free-community-1.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-community-2.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-community-3.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-community-4.png",
+                      ""
+                    ],
+                    [
+                      "/previews/free-community-5.png",
+                      ""
+                    ]
+                  ]
                 }
               ]
             },
@@ -1626,7 +1657,40 @@
                 },
                 {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/event-online-1.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-2.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-3.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-4.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-5.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-6.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-7.png",
+                      ""
+                    ],
+                    [
+                      "/previews/event-online-8.png",
+                      ""
+                    ]
+                  ]
                 }
               ]
             },
@@ -1883,7 +1947,48 @@
                 },
                 {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/event-featured-1.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-2.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-3.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-4.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-5.JPG",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-6.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-7.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-8.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-9.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/event-featured-10.jpg",
+                      ""
+                    ]
+                  ]
                 }
               ]
             },
@@ -1928,7 +2033,48 @@
                 },
                 {
                   "type": "gallery",
-                  "items": []
+                  "items": [
+                    [
+                      "/previews/gallery-1.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-2.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-3.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-4.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-5.JPG",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-6.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-7.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-8.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-9.jpg",
+                      ""
+                    ],
+                    [
+                      "/previews/gallery-10.jpg",
+                      ""
+                    ]
+                  ]
                 }
               ]
             }

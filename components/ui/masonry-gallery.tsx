@@ -26,7 +26,7 @@ export function MasonryGallery({ items, lang }: { items: GalleryItem[]; lang: La
 
   if (items.length === 0) {
     return (
-      <div className="liquid-glass flex min-h-[160px] items-center justify-center rounded-[28px] p-8 text-center text-sm text-muted">
+      <div className="liquid-glass flex min-h-[160px] items-center justify-center rounded-[28px] p-8 text-center text-base text-muted">
         {lang === 'vi' ? 'Ảnh sẽ được cập nhật sớm.' : 'Images coming soon.'}
       </div>
     );

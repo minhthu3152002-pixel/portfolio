@@ -97,7 +97,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
           <h1 className="mb-5 max-w-[840px] text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em] [text-shadow:0_1px_2px_rgba(0,0,0,0.05)]">
             {t(p.title, lang)}
           </h1>
-          <p className="mb-8 max-w-[640px] text-[1.0625rem] leading-[1.6] opacity-80">
+          <p className="mb-8 max-w-[640px] text-[1.1875rem] leading-[1.6] opacity-80">
             {t(p.short, lang)}
           </p>
           <div className="flex flex-wrap gap-2.5">
@@ -182,6 +182,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
                 lang={lang}
                 spacious={active?.id === 'landing-page'}
                 masonry={active?.id === 'gallery'}
+                flatText={p.id === 'k-tech'}
               />
             ))}
           </motion.div>

@@ -51,14 +51,14 @@ export function Funnel({ steps, lang }: { steps: FunnelStep[]; lang: Lang }) {
 
               <div className="sm:mt-2.5 sm:px-1">
                 <p
-                  className={`text-[0.82rem] font-semibold leading-snug ${
+                  className={`text-[0.92rem] font-semibold leading-snug ${
                     step.highlight ? 'text-[var(--pc,theme(colors.accent))]' : 'text-text'
                   }`}
                 >
                   {t(step.label, lang)}
                 </p>
                 {step.desc && (
-                  <p className="mt-0.5 text-[0.72rem] leading-snug text-muted">{t(step.desc, lang)}</p>
+                  <p className="mt-0.5 text-[0.82rem] leading-snug text-muted">{t(step.desc, lang)}</p>
                 )}
               </div>
 

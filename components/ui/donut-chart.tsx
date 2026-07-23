@@ -33,7 +33,7 @@ export function DonutChart({
           {t(title, lang)}
         </h4>
       )}
-      {subtitle && <p className="mb-5 text-xs leading-relaxed text-muted">{t(subtitle, lang)}</p>}
+      {subtitle && <p className="mb-5 text-sm leading-relaxed text-muted">{t(subtitle, lang)}</p>}
 
       <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
         <div className="relative h-[200px] w-[200px] shrink-0">
@@ -62,7 +62,7 @@ export function DonutChart({
             <span className="text-[1.7rem] font-extrabold leading-none tabular-nums text-[var(--pc,theme(colors.accent))]">
               {highlighted.value}%
             </span>
-            <span className="mt-1.5 text-[0.7rem] text-muted">{t(highlighted.label, lang)}</span>
+            <span className="mt-1.5 text-[0.8rem] text-muted">{t(highlighted.label, lang)}</span>
           </div>
         </div>
 
@@ -74,14 +74,14 @@ export function DonutChart({
                 className="h-2.5 w-2.5 shrink-0 rounded-full"
                 style={{ background: i === highlightIdx ? 'var(--pc, #0071e3)' : 'rgba(29,29,31,0.2)' }}
               />
-              <span className="text-sm font-semibold tabular-nums text-text">{d.value}%</span>
-              <span className="text-sm text-muted">{t(d.label, lang)}</span>
+              <span className="text-base font-semibold tabular-nums text-text">{d.value}%</span>
+              <span className="text-base text-muted">{t(d.label, lang)}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {note && <p className="mt-5 text-xs leading-relaxed text-muted">{t(note, lang)}</p>}
+      {note && <p className="mt-5 text-sm leading-relaxed text-muted">{t(note, lang)}</p>}
     </div>
   );
 }

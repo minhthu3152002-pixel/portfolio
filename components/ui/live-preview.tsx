@@ -107,7 +107,7 @@ export function LivePreview({
           className="h-full w-full object-contain object-center"
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/10 to-black/10 text-center text-[0.85rem] text-white/50">
+        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/10 to-black/10 text-center text-[0.95rem] text-white/50">
           {t(embeddable ? L.loading : L.unavailable, lang)}
         </div>
       )}
@@ -136,7 +136,7 @@ export function LivePreview({
         </p>
       )}
       {caption && (
-        <p className="mb-2 text-xs text-[#1d1d1f]/45">{t(caption, lang)}</p>
+        <p className="mb-2 text-sm text-[#1d1d1f]/45">{t(caption, lang)}</p>
       )}
       <div className="liquid-glass overflow-hidden rounded-[24px]">
         {frame === 'browser' && (
@@ -157,7 +157,7 @@ export function LivePreview({
       </div>
 
       {note && (
-        <p className="mt-2 text-center text-[0.78rem] text-[#1d1d1f]/45">{t(note, lang)}</p>
+        <p className="mt-2 text-center text-[0.88rem] text-[#1d1d1f]/45">{t(note, lang)}</p>
       )}
     </figure>
   );
