@@ -44,8 +44,34 @@ export type TextBlock = {
   prose?: boolean;
   items: Localized[];
 };
-export type StatsBlock = { type: 'stats'; items: Stat[] };
+/** Optional `title` renders a small sub-heading above the number cards. */
+export type StatsBlock = { type: 'stats'; title?: Localized; items: Stat[] };
 export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
+
+/** One slice of a donut chart: a plain 0-100 percentage + localized label. */
+export type ChartDatum = { label: Localized; value: number };
+
+/** A small donut chart (recharts) with an optional title/subtitle above and
+ *  a note below — e.g. "CV contribution by channel type". */
+export type ChartBlock = {
+  type: 'chart';
+  chartType: 'donut';
+  title?: Localized;
+  subtitle?: Localized;
+  data: ChartDatum[];
+  note?: Localized;
+};
+
+/** One step of a horizontal (mobile: vertical) process funnel. `icon` keys a
+ *  lucide glyph (see FUNNEL_ICONS in Funnel.tsx); `highlight` gives the step
+ *  extra visual weight (e.g. the step that matters most in the flow). */
+export type FunnelStep = {
+  label: Localized;
+  desc?: Localized;
+  icon?: string;
+  highlight?: boolean;
+};
+export type FunnelBlock = { type: 'funnel'; steps: FunnelStep[] };
 
 /** A horizontal row of tool chips (reuses the About Tools chip style). */
 export type ToolsBlock = { type: 'tools'; items: Localized[] };
@@ -83,7 +109,9 @@ export type Block =
   | GalleryBlock
   | ToolsBlock
   | EmbedBlock
-  | CompareBlock;
+  | CompareBlock
+  | ChartBlock
+  | FunnelBlock;
 
 export type Group = {
   enabled?: boolean;

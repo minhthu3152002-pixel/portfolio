@@ -782,99 +782,749 @@
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "Planned and executed a full-funnel campaign (Awareness → Consideration → Conversion) to promote an international tech education program to Vietnam's IT community.",
-                      "vi": "Lên kế hoạch và triển khai chiến dịch full-funnel (Nhận biết → Cân nhắc → Chuyển đổi) để quảng bá một chương trình đào tạo công nghệ quốc tế đến cộng đồng IT Việt Nam."
-                    },
-                    {
-                      "en": "Combined social media, Meta Ads, landing page optimization, third-party job boards and offline tech events into one integrated strategy.",
-                      "vi": "Kết hợp social media, Meta Ads, tối ưu landing page, các nền tảng tuyển dụng bên thứ ba và sự kiện công nghệ offline thành một chiến lược tích hợp."
+                      "en": "K-Tech College 2026 is the third season of the job-connection program between Vietnamese candidates and Korean businesses. Instead of focusing on the top of the funnel like previous seasons, I shifted the strategy to job-driven marketing, combining paid media, organic channels, community and events to increase the number of applications, optimize cost and help recruitment operate more effectively.",
+                      "vi": "K-Tech College 2026 là mùa thứ ba của chương trình kết nối việc làm giữa ứng viên Việt Nam và doanh nghiệp Hàn Quốc. Thay vì tập trung vào phễu đầu như các mùa trước, mình chuyển chiến lược sang job-driven marketing, kết hợp paid media, organic channels, community và sự kiện để tăng số lượng hồ sơ, tối ưu chi phí và hỗ trợ recruitment vận hành hiệu quả hơn."
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Challenge",
-                "vi": "Thách thức"
-              },
-              "blocks": [
+                },
                 {
                   "type": "text",
+                  "title": {
+                    "en": "2025 — Build awareness",
+                    "vi": "2025 — Xây dựng nhận diện"
+                  },
                   "items": [
                     {
-                      "en": "Low awareness of the program in Vietnam's tech community.",
-                      "vi": "Chương trình còn ít được biết đến trong cộng đồng công nghệ Việt Nam."
-                    },
-                    {
-                      "en": "Needed to reach two very different audiences: students and working developers.",
-                      "vi": "Cần tiếp cận hai nhóm đối tượng rất khác nhau: sinh viên và lập trình viên đang đi làm."
-                    },
-                    {
-                      "en": "Limited campaign timeline demanded fast testing and optimization.",
-                      "vi": "Thời gian chiến dịch có hạn, đòi hỏi thử nghiệm và tối ưu nhanh."
+                      "en": "Introduce the program, build credibility and reach the IT community.",
+                      "vi": "Giới thiệu chương trình, tạo độ tin cậy và tiếp cận cộng đồng IT."
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Results",
-                "vi": "Kết quả"
-              },
-              "blocks": [
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "2026 — Drive recruitment outcomes",
+                    "vi": "2026 — Thúc đẩy kết quả tuyển dụng"
+                  },
+                  "items": [
+                    {
+                      "en": "Focus on each JD, channel efficiency, CV quality and conversion to matching/hiring.",
+                      "vi": "Tập trung vào từng JD, hiệu quả kênh, chất lượng CV và conversion đến matching/hiring."
+                    }
+                  ]
+                },
                 {
                   "type": "stats",
                   "items": [
                     [
-                      "174K+",
+                      "5.000+",
+                      "CV"
+                    ],
+                    [
+                      "50+",
                       {
-                        "en": "impressions",
-                        "vi": "lượt hiển thị"
+                        "en": "hires",
+                        "vi": "lượt tuyển"
                       }
                     ],
                     [
-                      "129K+",
+                      "< 27K",
                       {
-                        "en": "engagements",
-                        "vi": "lượt tương tác"
+                        "en": "CP/CV",
+                        "vi": "CP/CV"
                       }
                     ],
                     [
-                      "5K+",
+                      "41,1%",
                       {
-                        "en": "total leads",
-                        "vi": "tổng số lead"
+                        "en": "CV from free channels",
+                        "vi": "CV từ free channels"
                       }
                     ],
                     [
-                      "33%",
+                      "500+",
                       {
-                        "en": "of registrations via Meta Ads",
-                        "vi": "lượt đăng ký đến từ Meta Ads"
+                        "en": "community members",
+                        "vi": "thành viên cộng đồng"
+                      }
+                    ],
+                    [
+                      "4+",
+                      {
+                        "en": "events",
+                        "vi": "sự kiện"
                       }
                     ]
                   ]
                 },
                 {
                   "type": "text",
+                  "title": {
+                    "en": "Strategy",
+                    "vi": "Chiến lược"
+                  },
                   "items": [
                     {
-                      "en": "Contributed <b>33% of total registrations</b> via Meta Ads while successfully reducing CPL.",
-                      "vi": "Đóng góp <b>33% tổng lượt đăng ký</b> qua Meta Ads đồng thời giảm thành công CPL."
+                      "en": "Build a multi-channel marketing strategy for recruitment, community and events.",
+                      "vi": "Xây dựng chiến lược marketing đa kênh cho tuyển dụng, cộng đồng và sự kiện."
                     },
                     {
-                      "en": "KTC Hackathon 2025 reached <b>174K+ impressions, 129K+ engagements and 5K+ leads</b>.",
-                      "vi": "KTC Hackathon 2025 đạt <b>174K+ lượt hiển thị, 129K+ lượt tương tác và 5K+ lead</b>."
+                      "en": "Center each JD to develop content, choose channels and allocate budget.",
+                      "vi": "Lấy từng JD làm trung tâm để phát triển nội dung, lựa chọn kênh và phân bổ ngân sách."
                     },
                     {
-                      "en": "Achieved high satisfaction scores and positive feedback on candidate support and experience.",
-                      "vi": "Đạt điểm hài lòng cao và phản hồi tích cực về hỗ trợ và trải nghiệm ứng viên."
+                      "en": "Leverage credibility from previous seasons to focus on conversion instead of just awareness communication.",
+                      "vi": "Tận dụng uy tín từ các mùa trước để tập trung vào conversion thay vì chỉ truyền thông nhận diện."
+                    },
+                    {
+                      "en": "Connect marketing with recruitment, from attracting CVs to screening, matching and hiring.",
+                      "vi": "Kết nối marketing với recruitment, từ thu hút CV đến screening, matching và hiring."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Challenges",
+                    "vi": "Thách thức"
+                  },
+                  "items": [
+                    {
+                      "en": "Many JDs span different industries, seniority levels and recruitment locations.",
+                      "vi": "Nhiều JD có ngành nghề, seniority và khu vực tuyển dụng khác nhau."
+                    },
+                    {
+                      "en": "Need to maintain a large CV volume while still controlling cost.",
+                      "vi": "Cần duy trì volume CV lớn nhưng vẫn kiểm soát chi phí."
+                    },
+                    {
+                      "en": "Data comes from many sources, making it easy to be inaccurate or hard to trace back.",
+                      "vi": "Dữ liệu đến từ nhiều nguồn, dễ sai lệch hoặc khó truy ngược."
+                    },
+                    {
+                      "en": "Must simultaneously operate job campaigns, community and online/offline events.",
+                      "vi": "Phải đồng thời vận hành job campaigns, community và các sự kiện online/offline."
+                    }
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "title": {
+                    "en": "First 3 months of Season 3 — results",
+                    "vi": "Kết quả 3 tháng đầu mùa 3"
+                  },
+                  "items": [
+                    [
+                      "5.000+",
+                      "CV"
+                    ],
+                    [
+                      "50+",
+                      {
+                        "en": "hires",
+                        "vi": "lượt tuyển"
+                      }
+                    ],
+                    [
+                      "< 27K",
+                      {
+                        "en": "CP/CV",
+                        "vi": "CP/CV"
+                      }
+                    ],
+                    [
+                      "41,1%",
+                      {
+                        "en": "CV from free channels",
+                        "vi": "CV từ free channels"
+                      }
+                    ],
+                    [
+                      "500+",
+                      {
+                        "en": "community members",
+                        "vi": "thành viên cộng đồng"
+                      }
+                    ],
+                    [
+                      "4+",
+                      {
+                        "en": "events",
+                        "vi": "sự kiện"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "enabled": true,
+          "id": "paid",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
+          "label": {
+            "en": "Paid channel",
+            "vi": "Kênh trả phí"
+          },
+          "groups": [
+            {
+              "enabled": true,
+              "title": "Paid Acquisition",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Use Meta Ads, LinkedIn Promoted Jobs and paid recruitment platforms like Topdev and ITViec to generate applications for each JD, while optimizing based on CP/CV, candidate quality and recruitment progress, instead of focusing only on traffic or engagement.",
+                      "vi": "Sử dụng Meta Ads, Linkedin Promoted Jobs và các nền tảng tuyển dụng trả phí như Topdev, ITViec để tạo nguồn hồ sơ cho từng JD, đồng thời tối ưu dựa trên CP/CV, chất lượng ứng viên và tiến độ tuyển dụng, thay vì chỉ tập trung vào traffic hay engagement."
+                    },
+                    {
+                      "en": "Recruitment positions differ in industry, seniority, region and priority level, so a single campaign or one common audience group cannot be applied to the entire program.",
+                      "vi": "Các vị trí tuyển dụng khác nhau về ngành nghề, seniority, khu vực và mức độ ưu tiên, nên không thể áp dụng một campaign hoặc một nhóm audience chung cho toàn bộ chương trình."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Strategy",
+                    "vi": "Chiến lược"
+                  },
+                  "items": [
+                    {
+                      "en": "Group campaigns by job or by groups of jobs with similar characteristics.",
+                      "vi": "Phân nhóm campaign theo từng job hoặc nhóm job có đặc điểm tương đồng."
+                    },
+                    {
+                      "en": "Split audiences into fresher, experienced, non-IT and retargeting.",
+                      "vi": "Chia audience thành fresher, experienced, non-IT và retargeting."
+                    },
+                    {
+                      "en": "Allocate budget based on urgency, the number of CVs needed and historical CP/CV.",
+                      "vi": "Phân bổ ngân sách dựa trên urgency, lượng CV cần bổ sung và historical CP/CV."
+                    },
+                    {
+                      "en": "Build creative for each JD, highlighting salary, location, requirements and the apply CTA.",
+                      "vi": "Xây dựng creative theo từng JD, làm nổi bật salary, location, requirements và CTA ứng tuyển."
+                    },
+                    {
+                      "en": "Test visuals, headlines, audiences, formats and budgets to find the effective combination.",
+                      "vi": "Test visual, headline, audience, format và budget để xác định tổ hợp hiệu quả."
+                    },
+                    {
+                      "en": "Track both the quantity and quality of applications to adjust campaigns at each stage.",
+                      "vi": "Theo dõi cả số lượng lẫn chất lượng hồ sơ để điều chỉnh campaign theo từng giai đoạn."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Job Post Campaigns",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Deployed Meta Ads in a job-driven direction, with separate content and audience for each group of positions.",
+                      "vi": "Triển khai Meta Ads theo hướng job-driven, với nội dung và audience riêng cho từng nhóm vị trí."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Results",
+                    "vi": "Kết quả"
+                  },
+                  "items": [
+                    {
+                      "en": "Attracted about 1,200 CVs from Meta Ads.",
+                      "vi": "Thu hút khoảng 1.200 CV từ Meta Ads."
+                    },
+                    {
+                      "en": "Maintained an average CP/CV of about 1,300 KRW, equivalent to 25,000–27,000 VNĐ.",
+                      "vi": "Duy trì CP/CV trung bình khoảng 1.300 KRW, tương đương 25.000–27.000 VNĐ."
+                    },
+                    {
+                      "en": "The fresher and retargeting groups generated good lead volume at a competitive cost.",
+                      "vi": "Nhóm fresher và retargeting tạo lượng lead tốt với chi phí cạnh tranh."
+                    },
+                    {
+                      "en": "Kept costs stable while expanding across more JD groups and recruitment regions.",
+                      "vi": "Duy trì chi phí ổn định khi mở rộng nhiều nhóm JD và khu vực tuyển dụng."
+                    }
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "items": [
+                    [
+                      "~1.200",
+                      "CV"
+                    ],
+                    [
+                      "~1.300 KRW",
+                      {
+                        "en": "CP/CV",
+                        "vi": "CP/CV"
+                      }
+                    ],
+                    [
+                      "4",
+                      {
+                        "en": "audience groups",
+                        "vi": "nhóm audience"
+                      }
+                    ],
+                    [
+                      "✓",
+                      "Job-driven creatives"
+                    ]
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Event Campaigns",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Planned and deployed Meta Ads for recruitment events such as May Matching Week and Ideathon, combining the goals of attracting a talent pool, event registration and retargeting within the same media plan.",
+                      "vi": "Lập kế hoạch và triển khai Meta Ads cho các sự kiện tuyển dụng như May Matching Week và Ideathon, kết hợp mục tiêu thu hút talent pool, event registration và retargeting trong cùng một media plan."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Approach",
+                    "vi": "Cách tiếp cận"
+                  },
+                  "items": [
+                    {
+                      "en": "Built a media plan with a budget of 20 million VNĐ.",
+                      "vi": "Xây dựng media plan với ngân sách 20 triệu VNĐ."
+                    },
+                    {
+                      "en": "Allocated 75% to talent pool and event, 25% to Ideathon.",
+                      "vi": "Phân bổ 75% cho talent pool và event, 25% cho Ideathon."
+                    },
+                    {
+                      "en": "Segmented audiences into experienced, fresher, non-IT and retargeting.",
+                      "vi": "Phân nhóm audience theo experienced, fresher, non-IT và retargeting."
+                    },
+                    {
+                      "en": "Combined Lead Ads and Instant Form to shorten the registration journey.",
+                      "vi": "Kết hợp Lead Ads và Instant Form để rút ngắn hành trình đăng ký."
+                    },
+                    {
+                      "en": "Developed multiple creative groups including case study, hot jobs, event information, prize and benefit.",
+                      "vi": "Phát triển nhiều nhóm creative gồm case study, hot jobs, event information, prize và benefit."
+                    },
+                    {
+                      "en": "Adjusted budget, audience and assets according to each campaign phase.",
+                      "vi": "Điều chỉnh ngân sách, audience và asset theo từng giai đoạn campaign."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Creative direction",
+                    "vi": "Định hướng sáng tạo"
+                  },
+                  "items": [
+                    {
+                      "en": "Used former candidates' stories to increase credibility.",
+                      "vi": "Sử dụng câu chuyện ứng viên cũ để tăng độ tin cậy."
+                    },
+                    {
+                      "en": "Combined job posts with event information to both generate leads and drive registrations.",
+                      "vi": "Kết hợp job post với thông tin sự kiện để vừa tạo lead vừa thúc đẩy đăng ký."
+                    },
+                    {
+                      "en": "Clarified the format, benefits, prizes and CTA to join.",
+                      "vi": "Làm rõ format, quyền lợi, giải thưởng và CTA tham gia."
+                    },
+                    {
+                      "en": "Separated messaging for IT and non-IT groups to increase relevance.",
+                      "vi": "Tách thông điệp cho nhóm IT và non-IT để tăng mức độ liên quan."
+                    }
+                  ]
+                },
+                {
+                  "type": "embed",
+                  "frame": "browser",
+                  "caption": {
+                    "en": "For security reasons, only the Meta Plan tab is shown — the rest of the workbook is private.",
+                    "vi": "Vì lý do bảo mật, chỉ hiển thị tab Meta Plan — các phần còn lại của file được ẩn."
+                  },
+                  "url": "https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vSIXw8geUcG23C8R0p5o5Bf646VAvjHUA5xFsvdhVJ2VghCmcejBpy6vv6IpnQI44_UnERW2Qe37Fs4/pubhtml?gid=456512430&single=true&pli=1"
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Ideathon Results",
+                    "vi": "Kết quả Ideathon"
+                  },
+                  "items": [
+                    {
+                      "en": "Meta Ads recorded 88 leads, reaching 176% of KPI.",
+                      "vi": "Meta Ads ghi nhận 88 leads, đạt 176% KPI."
+                    },
+                    {
+                      "en": "Maintained a CPL of 10,461 VNĐ.",
+                      "vi": "Duy trì CPL 10.461 VNĐ."
+                    },
+                    {
+                      "en": "Had 71 registrations, equivalent to 110 participants.",
+                      "vi": "Có 71 lượt đăng ký, tương đương 110 người tham gia."
+                    },
+                    {
+                      "en": "Received 40 submissions with a total of 72 members.",
+                      "vi": "Thu về 40 bài dự thi với tổng cộng 72 thành viên."
+                    },
+                    {
+                      "en": "Selected 8 teams for the final round and 2 winning teams.",
+                      "vi": "Chọn 8 đội vào vòng chung kết và 2 đội chiến thắng."
+                    },
+                    {
+                      "en": "The low CPL was due to choosing a relevant AI topic, audience targeting closely matched to needs, clear creative messaging and an attractive prize structure.",
+                      "vi": "CPL thấp nhờ lựa chọn chủ đề AI phù hợp, audience targeting sát nhu cầu, creative message rõ ràng và cơ cấu giải thưởng hấp dẫn."
+                    }
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "items": [
+                    [
+                      "88",
+                      {
+                        "en": "Meta leads",
+                        "vi": "Meta leads"
+                      }
+                    ],
+                    [
+                      "10.461 VNĐ",
+                      {
+                        "en": "CPL",
+                        "vi": "CPL"
+                      }
+                    ],
+                    [
+                      "176%",
+                      {
+                        "en": "KPI",
+                        "vi": "KPI"
+                      }
+                    ],
+                    [
+                      "71",
+                      {
+                        "en": "registrations",
+                        "vi": "lượt đăng ký"
+                      }
+                    ],
+                    [
+                      "110",
+                      {
+                        "en": "participants",
+                        "vi": "người tham gia"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": null,
+              "blocks": [
+                {
+                  "type": "tools",
+                  "items": [
+                    "Meta Ads",
+                    "LinkedIn Promoted Jobs",
+                    "TopDev",
+                    "ITviec",
+                    "Claude Code",
+                    "Google Sheets"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "enabled": true,
+          "id": "free",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
+          "label": {
+            "en": "Free channel",
+            "vi": "Kênh miễn phí"
+          },
+          "groups": [
+            {
+              "enabled": true,
+              "title": "Organic & Community Growth",
+              "blocks": [
+                {
+                  "type": "stats",
+                  "items": [
+                    [
+                      "41,1%",
+                      {
+                        "en": "CV from free channels",
+                        "vi": "CV từ free channels"
+                      }
+                    ],
+                    [
+                      "500+",
+                      {
+                        "en": "Zalo members",
+                        "vi": "thành viên Zalo"
+                      }
+                    ],
+                    [
+                      "✓",
+                      {
+                        "en": "Multi-source organic acquisition",
+                        "vi": "Tiếp cận organic đa nguồn"
+                      }
+                    ],
+                    [
+                      "✓",
+                      {
+                        "en": "Warm lead re-activation",
+                        "vi": "Tái tiếp cận warm lead"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Expand unpaid candidate sources to reduce dependence on paid media, maintain a long-term lead source and create the ability to re-engage for upcoming recruitment rounds.",
+                      "vi": "Mở rộng các nguồn ứng viên không trả phí nhằm giảm phụ thuộc vào paid media, duy trì nguồn lead dài hạn và tạo khả năng tái tiếp cận cho các đợt tuyển dụng tiếp theo."
+                    }
+                  ]
+                },
+                {
+                  "type": "chart",
+                  "chartType": "donut",
+                  "title": {
+                    "en": "CV Contribution by Channel Type",
+                    "vi": "Tỷ lệ đóng góp CV theo loại kênh"
+                  },
+                  "subtitle": {
+                    "en": "Share of CV generated during the first three months of K-Tech College Season 3",
+                    "vi": "Tỷ lệ CV được tạo ra trong 3 tháng đầu của K-Tech College mùa 3"
+                  },
+                  "data": [
+                    {
+                      "label": {
+                        "en": "Paid",
+                        "vi": "Trả phí"
+                      },
+                      "value": 58.9
+                    },
+                    {
+                      "label": {
+                        "en": "Free",
+                        "vi": "Miễn phí"
+                      },
+                      "value": 41.1
+                    }
+                  ],
+                  "note": {
+                    "en": "Free channels include direct traffic, organic hiring platforms, social media, Zalo community, seeding and university partnerships.",
+                    "vi": "Free channels bao gồm direct traffic, các nền tảng tuyển dụng organic, social media, cộng đồng Zalo, seeding và hợp tác với các trường đại học."
+                  }
+                },
+                {
+                  "type": "text",
+                  "items": [
+                    {
+                      "en": "Free channels contributed 41.1% of total CVs, helping the project maintain candidate volume without depending entirely on the advertising budget.",
+                      "vi": "Free channels đóng góp 41,1% tổng CV, giúp dự án duy trì volume ứng viên mà không phụ thuộc hoàn toàn vào ngân sách quảng cáo."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Social Media",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "In the previous season, content was distributed across the pillars of job posts, program updates, social proof and event promotion. Moving into the 2026 season, I adjusted the strategy to be job-driven, focusing most of the content on job posts, closely following each JD, recruitment needs and candidates' job-seeking behavior. I also made use of a personal Threads account to convey information in a more approachable, natural way than a fanpage. Some posts on Threads recorded good engagement and conversion, helping reach additional candidates outside the official channels. I tracked content performance to adjust topics, format and CTA for each group of positions.",
+                      "vi": "Mùa trước, nội dung được phân bổ giữa các pillar job post, program updates, social proof và event promotion. Sang mùa 2026, mình điều chỉnh chiến lược thành job-driven, tập trung phần lớn nội dung vào job post, bám sát từng JD, nhu cầu tuyển dụng và hành vi tìm việc của ứng viên. Tận dụng thêm tài khoản Threads cá nhân để truyền tải thông tin theo cách gần gũi, tự nhiên hơn so với fanpage. Một số bài viết trên Threads ghi nhận tương tác và chuyển đổi tốt, giúp tiếp cận thêm ứng viên ngoài các kênh chính thức. Theo dõi hiệu quả nội dung để điều chỉnh chủ đề, format và CTA theo từng nhóm vị trí."
+                    }
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Community Building",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Built a Zalo community of more than 500 members in over 2 months. Maintained engagement with job updates, deadlines, event information and candidate-support content. Developed the community into a warm-lead source for distributing jobs and re-engaging. Used the community as a nurture channel, not just a place to broadcast information.",
+                      "vi": "Xây dựng cộng đồng Zalo hơn 500 thành viên trong hơn 2 tháng. Duy trì tương tác bằng job updates, deadline, event information và nội dung hỗ trợ ứng viên. Phát triển cộng đồng thành nguồn warm lead để phân phối job và tái tiếp cận. Sử dụng community như một kênh nurture, không chỉ là nơi broadcast thông tin."
+                    }
+                  ]
+                },
+                {
+                  "type": "funnel",
+                  "steps": [
+                    {
+                      "label": {
+                        "en": "Social & Seeding",
+                        "vi": "Social & Seeding"
+                      },
+                      "desc": {
+                        "en": "Reach candidates through social posts and community seeding.",
+                        "vi": "Tiếp cận ứng viên qua bài đăng social và seeding cộng đồng."
+                      },
+                      "icon": "Share2"
+                    },
+                    {
+                      "label": {
+                        "en": "Zalo Community",
+                        "vi": "Zalo Community"
+                      },
+                      "desc": {
+                        "en": "Grow a 500+ member Zalo community.",
+                        "vi": "Phát triển cộng đồng Zalo hơn 500 thành viên."
+                      },
+                      "icon": "Users"
+                    },
+                    {
+                      "label": {
+                        "en": "Warm Leads",
+                        "vi": "Warm Leads"
+                      },
+                      "desc": {
+                        "en": "Turn engaged members into warm leads.",
+                        "vi": "Chuyển thành viên tương tác thành warm lead."
+                      },
+                      "icon": "Flame",
+                      "highlight": true
+                    },
+                    {
+                      "label": {
+                        "en": "Job Distribution",
+                        "vi": "Phân phối Job"
+                      },
+                      "desc": {
+                        "en": "Distribute job openings to the community.",
+                        "vi": "Phân phối tin tuyển dụng đến cộng đồng."
+                      },
+                      "icon": "Send"
+                    },
+                    {
+                      "label": {
+                        "en": "Re-activation",
+                        "vi": "Tái tiếp cận"
+                      },
+                      "desc": {
+                        "en": "Re-engage warm leads for future recruitment rounds.",
+                        "vi": "Tái tiếp cận warm lead cho các đợt tuyển dụng sau."
+                      },
+                      "icon": "Repeat",
+                      "highlight": true
+                    }
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Seeding",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Seeded job posts and events into Facebook groups, professional communities and channels suited to each candidate group. Adjusted content to match each community's characteristics to increase relevance and reduce the feeling of advertising. Tracked source to identify which community groups delivered effective CVs. Combined seeding with social media and Zalo to increase organic reach.",
+                      "vi": "Seeding job post và sự kiện vào các Facebook group, cộng đồng nghề nghiệp và kênh phù hợp với từng nhóm ứng viên. Điều chỉnh nội dung theo đặc điểm từng cộng đồng để tăng mức độ liên quan và hạn chế cảm giác quảng cáo. Theo dõi source để xác định nhóm cộng đồng mang lại CV hiệu quả. Kết hợp seeding với social media và Zalo để tăng độ phủ organic."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Organic Hiring Platforms",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Posted free job listings on platforms suited to each job group. Optimized job title, JD, salary, location and CTA to increase click and apply rates. Improved the landing page and job page so candidates can more easily search, compare and complete their applications. Standardized source tracking to monitor the number of CVs from each platform.",
+                      "vi": "Đăng tuyển miễn phí trên các nền tảng phù hợp với từng nhóm job. Tối ưu job title, JD, salary, location và CTA để tăng tỷ lệ click và apply. Cải thiện landing page và job page để ứng viên dễ tìm kiếm, so sánh và hoàn tất hồ sơ. Chuẩn hóa source tracking để theo dõi số CV từ từng nền tảng."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "University Partnerships",
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Partnered with universities and student communities to reach candidates through internal channels. Distributed jobs, events and program information to the right majors. Combined communications with workshops and webinars. Expanded the young-candidate pool at lower cost and with a better fit.",
+                      "vi": "Phối hợp với trường đại học và cộng đồng sinh viên để tiếp cận ứng viên qua các kênh nội bộ. Phân phối job, sự kiện và thông tin chương trình đến đúng nhóm ngành. Kết hợp truyền thông với workshop và webinar. Mở rộng nguồn ứng viên trẻ với chi phí thấp và độ phù hợp cao hơn."
                     }
                   ]
                 }
@@ -885,204 +1535,13 @@
               "title": null,
               "blocks": [
                 {
-                  "type": "text",
+                  "type": "tools",
                   "items": [
-                    {
-                      "en": "<a href=\"/project/ai-automation\">→ See the AI tools I built for this campaign</a>",
-                      "vi": "<a href=\"/project/ai-automation\">→ Xem các công cụ AI mình đã xây cho chiến dịch này</a>"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "enabled": true,
-          "id": "paid-channel",
-          "label": {
-            "en": "Paid Channel",
-            "vi": "Kênh trả phí"
-          },
-          "groups": [
-            {
-              "enabled": true,
-              "title": {
-                "en": "Meta Ads",
-                "vi": "Meta Ads"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "<b>Meta Ads:</b> tested 3+ ad angles and multiple formats (carousel, video, single image), refined copy per audience segment to improve CTR and lower cost per application.",
-                      "vi": "<b>Meta Ads:</b> thử nghiệm 3+ hướng quảng cáo và nhiều định dạng (carousel, video, ảnh đơn), tinh chỉnh nội dung theo từng nhóm đối tượng để tăng CTR và giảm chi phí mỗi đơn đăng ký."
-                    }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/ktech-ads.jpg",
-                      {
-                        "en": "Meta Ads performance",
-                        "vi": "Hiệu quả Meta Ads"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "LinkedIn Promoted Jobs",
-                "vi": "Tin tuyển dụng LinkedIn"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Promoted job posts on LinkedIn to reach working developers with targeted placements. [I will provide details]",
-                      "vi": "Chạy tin tuyển dụng trên LinkedIn để tiếp cận lập trình viên đang đi làm bằng các vị trí nhắm mục tiêu. [Mình sẽ bổ sung chi tiết]"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Hiring Platforms",
-                "vi": "Nền tảng tuyển dụng"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "<b>Partnerships:</b> coordinated with ITviec and VietnamWorks for media placements reaching targeted IT audiences.",
-                      "vi": "<b>Hợp tác:</b> phối hợp với ITviec và VietnamWorks để đặt truyền thông, tiếp cận đúng đối tượng IT."
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "enabled": true,
-          "id": "free-channel",
-          "label": {
-            "en": "Free Channel",
-            "vi": "Kênh miễn phí"
-          },
-          "groups": [
-            {
-              "enabled": true,
-              "title": {
-                "en": "Social Media",
-                "vi": "Truyền thông MXH"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "<b>Social media:</b> planned Facebook & LinkedIn content across 4 pillars — career opportunities, program introduction, social proof, event promotion.",
-                      "vi": "<b>Social media:</b> lên nội dung Facebook & LinkedIn theo 4 trụ — cơ hội nghề nghiệp, giới thiệu chương trình, social proof, quảng bá sự kiện."
-                    }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/ktech-social.jpg",
-                      {
-                        "en": "Social media content pillars",
-                        "vi": "Các trụ nội dung social media"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Community",
-                "vi": "Cộng đồng"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Nurtured the developer community through group engagement and conversation. [I will provide details]",
-                      "vi": "Nuôi dưỡng cộng đồng lập trình viên qua tương tác nhóm và trò chuyện. [Mình sẽ bổ sung chi tiết]"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Seeding",
-                "vi": "Seeding"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Seeded the program across relevant forums, groups and communities. [I will provide details]",
-                      "vi": "Seeding chương trình trên các diễn đàn, group và cộng đồng liên quan. [Mình sẽ bổ sung chi tiết]"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "Hiring Platforms — organic",
-                "vi": "Nền tảng tuyển dụng — organic"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "<b>Landing page & Notion job page:</b> proposed content edits that reduced candidate confusion, and built a Notion job page that helped candidates find roles while saving project costs.",
-                      "vi": "<b>Landing page & trang tuyển dụng Notion:</b> đề xuất chỉnh sửa nội dung giúp giảm bối rối cho ứng viên, và xây một trang tuyển dụng trên Notion giúp ứng viên tìm vị trí phù hợp trong khi tiết kiệm chi phí dự án."
-                    },
-                    {
-                      "en": "Published organic job listings on hiring platforms to reach candidates for free. [I will provide details]",
-                      "vi": "Đăng tin tuyển dụng organic trên các nền tảng để tiếp cận ứng viên miễn phí. [Mình sẽ bổ sung chi tiết]"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "University Partnerships",
-                "vi": "Hợp tác đại học"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Partnered with universities to reach students through campus channels. [I will provide details]",
-                      "vi": "Hợp tác với các trường đại học để tiếp cận sinh viên qua kênh trong trường. [Mình sẽ bổ sung chi tiết]"
-                    }
+                    "Zalo",
+                    "Meta",
+                    "Facebook",
+                    "Threads",
+                    "Claude Code"
                   ]
                 }
               ]
@@ -1092,6 +1551,10 @@
         {
           "enabled": true,
           "id": "events",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
           "label": {
             "en": "Events",
             "vi": "Sự kiện"
@@ -1099,50 +1562,373 @@
           "groups": [
             {
               "enabled": true,
-              "title": {
-                "en": "Offline Events",
-                "vi": "Sự kiện offline"
-              },
+              "title": "Event Marketing & Execution",
               "blocks": [
                 {
                   "type": "text",
                   "items": [
                     {
-                      "en": "<b>Tech events:</b> developed concepts, agendas and judging criteria for K-TECH FEST, K-TECH NEXUS and KTC HACKATHON; acted as primary contact for all participants.",
-                      "vi": "<b>Sự kiện công nghệ:</b> xây dựng concept, agenda và tiêu chí chấm cho K-TECH FEST, K-TECH NEXUS và KTC HACKATHON; là đầu mối liên hệ chính cho toàn bộ người tham gia."
+                      "en": "Planned and executed online/offline events to increase touchpoints between Vietnamese candidates and Korean businesses, while supporting recruitment conversion.",
+                      "vi": "Lên kế hoạch và triển khai các sự kiện online/offline nhằm tăng điểm chạm giữa ứng viên Việt Nam và doanh nghiệp Hàn Quốc, đồng thời hỗ trợ recruitment conversion."
+                    },
+                    {
+                      "en": "Developed concept, format and themes suited to each audience group.",
+                      "vi": "Phát triển concept, format và chủ đề phù hợp với từng nhóm khán giả."
+                    },
+                    {
+                      "en": "Built the agenda, messaging, media plan and communication journey for each program.",
+                      "vi": "Xây dựng agenda, messaging, media plan và hành trình truyền thông cho từng chương trình."
+                    },
+                    {
+                      "en": "Combined social media, community, CRM, Meta Ads and university partnerships to drive registration.",
+                      "vi": "Kết hợp social media, community, CRM, Meta Ads và university partnership để thúc đẩy đăng ký."
+                    },
+                    {
+                      "en": "Developed key visual, social content, landing page, registration form, confirmation email and reminder flow.",
+                      "vi": "Phát triển key visual, social content, landing page, form đăng ký, email confirmation và reminder flow."
+                    },
+                    {
+                      "en": "Built the rules, scoring criteria and operating process for the Hackathon/Ideathon.",
+                      "vi": "Xây dựng thể lệ, tiêu chí chấm điểm và quy trình vận hành cho Hackathon/Ideathon."
+                    },
+                    {
+                      "en": "Served as the coordination focal point between businesses, speakers, mentors, judges, candidates and operational partners.",
+                      "vi": "Đóng vai trò đầu mối phối hợp giữa doanh nghiệp, speaker, mentor, giám khảo, ứng viên và các đối tác vận hành."
                     }
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/ktech-events.jpg",
-                      {
-                        "en": "Workshops & tech events",
-                        "vi": "Workshop & sự kiện công nghệ"
-                      },
-                      1
-                    ]
                   ]
                 }
               ]
             },
             {
               "enabled": true,
-              "title": {
-                "en": "Online Events",
-                "vi": "Sự kiện online"
-              },
+              "title": "Online Events",
               "blocks": [
                 {
                   "type": "text",
                   "items": [
                     {
-                      "en": "Ran online events and webinars to engage remote audiences. [I will provide details]",
-                      "vi": "Tổ chức sự kiện online và webinar để tương tác với khán giả từ xa. [Mình sẽ bổ sung chi tiết]"
+                      "en": "Attracted participants from the Zalo community, social media and the existing candidate pool, without using an advertising budget.",
+                      "vi": "Thu hút người tham gia từ Zalo community, social media và tệp ứng viên sẵn có, không sử dụng ngân sách quảng cáo."
+                    },
+                    {
+                      "en": "Each event reached about 20–30 participants with genuine needs.",
+                      "vi": "Mỗi sự kiện đạt khoảng 20–30 người tham gia có nhu cầu thực tế."
+                    },
+                    {
+                      "en": "Set up the registration flow, confirmation email, reminder and follow-up before the interview or matching step.",
+                      "vi": "Thiết lập registration flow, email confirmation, reminder và follow-up trước bước interview hoặc matching."
+                    },
+                    {
+                      "en": "Personally hosted, coordinating the agenda, Q&A and interaction with attendees.",
+                      "vi": "Trực tiếp host, điều phối agenda, Q&A và tương tác với người tham dự."
                     }
                   ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Offline Events",
+              "blocks": [
+                {
+                  "type": "text",
+                  "items": [
+                    {
+                      "en": "Combined Meta Ads, retargeting, community, university partnerships and CRM to drive registrations.",
+                      "vi": "Kết hợp Meta Ads, retargeting, community, university partnership và CRM để thu hút đăng ký."
+                    },
+                    {
+                      "en": "Each event reached 100+ participants.",
+                      "vi": "Mỗi sự kiện đạt khoảng 100+ người tham gia."
+                    },
+                    {
+                      "en": "Planned and executed key activities such as Hackathon, Ideathon, Mentoring, Workshop and Interview.",
+                      "vi": "Lên kế hoạch và triển khai các hoạt động chính như Hackathon, Ideathon, Mentoring, Workshop và Interview."
+                    },
+                    {
+                      "en": "Coordinated with the venue, contractors, media team, PG and related partners.",
+                      "vi": "Phối hợp với venue, đơn vị thi công, media team, PG và các đối tác liên quan."
+                    },
+                    {
+                      "en": "Sourced and worked with speakers, mentors and the judging panel.",
+                      "vi": "Tìm kiếm và làm việc với speaker, mentor và ban giám khảo."
+                    },
+                    {
+                      "en": "Personally hosted workshops and helped coordinate onsite.",
+                      "vi": "Trực tiếp host workshop và hỗ trợ điều phối onsite."
+                    },
+                    {
+                      "en": "Tracked the entire journey from communication, registration and check-in to post-event follow-up.",
+                      "vi": "Theo dõi toàn bộ hành trình từ truyền thông, đăng ký, check-in đến follow-up sau sự kiện."
+                    }
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "items": [
+                    [
+                      "4",
+                      {
+                        "en": "offline events",
+                        "vi": "sự kiện offline"
+                      }
+                    ],
+                    [
+                      "100+",
+                      {
+                        "en": "participants/event",
+                        "vi": "người tham gia/sự kiện"
+                      }
+                    ],
+                    [
+                      "3",
+                      {
+                        "en": "online events",
+                        "vi": "sự kiện online"
+                      }
+                    ],
+                    [
+                      "30",
+                      {
+                        "en": "participants/event",
+                        "vi": "người tham gia/sự kiện"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": "Featured Case · May Matching Week & Ideathon",
+              "blocks": [
+                {
+                  "type": "stats",
+                  "title": "Ideathon",
+                  "items": [
+                    [
+                      "110",
+                      {
+                        "en": "participants",
+                        "vi": "người tham gia"
+                      }
+                    ],
+                    [
+                      "40",
+                      {
+                        "en": "submissions",
+                        "vi": "bài dự thi"
+                      }
+                    ],
+                    [
+                      "176%",
+                      "KPI"
+                    ],
+                    [
+                      "10.461 VNĐ",
+                      "CPL"
+                    ]
+                  ]
+                },
+                {
+                  "type": "stats",
+                  "title": "Recruitment",
+                  "items": [
+                    [
+                      "169",
+                      {
+                        "en": "new CVs",
+                        "vi": "CV mới"
+                      }
+                    ],
+                    [
+                      "17",
+                      {
+                        "en": "interviews",
+                        "vi": "phỏng vấn"
+                      }
+                    ],
+                    [
+                      "6–7",
+                      {
+                        "en": "final hiring considerations",
+                        "vi": "vòng cân nhắc tuyển dụng cuối"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "type": "text",
+                  "items": [
+                    {
+                      "en": "<b>Business Objective:</b> Attract candidates for open positions, expand the talent pool and create opportunities for direct connections between Vietnamese candidates and Korean businesses.",
+                      "vi": "<b>Business Objective:</b> Thu hút ứng viên cho các vị trí đang mở, mở rộng talent pool và tạo cơ hội kết nối trực tiếp giữa ứng viên Việt Nam với doanh nghiệp Hàn Quốc."
+                    },
+                    {
+                      "en": "<b>Strategy:</b> Combined Meta Ads, retargeting, social media, Zalo community, university partnerships and CRM. Segmented audiences into fresher, experienced, non-IT and retargeting. Developed creative across multiple directions: hot jobs, event information, case study, prize and benefits. Set up the journey from campaign to registration, confirmation, reminder, check-in and follow-up.",
+                      "vi": "<b>Strategy:</b> Kết hợp Meta Ads, retargeting, social media, Zalo community, university partnership và CRM. Phân nhóm audience theo fresher, experienced, non-IT và retargeting. Phát triển creative theo nhiều hướng: hot jobs, event information, case study, prize và benefits. Thiết lập hành trình từ campaign đến đăng ký, xác nhận, reminder, check-in và follow-up."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "My Role",
+                    "vi": "Vai trò của mình"
+                  },
+                  "items": [
+                    {
+                      "en": "Built the Meta Ads plan and allocated the budget.",
+                      "vi": "Xây dựng meta ads plan và phân bổ ngân sách."
+                    },
+                    {
+                      "en": "Developed the concept, messaging, key visual and communication content.",
+                      "vi": "Phát triển concept, messaging, key visual và nội dung truyền thông."
+                    },
+                    {
+                      "en": "Set up the landing page, registration form and email flow.",
+                      "vi": "Thiết lập landing page, form đăng ký và email flow."
+                    },
+                    {
+                      "en": "Built the agenda, rules and scoring criteria for the Ideathon.",
+                      "vi": "Xây dựng agenda, thể lệ và tiêu chí chấm điểm cho Ideathon."
+                    },
+                    {
+                      "en": "Coordinated with businesses, universities, speakers, mentors, the judging panel and operational partners.",
+                      "vi": "Phối hợp với doanh nghiệp, trường đại học, speaker, mentor, ban giám khảo và các đối tác vận hành."
+                    },
+                    {
+                      "en": "Coordinated onsite activities, workshops, interviews and post-event follow-up.",
+                      "vi": "Điều phối hoạt động onsite, workshop, interview và follow-up sau sự kiện."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Ideathon Contest Results",
+                    "vi": "Kết quả cuộc thi Ideathon"
+                  },
+                  "items": [
+                    {
+                      "en": "88 Meta leads, reaching 176% of KPI.",
+                      "vi": "88 Meta leads, đạt 176% KPI."
+                    },
+                    {
+                      "en": "CPL of 10,461 VNĐ.",
+                      "vi": "CPL 10.461 VNĐ."
+                    },
+                    {
+                      "en": "71 teams/individuals registered, equivalent to 110 people.",
+                      "vi": "71 đội/cá nhân đăng ký, tương đương 110 người."
+                    },
+                    {
+                      "en": "40 submissions with 72 members.",
+                      "vi": "40 bài dự thi với 72 thành viên."
+                    },
+                    {
+                      "en": "8 teams reached the final round.",
+                      "vi": "8 đội vào vòng chung kết."
+                    },
+                    {
+                      "en": "2 winning teams.",
+                      "vi": "2 đội chiến thắng."
+                    },
+                    {
+                      "en": "The low CPL was due to choosing a relevant AI topic, an attractive prize structure, audience targeting closely matched to needs, and clear messaging.",
+                      "vi": "CPL thấp nhờ lựa chọn chủ đề AI phù hợp, cơ cấu giải thưởng hấp dẫn, audience targeting sát nhu cầu và thông điệp rõ ràng."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Recruitment Results",
+                    "vi": "Kết quả tuyển dụng"
+                  },
+                  "items": [
+                    {
+                      "en": "Attracted 169 additional new CVs for the talent pool.",
+                      "vi": "Thu hút thêm 169 CV mới cho talent pool."
+                    },
+                    {
+                      "en": "17 candidates were directly interviewed by 4 businesses.",
+                      "vi": "17 ứng viên được phỏng vấn trực tiếp với 4 doanh nghiệp."
+                    },
+                    {
+                      "en": "13 candidates attended pre-scheduled interviews.",
+                      "vi": "13 ứng viên tham gia các buổi phỏng vấn hẹn trước."
+                    },
+                    {
+                      "en": "3 candidates were interviewed on the spot at the event.",
+                      "vi": "3 ứng viên được phỏng vấn phát sinh ngay tại sự kiện."
+                    },
+                    {
+                      "en": "1 candidate was invited for an additional interview after the event.",
+                      "vi": "1 ứng viên được mời phỏng vấn bổ sung sau sự kiện."
+                    },
+                    {
+                      "en": "6–7 candidates were placed by businesses into the final hiring consideration round.",
+                      "vi": "6–7 ứng viên được doanh nghiệp đưa vào vòng cân nhắc tuyển dụng cuối cùng."
+                    }
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
+                }
+              ]
+            },
+            {
+              "enabled": true,
+              "title": null,
+              "blocks": [
+                {
+                  "type": "tools",
+                  "items": [
+                    "Claude Code",
+                    "Claude Design",
+                    "Zalo",
+                    "Meta Ads"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "enabled": true,
+          "id": "gallery",
+          "label": {
+            "en": "Gallery",
+            "vi": "Thư viện ảnh"
+          },
+          "groups": [
+            {
+              "enabled": true,
+              "title": null,
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "A behind-the-scenes look at the assets and moments from this project.",
+                      "vi": "Tổng hợp hình ảnh và khoảnh khắc trong quá trình thực hiện dự án."
+                    }
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "items": []
                 }
               ]
             }

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import {
   t,
+  type Block,
   type Group,
   type Lang,
   type Localized,
@@ -10,12 +11,17 @@ import {
   type ToolsBlock,
   type EmbedBlock,
   type CompareBlock,
+  type StatsBlock,
+  type GalleryBlock,
 } from '@/lib/content';
 import { RichList } from '@/components/RichList';
 import { Stats } from '@/components/Stats';
 import { ToolLogo } from '@/components/ui/tool-icon';
 import { LivePreview } from '@/components/ui/live-preview';
 import { CompareSlider } from '@/components/ui/compare-slider';
+import { DonutChart } from '@/components/ui/donut-chart';
+import { Funnel } from '@/components/ui/funnel';
+import { MasonryGallery } from '@/components/ui/masonry-gallery';
 import { reveal, viewportOnce } from '@/lib/motion';
 
 /** A bullet like "<b>Title</b> rest of the sentence" -> title/description.
@@ -100,28 +106,96 @@ function FeatureBox({ block, lang }: { block: TextBlock; lang: Lang }) {
   );
 }
 
-/** Solution/Feature + Implementation render as exactly two side-by-side
- *  boxes (Solution left, Implementation right); a single extra text block
- *  renders as one full-width box; more than two falls back to a stack. */
+/** Consecutive text blocks pair up two-at-a-time into side-by-side box rows
+ *  (Solution/Implementation-style pairs, but also e.g. a 2025-vs-2026 or
+ *  Strategy-vs-Challenges pair) — keyword-matched left/right within a pair
+ *  when one side clearly reads as "the built/implementation side", original
+ *  order otherwise. An odd block left over renders as one full-width box. */
 function FeatureBoxes({ blocks, lang }: { blocks: TextBlock[]; lang: Lang }) {
   if (blocks.length === 0) return null;
-  if (blocks.length === 2) {
-    const right = blocks.find(isImplementationTitle) ?? blocks[1];
-    const left = blocks.find((b) => b !== right) ?? blocks[0];
-    return (
-      <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <FeatureBox block={left} lang={lang} />
-        <FeatureBox block={right} lang={lang} />
-      </div>
-    );
+  const rows: TextBlock[][] = [];
+  for (let i = 0; i < blocks.length; i += 2) {
+    const a = blocks[i];
+    const b = blocks[i + 1];
+    if (!b) {
+      rows.push([a]);
+    } else if (isImplementationTitle(b) && !isImplementationTitle(a)) {
+      rows.push([a, b]);
+    } else if (isImplementationTitle(a) && !isImplementationTitle(b)) {
+      rows.push([b, a]);
+    } else {
+      rows.push([a, b]);
+    }
   }
   return (
-    <div className="mb-10 flex flex-col gap-4">
-      {blocks.map((b, i) => (
-        <FeatureBox key={i} block={b} lang={lang} />
-      ))}
+    <>
+      {rows.map((row, i) =>
+        row.length === 2 ? (
+          <div key={i} className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <FeatureBox block={row[0]} lang={lang} />
+            <FeatureBox block={row[1]} lang={lang} />
+          </div>
+        ) : (
+          <div key={i} className="mb-10">
+            <FeatureBox block={row[0]} lang={lang} />
+          </div>
+        ),
+      )}
+    </>
+  );
+}
+
+function StatsSection({ block, lang }: { block: StatsBlock; lang: Lang }) {
+  return (
+    <div className="mb-10 last:mb-0">
+      {block.title && (
+        <h4 className="mb-4 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
+          {t(block.title, lang)}
+        </h4>
+      )}
+      <Stats items={block.items} lang={lang} />
     </div>
   );
+}
+
+/** Renders the "features" area — everything left after intro/tools/visual —
+ *  in original content.json order. Consecutive text blocks buffer up and
+ *  flush as paired FeatureBoxes rows; stats/chart/funnel render inline at
+ *  their own position, each in its own full-width row. */
+function renderFeatures(remaining: Block[], lang: Lang): React.ReactNode[] {
+  const output: React.ReactNode[] = [];
+  let textBuffer: TextBlock[] = [];
+  const flushText = (key: string) => {
+    if (textBuffer.length === 0) return;
+    output.push(<FeatureBoxes key={key} blocks={textBuffer} lang={lang} />);
+    textBuffer = [];
+  };
+
+  remaining.forEach((b, i) => {
+    if (b.type === 'text') {
+      textBuffer.push(b);
+      return;
+    }
+    flushText(`text-${i}`);
+    if (b.type === 'stats') {
+      output.push(<StatsSection key={i} block={b} lang={lang} />);
+    } else if (b.type === 'chart') {
+      output.push(
+        <div key={i} className="mb-10 last:mb-0">
+          <DonutChart data={b.data} title={b.title} subtitle={b.subtitle} note={b.note} lang={lang} />
+        </div>,
+      );
+    } else if (b.type === 'funnel') {
+      output.push(
+        <div key={i} className="mb-10 last:mb-0">
+          <Funnel steps={b.steps} lang={lang} />
+        </div>,
+      );
+    }
+  });
+  flushText('text-end');
+
+  return output;
 }
 
 function EmbedCell({ block, lang }: { block: EmbedBlock; lang: Lang }) {
@@ -184,18 +258,23 @@ export function GroupPanel({
   group,
   lang,
   spacious,
+  masonry,
 }: {
   group: Group;
   lang: Lang;
   /** Extra bottom margin — for groups that are distinct sub-projects sharing
    *  one tab (e.g. two case studies), not sequential steps of one story. */
   spacious?: boolean;
+  /** Standalone photo-gallery tab: a CSS masonry grid + click-to-zoom
+   *  lightbox instead of the bento preview grid used everywhere else. */
+  masonry?: boolean;
 }) {
   const blocks = group.blocks;
 
   const introIdx = blocks.findIndex((b) => b.type === 'text' && !(b as TextBlock).title);
   const intro = introIdx >= 0 ? (blocks[introIdx] as TextBlock) : undefined;
   const toolsBlock = blocks.find((b): b is ToolsBlock => b.type === 'tools');
+  const galleryBlock = blocks.find((b): b is GalleryBlock => b.type === 'gallery');
 
   const visualCells: VisualCell[] = [];
   for (const b of blocks) {
@@ -211,8 +290,6 @@ export function GroupPanel({
   const remaining = blocks.filter(
     (b, i) => i !== introIdx && b.type !== 'tools' && b.type !== 'embed' && b.type !== 'gallery' && b.type !== 'compare',
   );
-  const remainingTextBlocks = remaining.filter((b): b is TextBlock => b.type === 'text');
-  const statsBlocks = remaining.filter((b) => b.type === 'stats');
 
   const soleCell = visualCells.length === 1 ? visualCells[0] : undefined;
   const soleIsMobile = soleCell?.kind === 'embed' && soleCell.block.frame === 'mobile';
@@ -252,7 +329,11 @@ export function GroupPanel({
       </div>
 
       {/* PREVIEW GRID */}
-      {soleCell ? (
+      {masonry ? (
+        <div className="mb-10">
+          <MasonryGallery items={galleryBlock?.items ?? []} lang={lang} />
+        </div>
+      ) : soleCell ? (
         <div className="mb-10 flex justify-center sm:mx-auto sm:max-w-[75%]">
           <div className={soleIsMobile ? 'w-full max-w-[320px]' : 'w-full'}>
             {soleCell.kind === 'embed' ? (
@@ -281,14 +362,7 @@ export function GroupPanel({
       ) : null}
 
       {/* FEATURES */}
-      {statsBlocks.map((b, i) =>
-        b.type === 'stats' ? (
-          <div key={`stats-${i}`} className="mb-10 last:mb-0">
-            <Stats items={b.items} lang={lang} />
-          </div>
-        ) : null,
-      )}
-      <FeatureBoxes blocks={remainingTextBlocks} lang={lang} />
+      {renderFeatures(remaining, lang)}
     </motion.section>
   );
 }
