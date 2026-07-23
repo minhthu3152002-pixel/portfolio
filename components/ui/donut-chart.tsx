@@ -15,25 +15,27 @@ export function DonutChart({
   title,
   subtitle,
   note,
+  sourceNote,
   lang,
 }: {
   data: ChartDatum[];
   title?: Localized;
   subtitle?: Localized;
   note?: Localized;
+  sourceNote?: Localized;
   lang: Lang;
 }) {
   const highlightIdx = data.length - 1;
   const highlighted = data[highlightIdx];
 
   return (
-    <div className="liquid-glass rounded-[24px] p-6">
+    <div className="liquid-glass rounded-[24px] p-5">
       {title && (
         <h4 className="mb-1 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
           {t(title, lang)}
         </h4>
       )}
-      {subtitle && <p className="mb-5 text-sm leading-relaxed text-muted">{t(subtitle, lang)}</p>}
+      {subtitle && <p className="mb-4 text-sm leading-relaxed text-muted">{t(subtitle, lang)}</p>}
 
       <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
         <div className="relative h-[200px] w-[200px] shrink-0">
@@ -81,7 +83,10 @@ export function DonutChart({
         </div>
       </div>
 
-      {note && <p className="mt-5 text-sm leading-relaxed text-muted">{t(note, lang)}</p>}
+      {note && <p className="mt-4 text-sm leading-relaxed text-muted">{t(note, lang)}</p>}
+      {sourceNote && (
+        <p className="mt-2 text-[0.78rem] leading-snug text-muted/70">{t(sourceNote, lang)}</p>
+      )}
     </div>
   );
 }

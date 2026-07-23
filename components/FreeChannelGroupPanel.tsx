@@ -6,6 +6,8 @@ import {
   type Group,
   type Lang,
   type TextBlock,
+  type StatsBlock,
+  type ChartBlock,
   type GalleryBlock,
   type FunnelBlock,
 } from '@/lib/content';
@@ -55,6 +57,51 @@ export function FreeChannelGroupPanel({ group, lang }: { group: Group; lang: Lan
   const galleryBlock = group.blocks.find((b): b is GalleryBlock => b.type === 'gallery');
   const hasGallery = !!galleryBlock && galleryBlock.items.length > 0;
   const funnelBlock = group.blocks.find((b): b is FunnelBlock => b.type === 'funnel');
+  const chartBlock = group.blocks.find((b): b is ChartBlock => b.type === 'chart');
+
+  // The one group with a chart (Organic & Community Growth) gets its own
+  // compact 40/60 overview layout instead of the generic stacked column —
+  // short description + 2x2 KPI grid on the left, chart + insight on the
+  // right, so it doesn't sprawl vertically.
+  if (chartBlock && !hasGallery) {
+    const statsBlock = group.blocks.find((b): b is StatsBlock => b.type === 'stats');
+    const introBlock = group.blocks.find((b): b is TextBlock => b.type === 'text');
+
+    return (
+      <motion.section
+        variants={reveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        className="mb-20 last:mb-0"
+      >
+        {group.title && (
+          <h3 className="mb-8 text-4xl font-bold leading-[1.15] tracking-[-0.02em]">
+            {t(group.title, lang)}
+          </h3>
+        )}
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:items-start">
+          <div className="space-y-6 lg:col-span-2">
+            {introBlock && <TextContent block={introBlock} lang={lang} />}
+            {statsBlock && <Stats items={statsBlock.items} lang={lang} compact />}
+          </div>
+
+          <div className="lg:col-span-3">
+            <DonutChart
+              data={chartBlock.data}
+              title={chartBlock.title}
+              subtitle={chartBlock.subtitle}
+              note={chartBlock.note}
+              sourceNote={chartBlock.sourceNote}
+              lang={lang}
+            />
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
+
   const contentBlocks = group.blocks.filter(
     (b) => b.type !== 'gallery' && b.type !== 'tools' && b.type !== 'funnel',
   );

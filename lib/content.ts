@@ -32,8 +32,9 @@ export type GalleryItem =
   | [string, Localized]
   | [string, Localized, number];
 
-/** Stat entry: [value, label] — value is a plain string (a number), label is localizable. */
-export type Stat = [string, Localized];
+/** Stat entry: [value, label] — value is usually a plain string (a number)
+ *  but may be localized too (e.g. a short text metric like "Multi-source"). */
+export type Stat = [Localized, Localized];
 
 /** Text block: a bullet list by default, or `prose: true` for paragraph(s).
  *  Optional `title` renders a small sub-heading above the block. Items may
@@ -54,8 +55,9 @@ export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
 /** One slice of a donut chart: a plain 0-100 percentage + localized label. */
 export type ChartDatum = { label: Localized; value: number };
 
-/** A small donut chart (recharts) with an optional title/subtitle above and
- *  a note below — e.g. "CV contribution by channel type". */
+/** A small donut chart (recharts) with an optional title/subtitle above,
+ *  an insight `note` below, and an even smaller `sourceNote` caption under
+ *  that (e.g. a channel list) — e.g. "CV contribution by channel type". */
 export type ChartBlock = {
   type: 'chart';
   chartType: 'donut';
@@ -63,6 +65,7 @@ export type ChartBlock = {
   subtitle?: Localized;
   data: ChartDatum[];
   note?: Localized;
+  sourceNote?: Localized;
 };
 
 /** One step of a horizontal (mobile: vertical) process funnel. `icon` keys a

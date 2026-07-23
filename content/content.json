@@ -796,9 +796,10 @@
                 {
                   "type": "text",
                   "boxed": true,
+                  "prose": true,
                   "title": {
-                    "en": "2025 — Build awareness",
-                    "vi": "2025 — Xây dựng nhận diện"
+                    "en": "2025 - Build awareness",
+                    "vi": "2025 - Xây dựng nhận diện"
                   },
                   "items": [
                     {
@@ -810,9 +811,10 @@
                 {
                   "type": "text",
                   "boxed": true,
+                  "prose": true,
                   "title": {
-                    "en": "2026 — Drive recruitment outcomes",
-                    "vi": "2026 — Thúc đẩy kết quả tuyển dụng"
+                    "en": "2026 - Drive recruitment outcomes",
+                    "vi": "2026 - Thúc đẩy kết quả tuyển dụng"
                   },
                   "items": [
                     {
@@ -1394,6 +1396,16 @@
               "title": "Organic & Community Growth",
               "blocks": [
                 {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Expand free candidate sources to reduce dependence on paid media, maintain a long-term lead source and support re-engagement for future recruitment rounds.",
+                      "vi": "Mở rộng các nguồn ứng viên miễn phí để giảm phụ thuộc vào paid media, duy trì nguồn lead dài hạn và hỗ trợ tái tiếp cận cho các đợt tuyển dụng sau."
+                    }
+                  ]
+                },
+                {
                   "type": "stats",
                   "items": [
                     [
@@ -1411,29 +1423,25 @@
                       }
                     ],
                     [
-                      "✓",
                       {
-                        "en": "Multi-source organic acquisition",
-                        "vi": "Tiếp cận organic đa nguồn"
+                        "en": "Multi-source",
+                        "vi": "Đa nguồn"
+                      },
+                      {
+                        "en": "Organic acquisition",
+                        "vi": "Tiếp cận organic"
                       }
                     ],
                     [
-                      "✓",
                       {
-                        "en": "Warm lead re-activation",
-                        "vi": "Tái tiếp cận warm lead"
+                        "en": "Warm leads",
+                        "vi": "Warm leads"
+                      },
+                      {
+                        "en": "Re-activation",
+                        "vi": "Tái tiếp cận"
                       }
                     ]
-                  ]
-                },
-                {
-                  "type": "text",
-                  "prose": true,
-                  "items": [
-                    {
-                      "en": "Expand unpaid candidate sources to reduce dependence on paid media, maintain a long-term lead source and create the ability to re-engage for upcoming recruitment rounds.",
-                      "vi": "Mở rộng các nguồn ứng viên không trả phí nhằm giảm phụ thuộc vào paid media, duy trì nguồn lead dài hạn và tạo khả năng tái tiếp cận cho các đợt tuyển dụng tiếp theo."
-                    }
                   ]
                 },
                 {
@@ -1464,18 +1472,13 @@
                     }
                   ],
                   "note": {
-                    "en": "Free channels include direct traffic, organic hiring platforms, social media, Zalo community, seeding and university partnerships.",
-                    "vi": "Free channels bao gồm direct traffic, các nền tảng tuyển dụng organic, social media, cộng đồng Zalo, seeding và hợp tác với các trường đại học."
+                    "en": "Free channels contributed 41.1% of total CVs, helping the project maintain candidate volume without depending entirely on the advertising budget.",
+                    "vi": "Free channels đóng góp 41,1% tổng CV, giúp dự án duy trì volume ứng viên mà không phụ thuộc hoàn toàn vào ngân sách quảng cáo."
+                  },
+                  "sourceNote": {
+                    "en": "Direct · Organic hiring platforms · Social media · Zalo · Seeding · University partnerships",
+                    "vi": "Direct · Nền tảng tuyển dụng organic · Social media · Zalo · Seeding · Hợp tác trường đại học"
                   }
-                },
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Free channels contributed 41.1% of total CVs, helping the project maintain candidate volume without depending entirely on the advertising budget.",
-                      "vi": "Free channels đóng góp 41,1% tổng CV, giúp dự án duy trì volume ứng viên mà không phụ thuộc hoàn toàn vào ngân sách quảng cáo."
-                    }
-                  ]
                 }
               ]
             },
@@ -2110,21 +2113,6 @@
                       "/previews/event-featured-10.jpg",
                       ""
                     ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "tools",
-                  "items": [
-                    "Claude Code",
-                    "Claude Design",
-                    "Zalo",
-                    "Meta Ads"
                   ]
                 }
               ]
