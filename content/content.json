@@ -1394,10 +1394,10 @@
         },
         {
           "enabled": true,
-          "id": "tiktok-management",
+          "id": "tiktok-script",
           "label": {
-            "en": "TikTok Management",
-            "vi": "Quản lý TikTok"
+            "en": "TikTok Script",
+            "vi": "Kịch bản TikTok"
           },
           "groups": [
             {
