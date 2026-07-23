@@ -37,11 +37,14 @@ export type Stat = [string, Localized];
 
 /** Text block: a bullet list by default, or `prose: true` for paragraph(s).
  *  Optional `title` renders a small sub-heading above the block. Items may
- *  carry trusted inline <b>/<a> markup from content.json. */
+ *  carry trusted inline <b>/<a> markup from content.json. `boxed` forces the
+ *  card chrome back on even inside a `flatText` group (an explicit per-block
+ *  override, e.g. a strategy-shift pair that should stay boxed). */
 export type TextBlock = {
   type: 'text';
   title?: Localized;
   prose?: boolean;
+  boxed?: boolean;
   items: Localized[];
 };
 /** Optional `title` renders a small sub-heading above the number cards. */

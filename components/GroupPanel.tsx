@@ -53,10 +53,11 @@ function spanClass(cell: VisualCell): string {
   return cell.full ? 'sm:col-span-3' : 'sm:col-span-1';
 }
 
-function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
+function IntroText({ block, lang, wide }: { block: TextBlock; lang: Lang; wide?: boolean }) {
+  const widthClass = wide ? 'w-full' : 'max-w-[640px]';
   if (block.prose) {
     return (
-      <div className="max-w-[640px] space-y-3">
+      <div className={`${widthClass} space-y-3`}>
         {block.items.map((it, j) => (
           <p
             key={j}
@@ -67,7 +68,7 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
       </div>
     );
   }
-  return <RichList items={block.items} lang={lang} className="max-w-[640px]" />;
+  return <RichList items={block.items} lang={lang} className={widthClass} />;
 }
 
 /** One "feature box": a single card holding the block's title + every bullet
@@ -76,8 +77,9 @@ function IntroText({ block, lang }: { block: TextBlock; lang: Lang }) {
  *  `flatText` drops the card chrome (bg/border/shadow/rounded/padding) for
  *  a plain-paragraph look — used project-wide for K-Tech College. */
 function FeatureBox({ block, lang, flatText }: { block: TextBlock; lang: Lang; flatText?: boolean }) {
+  const showBox = block.boxed || !flatText;
   return (
-    <div className={flatText ? '' : 'liquid-glass rounded-[24px] p-6'}>
+    <div className={showBox ? 'liquid-glass rounded-[24px] p-6' : ''}>
       {block.title && (
         <h4 className="mb-4 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
           {t(block.title, lang)}
@@ -262,6 +264,7 @@ export function GroupPanel({
   spacious,
   masonry,
   flatText,
+  wideIntro,
 }: {
   group: Group;
   lang: Lang;
@@ -274,6 +277,9 @@ export function GroupPanel({
   /** Drop the card chrome around text feature boxes for a plain-paragraph
    *  look (highlight-number stats keep their boxes regardless). */
   flatText?: boolean;
+  /** Let the group's intro paragraph/list fill the full container width
+   *  instead of the usual 640px reading-width cap. */
+  wideIntro?: boolean;
 }) {
   const blocks = group.blocks;
 
@@ -315,7 +321,7 @@ export function GroupPanel({
             {t(group.title, lang)}
           </h3>
         )}
-        {intro && <IntroText block={intro} lang={lang} />}
+        {intro && <IntroText block={intro} lang={lang} wide={wideIntro} />}
         {toolsBlock && (
           <div className="mt-4 flex flex-wrap gap-2">
             {toolsBlock.items.map((tool) => {

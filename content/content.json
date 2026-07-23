@@ -778,7 +778,10 @@
           "groups": [
             {
               "enabled": true,
-              "title": null,
+              "title": {
+                "en": "Overview",
+                "vi": "Tổng quan"
+              },
               "blocks": [
                 {
                   "type": "text",
@@ -792,6 +795,7 @@
                 },
                 {
                   "type": "text",
+                  "boxed": true,
                   "title": {
                     "en": "2025 — Build awareness",
                     "vi": "2025 — Xây dựng nhận diện"
@@ -805,6 +809,7 @@
                 },
                 {
                   "type": "text",
+                  "boxed": true,
                   "title": {
                     "en": "2026 — Drive recruitment outcomes",
                     "vi": "2026 — Thúc đẩy kết quả tuyển dụng"
