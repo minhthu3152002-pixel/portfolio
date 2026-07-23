@@ -23,6 +23,7 @@ import { CompareSlider } from '@/components/ui/compare-slider';
 import { DonutChart } from '@/components/ui/donut-chart';
 import { Funnel } from '@/components/ui/funnel';
 import { MasonryGallery } from '@/components/ui/masonry-gallery';
+import { MobileAppQrCode } from '@/components/ui/mobile-app-qr-code';
 import { reveal, viewportOnce } from '@/lib/motion';
 
 /** A bullet like "<b>Title</b> rest of the sentence" -> title/description.
@@ -405,6 +406,18 @@ export function GroupPanel({
       {masonry ? (
         <div className="mb-10">
           <MasonryGallery items={galleryBlock?.items ?? []} lang={lang} />
+        </div>
+      ) : soleCell && soleCell.kind === 'embed' && soleCell.block.frame === 'mobile' && soleCell.block.qr ? (
+        <div className="mb-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
+          <div className="w-full max-w-[320px]">
+            <EmbedCell block={soleCell.block} lang={lang} />
+          </div>
+          <MobileAppQrCode
+            url={soleCell.block.qr.url}
+            title={soleCell.block.qr.title}
+            subtitle={soleCell.block.qr.subtitle}
+            lang={lang}
+          />
         </div>
       ) : soleCell ? (
         <div className="mb-10 flex justify-center">

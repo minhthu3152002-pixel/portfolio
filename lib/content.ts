@@ -102,6 +102,9 @@ export type EmbedBlock = {
   aspect?: string; // default: browser '4/3', mobile '9/16'
   note?: Localized; // small note under the frame (e.g. "sample data")
   caption?: Localized;
+  /** Optional scan-to-open QR code shown beside a `frame: 'mobile'` preview
+   *  (desktop: side-by-side; mobile: stacked below). */
+  qr?: { url: string; title?: Localized; subtitle?: Localized };
 };
 
 /** A before/after image compare slider (draggable divider). */

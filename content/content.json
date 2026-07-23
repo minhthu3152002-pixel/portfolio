@@ -296,7 +296,18 @@
                     "vi": "Bạn có thể nhập tên để dùng thử."
                   },
                   "url": "https://mavis-steel.vercel.app/",
-                  "poster": "/previews/mavis-noti-mobile.png"
+                  "poster": "/previews/mavis-noti-mobile.png",
+                  "qr": {
+                    "url": "https://mavis-steel.vercel.app/",
+                    "title": {
+                      "en": "Optimized for mobile",
+                      "vi": "App được tối ưu cho mobile"
+                    },
+                    "subtitle": {
+                      "en": "Scan to try it on your phone",
+                      "vi": "Quét mã để chơi thử trên điện thoại"
+                    }
+                  }
                 },
                 {
                   "type": "text",
