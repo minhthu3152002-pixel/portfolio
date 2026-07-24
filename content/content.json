@@ -1842,7 +1842,10 @@
             },
             {
               "enabled": true,
-              "title": "Featured Case · May Matching Week & Ideathon",
+              "title": {
+                "en": "Featured Case: May Matching Week (most recent event)",
+                "vi": "Featured Case: May Matching Week (sự kiện gần nhất)"
+              },
               "blocks": [
                 {
                   "type": "text",
