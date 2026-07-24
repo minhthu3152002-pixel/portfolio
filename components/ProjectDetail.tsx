@@ -11,7 +11,6 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { GroupPanel } from '@/components/GroupPanel';
 import { FreeChannelGroupPanel } from '@/components/FreeChannelGroupPanel';
 import { FeaturedCasePanel } from '@/components/FeaturedCasePanel';
-import { EmailCrmPanel } from '@/components/EmailCrmPanel';
 import { MetaAdsSwitcher } from '@/components/ui/meta-ads-switcher';
 import {
   tabSpring,
@@ -197,9 +196,6 @@ export function ProjectDetail({ project: p }: { project: Project }) {
               );
               if (isFeaturedCase) {
                 return <FeaturedCasePanel key={i} group={g} lang={lang} />;
-              }
-              if (p.id === 'ai-automation' && active?.id === 'email-crm') {
-                return <EmailCrmPanel key={i} group={g} lang={lang} />;
               }
               return (
                 <GroupPanel
