@@ -50,7 +50,7 @@ export type TextBlock = {
 };
 /** Optional `title` renders a small sub-heading above the number cards. */
 export type StatsBlock = { type: 'stats'; title?: Localized; items: Stat[] };
-export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
+export type GalleryBlock = { type: 'gallery'; title?: Localized; items: GalleryItem[] };
 
 /** One slice of a donut chart: a plain 0-100 percentage + localized label. */
 export type ChartDatum = { label: Localized; value: number };
@@ -77,7 +77,7 @@ export type FunnelStep = {
   icon?: string;
   highlight?: boolean;
 };
-export type FunnelBlock = { type: 'funnel'; steps: FunnelStep[] };
+export type FunnelBlock = { type: 'funnel'; title?: Localized; steps: FunnelStep[] };
 
 /** One short card: a bold title + a description line. */
 export type CardItem = { title: Localized; desc: Localized };
@@ -109,24 +109,29 @@ export type ResultsColumn = {
  *  section (Interview Results | Ideathon Results). */
 export type ResultsBlock = { type: 'results'; columns: ResultsColumn[] };
 
-/** Objective + Challenge stacked in one card, paired with a Strategy
- *  bullet-list card — K-Tech College's Featured Case section. */
-export type ObjectiveStrategyBlock = {
-  type: 'objectiveStrategy';
+/** Objective and Challenge as two equal side-by-side cards — K-Tech
+ *  College's Featured Case section. */
+export type ObjectiveChallengeBlock = {
+  type: 'objectiveChallenge';
   objectiveTitle: Localized;
   objectiveText: Localized;
   challengeTitle: Localized;
   challengeText: Localized;
-  strategyTitle: Localized;
-  strategyBullets: Localized[];
 };
 
 /** One "my role" card: a title + its own bullet list. */
 export type RoleCard = { title: Localized; bullets: Localized[] };
 
-/** A row of role cards (3 on desktop, 2+1 tablet, stacked mobile) —
- *  K-Tech College's Featured Case "My Role" section. */
-export type RoleCardsBlock = { type: 'roleCards'; items: RoleCard[] };
+/** A Strategy bullet-list card paired with a chip-switchable "My Role"
+ *  card (one role's bullets visible at a time) — K-Tech College's
+ *  Featured Case section. */
+export type StrategyRoleBlock = {
+  type: 'strategyRole';
+  strategyTitle: Localized;
+  strategyBullets: Localized[];
+  roleTitle: Localized;
+  roles: RoleCard[];
+};
 
 /** A live preview embedded in a browser or phone frame. When `embeddable` is
  *  false (or the iframe fails) it shows `poster` + an "open live" button. The
@@ -208,8 +213,8 @@ export type Block =
   | MetaAdsSwitcherBlock
   | SubheadingBlock
   | ResultsBlock
-  | ObjectiveStrategyBlock
-  | RoleCardsBlock;
+  | ObjectiveChallengeBlock
+  | StrategyRoleBlock;
 
 export type Group = {
   enabled?: boolean;

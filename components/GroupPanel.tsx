@@ -248,6 +248,9 @@ function renderFeatures(
     } else if (b.type === 'funnel') {
       output.push(
         <div key={i} className="mb-10 last:mb-0">
+          {b.title && (
+            <h4 className="mb-4 text-[1.05rem] font-bold tracking-[-0.01em] text-text">{t(b.title, lang)}</h4>
+          )}
           <Funnel steps={b.steps} lang={lang} />
         </div>,
       );

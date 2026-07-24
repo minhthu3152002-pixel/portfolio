@@ -1983,7 +1983,7 @@
                       "kpis": [
                         {
                           "value": "1.365",
-                          "label": { "en": "CV", "vi": "CV" },
+                          "label": { "en": "Total CVs", "vi": "Tổng CV" },
                           "note": {
                             "en": "↑ 160% vs. a plan of 525 CVs",
                             "vi": "↑ 160% so với plan 525 CV"
@@ -2010,7 +2010,7 @@
                           "label": { "en": "Interview slots", "vi": "Interview slots" },
                           "note": {
                             "en": "Direct interview slots with businesses at the event",
-                            "vi": "Lượt phỏng vấn trực tiếp với doanh nghiệp tại sự kiện"
+                            "vi": "Phỏng vấn trực tiếp với doanh nghiệp tại sự kiện"
                           }
                         }
                       ],
@@ -2035,7 +2035,7 @@
                         },
                         {
                           "value": "10.461 VNĐ",
-                          "label": { "en": "CPL", "vi": "CPL" },
+                          "label": { "en": "Cost per lead", "vi": "Cost per lead" },
                           "note": {
                             "en": "↓ 79% vs. planned CPL of 50,000 VNĐ/lead",
                             "vi": "↓ 79% so với CPL plan 50.000 VNĐ/lead"
@@ -2066,7 +2066,7 @@
                   ]
                 },
                 {
-                  "type": "objectiveStrategy",
+                  "type": "objectiveChallenge",
                   "objectiveTitle": {
                     "en": "Objective",
                     "vi": "Mục tiêu"
@@ -2082,7 +2082,10 @@
                   "challengeText": {
                     "en": "Within 3 weeks, the team had to recruit for open positions and attract Ideathon contestants at the same time, requiring fast execution while still targeting the right audience and keeping costs efficient.",
                     "vi": "Trong 3 tuần, team phải đồng thời tuyển ứng viên cho các vị trí đang mở và thu hút thí sinh tham gia Ideathon, nên cần triển khai nhanh nhưng vẫn đảm bảo đúng đối tượng và hiệu quả chi phí."
-                  },
+                  }
+                },
+                {
+                  "type": "strategyRole",
                   "strategyTitle": {
                     "en": "Strategy",
                     "vi": "Chiến lược"
@@ -2104,11 +2107,12 @@
                       "en": "Developed creative around case studies, hot jobs, event information, prizes and benefits.",
                       "vi": "Phát triển creative theo các hướng: case study, hot jobs, thông tin sự kiện, giải thưởng và quyền lợi."
                     }
-                  ]
-                },
-                {
-                  "type": "roleCards",
-                  "items": [
+                  ],
+                  "roleTitle": {
+                    "en": "My Role",
+                    "vi": "My Role"
+                  },
+                  "roles": [
                     {
                       "title": {
                         "en": "Marketing & Candidate Acquisition",
@@ -2192,7 +2196,53 @@
                   ]
                 },
                 {
+                  "type": "funnel",
+                  "title": {
+                    "en": "Event Flow",
+                    "vi": "Event Flow"
+                  },
+                  "steps": [
+                    {
+                      "label": "Campaign",
+                      "icon": "Megaphone"
+                    },
+                    {
+                      "label": {
+                        "en": "Registration",
+                        "vi": "Đăng ký"
+                      },
+                      "icon": "UserPlus"
+                    },
+                    {
+                      "label": {
+                        "en": "Confirmation",
+                        "vi": "Xác nhận"
+                      },
+                      "icon": "CheckCircle2"
+                    },
+                    {
+                      "label": {
+                        "en": "Reminder",
+                        "vi": "Nhắc lịch"
+                      },
+                      "icon": "Bell"
+                    },
+                    {
+                      "label": "Check-in",
+                      "icon": "MapPin"
+                    },
+                    {
+                      "label": "Follow-up",
+                      "icon": "Repeat"
+                    }
+                  ]
+                },
+                {
                   "type": "gallery",
+                  "title": {
+                    "en": "Event Gallery",
+                    "vi": "Thư viện sự kiện"
+                  },
                   "items": [
                     ["/previews/event-featured-1.jpg", ""],
                     ["/previews/event-featured-2.jpg", ""],
@@ -2205,7 +2255,6 @@
                   ]
                 }
               ]
-
             }
           ]
         },

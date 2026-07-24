@@ -192,7 +192,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
                 return <MetaAdsSwitcher key={i} block={switcherBlock} lang={lang} />;
               }
               const isFeaturedCase = g.blocks.some(
-                (b) => b.type === 'results' || b.type === 'objectiveStrategy' || b.type === 'roleCards',
+                (b) => b.type === 'results' || b.type === 'objectiveChallenge' || b.type === 'strategyRole',
               );
               if (isFeaturedCase) {
                 return <FeaturedCasePanel key={i} group={g} lang={lang} />;
