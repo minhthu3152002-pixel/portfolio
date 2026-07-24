@@ -11,6 +11,7 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { GroupPanel } from '@/components/GroupPanel';
 import { FreeChannelGroupPanel } from '@/components/FreeChannelGroupPanel';
 import { FeaturedCasePanel } from '@/components/FeaturedCasePanel';
+import { CopywriterCaseStudyPanel } from '@/components/CopywriterCaseStudyPanel';
 import { MetaAdsSwitcher } from '@/components/ui/meta-ads-switcher';
 import {
   tabSpring,
@@ -196,6 +197,10 @@ export function ProjectDetail({ project: p }: { project: Project }) {
               );
               if (isFeaturedCase) {
                 return <FeaturedCasePanel key={i} group={g} lang={lang} />;
+              }
+              const isCaseStudySplit = g.blocks.some((b) => b.type === 'sideImage');
+              if (isCaseStudySplit) {
+                return <CopywriterCaseStudyPanel key={i} group={g} lang={lang} />;
               }
               return (
                 <GroupPanel

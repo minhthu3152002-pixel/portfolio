@@ -89,6 +89,23 @@ export type CardsBlock = { type: 'cards'; items: CardItem[] };
 /** A horizontal row of tool chips (reuses the About Tools chip style). */
 export type ToolsBlock = { type: 'tools'; items: Localized[] };
 
+/** One client: a circular logo + name + short description, no lightbox. */
+export type ClientItem = { logo: string; name: Localized; desc: Localized };
+
+/** A row of client logos (circular avatars, wraps on mobile) — for a
+ *  "featured clients" list rather than a clickable image gallery. */
+export type ClientsBlock = { type: 'clients'; items: ClientItem[] };
+
+/** One row of a messaging framework (e.g. Get who / To do what / By how). */
+export type FrameworkStep = { label: Localized; text: Localized };
+
+/** A short stacked messaging framework — Copywriter project case studies. */
+export type FrameworkBlock = { type: 'framework'; items: FrameworkStep[] };
+
+/** A single image for the side column of a text/image split layout
+ *  (Copywriter project case-study tabs). */
+export type SideImageBlock = { type: 'sideImage'; src: string; alt?: Localized };
+
 /** A short bold sub-heading rendered plain (no card chrome) below the
  *  group title — e.g. "Key activities: Interview & Ideathon". */
 export type SubheadingBlock = { type: 'subheading'; text: Localized };
@@ -219,7 +236,10 @@ export type Block =
   | SubheadingBlock
   | ResultsBlock
   | ObjectiveChallengeBlock
-  | StrategyRoleBlock;
+  | StrategyRoleBlock
+  | ClientsBlock
+  | FrameworkBlock
+  | SideImageBlock;
 
 export type Group = {
   enabled?: boolean;

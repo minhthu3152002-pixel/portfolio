@@ -2720,10 +2720,11 @@
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "As a copywriter at WEALLNET Agency, developed messaging strategy and creative concepts for featured clients: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy and Ha Thien Energy</b>.",
-                      "vi": "Ở vai trò copywriter tại WEALLNET Agency, mình phát triển chiến lược thông điệp và ý tưởng sáng tạo cho các khách hàng tiêu biểu: <b>imoo Watch Phone, FROMCAUDAT Coffee, VITASA Academy và Hà Thiên Energy</b>."
+                      "en": "Developed messaging strategy and creative concepts for clients across a range of industries, including technology, F&B, education and energy.",
+                      "vi": "Phát triển chiến lược thông điệp và creative concept cho các khách hàng thuộc nhiều lĩnh vực khác nhau như công nghệ, F&B, giáo dục và năng lượng."
                     }
                   ]
                 }
@@ -2732,20 +2733,36 @@
             {
               "enabled": true,
               "title": {
-                "en": "Responsibilities",
-                "vi": "Trách nhiệm"
+                "en": "My Role",
+                "vi": "Vai trò của tôi"
               },
               "blocks": [
                 {
                   "type": "text",
                   "items": [
                     {
-                      "en": "Conducted market research, competitor analysis and industry trend evaluation for every brief.",
-                      "vi": "Thực hiện nghiên cứu thị trường, phân tích đối thủ và đánh giá xu hướng ngành cho mỗi brief."
+                      "en": "Researched the market, competitors and industry trends for every brief.",
+                      "vi": "Nghiên cứu thị trường, đối thủ và xu hướng ngành cho từng brief."
                     },
                     {
-                      "en": "Analyzed target customer personas and developed key messages with a brand-appropriate tone of voice.",
-                      "vi": "Phân tích chân dung khách hàng mục tiêu và xây dựng key message với tone of voice phù hợp thương hiệu."
+                      "en": "Analyzed target customer personas and key insights.",
+                      "vi": "Phân tích chân dung khách hàng mục tiêu và insight chính."
+                    },
+                    {
+                      "en": "Developed key messages and a tone of voice suited to each brand.",
+                      "vi": "Xây dựng key message và tone of voice phù hợp với từng thương hiệu."
+                    },
+                    {
+                      "en": "Developed the big idea, creative concept and content direction.",
+                      "vi": "Phát triển big idea, creative concept và định hướng nội dung."
+                    },
+                    {
+                      "en": "Proposed ad formats suited to each communication objective.",
+                      "vi": "Đề xuất format quảng cáo phù hợp với mục tiêu truyền thông."
+                    },
+                    {
+                      "en": "Finalized the messaging framework to support media rollout.",
+                      "vi": "Hoàn thiện messaging framework để phục vụ triển khai media."
                     }
                   ]
                 }
@@ -2762,12 +2779,16 @@
                   "type": "text",
                   "items": [
                     {
-                      "en": "Each client came from a different industry with distinct audiences — from parents buying kids' smartwatches to takeaway coffee cart owners.",
-                      "vi": "Mỗi khách hàng thuộc một ngành khác nhau với tệp đối tượng riêng — từ phụ huynh mua đồng hồ thông minh cho con đến chủ xe cà phê mang đi."
+                      "en": "Each client came from a different industry, with its own target audience and purchasing behavior.",
+                      "vi": "Mỗi khách hàng thuộc một ngành khác nhau, với đối tượng mục tiêu và hành vi mua hàng riêng."
                     },
                     {
-                      "en": "Messaging had to balance brand-appropriate tone of voice with concrete conversion goals.",
-                      "vi": "Thông điệp phải cân bằng giữa tone of voice đúng thương hiệu và mục tiêu chuyển đổi cụ thể."
+                      "en": "Messaging had to stay true to the brand's spirit while still serving concrete conversion goals.",
+                      "vi": "Thông điệp cần vừa giữ đúng tinh thần thương hiệu, vừa phục vụ mục tiêu chuyển đổi cụ thể."
+                    },
+                    {
+                      "en": "Content had to be flexible enough to work across multiple formats and channels.",
+                      "vi": "Nội dung phải đủ linh hoạt để áp dụng trên nhiều định dạng và kênh truyền thông."
                     }
                   ]
                 }
@@ -2776,21 +2797,45 @@
             {
               "enabled": true,
               "title": {
-                "en": "Clients",
-                "vi": "Khách hàng"
+                "en": "Featured Clients",
+                "vi": "Featured Clients"
               },
               "blocks": [
                 {
-                  "type": "gallery",
+                  "type": "clients",
                   "items": [
-                    [
-                      "/assets/copy-overview.jpg",
-                      {
-                        "en": "Featured clients & responsibilities",
-                        "vi": "Khách hàng tiêu biểu & trách nhiệm"
-                      },
-                      1
-                    ]
+                    {
+                      "logo": "/previews/copywriter-client-1.png",
+                      "name": "imoo Watch Phone",
+                      "desc": {
+                        "en": "A smartwatch device built for children and parents.",
+                        "vi": "Thiết bị đồng hồ thông minh dành cho trẻ em và phụ huynh."
+                      }
+                    },
+                    {
+                      "logo": "/previews/copywriter-client-2.png",
+                      "name": "FROMCAUDAT Coffee",
+                      "desc": {
+                        "en": "A specialty coffee brand built around a takeaway business model.",
+                        "vi": "Thương hiệu cà phê đặc sản hướng đến mô hình kinh doanh takeaway."
+                      }
+                    },
+                    {
+                      "logo": "/previews/copywriter-client-3.png",
+                      "name": "VITASA Academy",
+                      "desc": {
+                        "en": "A training provider for aviation knowledge and skills.",
+                        "vi": "Đơn vị đào tạo kiến thức và kỹ năng trong lĩnh vực hàng không."
+                      }
+                    },
+                    {
+                      "logo": "/previews/copywriter-client-4.png",
+                      "name": "Ha Thien Energy",
+                      "desc": {
+                        "en": "A company providing solar energy solutions.",
+                        "vi": "Doanh nghiệp cung cấp giải pháp năng lượng mặt trời."
+                      }
+                    }
                   ]
                 }
               ]
@@ -2803,41 +2848,19 @@
               },
               "blocks": [
                 {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "4",
-                      {
-                        "en": "featured clients",
-                        "vi": "khách hàng tiêu biểu"
-                      }
-                    ],
-                    [
-                      "750",
-                      {
-                        "en": "carts — franchise growth target",
-                        "vi": "xe đẩy — mục tiêu tăng trưởng nhượng quyền"
-                      }
-                    ],
-                    [
-                      "3",
-                      {
-                        "en": "audience groups per campaign",
-                        "vi": "nhóm đối tượng mỗi chiến dịch"
-                      }
-                    ]
-                  ]
-                },
-                {
                   "type": "text",
                   "items": [
                     {
-                      "en": "Received <b>positive client feedback</b> on proposals — approved for next steps.",
-                      "vi": "Nhận <b>phản hồi tích cực từ khách hàng</b> về đề xuất — được duyệt cho các bước tiếp theo."
+                      "en": "Proposals received positive feedback from clients and were approved for the next stage of execution.",
+                      "vi": "Các proposal nhận được phản hồi tích cực từ khách hàng và được duyệt triển khai ở bước tiếp theo."
                     },
                     {
-                      "en": "Delivered full messaging frameworks (Get who / To do what / By how) ready for media rollout.",
-                      "vi": "Bàn giao framework thông điệp hoàn chỉnh (Get who / To do what / By how) sẵn sàng để triển khai truyền thông."
+                      "en": "Finalized messaging frameworks following the Get who / To do what / By how structure.",
+                      "vi": "Hoàn thiện messaging framework theo cấu trúc Get who / To do what / By how."
+                    },
+                    {
+                      "en": "Delivered messaging direction and creative concepts ready for content development and media rollout.",
+                      "vi": "Bàn giao định hướng thông điệp và creative concept sẵn sàng cho quá trình phát triển nội dung và media rollout."
                     }
                   ]
                 }
@@ -2859,24 +2882,72 @@
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "<b>imoo Z7:</b> positioned the smartwatch as peace-of-mind for busy parents (kids 5–12), with content built on safety, real-life stories and product comparisons across Google, Facebook Ads and website UX.",
-                      "vi": "<b>imoo Z7:</b> định vị chiếc smartwatch như sự an tâm cho các bậc phụ huynh bận rộn (trẻ 5–12 tuổi), với nội dung xoay quanh an toàn, câu chuyện thực tế và so sánh sản phẩm trên Google, Facebook Ads và UX website."
+                      "en": "imoo Z7 was positioned as a solution that gives busy parents more peace of mind while staying connected to and keeping track of their children throughout the day.",
+                      "vi": "imoo Z7 được định vị như một giải pháp giúp phụ huynh bận rộn an tâm hơn khi vẫn có thể kết nối và theo dõi con trong ngày."
                     }
                   ]
                 },
                 {
-                  "type": "gallery",
+                  "type": "text",
+                  "title": {
+                    "en": "My Responsibilities",
+                    "vi": "My Responsibilities"
+                  },
                   "items": [
-                    [
-                      "/assets/copy-imoo.jpg",
-                      {
-                        "en": "imoo Watch Phone campaign",
-                        "vi": "Chiến dịch imoo Watch Phone"
-                      }
-                    ]
+                    {
+                      "en": "Analyzed parents of children aged 5–12 and their key concerns around safety, communication and supervision.",
+                      "vi": "Phân tích nhóm phụ huynh có con từ 5–12 tuổi và các mối quan tâm chính về an toàn, liên lạc và giám sát."
+                    },
+                    {
+                      "en": "Built the strategic messaging and content direction for the campaign.",
+                      "vi": "Xây dựng strategic messaging và content direction cho chiến dịch."
+                    },
+                    {
+                      "en": "Developed key messages using the Get who / To do what / By how framework.",
+                      "vi": "Phát triển key message theo framework Get who / To do what / By how."
+                    },
+                    {
+                      "en": "Proposed content for Google, Facebook Ads, the website and customer reviews.",
+                      "vi": "Đề xuất nội dung cho Google, Facebook Ads, website và customer reviews."
+                    }
                   ]
+                },
+                {
+                  "type": "framework",
+                  "items": [
+                    {
+                      "label": "Get who",
+                      "text": {
+                        "en": "Parents of children aged 5–12, with a mid-to-upper income, busy schedules and a strong priority on their child's safety.",
+                        "vi": "Phụ huynh có con từ 5–12 tuổi, thu nhập trung bình khá trở lên, có lịch trình bận rộn và ưu tiên sự an toàn của con."
+                      }
+                    },
+                    {
+                      "label": "To do what",
+                      "text": {
+                        "en": "Trust and choose a kids' smartwatch as a tool that helps them stay connected, keep track of their child and feel more at ease.",
+                        "vi": "Tin tưởng và lựa chọn smartwatch trẻ em như một công cụ giúp duy trì kết nối, theo dõi và an tâm hơn."
+                      }
+                    },
+                    {
+                      "label": "By how",
+                      "text": {
+                        "en": "Developing content centered on safety, real-life experiences, product features and comparisons with other options on the market.",
+                        "vi": "Phát triển nội dung xoay quanh an toàn, trải nghiệm thực tế, tính năng sản phẩm và so sánh với các lựa chọn khác trên thị trường."
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "sideImage",
+                  "src": "/previews/copywriter-imoo-1.png",
+                  "alt": {
+                    "en": "imoo Watch Phone campaign visual",
+                    "vi": "Hình ảnh chiến dịch imoo Watch Phone"
+                  }
                 }
               ]
             }
@@ -2884,7 +2955,7 @@
         },
         {
           "enabled": true,
-          "id": "fromcaudat",
+          "id": "caudat",
           "label": {
             "en": "FROMCAUDAT Coffee",
             "vi": "FROMCAUDAT Coffee"
@@ -2896,30 +2967,79 @@
               "blocks": [
                 {
                   "type": "text",
+                  "prose": true,
                   "items": [
                     {
-                      "en": "<b>FROMCAUDAT:</b> crafted a community-driven narrative ('Nhà Đồng Hành') to scale the takeaway coffee franchise toward 750 carts in 10 months, targeting sellers, student baristas and busy professionals.",
-                      "vi": "<b>FROMCAUDAT:</b> xây dựng câu chuyện lấy cộng đồng làm trọng tâm ('Nhà Đồng Hành') để mở rộng chuỗi nhượng quyền cà phê mang đi lên 750 xe trong 10 tháng, nhắm đến người bán, barista sinh viên và dân văn phòng bận rộn."
+                      "en": "Built a community-driven brand story to support the goal of scaling the takeaway coffee model to 750 carts within 10 months.",
+                      "vi": "Xây dựng câu chuyện thương hiệu theo hướng cộng đồng nhằm hỗ trợ mục tiêu mở rộng mô hình cà phê takeaway lên 750 xe trong 10 tháng."
                     }
                   ]
                 },
                 {
-                  "type": "gallery",
+                  "type": "text",
+                  "title": {
+                    "en": "My Responsibilities",
+                    "vi": "My Responsibilities"
+                  },
                   "items": [
-                    [
-                      "/assets/copy-fromcaudat.jpg",
-                      {
-                        "en": "FROMCAUDAT Coffee campaign",
-                        "vi": "Chiến dịch FROMCAUDAT Coffee"
-                      }
-                    ]
+                    {
+                      "en": "Analyzed three key audience groups: coffee cart entrepreneurs, young baristas and busy customers.",
+                      "vi": "Phân tích ba nhóm đối tượng chính: người kinh doanh xe cà phê, barista trẻ và khách hàng bận rộn."
+                    },
+                    {
+                      "en": "Built the strategic messaging and creative concept for the campaign.",
+                      "vi": "Xây dựng strategic messaging và creative concept cho chiến dịch."
+                    },
+                    {
+                      "en": "Developed the Get who / To do what / By how framework.",
+                      "vi": "Phát triển framework Get who / To do what / By how."
+                    },
+                    {
+                      "en": "Directed content to increase brand awareness, attract partners and support conversion.",
+                      "vi": "Định hướng nội dung giúp tăng nhận diện, thu hút đối tác và hỗ trợ chuyển đổi."
+                    }
                   ]
+                },
+                {
+                  "type": "framework",
+                  "items": [
+                    {
+                      "label": "Get who",
+                      "text": {
+                        "en": "People looking to start a business with the takeaway coffee model, students seeking part-time work, and working professionals aged 25–40.",
+                        "vi": "Người muốn khởi nghiệp với mô hình cà phê takeaway, sinh viên tìm việc bán thời gian và người đi làm từ 25–40 tuổi."
+                      }
+                    },
+                    {
+                      "label": "To do what",
+                      "text": {
+                        "en": "Trust FROMCAUDAT as a community-driven business model that creates job opportunities and spreads the value of Vietnamese coffee.",
+                        "vi": "Tin tưởng FROMCAUDAT như một mô hình kinh doanh có tính cộng đồng, tạo cơ hội việc làm và lan tỏa giá trị cà phê Việt."
+                      }
+                    },
+                    {
+                      "label": "By how",
+                      "text": {
+                        "en": "Leveraging the \"Nhà Đồng Hành\" (Companion House) message, combining the founder's story, the business model and specialty coffee quality across digital channels.",
+                        "vi": "Khai thác thông điệp \"Nhà Đồng Hành\", kết hợp câu chuyện người sáng lập, mô hình kinh doanh và chất lượng cà phê đặc sản trên các kênh digital."
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "sideImage",
+                  "src": "/previews/copywriter-caudat-1.png",
+                  "alt": {
+                    "en": "FROMCAUDAT Coffee campaign visual",
+                    "vi": "Hình ảnh chiến dịch FROMCAUDAT Coffee"
+                  }
                 }
               ]
             }
           ]
         }
       ]
+
     },
     {
       "_section": "===== PROJECT 5 · OTHER =====",
@@ -2931,8 +3051,8 @@
         "vi": "Khác"
       },
       "short": {
-        "en": "University and self-driven projects — from leading a campus design competition to building a full brand identity system.",
-        "vi": "Các dự án đại học và tự thực hiện — từ dẫn dắt một cuộc thi thiết kế cấp trường đến xây dựng trọn bộ hệ thống nhận diện thương hiệu."
+        "en": "University projects and internal employee events.",
+        "vi": "Các dự án ở trường đại học và tổ chức sự kiện nội bộ cho nhân viên công ty."
       },
       "tags": [
         {
