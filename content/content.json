@@ -1848,283 +1848,243 @@
               },
               "blocks": [
                 {
-                  "type": "text",
-                  "boxed": true,
-                  "prose": true,
-                  "title": {
-                    "en": "Business Objective",
-                    "vi": "Mục tiêu kinh doanh"
-                  },
-                  "items": [
+                  "type": "subheading",
+                  "text": "Key activities: Interview & Ideathon"
+                },
+                {
+                  "type": "results",
+                  "columns": [
                     {
-                      "en": "Attract candidates for open positions, expand the talent pool and create opportunities for direct connections between Vietnamese candidates and Korean businesses.",
-                      "vi": "Thu hút ứng viên cho các vị trí đang mở, mở rộng talent pool và tạo cơ hội kết nối trực tiếp giữa ứng viên Việt Nam với doanh nghiệp Hàn Quốc."
+                      "title": {
+                        "en": "Interview Results",
+                        "vi": "Interview Results"
+                      },
+                      "kpis": [
+                        {
+                          "value": "1.365",
+                          "label": { "en": "CV", "vi": "CV" },
+                          "note": {
+                            "en": "↑ 160% vs. a plan of 525 CVs",
+                            "vi": "↑ 160% so với plan 525 CV"
+                          }
+                        },
+                        {
+                          "value": "~37.800 VNĐ",
+                          "label": { "en": "Cost per CV", "vi": "Cost per CV" },
+                          "note": {
+                            "en": "↓ 63% vs. planned CPL of ~102,900 VNĐ/CV",
+                            "vi": "↓ 63% so với CPL plan ~102.900 VNĐ/CV"
+                          }
+                        },
+                        {
+                          "value": "51,6M VNĐ",
+                          "label": { "en": "Actual spend", "vi": "Actual spend" },
+                          "note": {
+                            "en": "↓ 4.5% vs. planned budget of 54M VNĐ",
+                            "vi": "↓ 4,5% so với ngân sách plan 54M VNĐ"
+                          }
+                        },
+                        {
+                          "value": "17",
+                          "label": { "en": "Interview slots", "vi": "Interview slots" },
+                          "note": {
+                            "en": "Direct interview slots with businesses at the event",
+                            "vi": "Lượt phỏng vấn trực tiếp với doanh nghiệp tại sự kiện"
+                          }
+                        }
+                      ],
+                      "channelNote": {
+                        "en": "Meta Ads · LinkedIn Promoted Jobs · TopDev · ITviec · Social media · Zalo community",
+                        "vi": "Meta Ads · LinkedIn Promoted Jobs · TopDev · ITviec · Social media · Zalo community"
+                      }
+                    },
+                    {
+                      "title": {
+                        "en": "Ideathon Results",
+                        "vi": "Ideathon Results"
+                      },
+                      "kpis": [
+                        {
+                          "value": "88",
+                          "label": { "en": "Meta leads", "vi": "Meta leads" },
+                          "note": {
+                            "en": "↑ 76% vs. a plan of 50 leads",
+                            "vi": "↑ 76% so với kế hoạch 50 leads"
+                          }
+                        },
+                        {
+                          "value": "10.461 VNĐ",
+                          "label": { "en": "CPL", "vi": "CPL" },
+                          "note": {
+                            "en": "↓ 79% vs. planned CPL of 50,000 VNĐ/lead",
+                            "vi": "↓ 79% so với CPL plan 50.000 VNĐ/lead"
+                          }
+                        },
+                        {
+                          "value": "920.550 VNĐ",
+                          "label": { "en": "Actual spend", "vi": "Actual spend" },
+                          "note": {
+                            "en": "↓ 63% vs. planned budget of 2.5M VNĐ",
+                            "vi": "↓ 63% so với ngân sách kế hoạch 2,5M VNĐ"
+                          }
+                        },
+                        {
+                          "value": "40",
+                          "label": { "en": "Submissions", "vi": "Submissions" },
+                          "note": {
+                            "en": "↑ 100% vs. a target of 20 submissions",
+                            "vi": "↑ 100% so với target 20 bài"
+                          }
+                        }
+                      ],
+                      "channelNote": {
+                        "en": "Meta Ads · Social media · University partnerships",
+                        "vi": "Meta Ads · Social media · Hợp tác trường đại học"
+                      }
                     }
                   ]
                 },
                 {
-                  "type": "text",
-                  "boxed": true,
-                  "title": {
+                  "type": "objectiveStrategy",
+                  "objectiveTitle": {
+                    "en": "Objective",
+                    "vi": "Mục tiêu"
+                  },
+                  "objectiveText": {
+                    "en": "Attract candidates for the interview positions at the event, expand the talent pool and create opportunities for direct connections between Vietnamese candidates and Korean businesses.",
+                    "vi": "Thu hút ứng viên cho các vị trí phỏng vấn tại sự kiện, mở rộng talent pool và tạo cơ hội kết nối trực tiếp giữa ứng viên Việt Nam với doanh nghiệp Hàn Quốc."
+                  },
+                  "challengeTitle": {
+                    "en": "Challenge",
+                    "vi": "Thách thức"
+                  },
+                  "challengeText": {
+                    "en": "Within 3 weeks, the team had to recruit for open positions and attract Ideathon contestants at the same time, requiring fast execution while still targeting the right audience and keeping costs efficient.",
+                    "vi": "Trong 3 tuần, team phải đồng thời tuyển ứng viên cho các vị trí đang mở và thu hút thí sinh tham gia Ideathon, nên cần triển khai nhanh nhưng vẫn đảm bảo đúng đối tượng và hiệu quả chi phí."
+                  },
+                  "strategyTitle": {
                     "en": "Strategy",
                     "vi": "Chiến lược"
                   },
-                  "items": [
+                  "strategyBullets": [
                     {
-                      "en": "Allocated a 20M VNĐ budget across talent pool, event and Ideathon phases.",
-                      "vi": "Phân bổ ngân sách 20 triệu VNĐ theo các giai đoạn talent pool, event và Ideathon."
+                      "en": "Allocated the Meta Ads budget across two main activities: interviews and the Ideathon.",
+                      "vi": "Phân bổ ngân sách Meta Ads cho hai hoạt động chính: interview và Ideathon."
                     },
                     {
-                      "en": "Segmented audiences by experience level and role to keep messaging relevant.",
-                      "vi": "Phân nhóm audience theo kinh nghiệm và vai trò để thông điệp luôn phù hợp."
+                      "en": "Segmented audiences by experience, field and role to personalize messaging.",
+                      "vi": "Phân nhóm audience theo kinh nghiệm, lĩnh vực và vai trò để cá nhân hóa thông điệp."
                     },
                     {
                       "en": "Combined Lead Ads and Instant Form to shorten the registration journey.",
-                      "vi": "Kết hợp Lead Ads và Instant Form để rút ngắn hành trình đăng ký."
+                      "vi": "Kết hợp Lead Ads và Instant Form nhằm rút ngắn hành trình đăng ký."
                     },
                     {
-                      "en": "Built creative around case studies, hot jobs, prizes and benefits.",
-                      "vi": "Xây dựng creative xoay quanh case study, hot jobs, giải thưởng và quyền lợi."
+                      "en": "Developed creative around case studies, hot jobs, event information, prizes and benefits.",
+                      "vi": "Phát triển creative theo các hướng: case study, hot jobs, thông tin sự kiện, giải thưởng và quyền lợi."
                     }
                   ]
                 },
                 {
-                  "type": "text",
-                  "boxed": true,
-                  "title": {
-                    "en": "Marketing & Acquisition",
-                    "vi": "Marketing & Thu hút ứng viên"
-                  },
+                  "type": "roleCards",
                   "items": [
                     {
-                      "en": "Media plan and budget allocation.",
-                      "vi": "Media plan và phân bổ ngân sách."
-                    },
-                    {
-                      "en": "Audience segmentation.",
-                      "vi": "Phân nhóm audience."
-                    },
-                    {
-                      "en": "Creative direction.",
-                      "vi": "Định hướng sáng tạo."
-                    },
-                    {
-                      "en": "Landing page and email flow.",
-                      "vi": "Landing page và email flow."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "boxed": true,
-                  "title": {
-                    "en": "Event Operations",
-                    "vi": "Vận hành sự kiện"
-                  },
-                  "items": [
-                    {
-                      "en": "Agenda and competition rules.",
-                      "vi": "Agenda và thể lệ cuộc thi."
-                    },
-                    {
-                      "en": "Speaker, mentor and judge coordination.",
-                      "vi": "Điều phối speaker, mentor và giám khảo."
-                    },
-                    {
-                      "en": "Vendor and onsite operations.",
-                      "vi": "Vận hành vendor và onsite."
-                    },
-                    {
-                      "en": "Workshop, interview and follow-up.",
-                      "vi": "Workshop, phỏng vấn và follow-up."
-                    }
-                  ]
-                },
-                {
-                  "type": "funnel",
-                  "steps": [
-                    {
-                      "label": "Campaign",
-                      "icon": "Megaphone"
-                    },
-                    {
-                      "label": {
-                        "en": "Registration",
-                        "vi": "Đăng ký"
+                      "title": {
+                        "en": "Marketing & Candidate Acquisition",
+                        "vi": "Marketing & Candidate Acquisition"
                       },
-                      "icon": "UserPlus"
+                      "bullets": [
+                        {
+                          "en": "Built the media plan, budget allocation, audience segmentation and creative direction for Meta Ads.",
+                          "vi": "Xây dựng media plan, phân bổ ngân sách, audience segmentation và creative direction cho Meta Ads."
+                        },
+                        {
+                          "en": "Used hiring platforms to quickly boost CV volume for priority positions.",
+                          "vi": "Sử dụng các hiring platforms để tăng nhanh volume CV cho những vị trí ưu tiên."
+                        },
+                        {
+                          "en": "Updated social media content in line with the event timeline.",
+                          "vi": "Cập nhật nội dung social media theo tiến độ sự kiện."
+                        },
+                        {
+                          "en": "Used the Zalo community to attract and re-engage candidates.",
+                          "vi": "Tận dụng Zalo community để thu hút và tái tiếp cận ứng viên."
+                        },
+                        {
+                          "en": "Set up the email flow for confirmations, reminders and follow-up.",
+                          "vi": "Thiết lập email flow cho xác nhận, reminder và follow-up."
+                        }
+                      ]
                     },
                     {
-                      "label": {
-                        "en": "Confirmation",
-                        "vi": "Xác nhận"
+                      "title": {
+                        "en": "Event Planning",
+                        "vi": "Event Planning"
                       },
-                      "icon": "CheckCircle2"
+                      "bullets": [
+                        {
+                          "en": "Planned the overall Ideathon roadmap.",
+                          "vi": "Lên kế hoạch tổng thể cho Ideathon."
+                        },
+                        {
+                          "en": "Built the agenda, competition rules and judging criteria.",
+                          "vi": "Xây dựng agenda, thể lệ và tiêu chí chấm điểm."
+                        },
+                        {
+                          "en": "Coordinated with the venue, printing vendor, catering and related suppliers.",
+                          "vi": "Phối hợp với venue, đơn vị in ấn, catering và các nhà cung cấp liên quan."
+                        },
+                        {
+                          "en": "Worked with speakers, mentors and the judging panel.",
+                          "vi": "Làm việc với speaker, mentor và ban giám khảo."
+                        },
+                        {
+                          "en": "Tracked progress and handled pre-event tasks.",
+                          "vi": "Theo dõi tiến độ và xử lý các hạng mục trước sự kiện."
+                        }
+                      ]
                     },
                     {
-                      "label": {
-                        "en": "Reminder",
-                        "vi": "Nhắc lịch"
+                      "title": {
+                        "en": "Event Operations",
+                        "vi": "Event Operations"
                       },
-                      "icon": "Bell"
-                    },
-                    {
-                      "label": "Check-in",
-                      "icon": "MapPin"
-                    },
-                    {
-                      "label": "Follow-up",
-                      "icon": "Repeat"
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "title": {
-                    "en": "Ideathon Contest Results",
-                    "vi": "Kết quả cuộc thi Ideathon"
-                  },
-                  "items": [
-                    [
-                      "110",
-                      {
-                        "en": "participants",
-                        "vi": "người tham gia"
-                      }
-                    ],
-                    [
-                      "40",
-                      {
-                        "en": "submissions",
-                        "vi": "bài dự thi"
-                      }
-                    ],
-                    [
-                      "176%",
-                      {
-                        "en": "KPI",
-                        "vi": "KPI"
-                      }
-                    ],
-                    [
-                      "10.461 VNĐ",
-                      {
-                        "en": "CPL",
-                        "vi": "CPL"
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Highlights",
-                    "vi": "Điểm nổi bật"
-                  },
-                  "items": [
-                    {
-                      "en": "71 registrations, equivalent to 110 participants.",
-                      "vi": "71 lượt đăng ký, tương đương 110 người tham gia."
-                    },
-                    {
-                      "en": "40 submissions from 72 members.",
-                      "vi": "40 bài dự thi từ 72 thành viên."
-                    },
-                    {
-                      "en": "8 finalists and 2 winners.",
-                      "vi": "8 đội vào chung kết và 2 đội chiến thắng."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "title": {
-                    "en": "Recruitment Results",
-                    "vi": "Kết quả tuyển dụng"
-                  },
-                  "items": [
-                    [
-                      "169",
-                      {
-                        "en": "new CVs",
-                        "vi": "CV mới"
-                      }
-                    ],
-                    [
-                      "17",
-                      {
-                        "en": "interviews",
-                        "vi": "phỏng vấn"
-                      }
-                    ],
-                    [
-                      "4",
-                      {
-                        "en": "companies",
-                        "vi": "doanh nghiệp"
-                      }
-                    ],
-                    [
-                      "6–7",
-                      {
-                        "en": "final hiring considerations",
-                        "vi": "vòng cân nhắc tuyển dụng cuối"
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Highlights",
-                    "vi": "Điểm nổi bật"
-                  },
-                  "items": [
-                    {
-                      "en": "13 pre-scheduled interviews.",
-                      "vi": "13 buổi phỏng vấn hẹn trước."
-                    },
-                    {
-                      "en": "3 onsite walk-in interviews.",
-                      "vi": "3 buổi phỏng vấn phát sinh tại sự kiện."
-                    },
-                    {
-                      "en": "1 additional interview after the event.",
-                      "vi": "1 buổi phỏng vấn bổ sung sau sự kiện."
+                      "bullets": [
+                        {
+                          "en": "Built the event layout and ran rehearsals before the event day.",
+                          "vi": "Xây dựng layout và tổ chức rehearsal trước ngày diễn ra."
+                        },
+                        {
+                          "en": "Coordinated candidates, contestants, the MC, speakers, mentors and the judging panel.",
+                          "vi": "Điều phối ứng viên, thí sinh, MC, speaker, mentor và ban giám khảo."
+                        },
+                        {
+                          "en": "Managed check-in, the schedule and onsite activities.",
+                          "vi": "Quản lý check-in, lịch trình và các hoạt động onsite."
+                        },
+                        {
+                          "en": "Tracked issues as they came up and coordinated with stakeholders to keep the event running smoothly.",
+                          "vi": "Theo dõi vấn đề phát sinh và phối hợp các bên để đảm bảo sự kiện vận hành suôn sẻ."
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "type": "gallery",
                   "items": [
-                    [
-                      "/previews/event-featured-1.jpg",
-                      "",
-                      1
-                    ],
-                    [
-                      "/previews/event-featured-2.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/event-featured-3.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/event-featured-4.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/event-featured-5.JPG",
-                      ""
-                    ],
-                    [
-                      "/previews/event-featured-6.jpg",
-                      ""
-                    ]
+                    ["/previews/event-featured-1.jpg", ""],
+                    ["/previews/event-featured-2.jpg", ""],
+                    ["/previews/event-featured-3.jpg", ""],
+                    ["/previews/event-featured-4.jpg", ""],
+                    ["/previews/event-featured-5.JPG", ""],
+                    ["/previews/event-featured-6.jpg", ""],
+                    ["/previews/event-featured-7.jpg", ""],
+                    ["/previews/event-featured-8.jpg", ""]
                   ]
                 }
               ]
+
             }
           ]
         },

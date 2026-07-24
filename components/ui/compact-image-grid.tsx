@@ -38,10 +38,16 @@ export function CompactImageGrid({
   items,
   lang,
   gridId,
+  layout = 'row',
 }: {
   items: GalleryItem[];
   lang: Lang;
   gridId: string;
+  /** 'row' (default): fit all items on one line, scrolling on mobile —
+   *  used for the Meta Ads switcher's creative-proof strips. 'grid': a
+   *  fixed wrapping grid (2 cols mobile/tablet, 4 desktop) — used for a
+   *  standalone photo gallery like the Featured Case section. */
+  layout?: 'row' | 'grid';
 }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -130,7 +136,13 @@ export function CompactImageGrid({
 
   return (
     <>
-      <div className="grid grid-flow-col auto-cols-[minmax(120px,1fr)] gap-3 overflow-x-auto pb-1 sm:auto-cols-fr sm:overflow-visible">
+      <div
+        className={
+          layout === 'grid'
+            ? 'grid grid-cols-2 gap-3 lg:grid-cols-4'
+            : 'grid grid-flow-col auto-cols-[minmax(120px,1fr)] gap-3 overflow-x-auto pb-1 sm:auto-cols-fr sm:overflow-visible'
+        }
+      >
         {items.map(([src, caption], i) => {
           const alt = caption ? t(caption, lang) : '';
           return (

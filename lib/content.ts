@@ -89,6 +89,45 @@ export type CardsBlock = { type: 'cards'; items: CardItem[] };
 /** A horizontal row of tool chips (reuses the About Tools chip style). */
 export type ToolsBlock = { type: 'tools'; items: Localized[] };
 
+/** A short bold sub-heading rendered plain (no card chrome) below the
+ *  group title — e.g. "Key activities: Interview & Ideathon". */
+export type SubheadingBlock = { type: 'subheading'; text: Localized };
+
+/** One KPI card: a big value, a small label above it, and an optional even
+ *  smaller note below (e.g. a delta-vs-plan comparison). */
+export type KpiCard = { value: Localized; label: Localized; note?: Localized };
+
+/** One named column of KPI cards (e.g. "Interview Results" vs "Ideathon
+ *  Results"), with an optional small channel-list caption under the cards. */
+export type ResultsColumn = {
+  title: Localized;
+  kpis: KpiCard[];
+  channelNote?: Localized;
+};
+
+/** Side-by-side KPI result columns — K-Tech College's Featured Case
+ *  section (Interview Results | Ideathon Results). */
+export type ResultsBlock = { type: 'results'; columns: ResultsColumn[] };
+
+/** Objective + Challenge stacked in one card, paired with a Strategy
+ *  bullet-list card — K-Tech College's Featured Case section. */
+export type ObjectiveStrategyBlock = {
+  type: 'objectiveStrategy';
+  objectiveTitle: Localized;
+  objectiveText: Localized;
+  challengeTitle: Localized;
+  challengeText: Localized;
+  strategyTitle: Localized;
+  strategyBullets: Localized[];
+};
+
+/** One "my role" card: a title + its own bullet list. */
+export type RoleCard = { title: Localized; bullets: Localized[] };
+
+/** A row of role cards (3 on desktop, 2+1 tablet, stacked mobile) —
+ *  K-Tech College's Featured Case "My Role" section. */
+export type RoleCardsBlock = { type: 'roleCards'; items: RoleCard[] };
+
 /** A live preview embedded in a browser or phone frame. When `embeddable` is
  *  false (or the iframe fails) it shows `poster` + an "open live" button. The
  *  iframe lazy-mounts near the viewport so many previews don't boot at once. */
@@ -166,7 +205,11 @@ export type Block =
   | ChartBlock
   | FunnelBlock
   | CardsBlock
-  | MetaAdsSwitcherBlock;
+  | MetaAdsSwitcherBlock
+  | SubheadingBlock
+  | ResultsBlock
+  | ObjectiveStrategyBlock
+  | RoleCardsBlock;
 
 export type Group = {
   enabled?: boolean;
