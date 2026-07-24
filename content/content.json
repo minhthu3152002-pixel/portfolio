@@ -2283,46 +2283,27 @@
                 {
                   "type": "gallery",
                   "items": [
-                    [
-                      "/previews/gallery-1.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-2.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-3.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-4.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-5.JPG",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-6.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-7.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-8.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-9.jpg",
-                      ""
-                    ],
-                    [
-                      "/previews/gallery-10.jpg",
-                      ""
-                    ]
+                    ["/previews/gallery-9.jpeg", ""],
+                    ["/previews/gallery-10.jpeg", ""],
+                    ["/previews/gallery-11.jpeg", ""],
+                    ["/previews/gallery-12.jpeg", ""],
+                    ["/previews/gallery-13.jpeg", ""],
+                    ["/previews/gallery-14.jpeg", ""],
+                    ["/previews/gallery-15.jpeg", ""],
+                    ["/previews/gallery-16.jpeg", ""],
+                    ["/previews/gallery-17.jpeg", ""],
+                    ["/previews/gallery-18.jpeg", ""],
+                    ["/previews/gallery-19.jpeg", ""],
+                    ["/previews/gallery-20.jpeg", ""],
+                    ["/previews/gallery-21.jpeg", ""],
+                    ["/previews/gallery-22.jpeg", ""],
+                    ["/previews/gallery-23.jpeg", ""],
+                    ["/previews/gallery-24.jpeg", ""],
+                    ["/previews/gallery-25.jpeg", ""],
+                    ["/previews/gallery-26.jpeg", ""],
+                    ["/previews/gallery-27.jpeg", ""],
+                    ["/previews/gallery-28.jpeg", ""],
+                    ["/previews/gallery-29.jpeg", ""]
                   ]
                 }
               ]
