@@ -1212,16 +1212,20 @@
                         },
                         "rightItems": [
                           {
-                            "en": "Developed creative around three main directions: <b>Event information</b> — clarifying the topic, target audience, format, timeline and prizes.",
-                            "vi": "Phát triển creative theo ba hướng chính: <b>Event information</b> — làm rõ chủ đề, đối tượng tham gia, hình thức, timeline và giải thưởng."
+                            "en": "Developed creative around three main directions:",
+                            "vi": "Phát triển creative theo ba hướng chính:"
                           },
                           {
-                            "en": "<b>Prize & benefits</b> — highlighting the prizes, certificate and the value it adds to a portfolio.",
-                            "vi": "<b>Prize & benefits</b> — nhấn mạnh giải thưởng, certificate và giá trị có thể bổ sung vào portfolio."
+                            "en": "<b>Event information:</b> clarifying the topic, target audience, format, timeline and prizes.",
+                            "vi": "<b>Event information:</b> làm rõ chủ đề, đối tượng tham gia, hình thức, timeline và giải thưởng."
                           },
                           {
-                            "en": "<b>Student-friendly message</b> — conveying that students can join with just a suitable idea.",
-                            "vi": "<b>Student-friendly message</b> — truyền tải rằng sinh viên vẫn có thể tham gia chỉ cần có một ý tưởng phù hợp."
+                            "en": "<b>Prize & benefits:</b> highlighting the prizes, certificate and the value it adds to a portfolio.",
+                            "vi": "<b>Prize & benefits:</b> nhấn mạnh giải thưởng, certificate và giá trị có thể bổ sung vào portfolio."
+                          },
+                          {
+                            "en": "<b>Student-friendly message:</b> conveying that students can join with just a suitable idea.",
+                            "vi": "<b>Student-friendly message:</b> truyền tải rằng sinh viên vẫn có thể tham gia chỉ cần có một ý tưởng phù hợp."
                           },
                           {
                             "en": "Clarified the program format, benefits, prizes and the CTA to join.",
