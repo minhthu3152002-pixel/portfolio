@@ -1,0 +1,152 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import {
+  t,
+  type Group,
+  type Lang,
+  type TextBlock,
+  type StatsBlock,
+  type ChartBlock,
+  type GalleryBlock,
+  type FunnelBlock,
+} from '@/lib/content';
+import { RichList } from '@/components/RichList';
+import { Stats } from '@/components/Stats';
+import { DonutChart } from '@/components/ui/donut-chart';
+import { Funnel } from '@/components/ui/funnel';
+import { FreeChannelImageCarousel } from '@/components/ui/free-channel-image-carousel';
+import { reveal, viewportOnce } from '@/lib/motion';
+
+function TextContent({ block, lang }: { block: TextBlock; lang: Lang }) {
+  return (
+    <div>
+      {block.title && (
+        <h4 className="mb-3 text-[1.05rem] font-bold tracking-[-0.01em] text-text">
+          {t(block.title, lang)}
+        </h4>
+      )}
+      {block.prose ? (
+        <div className="space-y-3">
+          {block.items.map((it, j) => (
+            <p
+              key={j}
+              className="rich text-base leading-relaxed text-[#3a3a3c]"
+              dangerouslySetInnerHTML={{ __html: t(it, lang) }}
+            />
+          ))}
+        </div>
+      ) : (
+        <RichList items={block.items} lang={lang} />
+      )}
+    </div>
+  );
+}
+
+/**
+ * K-Tech College "Free channel" tab only: a 2-column group layout —
+ * full-width heading, left column = every text/stats/chart block in order,
+ * right column = that group's gallery images as a horizontal-scroll
+ * carousel (uniform cropped cards, click-to-morph lightbox). A funnel block
+ * (if present) renders full-width below the 2-column row instead of inside
+ * the narrow left column, so its steps have room to breathe. Groups without
+ * a gallery collapse to a single full-width text column. Kept entirely
+ * separate from GroupPanel so no other tab or project is affected.
+ */
+export function FreeChannelGroupPanel({ group, lang }: { group: Group; lang: Lang }) {
+  const galleryBlock = group.blocks.find((b): b is GalleryBlock => b.type === 'gallery');
+  const hasGallery = !!galleryBlock && galleryBlock.items.length > 0;
+  const funnelBlock = group.blocks.find((b): b is FunnelBlock => b.type === 'funnel');
+  const chartBlock = group.blocks.find((b): b is ChartBlock => b.type === 'chart');
+
+  // The one group with a chart (Organic & Community Growth) gets its own
+  // compact 40/60 overview layout instead of the generic stacked column —
+  // short description + 2x2 KPI grid on the left, chart + insight on the
+  // right, so it doesn't sprawl vertically.
+  if (chartBlock && !hasGallery) {
+    const statsBlock = group.blocks.find((b): b is StatsBlock => b.type === 'stats');
+    const introBlock = group.blocks.find((b): b is TextBlock => b.type === 'text');
+
+    return (
+      <motion.section
+        variants={reveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        className="mb-20 last:mb-0"
+      >
+        {group.title && (
+          <h3 className="mb-8 text-4xl font-bold leading-[1.15] tracking-[-0.02em]">
+            {t(group.title, lang)}
+          </h3>
+        )}
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:items-start">
+          <div className="space-y-6 lg:col-span-2">
+            {introBlock && <TextContent block={introBlock} lang={lang} />}
+            {statsBlock && <Stats items={statsBlock.items} lang={lang} compact />}
+          </div>
+
+          <div className="lg:col-span-3">
+            <DonutChart
+              data={chartBlock.data}
+              title={chartBlock.title}
+              subtitle={chartBlock.subtitle}
+              note={chartBlock.note}
+              sourceNote={chartBlock.sourceNote}
+              lang={lang}
+            />
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
+
+  const contentBlocks = group.blocks.filter(
+    (b) => b.type !== 'gallery' && b.type !== 'tools' && b.type !== 'funnel',
+  );
+  const groupId = typeof group.title === 'string' ? group.title : t(group.title, 'en') || 'group';
+
+  return (
+    <motion.section
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      className="mb-20 last:mb-0"
+    >
+      {group.title && (
+        <h3 className="mb-8 text-4xl font-bold leading-[1.15] tracking-[-0.02em]">
+          {t(group.title, lang)}
+        </h3>
+      )}
+
+      <div className={hasGallery ? 'grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start' : ''}>
+        <div className="space-y-8">
+          {contentBlocks.map((b, i) => {
+            if (b.type === 'text') return <TextContent key={i} block={b} lang={lang} />;
+            if (b.type === 'stats') return <Stats key={i} items={b.items} lang={lang} />;
+            if (b.type === 'chart') {
+              return (
+                <DonutChart key={i} data={b.data} title={b.title} subtitle={b.subtitle} note={b.note} lang={lang} />
+              );
+            }
+            return null;
+          })}
+        </div>
+
+        {hasGallery && (
+          <div className="lg:pt-1">
+            <FreeChannelImageCarousel items={galleryBlock.items} lang={lang} groupId={groupId} />
+          </div>
+        )}
+      </div>
+
+      {funnelBlock && (
+        <div className="mt-8">
+          <Funnel steps={funnelBlock.steps} lang={lang} />
+        </div>
+      )}
+    </motion.section>
+  );
+}

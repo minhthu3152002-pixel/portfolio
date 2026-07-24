@@ -32,20 +32,59 @@ export type GalleryItem =
   | [string, Localized]
   | [string, Localized, number];
 
-/** Stat entry: [value, label] — value is a plain string (a number), label is localizable. */
-export type Stat = [string, Localized];
+/** Stat entry: [value, label] — value is usually a plain string (a number)
+ *  but may be localized too (e.g. a short text metric like "Multi-source"). */
+export type Stat = [Localized, Localized];
 
 /** Text block: a bullet list by default, or `prose: true` for paragraph(s).
  *  Optional `title` renders a small sub-heading above the block. Items may
- *  carry trusted inline <b>/<a> markup from content.json. */
+ *  carry trusted inline <b>/<a> markup from content.json. `boxed` forces the
+ *  card chrome back on even inside a `flatText` group (an explicit per-block
+ *  override, e.g. a strategy-shift pair that should stay boxed). */
 export type TextBlock = {
   type: 'text';
   title?: Localized;
   prose?: boolean;
+  boxed?: boolean;
   items: Localized[];
 };
-export type StatsBlock = { type: 'stats'; items: Stat[] };
+/** Optional `title` renders a small sub-heading above the number cards. */
+export type StatsBlock = { type: 'stats'; title?: Localized; items: Stat[] };
 export type GalleryBlock = { type: 'gallery'; items: GalleryItem[] };
+
+/** One slice of a donut chart: a plain 0-100 percentage + localized label. */
+export type ChartDatum = { label: Localized; value: number };
+
+/** A small donut chart (recharts) with an optional title/subtitle above,
+ *  an insight `note` below, and an even smaller `sourceNote` caption under
+ *  that (e.g. a channel list) — e.g. "CV contribution by channel type". */
+export type ChartBlock = {
+  type: 'chart';
+  chartType: 'donut';
+  title?: Localized;
+  subtitle?: Localized;
+  data: ChartDatum[];
+  note?: Localized;
+  sourceNote?: Localized;
+};
+
+/** One step of a horizontal (mobile: vertical) process funnel. `icon` keys a
+ *  lucide glyph (see FUNNEL_ICONS in Funnel.tsx); `highlight` gives the step
+ *  extra visual weight (e.g. the step that matters most in the flow). */
+export type FunnelStep = {
+  label: Localized;
+  desc?: Localized;
+  icon?: string;
+  highlight?: boolean;
+};
+export type FunnelBlock = { type: 'funnel'; steps: FunnelStep[] };
+
+/** One short card: a bold title + a description line. */
+export type CardItem = { title: Localized; desc: Localized };
+
+/** A row of N short cards (e.g. platform blurbs) — always boxed, one row on
+ *  desktop/tablet, stacked on mobile. */
+export type CardsBlock = { type: 'cards'; items: CardItem[] };
 
 /** A horizontal row of tool chips (reuses the About Tools chip style). */
 export type ToolsBlock = { type: 'tools'; items: Localized[] };
@@ -60,9 +99,12 @@ export type EmbedBlock = {
   url: string; // live link: iframe src + open button
   embeddable?: boolean; // default true; false => poster + open button only
   poster?: string; // fallback image (embeddable=false or iframe error)
-  aspect?: string; // default: browser '16/10', mobile '9/19.5'
+  aspect?: string; // default: browser '4/3', mobile '9/16'
   note?: Localized; // small note under the frame (e.g. "sample data")
   caption?: Localized;
+  /** Optional scan-to-open QR code shown beside a `frame: 'mobile'` preview
+   *  (desktop: side-by-side; mobile: stacked below). */
+  qr?: { url: string; title?: Localized; subtitle?: Localized };
 };
 
 /** A before/after image compare slider (draggable divider). */
@@ -77,13 +119,54 @@ export type CompareBlock = {
   caption?: Localized;
 };
 
+/** A two-column pair of bullet lists within a switcher panel (e.g.
+ *  Strategy | Results). */
+export type PanelColumns = {
+  leftTitle: Localized;
+  leftItems: Localized[];
+  rightTitle: Localized;
+  rightItems: Localized[];
+};
+
+/** One chip-switchable content panel (see MetaAdsSwitcherBlock). Only
+ *  `title`/`description` are required — everything else renders only if
+ *  present, in a fixed order: kpis -> note -> insight -> funnel -> columns
+ *  -> embed(+embedCaption) -> bullets -> gallery. */
+export type SwitcherPanel = {
+  id: string;
+  chipLabel: Localized;
+  title: Localized;
+  description: Localized;
+  kpis?: Stat[];
+  note?: Localized;
+  insight?: Localized;
+  funnel?: FunnelStep[];
+  columns?: PanelColumns;
+  embedUrl?: string;
+  embedCaption?: Localized;
+  bullets?: Localized[];
+  gallery?: GalleryItem[];
+};
+
+/** A chip-based content switcher: one heading, N chips, one panel visible
+ *  at a time (K-Tech College Paid tab's "Meta Ads" section). */
+export type MetaAdsSwitcherBlock = {
+  type: 'metaAdsSwitcher';
+  heading: Localized;
+  panels: SwitcherPanel[];
+};
+
 export type Block =
   | TextBlock
   | StatsBlock
   | GalleryBlock
   | ToolsBlock
   | EmbedBlock
-  | CompareBlock;
+  | CompareBlock
+  | ChartBlock
+  | FunnelBlock
+  | CardsBlock
+  | MetaAdsSwitcherBlock;
 
 export type Group = {
   enabled?: boolean;
