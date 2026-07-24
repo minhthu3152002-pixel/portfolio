@@ -836,6 +836,10 @@
                 },
                 {
                   "type": "stats",
+                  "title": {
+                    "en": "Results (First 3 Months of Season 3)",
+                    "vi": "Kết quả (3 tháng đầu mùa 3)"
+                  },
                   "items": [
                     [
                       "5.000+",
