@@ -733,6 +733,134 @@
               ]
             }
           ]
+        },
+        {
+          "_section": "===== P1 · TAB Email CRM =====",
+          "enabled": true,
+          "id": "email-crm",
+          "eyebrow": {
+            "en": "KTC",
+            "vi": "KTC"
+          },
+          "label": {
+            "en": "Email CRM",
+            "vi": "Email CRM"
+          },
+          "groups": [
+            {
+              "enabled": true,
+              "title": {
+                "en": "Email CRM & Candidate Journey",
+                "vi": "Email CRM & Candidate Journey"
+              },
+              "blocks": [
+                {
+                  "type": "text",
+                  "prose": true,
+                  "items": [
+                    {
+                      "en": "Designed an email CRM system for each stage of the recruitment funnel to increase the rate of candidates continuing through the process and improve the application experience.",
+                      "vi": "Thiết kế hệ thống email CRM theo từng giai đoạn của recruitment funnel nhằm tăng tỷ lệ ứng viên tiếp tục quy trình và cải thiện trải nghiệm ứng tuyển."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Key Contributions",
+                    "vi": "Key Contributions"
+                  },
+                  "items": [
+                    {
+                      "en": "Built the screening flow from CV Screening, AI Interview, Company Review to Company Interview.",
+                      "vi": "Xây dựng screening flow từ CV Screening, AI Interview, Company Review đến Company Interview."
+                    },
+                    {
+                      "en": "Designed emails for each status: pass, not a fit, reminder, interview invitation, follow-up and offer.",
+                      "vi": "Thiết kế email theo từng trạng thái: pass, chưa phù hợp, reminder, interview invitation, follow-up và offer."
+                    },
+                    {
+                      "en": "Standardized the trigger, send timing and next step for each candidate group.",
+                      "vi": "Chuẩn hoá trigger, thời điểm gửi và bước tiếp theo cho từng nhóm ứng viên."
+                    },
+                    {
+                      "en": "Developed multilingual content in Vietnamese, English and Korean.",
+                      "vi": "Phát triển nội dung đa ngôn ngữ bằng tiếng Việt, Anh và Hàn."
+                    },
+                    {
+                      "en": "Kept the tone positive and clear, without making candidates feel excluded from the program.",
+                      "vi": "Giữ tone giao tiếp tích cực, rõ ràng và không khiến ứng viên cảm thấy bị loại khỏi chương trình."
+                    },
+                    {
+                      "en": "Built an interface that lets the team easily view, edit and copy each email template.",
+                      "vi": "Xây dựng giao diện giúp team dễ xem, chỉnh sửa và copy từng email template."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "boxed": true,
+                  "prose": true,
+                  "title": {
+                    "en": "Limitation",
+                    "vi": "Giới hạn"
+                  },
+                  "items": [
+                    {
+                      "en": "Due to technical resource constraints, the full flow could not yet be integrated directly into the ATS. The current version is built as a standalone tool to standardize the process and help the team operate manually more effectively.",
+                      "vi": "Do giới hạn về nguồn lực kỹ thuật, toàn bộ flow chưa thể tích hợp trực tiếp vào ATS. Phiên bản hiện tại được phát triển dưới dạng công cụ độc lập để chuẩn hoá quy trình và hỗ trợ team vận hành thủ công hiệu quả hơn."
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "title": {
+                    "en": "Impact",
+                    "vi": "Impact"
+                  },
+                  "items": [
+                    {
+                      "en": "Reduced the time spent drafting and checking repetitive emails.",
+                      "vi": "Giảm thời gian soạn và kiểm tra email lặp lại."
+                    },
+                    {
+                      "en": "Made the candidate experience more consistent across stages.",
+                      "vi": "Giúp trải nghiệm ứng viên nhất quán hơn giữa các giai đoạn."
+                    },
+                    {
+                      "en": "Helped the team know when to send emails, send reminders or follow up.",
+                      "vi": "Hỗ trợ team hiểu rõ khi nào cần gửi email, nhắc lịch hoặc follow-up."
+                    },
+                    {
+                      "en": "The solution received positive feedback from management for its practicality, clear structure and applicability to day-to-day operations.",
+                      "vi": "Giải pháp nhận được phản hồi tích cực từ cấp trên về tính thực tế, cấu trúc rõ ràng và khả năng ứng dụng vào vận hành."
+                    }
+                  ]
+                },
+                {
+                  "type": "embed",
+                  "frame": "browser",
+                  "aspect": "4/3",
+                  "url": "/previews/ktc-screening-flow.html",
+                  "note": {
+                    "en": "Candidate information and internal data are not included in this public prototype.",
+                    "vi": "Thông tin ứng viên và dữ liệu nội bộ không được đưa vào bản prototype công khai này."
+                  }
+                },
+                {
+                  "type": "tools",
+                  "items": [
+                    "ChatGPT",
+                    "Claude",
+                    "Claude Code",
+                    "HTML",
+                    "CSS",
+                    "JavaScript"
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
