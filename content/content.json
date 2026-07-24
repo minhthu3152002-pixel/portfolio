@@ -957,52 +957,10 @@
                     {
                       "en": "Use Meta Ads, LinkedIn Promoted Jobs and paid recruitment platforms like TopDev and ITviec to generate applications for each JD, while optimizing based on CP/CV, candidate quality and recruitment progress, instead of focusing only on traffic or engagement.",
                       "vi": "Sử dụng Meta Ads, LinkedIn Promoted Jobs và các nền tảng tuyển dụng trả phí như TopDev, ITviec để tạo nguồn hồ sơ cho từng JD, đồng thời tối ưu dựa trên CP/CV, chất lượng ứng viên và tiến độ tuyển dụng, thay vì chỉ tập trung vào traffic hay engagement."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Challenge",
-                    "vi": "Thách thức"
-                  },
-                  "items": [
-                    {
-                      "en": "Recruitment positions differ in industry, seniority, region and priority level, so a single campaign or one common audience group cannot be applied to the entire program.",
-                      "vi": "Các vị trí tuyển dụng khác nhau về ngành nghề, seniority, khu vực và mức độ ưu tiên, nên không thể áp dụng một campaign hoặc một nhóm audience chung cho toàn bộ chương trình."
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "title": {
-                    "en": "Strategy",
-                    "vi": "Chiến lược"
-                  },
-                  "items": [
-                    {
-                      "en": "Group campaigns by job or by groups of jobs with similar characteristics.",
-                      "vi": "Phân nhóm campaign theo từng job hoặc nhóm job có đặc điểm tương đồng."
                     },
                     {
-                      "en": "Split audiences into fresher, experienced, non-IT and retargeting.",
-                      "vi": "Chia audience thành fresher, experienced, non-IT và retargeting."
-                    },
-                    {
-                      "en": "Allocate budget based on urgency, the number of CVs needed and historical CP/CV.",
-                      "vi": "Phân bổ ngân sách dựa trên urgency, lượng CV cần bổ sung và historical CP/CV."
-                    },
-                    {
-                      "en": "Build creative for each JD, highlighting salary, location, requirements and the apply CTA.",
-                      "vi": "Xây dựng creative theo từng JD, làm nổi bật salary, location, requirements và CTA ứng tuyển."
-                    },
-                    {
-                      "en": "Test visuals, headlines, audiences, formats and budgets to find the effective combination.",
-                      "vi": "Test visual, headline, audience, format và budget để xác định tổ hợp hiệu quả."
-                    },
-                    {
-                      "en": "Track both the quantity and quality of applications to adjust campaigns at each stage.",
-                      "vi": "Theo dõi cả số lượng lẫn chất lượng hồ sơ để điều chỉnh campaign theo từng giai đoạn."
+                      "en": "Challenge: recruitment positions differ in industry, seniority, region and priority level, so a single campaign or one common audience group cannot be applied to the entire program.",
+                      "vi": "Thách thức: Các vị trí tuyển dụng khác nhau về ngành nghề, seniority, khu vực và mức độ ưu tiên, nên không thể áp dụng một campaign hoặc một nhóm audience chung cho toàn bộ chương trình."
                     }
                   ]
                 }
