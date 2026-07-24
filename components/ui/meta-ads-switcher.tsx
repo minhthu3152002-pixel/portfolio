@@ -56,7 +56,7 @@ function PanelContent({ panel, lang }: { panel: SwitcherPanel; lang: Lang }) {
       {panel.columns && <PanelColumnsRow panel={panel.columns} lang={lang} />}
 
       {panel.embedUrl && (
-        <motion.div whileHover={{ y: -2 }} transition={tabSpring} className="mx-auto max-w-[640px]">
+        <motion.div whileHover={{ y: -2 }} transition={tabSpring}>
           <LivePreview url={panel.embedUrl} frame="browser" caption={panel.embedCaption} lang={lang} />
         </motion.div>
       )}

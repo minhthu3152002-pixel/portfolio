@@ -130,7 +130,7 @@ export function CompactImageGrid({
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid grid-flow-col auto-cols-[minmax(120px,1fr)] gap-3 overflow-x-auto pb-1 sm:auto-cols-fr sm:overflow-visible">
         {items.map(([src, caption], i) => {
           const alt = caption ? t(caption, lang) : '';
           return (

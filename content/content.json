@@ -1181,29 +1181,29 @@
                       ],
                       "columns": {
                         "leftTitle": {
-                          "en": "Media Approach",
-                          "vi": "Media Approach"
+                          "en": "Meta Ads Approach",
+                          "vi": "Meta Ads Approach"
                         },
                         "leftItems": [
                           {
-                            "en": "Built a media plan with a budget of 20 million VNĐ.",
-                            "vi": "Xây dựng media plan với ngân sách 20 triệu VNĐ."
+                            "en": "Built the media plan on a historical CPL of 1,200 KRW; actual CPL came in at 551 KRW, about 10,469 VNĐ per lead across 88 leads.",
+                            "vi": "Xây dựng media plan dựa trên historical data CPL 1.200 KRW, kết quả ghi nhận actual CPL 551 KRW, tương đương khoảng 10.469 VNĐ/lead cho 88 leads."
                           },
                           {
-                            "en": "Allocated 75% to talent pool and event, 25% to Ideathon.",
-                            "vi": "Phân bổ 75% cho talent pool và event, 25% cho Ideathon."
+                            "en": "Split audiences into two main groups — IT (Developer, AI, Software) and non-IT (BA, Product, UX/UI, Design, Marketing, HR) — to tailor messaging and creative per audience.",
+                            "vi": "Chia audience thành hai nhóm chính: IT gồm Developer, AI và Software; non-IT gồm BA, Product, UX/UI, Design, Marketing và HR để tối ưu thông điệp và creative theo từng đối tượng."
                           },
                           {
-                            "en": "Segmented audiences into experienced, fresher, non-IT and retargeting.",
-                            "vi": "Phân nhóm audience theo experienced, fresher, non-IT và retargeting."
+                            "en": "Used Instant Form to shorten the registration journey and reduce drop-off.",
+                            "vi": "Sử dụng Instant Form để rút ngắn hành trình đăng ký và giảm tỷ lệ rơi rớt."
                           },
                           {
-                            "en": "Combined Lead Ads and Instant Form.",
-                            "vi": "Kết hợp Lead Ads và Instant Form."
+                            "en": "Set up an automated email flow to send confirmations, reminders and other need-to-know details after registration.",
+                            "vi": "Thiết lập email flow tự động để gửi xác nhận, reminder và các thông tin cần thiết sau khi đăng ký."
                           },
                           {
-                            "en": "Adjusted budget, audience and assets by phase.",
-                            "vi": "Điều chỉnh ngân sách, audience và asset theo từng giai đoạn."
+                            "en": "Created a dedicated Zalo group for contestants to follow up continuously, answer questions, remind them of deadlines and improve submission completion rate.",
+                            "vi": "Tạo Zalo group riêng cho thí sinh để follow-up liên tục, giải đáp thắc mắc, nhắc deadline và tăng tỷ lệ hoàn tất bài dự thi."
                           }
                         ],
                         "rightTitle": {
@@ -1212,24 +1212,34 @@
                         },
                         "rightItems": [
                           {
-                            "en": "Used former candidates' stories to increase credibility.",
-                            "vi": "Sử dụng câu chuyện ứng viên cũ để tăng độ tin cậy."
+                            "en": "Developed creative around three main directions: <b>Event information</b> — clarifying the topic, target audience, format, timeline and prizes.",
+                            "vi": "Phát triển creative theo ba hướng chính: <b>Event information</b> — làm rõ chủ đề, đối tượng tham gia, hình thức, timeline và giải thưởng."
                           },
                           {
-                            "en": "Combined job posts with event information.",
-                            "vi": "Kết hợp job post với thông tin sự kiện."
+                            "en": "<b>Prize & benefits</b> — highlighting the prizes, certificate and the value it adds to a portfolio.",
+                            "vi": "<b>Prize & benefits</b> — nhấn mạnh giải thưởng, certificate và giá trị có thể bổ sung vào portfolio."
                           },
                           {
-                            "en": "Clarified the format, benefits, prizes and CTA.",
-                            "vi": "Làm rõ format, quyền lợi, giải thưởng và CTA."
+                            "en": "<b>Student-friendly message</b> — conveying that students can join with just a suitable idea.",
+                            "vi": "<b>Student-friendly message</b> — truyền tải rằng sinh viên vẫn có thể tham gia chỉ cần có một ý tưởng phù hợp."
                           },
                           {
-                            "en": "Separated messaging for IT and non-IT groups.",
-                            "vi": "Tách thông điệp cho nhóm IT và non-IT."
+                            "en": "Clarified the program format, benefits, prizes and the CTA to join.",
+                            "vi": "Làm rõ format chương trình, quyền lợi, giải thưởng và CTA tham gia."
+                          },
+                          {
+                            "en": "Separated messaging for IT and non-IT groups to increase relevance and conversion.",
+                            "vi": "Tách thông điệp cho nhóm IT và non-IT để tăng mức độ liên quan và hiệu quả chuyển đổi."
                           }
                         ]
                       },
-                      "gallery": []
+                      "gallery": [
+                        ["/previews/paid-event-1.jpg", ""],
+                        ["/previews/paid-event-2.jpg", ""],
+                        ["/previews/paid-event-3.jpg", ""],
+                        ["/previews/paid-event-4.jpg", ""],
+                        ["/previews/paid-event-5.jpg", ""]
+                      ]
                     },
                     {
                       "id": "planning",
