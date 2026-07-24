@@ -2732,13 +2732,15 @@
             },
             {
               "enabled": true,
-              "title": {
-                "en": "My Role",
-                "vi": "Vai trò của tôi"
-              },
+              "title": null,
               "blocks": [
                 {
                   "type": "text",
+                  "boxed": true,
+                  "title": {
+                    "en": "My Role",
+                    "vi": "Vai trò của tôi"
+                  },
                   "items": [
                     {
                       "en": "Researched the market, competitors and industry trends for every brief.",
@@ -2770,13 +2772,15 @@
             },
             {
               "enabled": true,
-              "title": {
-                "en": "Challenge",
-                "vi": "Thách thức"
-              },
+              "title": null,
               "blocks": [
                 {
                   "type": "text",
+                  "boxed": true,
+                  "title": {
+                    "en": "Challenge",
+                    "vi": "Thách thức"
+                  },
                   "items": [
                     {
                       "en": "Each client came from a different industry, with its own target audience and purchasing behavior.",
@@ -2842,13 +2846,15 @@
             },
             {
               "enabled": true,
-              "title": {
-                "en": "Results",
-                "vi": "Kết quả"
-              },
+              "title": null,
               "blocks": [
                 {
                   "type": "text",
+                  "boxed": true,
+                  "title": {
+                    "en": "Results",
+                    "vi": "Kết quả"
+                  },
                   "items": [
                     {
                       "en": "Proposals received positive feedback from clients and were approved for the next stage of execution.",

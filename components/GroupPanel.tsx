@@ -212,21 +212,18 @@ function Cards({ items, lang }: { items: CardItem[]; lang: Lang }) {
   );
 }
 
-/** A "featured clients" list: circular logos in a row (wraps on mobile),
- *  name + short description stacked below each — not a clickable gallery,
- *  no lightbox. */
+/** A "featured clients" list: logos in a row (wraps on mobile), name +
+ *  short description stacked below each — not a clickable gallery, no
+ *  lightbox. Logos render as-is (no extra circular frame/background) since
+ *  the source images are already cropped/transparent per client. */
 function Clients({ items, lang }: { items: ClientItem[]; lang: Lang }) {
   return (
     <div className="mb-10 liquid-glass rounded-[24px] p-6 last:mb-0">
-      <div className="flex flex-wrap justify-center gap-8 sm:justify-start">
+      <div className="flex flex-wrap justify-center gap-8 sm:justify-between">
         {items.map((c, i) => (
           <div key={i} className="flex w-[140px] flex-col items-center text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={c.logo}
-              alt={t(c.name, lang)}
-              className="h-20 w-20 rounded-full border border-line bg-white object-cover shadow-[0_1px_2px_rgba(0,0,0,0.04),0_6px_16px_rgba(0,0,0,0.06)]"
-            />
+            <img src={c.logo} alt={t(c.name, lang)} className="h-20 w-20 object-contain" />
             <p className="mt-3 text-[0.9rem] font-bold leading-snug text-text">{t(c.name, lang)}</p>
             <p className="mt-1 text-[0.78rem] leading-snug text-muted">{t(c.desc, lang)}</p>
           </div>

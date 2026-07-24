@@ -79,13 +79,17 @@ export function CopywriterCaseStudyPanel({ group, lang }: { group: Group; lang: 
 
         {sideImage && (
           <div className="liquid-glass rounded-[28px] p-2">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px]">
+            {/* aspect-video (16:9) matches the source campaign images
+                exactly — a mismatched frame aspect forces object-contain to
+                letterbox (large dead space); at the same aspect, contain and
+                cover are identical and the frame fills edge to edge. */}
+            <div className="relative aspect-video w-full overflow-hidden rounded-[20px]">
               <Image
                 src={sideImage.src}
                 alt={sideImage.alt ? t(sideImage.alt, lang) : ''}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
-                className="object-contain"
+                className="object-cover"
               />
             </div>
           </div>
