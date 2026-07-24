@@ -35,7 +35,15 @@ function PanelColumnsRow({ panel, lang }: { panel: NonNullable<SwitcherPanel['co
 }
 
 /** One switcher panel's full content, in a fixed order. */
-function PanelContent({ panel, lang }: { panel: SwitcherPanel; lang: Lang }) {
+function PanelContent({
+  panel,
+  lang,
+  galleryLayout = 'row',
+}: {
+  panel: SwitcherPanel;
+  lang: Lang;
+  galleryLayout?: 'row' | 'grid';
+}) {
   return (
     <div className="space-y-8">
       <div>
@@ -64,7 +72,7 @@ function PanelContent({ panel, lang }: { panel: SwitcherPanel; lang: Lang }) {
       {panel.bullets && <RichList items={panel.bullets} lang={lang} />}
 
       {panel.gallery && panel.gallery.length > 0 && (
-        <CompactImageGrid items={panel.gallery} lang={lang} gridId={panel.id} />
+        <CompactImageGrid items={panel.gallery} lang={lang} gridId={panel.id} layout={galleryLayout} />
       )}
     </div>
   );
@@ -130,7 +138,7 @@ export function MetaAdsSwitcher({ block, lang }: { block: MetaAdsSwitcherBlock; 
               exit={{ opacity: 0, x: -10 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
-              <PanelContent panel={active} lang={lang} />
+              <PanelContent panel={active} lang={lang} galleryLayout={block.galleryLayout} />
             </motion.div>
           )}
         </AnimatePresence>

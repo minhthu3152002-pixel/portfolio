@@ -2364,61 +2364,6 @@
       "sections": [
         {
           "enabled": true,
-          "id": "overview",
-          "label": {
-            "en": "Overview",
-            "vi": "Tổng quan"
-          },
-          "groups": [
-            {
-              "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "Managed three Facebook pages under WEALLNET: <b>Cong Dong Da Sac</b> (LGBT+ community page), <b>WAN Creative Network</b> (agency brand page) and <b>WANTalk</b> (marketing knowledge hub).",
-                      "vi": "Quản lý ba trang Facebook thuộc WEALLNET: <b>Cộng Đồng Đa Sắc</b> (trang cộng đồng LGBT+), <b>WAN Creative Network</b> (trang thương hiệu agency) và <b>WANTalk</b> (kênh kiến thức marketing)."
-                    },
-                    {
-                      "en": "Developed video ideas and scripts inspired by TikTok trends and real customer/brand stories, across fashion & beauty, humor & entertainment, food & beverage, and horror.",
-                      "vi": "Phát triển ý tưởng và kịch bản video lấy cảm hứng từ trend TikTok và câu chuyện thật của khách hàng/thương hiệu, trải khắp các mảng làm đẹp & thời trang, hài hước & giải trí, ẩm thực và kinh dị."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "26.7M",
-                      {
-                        "en": "views in 4 months",
-                        "vi": "lượt xem trong 4 tháng"
-                      }
-                    ],
-                    [
-                      "+15.1K",
-                      {
-                        "en": "new followers",
-                        "vi": "follower mới"
-                      }
-                    ],
-                    [
-                      "9.9M+",
-                      {
-                        "en": "views — top TikTok video",
-                        "vi": "lượt xem — video TikTok nổi bật nhất"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "enabled": true,
           "id": "facebook-growth",
           "label": {
             "en": "Facebook Growth",
@@ -2461,91 +2406,150 @@
             },
             {
               "enabled": true,
-              "title": {
-                "en": "Cong Dong Da Sac Page",
-                "vi": "Trang Cộng Đồng Đa Sắc"
-              },
+              "title": null,
               "blocks": [
                 {
-                  "type": "text",
-                  "items": [
+                  "type": "metaAdsSwitcher",
+                  "heading": {
+                    "en": "Pages",
+                    "vi": "Trang Fanpage"
+                  },
+                  "galleryLayout": "grid",
+                  "panels": [
                     {
-                      "en": "<b>Cong Dong Da Sac:</b> 26.7M views, 7.3M reach and +15.1K followers in 4 months, with multiple viral posts (3.2M / 2.8M / 2.7M / 2.6M views).",
-                      "vi": "<b>Cộng Đồng Đa Sắc:</b> 26.7M lượt xem, 7.3M reach và +15.1K follower trong 4 tháng, với nhiều bài viral (3.2M / 2.8M / 2.7M / 2.6M lượt xem)."
-                    }
-                  ]
-                },
-                {
-                  "type": "stats",
-                  "items": [
-                    [
-                      "26.7M",
-                      {
-                        "en": "views in 4 months",
-                        "vi": "lượt xem trong 4 tháng"
-                      }
-                    ],
-                    [
-                      "7.3M",
-                      {
-                        "en": "reach",
-                        "vi": "reach"
-                      }
-                    ],
-                    [
-                      "+15.1K",
-                      {
-                        "en": "new followers",
-                        "vi": "follower mới"
-                      }
-                    ],
-                    [
-                      "3.2M",
-                      {
-                        "en": "views — single top post",
-                        "vi": "lượt xem — một bài nổi bật nhất"
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "type": "gallery",
-                  "items": [
-                    [
-                      "/assets/fb-results.jpg",
-                      {
-                        "en": "4-month performance",
-                        "vi": "Hiệu quả 4 tháng"
-                      }
-                    ],
-                    [
-                      "/assets/fb-posts.jpg",
-                      {
-                        "en": "Highlight viral posts",
-                        "vi": "Các bài viral nổi bật"
-                      }
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "enabled": true,
-              "title": {
-                "en": "WAN Creative Network Page",
-                "vi": "Trang WAN Creative Network"
-              },
-              "blocks": [
-                {
-                  "type": "text",
-                  "items": [
-                    {
-                      "en": "<b>WAN Creative Network:</b> 248.5K views, 140.5K users reached (+27.2%), 41% organic traffic.",
-                      "vi": "<b>WAN Creative Network:</b> 248.5K lượt xem, tiếp cận 140.5K người dùng (+27.2%), 41% traffic organic."
+                      "id": "cong-dong-da-sac",
+                      "chipLabel": "Cộng Đồng Đa Sắc",
+                      "title": "Cộng Đồng Đa Sắc",
+                      "description": {
+                        "en": "Cong Dong Da Sac is a WEALLNET fanpage for the LGBT+ community. The page shares humorous memes, meaningful content and creative videos to spread positive energy, celebrate diversity and connect the community.",
+                        "vi": "Cộng Đồng Đa Sắc là fanpage thuộc WEALLNET, hướng đến cộng đồng LGBT+. Trang chia sẻ meme hài hước, nội dung ý nghĩa và video sáng tạo nhằm lan tỏa năng lượng tích cực, tôn trọng sự đa dạng và kết nối cộng đồng."
+                      },
+                      "kpis": [
+                        ["26,7M", { "en": "views", "vi": "lượt xem" }],
+                        ["7,3M", { "en": "reach", "vi": "reach" }],
+                        ["+15,1K", { "en": "follower growth", "vi": "follower tăng thêm" }],
+                        ["3,2M", { "en": "views on a single post", "vi": "lượt xem trên một bài viết" }]
+                      ],
+                      "columns": {
+                        "leftTitle": { "en": "My Role", "vi": "Vai trò của tôi" },
+                        "leftItems": [
+                          {
+                            "en": "Researched trends and behavior of the LGBT+ community on Facebook.",
+                            "vi": "Nghiên cứu xu hướng và hành vi của cộng đồng LGBT+ trên Facebook."
+                          },
+                          {
+                            "en": "Planned, proposed and executed monthly content strategies.",
+                            "vi": "Lên kế hoạch, đề xuất và triển khai chiến lược nội dung hằng tháng."
+                          },
+                          {
+                            "en": "Created content and designed visuals for memes, posts and videos.",
+                            "vi": "Sáng tạo nội dung và thiết kế hình ảnh cho meme, bài viết và video."
+                          },
+                          {
+                            "en": "Published posts, tracked performance and optimized content.",
+                            "vi": "Đăng bài, theo dõi hiệu quả và tối ưu nội dung."
+                          },
+                          {
+                            "en": "Engaged with the community and managed comments.",
+                            "vi": "Tương tác với cộng đồng và quản lý bình luận."
+                          },
+                          {
+                            "en": "Analyzed and reported performance, and adjusted the growth strategy.",
+                            "vi": "Phân tích, báo cáo hiệu suất và điều chỉnh chiến lược tăng trưởng."
+                          }
+                        ],
+                        "rightTitle": { "en": "Results", "vi": "Kết quả" },
+                        "rightItems": [
+                          {
+                            "en": "Maintained stable content performance, with many posts reaching tens of thousands of likes, comments and shares.",
+                            "vi": "Duy trì hiệu suất nội dung ổn định, với nhiều bài viết đạt hàng chục nghìn lượt thích, bình luận và chia sẻ."
+                          },
+                          {
+                            "en": "Created and optimized multiple viral pieces of content, reaching millions of views.",
+                            "vi": "Tạo và tối ưu nhiều nội dung viral, đạt hàng triệu lượt xem."
+                          },
+                          {
+                            "en": "One post reached 3.2 million views; other videos reached 2.8 million, 2.7 million and 2.6 million views respectively.",
+                            "vi": "Một bài viết đạt 3,2 triệu lượt xem; các video khác lần lượt đạt 2,8 triệu, 2,7 triệu và 2,6 triệu lượt xem."
+                          },
+                          {
+                            "en": "Over 4 months, content reached a total of 26.7 million views, 7.3 million people reached and gained 15.1 thousand new followers.",
+                            "vi": "Trong 4 tháng, nội dung đạt tổng cộng 26,7 triệu lượt xem, 7,3 triệu người tiếp cận và tăng thêm 15,1 nghìn người theo dõi."
+                          }
+                        ]
+                      },
+                      "gallery": [
+                        ["/previews/facebook-congdongdasac-1.png", ""],
+                        ["/previews/facebook-congdongdasac-2.png", ""],
+                        ["/previews/facebook-congdongdasac-3.png", ""],
+                        ["/previews/facebook-congdongdasac-4.png", ""],
+                        ["/previews/facebook-congdongdasac-5.png", ""]
+                      ]
                     },
                     {
-                      "en": "<b>WANTalk:</b> 15.9K views in 4 months with 70% organic traffic.",
-                      "vi": "<b>WANTalk:</b> 15.9K lượt xem trong 4 tháng với 70% traffic organic."
+                      "id": "wan-creative-network",
+                      "chipLabel": "WAN Creative Network",
+                      "title": "WAN Creative Network",
+                      "description": {
+                        "en": "WAN Creative Network is WEALLNET's official fanpage, serving as the main communication channel to introduce services, share industry knowledge and build the brand's image.",
+                        "vi": "WAN Creative Network là fanpage chính thức của WEALLNET, đóng vai trò là kênh truyền thông chính để giới thiệu dịch vụ, chia sẻ kiến thức ngành và xây dựng hình ảnh thương hiệu."
+                      },
+                      "kpis": [
+                        ["248,5K", { "en": "views", "vi": "lượt xem" }],
+                        ["140,5K", { "en": "reach", "vi": "reach" }],
+                        ["2,7K", { "en": "interactions", "vi": "tương tác" }],
+                        ["41%", { "en": "organic traffic", "vi": "organic traffic" }]
+                      ],
+                      "columns": {
+                        "leftTitle": { "en": "My Role", "vi": "Vai trò của tôi" },
+                        "leftItems": [
+                          {
+                            "en": "Researched marketing trends and customer behavior on Facebook.",
+                            "vi": "Nghiên cứu xu hướng marketing và hành vi khách hàng trên Facebook."
+                          },
+                          {
+                            "en": "Planned, proposed and executed monthly content strategies.",
+                            "vi": "Lên kế hoạch, đề xuất và triển khai chiến lược nội dung hằng tháng."
+                          },
+                          {
+                            "en": "Created content and coordinated visual design for posts and videos.",
+                            "vi": "Sáng tạo nội dung và phối hợp thiết kế hình ảnh cho bài viết, video."
+                          },
+                          {
+                            "en": "Tracked content performance and adjusted direction based on data.",
+                            "vi": "Theo dõi hiệu quả nội dung và điều chỉnh định hướng theo dữ liệu."
+                          },
+                          {
+                            "en": "Optimized content to increase organic reach and engagement.",
+                            "vi": "Tối ưu nội dung nhằm tăng mức độ tiếp cận và tương tác tự nhiên."
+                          }
+                        ],
+                        "rightTitle": { "en": "Results", "vi": "Kết quả" },
+                        "rightItems": [
+                          {
+                            "en": "Content reached a total of 248.5 thousand views.",
+                            "vi": "Nội dung đạt tổng cộng 248,5 nghìn lượt xem."
+                          },
+                          {
+                            "en": "Reached 140.5 thousand people, up 27.2%.",
+                            "vi": "Tiếp cận 140,5 nghìn người, tăng 27,2%."
+                          },
+                          {
+                            "en": "Recorded 2.7 thousand interactions.",
+                            "vi": "Ghi nhận 2,7 nghìn lượt tương tác."
+                          },
+                          {
+                            "en": "Reached 41% organic traffic, helping sustain content performance beyond paid advertising.",
+                            "vi": "Đạt 41% organic traffic, giúp duy trì hiệu quả nội dung ngoài nguồn quảng cáo trả phí."
+                          }
+                        ]
+                      },
+                      "gallery": [
+                        ["/previews/facebook-wan-1.png", ""],
+                        ["/previews/facebook-wan-2.png", ""],
+                        ["/previews/facebook-wan-3.png", ""],
+                        ["/previews/facebook-wan-4.png", ""]
+                      ]
                     }
                   ]
                 }

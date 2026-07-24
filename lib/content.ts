@@ -193,10 +193,15 @@ export type SwitcherPanel = {
 };
 
 /** A chip-based content switcher: one heading, N chips, one panel visible
- *  at a time (K-Tech College Paid tab's "Meta Ads" section). */
+ *  at a time (K-Tech College Paid tab's "Meta Ads" section; Social Media's
+ *  Facebook Growth page switcher). `galleryLayout` controls every panel's
+ *  gallery: 'row' (default) is a single-line creative-proof strip that
+ *  scrolls on mobile; 'grid' wraps into a full grid (e.g. a page's full
+ *  results gallery, not just a few proof shots). */
 export type MetaAdsSwitcherBlock = {
   type: 'metaAdsSwitcher';
   heading: Localized;
+  galleryLayout?: 'row' | 'grid';
   panels: SwitcherPanel[];
 };
 
