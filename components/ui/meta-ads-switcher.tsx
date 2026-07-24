@@ -40,15 +40,15 @@ function PanelContent({ panel, lang }: { panel: SwitcherPanel; lang: Lang }) {
     <div className="space-y-8">
       <div>
         <h4 className="mb-2 text-[1.3rem] font-bold tracking-[-0.01em] text-text">{t(panel.title, lang)}</h4>
-        <p className="max-w-[70ch] text-base leading-relaxed text-[#3a3a3c]">{t(panel.description, lang)}</p>
+        <p className="text-base leading-relaxed text-[#3a3a3c]">{t(panel.description, lang)}</p>
       </div>
 
       {panel.kpis && <Stats items={panel.kpis} lang={lang} />}
 
-      {panel.note && <p className="max-w-[70ch] text-[0.85rem] leading-relaxed text-muted">{t(panel.note, lang)}</p>}
+      {panel.note && <p className="text-[0.85rem] leading-relaxed text-muted">{t(panel.note, lang)}</p>}
 
       {panel.insight && (
-        <p className="max-w-[70ch] text-base leading-relaxed text-[#3a3a3c]">{t(panel.insight, lang)}</p>
+        <p className="text-base leading-relaxed text-[#3a3a3c]">{t(panel.insight, lang)}</p>
       )}
 
       {panel.funnel && <Funnel steps={panel.funnel} lang={lang} />}
