@@ -1700,22 +1700,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "enabled": true,
-              "title": null,
-              "blocks": [
-                {
-                  "type": "tools",
-                  "items": [
-                    "Zalo",
-                    "Meta",
-                    "Facebook",
-                    "Threads",
-                    "Claude Code"
-                  ]
-                }
-              ]
             }
           ]
         },
